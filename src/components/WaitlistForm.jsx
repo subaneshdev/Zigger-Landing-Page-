@@ -97,7 +97,7 @@ export default function WaitlistForm() {
             </div>
             
             <p style={{ color: 'var(--color-text-muted)', fontSize: '14px', marginBottom: '24px', lineHeight: '1.5' }}>
-              To ensure high-intent users and prevent spam, we require a nominal verification fee of <strong>₹1 INR</strong>.
+              To ensure high-intent users and prevent spam, we require a nominal verification fee of <strong>₹5.00 INR</strong>.
             </p>
 
             <div style={{ backgroundColor: '#FCFBFA', padding: '24px', borderRadius: '16px', border: '1px solid #E5DFD9', textAlign: 'center', marginBottom: '24px' }}>
@@ -154,7 +154,7 @@ export default function WaitlistForm() {
             exit={{ opacity: 0 }}
           >
             <form onSubmit={handleEmailSubmit} style={{ position: 'relative' }}>
-              <div style={{ display: 'flex', gap: '8px', padding: '6px', backgroundColor: 'white', borderRadius: '100px', border: '1px solid #E5E7EB', boxShadow: 'var(--shadow-soft)' }}>
+              <div className="waitlist-input-group">
                 <input
                   type="email"
                   placeholder="Enter your email address"
@@ -174,7 +174,7 @@ export default function WaitlistForm() {
                 <Magnetic>
                   <button 
                     type="submit"
-                    className="btn-primary" 
+                    className="btn-primary waitlist-btn" 
                     style={{ 
                       padding: '12px 24px', 
                       borderRadius: '100px',

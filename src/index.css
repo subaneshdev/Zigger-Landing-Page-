@@ -125,3 +125,30 @@ button {
     padding: 60px 0;
   }
 }
+
+.waitlist-input-group {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  background-color: white;
+  border-radius: 100px;
+  border: 1px solid #E5E7EB;
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 480px) {
+  .waitlist-input-group {
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 12px;
+  }
+  .waitlist-input-group input {
+    width: 100%;
+    padding: 12px 16px !important;
+    text-align: center;
+  }
+  .waitlist-btn {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
