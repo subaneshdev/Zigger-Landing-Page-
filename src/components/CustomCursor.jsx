@@ -33,6 +33,7 @@ export default function CustomCursor() {
 
   return (
     <motion.div
+      className="custom-cursor-element"
       style={{
         position: 'fixed',
         left: 0,

@@ -29,6 +29,7 @@
 /* Base cursor for mobile */
 @media (max-width: 768px) {
   * { cursor: auto; }
+  .custom-cursor-element { display: none !important; }
 }
 
 body {
