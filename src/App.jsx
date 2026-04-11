@@ -7,12 +7,10 @@ import Features from './components/Features'
 import WorkflowSwitcher from './components/WorkflowSwitcher'
 import TrustSection from './components/TrustSection'
 import Footer from './components/Footer'
-import CustomCursor from './components/CustomCursor'
 
 function App() {
   return (
     <div className="app-wrapper">
-      <CustomCursor />
       <Navigation />
       <main>
         <Hero />

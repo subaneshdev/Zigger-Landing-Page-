@@ -23,13 +23,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none; /* Hide default for custom cursor */
-}
-
-/* Base cursor for mobile */
-@media (max-width: 768px) {
-  * { cursor: auto; }
-  .custom-cursor-element { display: none !important; }
 }
 
 body {
@@ -70,7 +63,7 @@ a {
 }
 
 button {
-  cursor: none;
+  cursor: pointer;
   border: none;
   outline: none;
   font-family: var(--font-body);
