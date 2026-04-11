@@ -101,13 +101,21 @@ export default function WaitlistForm() {
             </p>
 
             <div style={{ backgroundColor: '#FCFBFA', padding: '24px', borderRadius: '16px', border: '1px solid #E5DFD9', textAlign: 'center', marginBottom: '24px' }}>
-               <img src={qrImg} alt="UPI QR Code" style={{ width: '180px', height: '180px', objectFit: 'contain', margin: '0 auto 16px', borderRadius: '12px', border: '4px solid white', boxShadow: 'var(--shadow-soft)' }} />
+               <a 
+                 href="upi://pay?pa=a.harishraj04-1@okicici&pn=Harish%20Raj&am=5.00&cu=INR&aid=uGICAgMCsmLjbdA" 
+                 style={{ display: 'inline-block', transition: 'transform 0.2s ease', cursor: 'pointer', marginBottom: '12px' }}
+                 onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                 onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+               >
+                 <img src={qrImg} alt="UPI QR Code" style={{ width: '180px', height: '180px', objectFit: 'contain', margin: '0 auto', borderRadius: '12px', border: '4px solid white', boxShadow: 'var(--shadow-strong)' }} />
+               </a>
+               <p style={{ fontSize: '14px', fontWeight: '800', color: 'var(--color-primary)', marginBottom: '4px' }}>Tap the QR to pay via UPI app</p>
                <p style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)', letterSpacing: '0.5px' }}>UPI ID: a.harishraj04-1@okicici</p>
             </div>
 
             <form onSubmit={handleFinalSubmit}>
               <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: 'var(--color-text)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Enter 12-Digit UTR Number</label>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: 'var(--color-text)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Enter UPI Transaction Number</label>
                 <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: '12px', padding: '12px 16px', border: '1px solid #E5E7EB' }}>
                   <Lock size={16} color="var(--color-text-muted)" style={{ marginRight: '10px' }} />
                   <input
