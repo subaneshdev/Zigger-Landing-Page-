@@ -1,42 +1,77 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle2, Loader2, ArrowLeft, ShieldCheck, Lock } from 'lucide-react';
+import { Send, CheckCircle2, Loader2, ShieldCheck, CreditCard } from 'lucide-react';
 import Magnetic from './Magnetic';
 import { supabase } from '../lib/supabase';
-import qrImg from '../assets/qr.jpg'; 
+
+const RAZORPAY_KEY = import.meta.env.VITE_RAZORPAY_KEY_ID;
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState('');
-  const [utr, setUtr] = useState('');
-  const [status, setStatus] = useState('idle'); // idle, payment, loading, success
+  const [status, setStatus] = useState('idle'); // idle, loading, success
+
+  const openRazorpay = () => {
+    const options = {
+      key: RAZORPAY_KEY,
+      amount: 500, // ₹5.00 in paise
+      currency: 'INR',
+      name: 'Ziggers',
+      description: 'Waitlist Verification Fee — ₹5',
+      image: '', // Will use default
+      prefill: {
+        email: email,
+      },
+      theme: {
+        color: '#29211B',
+        backdrop_color: 'rgba(41, 33, 27, 0.85)',
+      },
+      modal: {
+        confirm_close: true,
+        ondismiss: () => {
+          setStatus('idle');
+        },
+      },
+      handler: async (response) => {
+        // Payment succeeded — save to Supabase
+        const paymentId = response.razorpay_payment_id;
+
+        try {
+          const { error } = await supabase
+            .from('waitlist')
+            .insert([{ 
+              email, 
+              razorpay_payment_id: paymentId
+            }]);
+
+          if (error && error.code !== '23505') {
+            console.error('Supabase insert error:', error);
+          }
+        } catch (err) {
+          console.error('DB error:', err);
+        }
+
+        setStatus('success');
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.on('payment.failed', (response) => {
+      console.error('Payment failed:', response.error);
+      setStatus('idle');
+    });
+    rzp.open();
+  };
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     if (!email) return;
-    setStatus('payment');
-  };
 
-  const handleFinalSubmit = async (e) => {
-    e.preventDefault();
-    if (!utr || utr.length < 4) return; // Basic validation
-    
     setStatus('loading');
-    
-    try {
-      const { error } = await supabase
-        .from('waitlist')
-        .insert([{ email, utr_number: utr }]);
-        
-      if (error && error.code !== '23505') { 
-        throw error;
-      }
-      
-      setStatus('success');
-    } catch (err) {
-      console.error('Waitlist error:', err);
-      // For UX purposes, we usually still show success
-      setStatus('success'); 
-    }
+
+    // Small delay for UX before opening modal
+    setTimeout(() => {
+      openRazorpay();
+    }, 400);
   };
 
   return (
@@ -69,91 +104,6 @@ export default function WaitlistForm() {
               Your spot is secured. We'll notify you as soon as Ziggers launches on App Store & Play Store.
             </p>
           </motion.div>
-        ) : status === 'payment' || status === 'loading' ? (
-          <motion.div
-            key="payment"
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            style={{ 
-              padding: '32px 24px', 
-              borderRadius: '24px', 
-              backgroundColor: 'white', 
-              boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-              border: '1px solid #E5E7EB',
-              textAlign: 'left'
-            }}
-          >
-            <button 
-              onClick={() => setStatus('idle')}
-              style={{ background: 'none', border: 'none', color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', fontWeight: '600', marginBottom: '20px', cursor: 'pointer' }}
-            >
-              <ArrowLeft size={16} /> Back
-            </button>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-              <h3 style={{ fontSize: '20px', color: 'var(--color-primary)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={20} color="var(--color-secondary)" /> Complete Verification
-              </h3>
-            </div>
-            
-            <p style={{ color: 'var(--color-text-muted)', fontSize: '14px', marginBottom: '24px', lineHeight: '1.5' }}>
-              To ensure high-intent users and prevent spam, we require a nominal verification fee of <strong>₹5.00 INR</strong>.
-            </p>
-
-            <div style={{ backgroundColor: '#FCFBFA', padding: '24px', borderRadius: '16px', border: '1px solid #E5DFD9', textAlign: 'center', marginBottom: '24px' }}>
-               <a 
-                 href="upi://pay?pa=a.harishraj04-1@okicici&pn=Harish%20Raj&am=5.00&cu=INR&aid=uGICAgMCsmLjbdA" 
-                 style={{ display: 'inline-block', transition: 'transform 0.2s ease', cursor: 'pointer', marginBottom: '12px' }}
-                 onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                 onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-               >
-                 <img src={qrImg} alt="UPI QR Code" style={{ width: '180px', height: '180px', objectFit: 'contain', margin: '0 auto', borderRadius: '12px', border: '4px solid white', boxShadow: 'var(--shadow-strong)' }} />
-               </a>
-               <p style={{ fontSize: '14px', fontWeight: '800', color: 'var(--color-primary)', marginBottom: '4px' }}>Tap the QR to pay via UPI app</p>
-               <p style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)', letterSpacing: '0.5px' }}>UPI ID: a.harishraj04-1@okicici</p>
-            </div>
-
-            <form onSubmit={handleFinalSubmit}>
-              <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: '700', color: 'var(--color-text)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Enter UPI Transaction Number</label>
-                <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: '12px', padding: '12px 16px', border: '1px solid #E5E7EB' }}>
-                  <Lock size={16} color="var(--color-text-muted)" style={{ marginRight: '10px' }} />
-                  <input
-                    type="text"
-                    placeholder="e.g. 312567890123"
-                    value={utr}
-                    onChange={(e) => setUtr(e.target.value)}
-                    style={{ flex: 1, border: 'none', background: 'transparent', outline: 'none', fontSize: '16px', fontFamily: 'var(--font-heading)' }}
-                    required
-                  />
-                </div>
-              </div>
-
-              <Magnetic>
-                <button 
-                  type="submit"
-                  disabled={status === 'loading'}
-                  className="btn-primary" 
-                  style={{ 
-                    width: '100%',
-                    padding: '16px', 
-                    borderRadius: '12px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    fontSize: '15px'
-                  }}
-                >
-                  {status === 'loading' ? (
-                    <Loader2 size={20} className="animate-spin" />
-                  ) : (
-                    <>Verify & Secure Spot <Send size={18} /></>
-                  )}
-                </button>
-              </Magnetic>
-            </form>
-          </motion.div>
         ) : (
           <motion.div
             key="form"
@@ -182,6 +132,7 @@ export default function WaitlistForm() {
                 <Magnetic>
                   <button 
                     type="submit"
+                    disabled={status === 'loading'}
                     className="btn-primary waitlist-btn" 
                     style={{ 
                       padding: '12px 24px', 
@@ -193,14 +144,25 @@ export default function WaitlistForm() {
                       justifyContent: 'center'
                     }}
                   >
-                    Join Waitlist <Send size={18} />
+                    {status === 'loading' ? (
+                      <Loader2 size={20} className="animate-spin" />
+                    ) : (
+                      <>Join Waitlist <Send size={18} /></>
+                    )}
                   </button>
                 </Magnetic>
               </div>
             </form>
-            <p style={{ marginTop: '16px', fontSize: '13px', color: 'var(--color-text-muted)', textAlign: 'center' }}>
-              ✦ Join 1,248+ early access members
-            </p>
+
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginTop: '16px' }}>
+              <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', textAlign: 'center' }}>
+                ✦ Join 1,248+ early access members
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: 'var(--color-text-muted)', opacity: 0.7 }}>
+                <ShieldCheck size={14} />
+                <span>₹5 · Secured by Razorpay</span>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
