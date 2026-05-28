@@ -14,17 +14,13 @@ export default function CustomCursor() {
     const moveCursor = (e) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
+      
+      // Event delegation for hover states
+      const target = e.target.closest('button, a, input, [role="button"], .feature-card, .policy-card');
+      setIsHovered(!!target);
     };
 
-    const handleHover = () => setIsHovered(true);
-    const handleUnhover = () => setIsHovered(false);
-
     window.addEventListener('mousemove', moveCursor);
-    
-    document.querySelectorAll('button, a, input, [role="button"]').forEach((el) => {
-      el.addEventListener('mouseenter', handleHover);
-      el.addEventListener('mouseleave', handleUnhover);
-    });
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);

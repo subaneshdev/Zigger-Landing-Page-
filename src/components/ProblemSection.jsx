@@ -4,17 +4,17 @@ import { MessageSquare, PhoneOff, AlertTriangle, CheckCircle2, Navigation, Shiel
 
 export default function ProblemSection() {
   const painPoints = [
-    { icon: <MessageSquare size={20} />, text: "Manual WhatsApp group coordination" },
-    { icon: <PhoneOff size={20} />, text: "No reliability or worker tracking" },
-    { icon: <AlertTriangle size={20} />, text: "Frequent payment disputes" },
-    { icon: <AlertTriangle size={20} />, text: "Zero proof of work execution" },
+    { icon: <MessageSquare size={20} />, text: "Spamming 20 WhatsApp groups to recruit 10 gig workers" },
+    { icon: <PhoneOff size={20} />, text: "Coordinators calling workers on repeat, only to get ghosted" },
+    { icon: <AlertTriangle size={20} />, text: "Zero physical evidence. Did they actually show up?" },
+    { icon: <AlertTriangle size={20} />, text: "Frequent payment disputes and manual cash handshakes" },
   ];
 
   const solutions = [
-    { icon: <Navigation size={20} />, text: "Live GPS worker tracking" },
-    { icon: <ShieldCheck size={20} />, text: "Secure Escrow payments" },
-    { icon: <ClipboardCheck size={20} />, text: "Photo-based proof of work" },
-    { icon: <CheckCircle2 size={20} />, text: "KYC-verified trusted workers" },
+    { icon: <Navigation size={20} />, text: "KYC-verified workers matched in 10 minutes" },
+    { icon: <ShieldCheck size={20} />, text: "Live GPS coordinates showing exact operational footprint" },
+    { icon: <ClipboardCheck size={20} />, text: "Mandatory photo uploads during execution milestones" },
+    { icon: <CheckCircle2 size={20} />, text: "Funds locked in secure escrow until you approve the proof" },
   ];
 
   return (
@@ -27,9 +27,9 @@ export default function ProblemSection() {
           transition={{ duration: 0.8 }}
           style={{ textAlign: 'center', marginBottom: '80px' }}
         >
-          <h2 style={{ fontSize: '48px', marginBottom: '20px' }}>Stop the <span style={{ color: '#D97706' }}>WhatsApp Chaos</span>.</h2>
-          <p style={{ fontSize: '18px', color: 'var(--color-text-muted)', maxWidth: '700px', margin: '0 auto' }}>
-            On-ground hiring shouldn't be a gamble. We replace manual coordination with a structured operating system built for trust.
+          <h2 style={{ fontSize: '48px', marginBottom: '20px' }}>Staff didn't show up? <span style={{ color: '#D97706' }}>Stop the Chaos.</span></h2>
+          <p style={{ fontSize: '18px', color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', lineHeight: 1.5 }}>
+            Managing a physical promotional campaign, logistics run, or event shouldn't feel like a gamble. We replace endless WhatsApp groups and last-minute ghosting with single-tap operational peace.
           </p>
         </motion.div>
 
@@ -43,7 +43,7 @@ export default function ProblemSection() {
             style={{ padding: '48px', borderRadius: '32px', backgroundColor: '#FFF', border: '1px solid #F1F1F1' }}
           >
             <h3 style={{ fontSize: '28px', marginBottom: '32px', color: '#EF4444', display: 'flex', alignItems: 'center', gap: '12px' }}>
-              The Old Way
+              The Manual Nightmare
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {painPoints.map((item, idx) => (
@@ -54,7 +54,7 @@ export default function ProblemSection() {
               ))}
             </div>
             <div style={{ marginTop: '40px', padding: '20px', borderRadius: '16px', backgroundColor: '#FEF2F2', color: '#B91C1C', fontSize: '14px', fontWeight: '600' }}>
-              "Is the worker even there? I have no way to know."
+              \"The event starts in 30 minutes and the hired host is not responding to calls.\"
             </div>
           </motion.div>
 
@@ -67,7 +67,7 @@ export default function ProblemSection() {
             style={{ padding: '48px', borderRadius: '32px', backgroundColor: 'var(--color-primary)', color: 'white' }}
           >
             <h3 style={{ fontSize: '28px', marginBottom: '32px', color: 'var(--color-secondary)', display: 'flex', alignItems: 'center', gap: '12px' }}>
-              The Ziggers Way
+              The Ziggers Standard
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {solutions.map((item, idx) => (
@@ -78,7 +78,7 @@ export default function ProblemSection() {
               ))}
             </div>
             <div style={{ marginTop: '40px', padding: '20px', borderRadius: '16px', backgroundColor: 'rgba(255,255,255,0.05)', color: 'var(--color-secondary)', fontSize: '14px', fontWeight: '600' }}>
-              "Check-in verified via GPS and Photo. Payment ready."
+              \"Attendance verified automatically. Backup staff activated nearby as safety net.\"
             </div>
           </motion.div>
 

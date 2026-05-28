@@ -1,8 +1,52 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Settings, Bookmark, Plus, Grid, Home, MessageSquare, User, Bell } from 'lucide-react';
+import { gsap } from 'gsap';
 
 export default function AppShowcase() {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    // Initial slight 3D angle setup
+    if (cardRef.current) {
+      gsap.set(cardRef.current, {
+        rotateX: 8,
+        rotateY: -8,
+        transformPerspective: 1000
+      });
+    }
+  }, []);
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    // Smooth interactive tilt
+    gsap.to(card, {
+      rotateY: x * 0.08,
+      rotateX: -y * 0.08,
+      transformPerspective: 1000,
+      ease: 'power2.out',
+      duration: 0.5
+    });
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    
+    // Return to default resting tilt smoothly
+    gsap.to(card, {
+      rotateX: 8,
+      rotateY: -8,
+      ease: 'power3.out',
+      duration: 0.8
+    });
+  };
+
   return (
     <div style={{
       width: '100%',
@@ -11,17 +55,10 @@ export default function AppShowcase() {
       position: 'relative',
       perspective: '1000px'
     }}>
-      <motion.div
-        animate={{ 
-          y: [0, -15, 0],
-          rotateY: [0, 5, 0],
-          rotateX: [5, 10, 5]
-        }}
-        transition={{ 
-          duration: 6, 
-          repeat: Infinity, 
-          ease: "easeInOut" 
-        }}
+      <div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
         style={{
           backgroundColor: '#FCFBFA',
           borderRadius: '40px',
@@ -29,11 +66,17 @@ export default function AppShowcase() {
           boxShadow: '0 25px 60px rgba(41, 33, 27, 0.4), inset 0 2px 10px rgba(255,255,255,0.7)',
           border: '8px solid #E5DFD9',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          cursor: 'pointer',
+          transformStyle: 'preserve-3d',
+          transition: 'box-shadow 0.3s ease'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.boxShadow = '0 35px 80px rgba(41, 33, 27, 0.5), inset 0 2px 10px rgba(255,255,255,0.7)';
         }}
       >
         {/* Top Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', transform: 'translateZ(20px)' }}>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
             <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#E5DFD9', backgroundImage: 'url(https://i.pravatar.cc/150?img=11)', backgroundSize: 'cover' }}></div>
             <div>
@@ -48,16 +91,19 @@ export default function AppShowcase() {
         </div>
 
         {/* Balance Card */}
-        <motion.div 
-          whileHover={{ scale: 1.02 }}
+        <div 
           style={{ 
             backgroundColor: 'var(--color-primary)', 
             borderRadius: '24px', 
             padding: '24px', 
             color: 'white',
             marginBottom: '16px',
-            boxShadow: '0 10px 30px rgba(41, 33, 27, 0.2)'
+            boxShadow: '0 10px 30px rgba(41, 33, 27, 0.2)',
+            transform: 'translateZ(40px)',
+            transition: 'transform 0.2s ease'
           }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'translateZ(50px)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'translateZ(40px)'}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
              <p style={{ fontSize: '11px', fontWeight: '600', letterSpacing: '1px', textTransform: 'uppercase', color: '#BCAFA3' }}>Available Balance</p>
@@ -73,35 +119,53 @@ export default function AppShowcase() {
               WITHDRAW
             </button>
           </div>
-        </motion.div>
+        </div>
 
         {/* Action Cards */}
-        <div style={{ display: 'flex', gap: '16px', marginBottom: '32px' }}>
-          <motion.div 
-            whileHover={{ y: -5 }}
-            style={{ flex: 1, backgroundColor: 'var(--color-surface)', borderRadius: '24px', padding: '24px 16px', boxShadow: 'inset 0 2px 5px white, 0 4px 15px rgba(0,0,0,0.03)' }}
+        <div style={{ display: 'flex', gap: '16px', marginBottom: '32px', transform: 'translateZ(30px)' }}>
+          <div 
+            style={{ 
+              flex: 1, 
+              backgroundColor: 'var(--color-surface)', 
+              borderRadius: '24px', 
+              padding: '24px 16px', 
+              boxShadow: 'inset 0 2px 5px white, 0 4px 15px rgba(0,0,0,0.03)',
+              transition: 'transform 0.2s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px) scale(1.03)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0) scale(1)'}
           >
             <div style={{ width: '40px', height: '40px', backgroundColor: '#EDE5DC', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px', color: 'var(--color-accent)' }}>
               <Plus size={20} />
             </div>
             <h4 style={{ fontSize: '14px', fontWeight: '800', marginBottom: '4px' }}>POST A GIG</h4>
             <p style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>Start hiring</p>
-          </motion.div>
+          </div>
 
-          <motion.div 
-            whileHover={{ y: -5 }}
-            style={{ flex: 1, backgroundColor: 'var(--color-surface)', borderRadius: '24px', padding: '24px 16px', boxShadow: 'inset 0 2px 5px white, 0 4px 15px rgba(0,0,0,0.03)' }}
+          <div 
+            style={{ 
+              flex: 1, 
+              backgroundColor: 'var(--color-surface)', 
+              borderRadius: '24px', 
+              padding: '24px 16px', 
+              boxShadow: 'inset 0 2px 5px white, 0 4px 15px rgba(0,0,0,0.03)',
+              transition: 'transform 0.2s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px) scale(1.03)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0) scale(1)'}
           >
             <div style={{ width: '40px', height: '40px', backgroundColor: '#E0D8D0', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px', color: 'var(--color-primary)' }}>
               <Grid size={20} />
             </div>
             <h4 style={{ fontSize: '14px', fontWeight: '800', marginBottom: '4px' }}>MANAGE GIGS</h4>
             <p style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>Track work</p>
-          </motion.div>
+          </div>
         </div>
 
         {/* Serif Heading */}
-        <div style={{ marginBottom: '16px' }}>
+        <div style={{ marginBottom: '16px', transform: 'translateZ(20px)' }}>
            <h3 style={{ fontFamily: 'var(--font-accent)', fontSize: '22px', fontWeight: '800', letterSpacing: '-0.5px' }}>CURRENT GIGS & TRAC...</h3>
         </div>
 
@@ -113,7 +177,8 @@ export default function AppShowcase() {
           display: 'flex', 
           justifyContent: 'space-between',
           color: '#655B53',
-          marginTop: 'auto'
+          marginTop: 'auto',
+          transform: 'translateZ(10px)'
         }}>
           <div style={{ padding: '8px 16px', backgroundColor: '#3A3028', borderRadius: '16px', color: 'var(--color-accent)' }}>
              <Home size={20} />
@@ -123,7 +188,7 @@ export default function AppShowcase() {
           <div style={{ padding: '8px' }}><User size={20} /></div>
         </div>
 
-      </motion.div>
+      </div>
       
       {/* Decorative Blur */}
       <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '80%', height: '80%', background: 'var(--color-accent)', filter: 'blur(100px)', opacity: 0.3, zIndex: -1 }}></div>

@@ -6,17 +6,17 @@ export default function WorkflowSwitcher() {
   const [activeRole, setActiveRole] = useState('employer');
 
   const employerSteps = [
-    { title: "Post Gig", desc: "Define location, pay, and workers needed.", icon: <Briefcase /> },
-    { title: "Escrow Pay", desc: "Funds locked safely in our system.", icon: <Smartphone /> },
-    { title: "Live Tracking", desc: "Watch workers arrive in real-time.", icon: <MapPin /> },
-    { title: "Approve Work", desc: "Review proofs and release payment.", icon: <CheckCircle /> },
+    { title: "Post & Fund Escrow", desc: "Define task locations, pay rates, and lock funds securely in our escrow vault.", icon: <Briefcase /> },
+    { title: "Auto-Match", desc: "Smart systems link verified workers nearby. Backfills activated automatically.", icon: <Smartphone /> },
+    { title: "Watch Live Maps", desc: "Follow live GPS coordinates as workers check-in and execute tasks.", icon: <MapPin /> },
+    { title: "Approve & Release", desc: "Review geofenced milestone photographs and unlock funds instantly.", icon: <CheckCircle /> },
   ];
 
   const workerSteps = [
-    { title: "Find Gigs", desc: "Browse nearby on-ground work.", icon: <User /> },
-    { title: "Check-In", desc: "Verify arrival via GPS & Photo.", icon: <MapPin /> },
-    { title: "Execute", desc: "Update progress and upload proof.", icon: <Camera /> },
-    { title: "Get Paid", desc: "Instant credit upon approval.", icon: <CheckCircle /> },
+    { title: "Claim Tasks", desc: "Browse and claim verified, high-payout on-ground work in your area.", icon: <User /> },
+    { title: "Coordinate Check-In", desc: "Verify arrival via GPS coordinate enclaves and photo-checks.", icon: <MapPin /> },
+    { title: "Snap Proofs", desc: "Upload live photos directly inside the app at key milestones.", icon: <Camera /> },
+    { title: "Instant UPI Payout", desc: "Get credited directly to your bank account via secure token handshake.", icon: <CheckCircle /> },
   ];
 
   const steps = activeRole === 'employer' ? employerSteps : workerSteps;

@@ -5,43 +5,43 @@ import { Map, Shield, Camera, Users, Target, Zap } from 'lucide-react';
 export default function Features() {
   const features = [
     {
-      title: "Live GPS Tracking",
-      desc: "Real-time location updates for every worker on the ground. Know exactly where your manpower is.",
+      title: "Live GPS Footprints",
+      desc: "No more 'I am just 5 minutes away' texts. Watch your matched workforce check-in and operate on an interactive live map.",
       icon: <Map />,
       color: "#E0F2FE", // Blue tint
       size: "large"
     },
     {
-      title: "Escrow Payments",
-      desc: "Secure funds before work starts. Payments are only released upon your approval.",
+      title: "Secure Escrows",
+      desc: "Lock funds safely. Payments are only released to the worker once you approve the completed task proof.",
       icon: <Shield />,
       color: "#FEF3C7", // Amber tint
       size: "small"
     },
     {
       title: "Proof of Work",
-      desc: "Mandatory entry/exit photos and periodic progress updates.",
+      desc: "Anti-tamper, geofenced milestone photographs uploaded by workers on the spot. Verifiable truth in seconds.",
       icon: <Camera />,
       color: "#DCFCE7", // Green tint
       size: "small"
     },
     {
       title: "KYC Verified",
-      desc: "Every Zigger undergoes identity and bank verification before joining the platform.",
+      desc: "Every Zigger undergoes biometric Aadhaar verification, address checks, and bank-account audits before matching.",
       icon: <Users />,
       color: "#F3E8FF", // Purple tint
       size: "small"
     },
     {
-      title: "Matching Engine",
-      desc: "AI-driven matching based on location, category, and historical reliability scores.",
+      title: "Match Engine",
+      desc: "Our automated dispatch instantly links your tasks with workers based on distance, category history, and trust rank.",
       icon: <Target />,
       color: "#FFEDD5", // Orange tint
       size: "small"
     },
     {
-      title: "Instant Scaling",
-      desc: "Need 50 workers by tomorrow? Our platform handles bulk hiring with ease.",
+      title: "10-Min Backfill Safety Net",
+      desc: "If a worker falls sick or defaults, our smart ecosystem automatically dispatches a trained backup nearby. Your ground operations never stop.",
       icon: <Zap />,
       color: "#F1F5F9", // Slate tint
       size: "large"

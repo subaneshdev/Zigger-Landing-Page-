@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-
 import { Menu, X, Home, Briefcase, Star, ShieldCheck } from 'lucide-react';
 import Magnetic from './Magnetic';
 
-export default function Navigation() {
+export default function Navigation({ currentPage = 'home', setCurrentPage }) {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,6 +35,32 @@ export default function Navigation() {
     { name: 'Trust', href: '#trust', icon: <ShieldCheck size={16} /> },
   ];
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    if (setCurrentPage) {
+      setCurrentPage('home');
+    }
+    setMobileMenuOpen(false);
+    setTimeout(() => {
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Fallback for waitlist or top
+        if (href === '#waitlist') {
+          const waitlistSection = document.getElementById('waitlist');
+          if (waitlistSection) {
+            waitlistSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+          }
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+    }, 100);
+  };
+
   return (
     <>
       <AnimatePresence mode="wait">
@@ -65,7 +91,11 @@ export default function Navigation() {
             border: '1px solid rgba(0,0,0,0.08)',
             boxShadow: '0 20px 40px rgba(41, 33, 27, 0.08)'
           }}>
-            <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginRight: '8px' }}>
+            <a 
+              href="#" 
+              onClick={(e) => handleNavClick(e, '#')}
+              style={{ display: 'flex', alignItems: 'center', gap: '8px', marginRight: '8px' }}
+            >
                <div style={{ width: '28px', height: '28px', backgroundColor: 'var(--color-primary)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', fontSize: '14px' }}>Z</div>
             </a>
 
@@ -75,6 +105,7 @@ export default function Navigation() {
                 <a 
                   key={item.name} 
                   href={item.href} 
+                  onClick={(e) => handleNavClick(e, item.href)}
                   style={{ 
                     display: 'flex', 
                     alignItems: 'center', 
@@ -94,7 +125,12 @@ export default function Navigation() {
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <Magnetic>
-                 <a href="#waitlist" className="btn-primary" style={{ padding: '10px 24px', fontSize: '14px', borderRadius: '100px' }}>
+                 <a 
+                   href="#waitlist" 
+                   onClick={(e) => handleNavClick(e, '#waitlist')}
+                   className="btn-primary" 
+                   style={{ padding: '10px 24px', fontSize: '14px', borderRadius: '100px' }}
+                 >
                     Join Waitlist
                  </a>
               </Magnetic>
@@ -150,7 +186,7 @@ export default function Navigation() {
               <a 
                 key={item.name} 
                 href={item.href} 
-                onClick={() => setMobileMenuOpen(false)} 
+                onClick={(e) => handleNavClick(e, item.href)} 
                 style={{ 
                   display: 'flex', 
                   alignItems: 'center', 

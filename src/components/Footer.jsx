@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Instagram, Twitter, Linkedin, Github, ArrowRight, Smartphone } from 'lucide-react';
 import WaitlistForm from './WaitlistForm';
 
-export default function Footer() {
+export default function Footer({ currentPage = 'home', setCurrentPage }) {
   return (
     <footer style={{ backgroundColor: '#F9F7F2', paddingTop: '100px', paddingBottom: '40px' }}>
       <div className="container">
@@ -57,10 +57,38 @@ export default function Footer() {
           <div>
             <h4 style={{ marginBottom: '24px', fontSize: '18px' }}>Company</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <a href="#">About Us</a>
-              <a href="#">Careers</a>
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
+              <a 
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (setCurrentPage) {
+                    setCurrentPage('home');
+                    setTimeout(() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 50);
+                  }
+                }}
+              >About Us</a>
+              <a href="#" onClick={(e) => e.preventDefault()}>Careers</a>
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (setCurrentPage) {
+                    setCurrentPage('privacy');
+                    setTimeout(() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 50);
+                  }
+                }}
+                style={{ 
+                  color: currentPage === 'privacy' ? 'var(--color-secondary)' : 'inherit',
+                  fontWeight: currentPage === 'privacy' ? '700' : 'normal'
+                }}
+              >
+                Privacy
+              </a>
+              <a href="#" onClick={(e) => e.preventDefault()}>Terms</a>
             </div>
           </div>
 
