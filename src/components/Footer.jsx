@@ -67,6 +67,17 @@ export default function Footer() {
               >About Us</Link>
               <a href="#" onClick={(e) => e.preventDefault()}>Careers</a>
               <Link 
+                to="/blog"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ 
+                  color: location.pathname.startsWith('/blog') ? 'var(--color-secondary)' : 'inherit',
+                  fontWeight: location.pathname.startsWith('/blog') ? '700' : 'normal',
+                  textDecoration: 'none'
+                }}
+              >
+                Blog
+              </Link>
+              <Link 
                 to="/privacy" 
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 style={{ 
@@ -77,7 +88,17 @@ export default function Footer() {
               >
                 Privacy
               </Link>
-              <a href="#" onClick={(e) => e.preventDefault()}>Terms</a>
+              <Link 
+                to="/terms"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ 
+                  color: location.pathname === '/terms' ? 'var(--color-secondary)' : 'inherit',
+                  fontWeight: location.pathname === '/terms' ? '700' : 'normal',
+                  textDecoration: 'none'
+                }}
+              >
+                Terms
+              </Link>
             </div>
           </div>
 

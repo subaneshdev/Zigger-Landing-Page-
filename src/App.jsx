@@ -1,15 +1,47 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import Navigation from './components/Navigation'
-import Hero from './components/Hero'
-import GigTasksSlider from './components/GigTasksSlider'
-import ProblemSection from './components/ProblemSection'
-import Features from './components/Features'
-import WorkflowSwitcher from './components/WorkflowSwitcher'
-import AppShowcaseSection from './components/AppShowcaseSection'
-import TrustSection from './components/TrustSection'
-import Footer from './components/Footer'
-import PrivacyPolicy from './components/PrivacyPolicy'
+import React from 'react';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import Navigation from './components/Navigation';
+import Hero from './components/Hero';
+import GigTasksSlider from './components/GigTasksSlider';
+import ProblemSection from './components/ProblemSection';
+import Features from './components/Features';
+import WorkflowSwitcher from './components/WorkflowSwitcher';
+import AppShowcaseSection from './components/AppShowcaseSection';
+import TrustSection from './components/TrustSection';
+import Footer from './components/Footer';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
+import BlogSection from './components/BlogSection';
+import Blog from './components/Blog';
+
+function Home() {
+  const navigate = useNavigate();
+  return (
+    <main>
+      <Hero />
+      <GigTasksSlider />
+      <ProblemSection />
+      <WorkflowSwitcher />
+      <AppShowcaseSection />
+      <Features />
+      <BlogSection onNavigateToBlog={(postId) => postId ? navigate(`/blog/${postId}`) : navigate('/blog')} />
+      <TrustSection />
+    </main>
+  );
+}
+
+function BlogRoute() {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  return (
+    <Blog 
+      activePostId={id || null} 
+      setActivePostId={(newId) => newId ? navigate(`/blog/${newId}`) : navigate('/blog')} 
+      onBackToHome={() => navigate('/')} 
+    />
+  );
+}
 
 function AppContent() {
   const location = useLocation();
@@ -28,15 +60,7 @@ function AppContent() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <main>
-                <Hero />
-                <GigTasksSlider />
-                <ProblemSection />
-                <WorkflowSwitcher />
-                <AppShowcaseSection />
-                <Features />
-                <TrustSection />
-              </main>
+              <Home />
             </motion.div>
           } />
           
@@ -49,6 +73,42 @@ function AppContent() {
               transition={{ duration: 0.4 }}
             >
               <PrivacyPolicy />
+            </motion.div>
+          } />
+
+          <Route path="/terms" element={
+            <motion.div
+              key="terms"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <TermsOfService />
+            </motion.div>
+          } />
+
+          <Route path="/blog" element={
+            <motion.div
+              key="blog"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <BlogRoute />
+            </motion.div>
+          } />
+
+          <Route path="/blog/:id" element={
+            <motion.div
+              key="blog-post"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <BlogRoute />
             </motion.div>
           } />
         </Routes>
@@ -67,4 +127,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
