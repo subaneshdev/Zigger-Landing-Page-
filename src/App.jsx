@@ -14,6 +14,9 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import BlogSection from './components/BlogSection';
 import Blog from './components/Blog';
+import ActingDrivers from './components/pages/ActingDrivers';
+import CateringStaff from './components/pages/CateringStaff';
+import BrandPromoters from './components/pages/BrandPromoters';
 
 function Home() {
   const navigate = useNavigate();
@@ -64,6 +67,45 @@ function AppContent() {
             </motion.div>
           } />
           
+          {/* Acting Drivers SEO Page */}
+          <Route path="/hire-acting-drivers-chennai" element={
+            <motion.div
+              key="acting-drivers"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <ActingDrivers />
+            </motion.div>
+          } />
+
+          {/* Catering Staff SEO Page */}
+          <Route path="/hire-catering-staff-chennai" element={
+            <motion.div
+              key="catering-staff"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <CateringStaff />
+            </motion.div>
+          } />
+
+          {/* Brand Promoters SEO Page */}
+          <Route path="/hire-brand-promoters-chennai" element={
+            <motion.div
+              key="brand-promoters"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <BrandPromoters />
+            </motion.div>
+          } />
+
           <Route path="/privacy" element={
             <motion.div
               key="privacy"

@@ -36,7 +36,7 @@ export default function Footer() {
           <div style={{ position: 'absolute', bottom: '-50px', left: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(193,154,107,0.05)' }}></div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1.5fr', gap: '40px', marginBottom: '80px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr 1.5fr', gap: '30px', marginBottom: '80px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>
               <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--color-primary)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold' }}>Z</div>
@@ -54,6 +54,33 @@ export default function Footer() {
               <a href="#">For Workers</a>
               <a href="#">Pricing</a>
               <a href="#">Infrastructure</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 style={{ marginBottom: '24px', fontSize: '18px' }}>Services</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <Link 
+                to="/hire-acting-drivers-chennai"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                Hire Acting Drivers in Chennai
+              </Link>
+              <Link 
+                to="/hire-catering-staff-chennai"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                Hire Catering Staff in Chennai
+              </Link>
+              <Link 
+                to="/hire-brand-promoters-chennai"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                Hire Brand Promoters in Chennai
+              </Link>
             </div>
           </div>
 
