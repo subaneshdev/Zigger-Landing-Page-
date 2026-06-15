@@ -1,7 +1,8 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-export default function TermsOfService({ onBack }) {
+export default function TermsOfService() {
   return (
     <div style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh', padding: '120px 0 80px' }}>
       
@@ -64,25 +65,27 @@ export default function TermsOfService({ onBack }) {
       <div className="container" style={{ maxWidth: '800px' }}>
         
         {/* Back Button */}
-        <button 
-          onClick={onBack}
-          className="btn-secondary"
-          style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '8px', 
-            marginBottom: '40px',
-            padding: '12px 24px',
-            borderRadius: '100px',
-            border: '1px solid rgba(41, 33, 27, 0.1)',
-            backgroundColor: '#fff',
-            cursor: 'pointer',
-            fontSize: '14px',
-            fontWeight: '600'
-          }}
-        >
-          <ArrowLeft size={16} /> Back to Home
-        </button>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <div 
+            className="btn-secondary"
+            style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '8px', 
+              marginBottom: '40px',
+              padding: '12px 24px',
+              borderRadius: '100px',
+              border: '1px solid rgba(41, 33, 27, 0.1)',
+              backgroundColor: '#fff',
+              cursor: 'pointer',
+              fontSize: '14px',
+              fontWeight: '600',
+              color: 'inherit'
+            }}
+          >
+            <ArrowLeft size={16} /> Back to Home
+          </div>
+        </Link>
 
         {/* Document Wrapper */}
         <div 

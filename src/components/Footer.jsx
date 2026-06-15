@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Twitter, Linkedin, Github, ArrowRight, Smartphone } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import WaitlistForm from './WaitlistForm';
 
-export default function Footer({ currentPage = 'home', setCurrentPage }) {
+export default function Footer() {
+  const location = useLocation();
+
   return (
     <footer style={{ backgroundColor: '#F9F7F2', paddingTop: '100px', paddingBottom: '40px' }}>
       <div className="container">
@@ -33,7 +36,7 @@ export default function Footer({ currentPage = 'home', setCurrentPage }) {
           <div style={{ position: 'absolute', bottom: '-50px', left: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(193,154,107,0.05)' }}></div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1.5fr', gap: '40px', marginBottom: '80px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr 1.5fr', gap: '30px', marginBottom: '80px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '24px' }}>
               <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--color-primary)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold' }}>Z</div>
@@ -55,75 +58,74 @@ export default function Footer({ currentPage = 'home', setCurrentPage }) {
           </div>
 
           <div>
+            <h4 style={{ marginBottom: '24px', fontSize: '18px' }}>Services</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <Link 
+                to="/hire-acting-drivers-chennai"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                Hire Acting Drivers in Chennai
+              </Link>
+              <Link 
+                to="/hire-catering-staff-chennai"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                Hire Catering Staff in Chennai
+              </Link>
+              <Link 
+                to="/hire-brand-promoters-chennai"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                Hire Brand Promoters in Chennai
+              </Link>
+            </div>
+          </div>
+
+          <div>
             <h4 style={{ marginBottom: '24px', fontSize: '18px' }}>Company</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <a 
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (setCurrentPage) {
-                    setCurrentPage('home');
-                    setTimeout(() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }, 50);
-                  }
-                }}
-              >About Us</a>
+              <Link 
+                to="/"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >About Us</Link>
               <a href="#" onClick={(e) => e.preventDefault()}>Careers</a>
-              <a 
-                href="#" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (setCurrentPage) {
-                    setCurrentPage('blog');
-                    setTimeout(() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }, 50);
-                  }
-                }}
+              <Link 
+                to="/blog"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 style={{ 
-                  color: currentPage === 'blog' || currentPage === 'blog-post' ? 'var(--color-secondary)' : 'inherit',
-                  fontWeight: currentPage === 'blog' || currentPage === 'blog-post' ? '700' : 'normal'
+                  color: location.pathname.startsWith('/blog') ? 'var(--color-secondary)' : 'inherit',
+                  fontWeight: location.pathname.startsWith('/blog') ? '700' : 'normal',
+                  textDecoration: 'none'
                 }}
               >
                 Blog
-              </a>
-              <a 
-                href="#" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (setCurrentPage) {
-                    setCurrentPage('privacy');
-                    setTimeout(() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }, 50);
-                  }
-                }}
+              </Link>
+              <Link 
+                to="/privacy" 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 style={{ 
-                  color: currentPage === 'privacy' ? 'var(--color-secondary)' : 'inherit',
-                  fontWeight: currentPage === 'privacy' ? '700' : 'normal'
+                  color: location.pathname === '/privacy' ? 'var(--color-secondary)' : 'inherit',
+                  fontWeight: location.pathname === '/privacy' ? '700' : 'normal',
+                  textDecoration: 'none'
                 }}
               >
                 Privacy
-              </a>
-              <a 
-                href="#" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (setCurrentPage) {
-                    setCurrentPage('terms');
-                    setTimeout(() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }, 50);
-                  }
-                }}
+              </Link>
+              <Link 
+                to="/terms"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 style={{ 
-                  color: currentPage === 'terms' ? 'var(--color-secondary)' : 'inherit',
-                  fontWeight: currentPage === 'terms' ? '700' : 'normal'
+                  color: location.pathname === '/terms' ? 'var(--color-secondary)' : 'inherit',
+                  fontWeight: location.pathname === '/terms' ? '700' : 'normal',
+                  textDecoration: 'none'
                 }}
               >
                 Terms
-              </a>
+              </Link>
             </div>
           </div>
 

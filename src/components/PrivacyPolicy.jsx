@@ -1,7 +1,41 @@
 import React from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { 
+  ArrowLeft, 
+  Shield, 
+  MapPin, 
+  Camera, 
+  Mic, 
+  Cpu, 
+  Database, 
+  Sparkles, 
+  Lock, 
+  Calendar, 
+  RefreshCw, 
+  Mail 
+} from 'lucide-react';
 
-export default function PrivacyPolicy({ onBack }) {
+export default function PrivacyPolicy() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: 'spring', damping: 25, stiffness: 100 }
+    }
+  };
   return (
     <div style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh', padding: '120px 0 80px' }}>
       
@@ -64,25 +98,29 @@ export default function PrivacyPolicy({ onBack }) {
       <div className="container" style={{ maxWidth: '800px' }}>
         
         {/* Back Button */}
-        <button 
-          onClick={onBack}
-          className="btn-secondary"
-          style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '8px', 
-            marginBottom: '40px',
-            padding: '12px 24px',
-            borderRadius: '100px',
-            border: '1px solid rgba(41, 33, 27, 0.1)',
-            backgroundColor: '#fff',
-            cursor: 'pointer',
-            fontSize: '14px',
-            fontWeight: '600'
-          }}
-        >
-          <ArrowLeft size={16} /> Back to Home
-        </button>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <motion.div 
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="btn-secondary"
+            style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '8px', 
+              marginBottom: '40px',
+              padding: '12px 24px',
+              borderRadius: '100px',
+              border: '1px solid rgba(41, 33, 27, 0.1)',
+              backgroundColor: '#fff',
+              cursor: 'pointer',
+              fontSize: '14px',
+              fontWeight: '600',
+              color: 'inherit'
+            }}
+          >
+            <ArrowLeft size={16} /> Back to Home
+          </motion.div>
+        </Link>
 
         {/* Document Wrapper */}
         <div 

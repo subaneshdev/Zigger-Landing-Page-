@@ -1,141 +1,172 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import Navigation from './components/Navigation'
-import Hero from './components/Hero'
-import GigTasksSlider from './components/GigTasksSlider'
-import ProblemSection from './components/ProblemSection'
-import Features from './components/Features'
-import WorkflowSwitcher from './components/WorkflowSwitcher'
-import AppShowcaseSection from './components/AppShowcaseSection'
-import TrustSection from './components/TrustSection'
-import Footer from './components/Footer'
-import PrivacyPolicy from './components/PrivacyPolicy'
-import TermsOfService from './components/TermsOfService'
-import BlogSection from './components/BlogSection'
-import Blog from './components/Blog'
+import React from 'react';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import Navigation from './components/Navigation';
+import Hero from './components/Hero';
+import GigTasksSlider from './components/GigTasksSlider';
+import ProblemSection from './components/ProblemSection';
+import Features from './components/Features';
+import WorkflowSwitcher from './components/WorkflowSwitcher';
+import AppShowcaseSection from './components/AppShowcaseSection';
+import TrustSection from './components/TrustSection';
+import Footer from './components/Footer';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
+import BlogSection from './components/BlogSection';
+import Blog from './components/Blog';
+import ActingDrivers from './components/pages/ActingDrivers';
+import CateringStaff from './components/pages/CateringStaff';
+import BrandPromoters from './components/pages/BrandPromoters';
 
-function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-  const [activeBlogPostId, setActiveBlogPostId] = useState(null);
+function Home() {
+  const navigate = useNavigate();
+  return (
+    <main>
+      <Hero />
+      <GigTasksSlider />
+      <ProblemSection />
+      <WorkflowSwitcher />
+      <AppShowcaseSection />
+      <Features />
+      <BlogSection onNavigateToBlog={(postId) => postId ? navigate(`/blog/${postId}`) : navigate('/blog')} />
+      <TrustSection />
+    </main>
+  );
+}
 
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#privacy') {
-        setCurrentPage('privacy');
-        window.scrollTo(0, 0);
-      } else if (hash === '#terms') {
-        setCurrentPage('terms');
-        window.scrollTo(0, 0);
-      } else if (hash === '#blog') {
-        setCurrentPage('blog');
-        setActiveBlogPostId(null);
-        window.scrollTo(0, 0);
-      } else if (hash.startsWith('#blog-post/')) {
-        const id = hash.replace('#blog-post/', '');
-        setCurrentPage('blog-post');
-        setActiveBlogPostId(id);
-        window.scrollTo(0, 0);
-      } else {
-        setCurrentPage('home');
-      }
-    };
+function BlogRoute() {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  return (
+    <Blog 
+      activePostId={id || null} 
+      setActivePostId={(newId) => newId ? navigate(`/blog/${newId}`) : navigate('/blog')} 
+      onBackToHome={() => navigate('/')} 
+    />
+  );
+}
 
-    window.addEventListener('hashchange', handleHashChange);
-    handleHashChange();
-
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  const handleSetPage = (page, postId = null) => {
-    setCurrentPage(page);
-    if (page === 'privacy') {
-      window.location.hash = 'privacy';
-    } else if (page === 'terms') {
-      window.location.hash = 'terms';
-    } else if (page === 'blog') {
-      window.location.hash = 'blog';
-      setActiveBlogPostId(null);
-    } else if (page === 'blog-post' && postId) {
-      window.location.hash = `blog-post/${postId}`;
-      setActiveBlogPostId(postId);
-    } else {
-      if (
-        window.location.hash === '#privacy' || 
-        window.location.hash === '#terms' || 
-        window.location.hash === '#blog' || 
-        window.location.hash.startsWith('#blog-post/')
-      ) {
-        window.history.pushState('', document.title, window.location.pathname + window.location.search);
-      }
-    }
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  };
+function AppContent() {
+  const location = useLocation();
 
   return (
     <div className="app-wrapper">
-      <Navigation currentPage={currentPage} setCurrentPage={handleSetPage} />
+      <Navigation />
       
       <AnimatePresence mode="wait">
-        {currentPage === 'home' ? (
-          <motion.div
-            key="home"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <main>
-              <Hero />
-              <GigTasksSlider />
-              <ProblemSection />
-              <WorkflowSwitcher />
-              <AppShowcaseSection />
-              <Features />
-              <BlogSection onNavigateToBlog={(postId) => postId ? handleSetPage('blog-post', postId) : handleSetPage('blog')} />
-              <TrustSection />
-            </main>
-          </motion.div>
-        ) : currentPage === 'privacy' ? (
-          <motion.div
-            key="privacy"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <PrivacyPolicy onBack={() => handleSetPage('home')} />
-          </motion.div>
-        ) : currentPage === 'blog' || currentPage === 'blog-post' ? (
-          <motion.div
-            key="blog"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <Blog 
-              activePostId={activeBlogPostId} 
-              setActivePostId={(id) => id ? handleSetPage('blog-post', id) : handleSetPage('blog')} 
-              onBackToHome={() => handleSetPage('home')} 
-            />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="terms"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <TermsOfService onBack={() => handleSetPage('home')} />
-          </motion.div>
-        )}
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={
+            <motion.div
+              key="home"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <Home />
+            </motion.div>
+          } />
+          
+          {/* Acting Drivers SEO Page */}
+          <Route path="/hire-acting-drivers-chennai" element={
+            <motion.div
+              key="acting-drivers"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <ActingDrivers />
+            </motion.div>
+          } />
+
+          {/* Catering Staff SEO Page */}
+          <Route path="/hire-catering-staff-chennai" element={
+            <motion.div
+              key="catering-staff"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <CateringStaff />
+            </motion.div>
+          } />
+
+          {/* Brand Promoters SEO Page */}
+          <Route path="/hire-brand-promoters-chennai" element={
+            <motion.div
+              key="brand-promoters"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <BrandPromoters />
+            </motion.div>
+          } />
+
+          <Route path="/privacy" element={
+            <motion.div
+              key="privacy"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <PrivacyPolicy />
+            </motion.div>
+          } />
+
+          <Route path="/terms" element={
+            <motion.div
+              key="terms"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <TermsOfService />
+            </motion.div>
+          } />
+
+          <Route path="/blog" element={
+            <motion.div
+              key="blog"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <BlogRoute />
+            </motion.div>
+          } />
+
+          <Route path="/blog/:id" element={
+            <motion.div
+              key="blog-post"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <BlogRoute />
+            </motion.div>
+          } />
+        </Routes>
       </AnimatePresence>
       
-      <Footer currentPage={currentPage} setCurrentPage={handleSetPage} />
+      <Footer />
     </div>
   )
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  )
+}
+
+export default App;
