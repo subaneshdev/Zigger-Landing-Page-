@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X, Home, Briefcase, Star, ShieldCheck } from 'lucide-react';
+import { Menu, X, Home, Briefcase, Star, ShieldCheck, BookOpen } from 'lucide-react';
 import Magnetic from './Magnetic';
 
 export default function Navigation({ currentPage = 'home', setCurrentPage }) {
@@ -33,14 +33,23 @@ export default function Navigation({ currentPage = 'home', setCurrentPage }) {
     { name: 'Work', href: '#work', icon: <Home size={16} /> },
     { name: 'Features', href: '#features', icon: <Star size={16} /> },
     { name: 'Trust', href: '#trust', icon: <ShieldCheck size={16} /> },
+    { name: 'Blog', href: '#blog', icon: <BookOpen size={16} /> },
   ];
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
+    setMobileMenuOpen(false);
+
+    if (href === '#blog') {
+      if (setCurrentPage) {
+        setCurrentPage('blog');
+      }
+      return;
+    }
+
     if (setCurrentPage) {
       setCurrentPage('home');
     }
-    setMobileMenuOpen(false);
     setTimeout(() => {
       const target = document.querySelector(href);
       if (target) {

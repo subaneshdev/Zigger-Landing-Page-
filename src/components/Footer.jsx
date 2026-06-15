@@ -75,6 +75,24 @@ export default function Footer({ currentPage = 'home', setCurrentPage }) {
                 onClick={(e) => {
                   e.preventDefault();
                   if (setCurrentPage) {
+                    setCurrentPage('blog');
+                    setTimeout(() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 50);
+                  }
+                }}
+                style={{ 
+                  color: currentPage === 'blog' || currentPage === 'blog-post' ? 'var(--color-secondary)' : 'inherit',
+                  fontWeight: currentPage === 'blog' || currentPage === 'blog-post' ? '700' : 'normal'
+                }}
+              >
+                Blog
+              </a>
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (setCurrentPage) {
                     setCurrentPage('privacy');
                     setTimeout(() => {
                       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -88,7 +106,24 @@ export default function Footer({ currentPage = 'home', setCurrentPage }) {
               >
                 Privacy
               </a>
-              <a href="#" onClick={(e) => e.preventDefault()}>Terms</a>
+              <a 
+                href="#" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (setCurrentPage) {
+                    setCurrentPage('terms');
+                    setTimeout(() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 50);
+                  }
+                }}
+                style={{ 
+                  color: currentPage === 'terms' ? 'var(--color-secondary)' : 'inherit',
+                  fontWeight: currentPage === 'terms' ? '700' : 'normal'
+                }}
+              >
+                Terms
+              </a>
             </div>
           </div>
 

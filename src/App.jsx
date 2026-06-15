@@ -10,15 +10,31 @@ import AppShowcaseSection from './components/AppShowcaseSection'
 import TrustSection from './components/TrustSection'
 import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
+import TermsOfService from './components/TermsOfService'
+import BlogSection from './components/BlogSection'
+import Blog from './components/Blog'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [activeBlogPostId, setActiveBlogPostId] = useState(null);
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash === '#privacy') {
         setCurrentPage('privacy');
+        window.scrollTo(0, 0);
+      } else if (hash === '#terms') {
+        setCurrentPage('terms');
+        window.scrollTo(0, 0);
+      } else if (hash === '#blog') {
+        setCurrentPage('blog');
+        setActiveBlogPostId(null);
+        window.scrollTo(0, 0);
+      } else if (hash.startsWith('#blog-post/')) {
+        const id = hash.replace('#blog-post/', '');
+        setCurrentPage('blog-post');
+        setActiveBlogPostId(id);
         window.scrollTo(0, 0);
       } else {
         setCurrentPage('home');
@@ -31,12 +47,25 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const handleSetPage = (page) => {
+  const handleSetPage = (page, postId = null) => {
     setCurrentPage(page);
     if (page === 'privacy') {
       window.location.hash = 'privacy';
+    } else if (page === 'terms') {
+      window.location.hash = 'terms';
+    } else if (page === 'blog') {
+      window.location.hash = 'blog';
+      setActiveBlogPostId(null);
+    } else if (page === 'blog-post' && postId) {
+      window.location.hash = `blog-post/${postId}`;
+      setActiveBlogPostId(postId);
     } else {
-      if (window.location.hash === '#privacy') {
+      if (
+        window.location.hash === '#privacy' || 
+        window.location.hash === '#terms' || 
+        window.location.hash === '#blog' || 
+        window.location.hash.startsWith('#blog-post/')
+      ) {
         window.history.pushState('', document.title, window.location.pathname + window.location.search);
       }
     }
@@ -63,10 +92,11 @@ function App() {
               <WorkflowSwitcher />
               <AppShowcaseSection />
               <Features />
+              <BlogSection onNavigateToBlog={(postId) => postId ? handleSetPage('blog-post', postId) : handleSetPage('blog')} />
               <TrustSection />
             </main>
           </motion.div>
-        ) : (
+        ) : currentPage === 'privacy' ? (
           <motion.div
             key="privacy"
             initial={{ opacity: 0 }}
@@ -75,6 +105,30 @@ function App() {
             transition={{ duration: 0.4 }}
           >
             <PrivacyPolicy onBack={() => handleSetPage('home')} />
+          </motion.div>
+        ) : currentPage === 'blog' || currentPage === 'blog-post' ? (
+          <motion.div
+            key="blog"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Blog 
+              activePostId={activeBlogPostId} 
+              setActivePostId={(id) => id ? handleSetPage('blog-post', id) : handleSetPage('blog')} 
+              onBackToHome={() => handleSetPage('home')} 
+            />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="terms"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <TermsOfService onBack={() => handleSetPage('home')} />
           </motion.div>
         )}
       </AnimatePresence>
