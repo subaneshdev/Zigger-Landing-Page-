@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, Home, Briefcase, Star, ShieldCheck } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Magnetic from './Magnetic';
 
-export default function Navigation({ currentPage = 'home', setCurrentPage }) {
+export default function Navigation() {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const target = document.querySelector(location.hash);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
@@ -37,28 +53,31 @@ export default function Navigation({ currentPage = 'home', setCurrentPage }) {
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
-    if (setCurrentPage) {
-      setCurrentPage('home');
-    }
     setMobileMenuOpen(false);
-    setTimeout(() => {
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        // Fallback for waitlist or top
-        if (href === '#waitlist') {
+    
+    if (href === '#') {
+      if (location.pathname !== '/') navigate('/');
+      else window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    if (location.pathname !== '/') {
+      navigate(`/${href}`);
+    } else {
+      setTimeout(() => {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        } else if (href === '#waitlist') {
           const waitlistSection = document.getElementById('waitlist');
           if (waitlistSection) {
             waitlistSection.scrollIntoView({ behavior: 'smooth' });
           } else {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
           }
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-      }
-    }, 100);
+      }, 100);
+    }
   };
 
   return (
@@ -91,13 +110,13 @@ export default function Navigation({ currentPage = 'home', setCurrentPage }) {
             border: '1px solid rgba(0,0,0,0.08)',
             boxShadow: '0 20px 40px rgba(41, 33, 27, 0.08)'
           }}>
-            <a 
-              href="#" 
-              onClick={(e) => handleNavClick(e, '#')}
-              style={{ display: 'flex', alignItems: 'center', gap: '8px', marginRight: '8px' }}
+            <Link 
+              to="/" 
+              onClick={(e) => { e.preventDefault(); navigate('/'); window.scrollTo(0,0); }}
+              style={{ display: 'flex', alignItems: 'center', gap: '8px', marginRight: '8px', textDecoration: 'none' }}
             >
                <div style={{ width: '28px', height: '28px', backgroundColor: 'var(--color-primary)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold', fontSize: '14px' }}>Z</div>
-            </a>
+            </Link>
 
             {/* Desktop Links */}
             <div className="hidden md-flex" style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>

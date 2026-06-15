@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { 
   ArrowLeft, 
   Shield, 
@@ -15,7 +16,7 @@ import {
   Mail 
 } from 'lucide-react';
 
-export default function PrivacyPolicy({ onBack }) {
+export default function PrivacyPolicy() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -41,27 +42,29 @@ export default function PrivacyPolicy({ onBack }) {
       <div className="container" style={{ maxWidth: '800px' }}>
         
         {/* Back Button */}
-        <motion.button 
-          onClick={onBack}
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="btn-secondary"
-          style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '8px', 
-            marginBottom: '40px',
-            padding: '12px 24px',
-            borderRadius: '100px',
-            border: '1px solid rgba(41, 33, 27, 0.1)',
-            backgroundColor: '#fff',
-            cursor: 'pointer',
-            fontSize: '14px',
-            fontWeight: '600'
-          }}
-        >
-          <ArrowLeft size={16} /> Back to Home
-        </motion.button>
+        <Link to="/" style={{ textDecoration: 'none' }}>
+          <motion.div 
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="btn-secondary"
+            style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '8px', 
+              marginBottom: '40px',
+              padding: '12px 24px',
+              borderRadius: '100px',
+              border: '1px solid rgba(41, 33, 27, 0.1)',
+              backgroundColor: '#fff',
+              cursor: 'pointer',
+              fontSize: '14px',
+              fontWeight: '600',
+              color: 'inherit'
+            }}
+          >
+            <ArrowLeft size={16} /> Back to Home
+          </motion.div>
+        </Link>
 
         {/* Header */}
         <motion.div 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
@@ -11,76 +11,59 @@ import TrustSection from './components/TrustSection'
 import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
 
-function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#privacy') {
-        setCurrentPage('privacy');
-        window.scrollTo(0, 0);
-      } else {
-        setCurrentPage('home');
-      }
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    handleHashChange();
-
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  const handleSetPage = (page) => {
-    setCurrentPage(page);
-    if (page === 'privacy') {
-      window.location.hash = 'privacy';
-    } else {
-      if (window.location.hash === '#privacy') {
-        window.history.pushState('', document.title, window.location.pathname + window.location.search);
-      }
-    }
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  };
+function AppContent() {
+  const location = useLocation();
 
   return (
     <div className="app-wrapper">
-      <Navigation currentPage={currentPage} setCurrentPage={handleSetPage} />
+      <Navigation />
       
       <AnimatePresence mode="wait">
-        {currentPage === 'home' ? (
-          <motion.div
-            key="home"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <main>
-              <Hero />
-              <GigTasksSlider />
-              <ProblemSection />
-              <WorkflowSwitcher />
-              <AppShowcaseSection />
-              <Features />
-              <TrustSection />
-            </main>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="privacy"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <PrivacyPolicy onBack={() => handleSetPage('home')} />
-          </motion.div>
-        )}
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={
+            <motion.div
+              key="home"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <main>
+                <Hero />
+                <GigTasksSlider />
+                <ProblemSection />
+                <WorkflowSwitcher />
+                <AppShowcaseSection />
+                <Features />
+                <TrustSection />
+              </main>
+            </motion.div>
+          } />
+          
+          <Route path="/privacy" element={
+            <motion.div
+              key="privacy"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <PrivacyPolicy />
+            </motion.div>
+          } />
+        </Routes>
       </AnimatePresence>
       
-      <Footer currentPage={currentPage} setCurrentPage={handleSetPage} />
+      <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   )
 }
 

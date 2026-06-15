@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Twitter, Linkedin, Github, ArrowRight, Smartphone } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import WaitlistForm from './WaitlistForm';
 
-export default function Footer({ currentPage = 'home', setCurrentPage }) {
+export default function Footer() {
+  const location = useLocation();
+
   return (
     <footer style={{ backgroundColor: '#F9F7F2', paddingTop: '100px', paddingBottom: '40px' }}>
       <div className="container">
@@ -57,37 +60,23 @@ export default function Footer({ currentPage = 'home', setCurrentPage }) {
           <div>
             <h4 style={{ marginBottom: '24px', fontSize: '18px' }}>Company</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <a 
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (setCurrentPage) {
-                    setCurrentPage('home');
-                    setTimeout(() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }, 50);
-                  }
-                }}
-              >About Us</a>
+              <Link 
+                to="/"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >About Us</Link>
               <a href="#" onClick={(e) => e.preventDefault()}>Careers</a>
-              <a 
-                href="#" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (setCurrentPage) {
-                    setCurrentPage('privacy');
-                    setTimeout(() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }, 50);
-                  }
-                }}
+              <Link 
+                to="/privacy" 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 style={{ 
-                  color: currentPage === 'privacy' ? 'var(--color-secondary)' : 'inherit',
-                  fontWeight: currentPage === 'privacy' ? '700' : 'normal'
+                  color: location.pathname === '/privacy' ? 'var(--color-secondary)' : 'inherit',
+                  fontWeight: location.pathname === '/privacy' ? '700' : 'normal',
+                  textDecoration: 'none'
                 }}
               >
                 Privacy
-              </a>
+              </Link>
               <a href="#" onClick={(e) => e.preventDefault()}>Terms</a>
             </div>
           </div>
