@@ -105,7 +105,7 @@ export default function TermsOfService() {
             margin: '0 auto 3.125rem', 
             width: '11.125rem', 
             height: '2.375rem', 
-            background: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzgiIGhlaWdodD0iMzgiIHZpZXdCb3g9IjAgMCAxNzggMzgiPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8cGF0aCBmaWxsPSIjRDFEMUQxIiBkPSJNNC4yODMgMjQuMTA3Yy0uNzA1IDAtMS4yNTgtLjI1Ni0xLjY2LS43NjhoLS4wODVjLjA1Ny41MDIuMDg2Ljc5Mi4wODYuODd2Mi40MzRILjk4NXYtOC42NDhoMS4zMzJsLjIzMS43NzloLjA3NmMuMzgzLS41OTQuOTUtLjg5MiAxLjcwMi0uODkyLjcxIDAgMS4yNjQuMjc0IDEuNjY1LjgyMi40MDEuNTQ4LjYwMiAxLjMwOS42MDIgMi4yODMgMCAuNjQtLjA5NCAxLjE5OC0uMjgyIDEuNjctLjE4OC40NzMtLjQ1Ni48MzMtLjgwMyAxLjA4LS4zNDcuMjQ3LS43NTYuMzctMS4yMjUuMzd6TTMuOCAxOS4xOTNjLS40MDUgMC0uNy4xMjQtLjg4Ni4zNzMtLjE4Ny4yNDktLjE4My42Ni0uMjkgMS4yMzN2LjE3N2MwIC42NDUuMDk1IDEuMTA3LjI4NyAxLjM4Ni4xOTIuMjguNDk1LjQxOS45MS40MTkuNzM0IDAgMS4xMDEtLjYwNSAxLjEwMS0xLjgxNiAwLS41OS0uMDktMS4wMzQtLjI3LTEuMzI5LS4xIGgtLjI5NS0uNDY1LS40NDMtLjg1Mi0uNDQzem01LjU3IDEuNzk0YzAgLjU5NC4wOTggMS4wNDQuMjkzIDEuMzQ4LjE5Ni4zMDQuNTEzLjQ1Ny45NTQuNDU3LjQzNyAwIC43NS0uMTUyLjk0Mi0uNDU0LjE5Mi0uMzAzLjI4OC0uNzUzLjI4OC0xLjM1MSAwLS41OTUtLjA5Ny0xLjA0LS4yOS0xLjMzOC0uMTk0LS4yOTctLjUxLS40NDUtLjk1LS40NDUtLjQzOCAwLS43NTMuMTQ3LS45NDYtLjQ0My0uMTk0LS4yOTUtLjI5LS43NDItLjI5IDEuMzR6bTQuMTUzIDBjMCAuOTc3LS4yNTggMS43NDItLjc3NCAyLjI5My0uNTE1LjU1Mi0xLjIzMy44MjctMi4xNTQuODI3LS41NzYgMC0xLjA4NS0uMTI2LTEuNTI1LS4zNzhhMi41MiAyLjUyIDAgMCAxLTEuMDE1LTEuMDg4Yy0uMjM3LS40NzMtLjM1NS0xLjAyNC0uMzU1LTEuNjU0IDAtLjk4MS4yNTYtMS43NDQuNzY4LTIuMjg4LjUxMi0uNTQ1IDEuMjMyLS44MTcgMi4xNi0uODE3LjU3NiAwIDEuMDg1LjEyNiAxLjUyNS4zNzYgLjQ0LjI1MS43NzkuNjEgMS4wMTUgMS4wOC4yMzYuNDY5LjM1NSAxLjAxOS4zNTUgMS42NDl6TTE5LjcxIDI0bC0uNDYyLTIuMS0uNjIzLTIuNjUzaC0uMDM3TDE3LjQ5MyAyNEgxNS43M2wtMS43MDgtNi4wMDVoMS42MzNsLjY5MyAyLjY1OWMuUIDTjUgMS4xMzMgLTMzOCAxLjk3MWguMDMyYy4wMTUtLjI3Mi4wNzctLjcwNC4xODgtMS4yOTRsLjA4Ni0uNDU3Ljc0Mi0yLjg3OWgxLjgwNGwuNzA0IDIuODc5Yy4wMTQuMDc5LjAzNy4xOTUuMDY3LjM1YTIwLjk5OCAyMC45OTggMCAwIDEgLjE2NyAxLjAwMmMuMDIzLjE2NS4wMzYuMjk5LjA0LjM5OWguMDMyYy4wMzItLjI1OC4wOS0uNjExLjE3Mi0xLjA2LjA4Mi0uNDUuMTQxLS43NTQuMTc3LS45MTFsLjcyLTIuNjU5aDEuNjA2TDIxLjQ5NCAyNGgtMS43ODN6bTcuMDg2LTQuOTUyYy0uMzQ4IDAtLjYyLjExLS44MTcuMzMtLjE5Ny4yMi0uMzEuNTMzLS4zMzguOTM3aDIuMjk5Yy0uMDA4LS40MDQtLjExMy0uNzE3LS4zMTctLjkzNy0uMjA0LS4yMi0uNDgtLjMzLS44MjctLjMzem0uMjMgNS4wNmMtLjk2NiAwLTEuNzIyLS4yNjctMi4yNjYtLjgtLjU0NC0uNTM0LS44MTYtMS4yOS0uODE2LTIuMjY3IDAtMS4wMDcuMjUxLTEuNzg1Ljc1NC0yLjMzNC41MDMtLjU1IDEuMTk5LS44MjUgMi4wODctLjgyNS44NDggMCAxLjUxLjI0MiAxLjk4Mi43MjUuNDcyLjQ4NC43MDkgMS4xNTIuNzA5IDIuMDA0di43OTVoLTMuODczYy4wMTguNDY1LjE1Ni44MjkuNDE0IDEuMDkuMjU4LjI2MS42Mi4zOTIgMS4wODUuMzkyLjM2MSAwIC43MDMtLjAzNyAxLjAyNi0uMTEzYTUuMTMzIDUuMTMzIDAgMCAwIDEuMDEtLjM2djEuMjY4Yy0uMjg3LjE0My0uNTkzLjI1LS45Mi4zMmE1Ljc5IDUuNzkgMCAwIDEtMS4xOTEuMTA0em03LjI1My02LjIyNmMuMjIyIDAgLjQwNi4wMTYuNTUzLjA0OWwtLjEyNCAxLjUzNmExLjg3NyAxLjg3NyAwIDAgMC0uNDgzLS4wNTRjLS41MjMgMC0uOTMuMTM0LTEuMjIyLjQwMy0uMjkyLjI2OC0uNDM4LjY0NC0uNDM4IDEuMTI4VjI0aC-xLjYzOHYtNi4wMDVoMS4yIGwuMjQyIDEuMDFoLjA4Yy4xODctLjMzNy40MzktLjYwOC43NTYtLjgxNGExLjg2IDEuODYgMCAwIDEgMS4wMzQtLjMwOXptNC4wMjkgMS4xNjZjLS4zNDcgMC0uNjIuMTEtLjgxNy4zMy0uMTk3LjIyLS4zMS41MzMtLjMzOC45MzdoMi4yOTljLS4wMDctLjQwNC0uMTEzLS43MTctLjMxNy0uOTM3LS4yMDQtLjIyLS40OC0uMzMtLjgyNy0uMzN6bS4yMyA1LjA2Yy0uOTY2IDAtMS43MjItLjI2Ny0yLjI2Ni0uOC0uNTQ0LS41MzQtLjgxNi0xLjI5LS44MTYtMi4yNjcgMC0xLjAwNy4yNTEtMS43ODUuNzU0LTIuMzM0Lj5MDQtLjU1IDEuMi04MjUgMi4wODctLjgyNS44NDkgMCAxLjUxLjI0MiAxLjk4Mi43MjUuNDczLjQ4NC43MDkgMS4xNTIuNzA5IDIuMDA0di43OTVoLTMuODczYy4wMTguNDY1LjE1Ni44MjkuNDE0IDEuMDkuMjU4LjI2MS42Mi4zOTIgMS4wODUuMzkyLjM2MiAwIC43MDQtLjAzNyAxLjAyNi0uMTEzYTUuMTMzIDUuMTMzIDAgMCAwIDEuMDEtLjM2djEuMjY4Yy0uMjg3LjE0My0uNTkzLjI1LS45MTkuMzJhNS43OSA1Ljc5IDAgMCAxLTEuMTkyLjEwNHptNS44MDMgMGMtLjcwNiAwLTEuMjYtLjI3NS0xLjY2My0uODIyLS40MDMtLjU0OC0uNjA0LTEuMzA3LS42MDQtMi4yNzggMC0uOTg0LjIwNS0xLjc1Mi42MTUtMi4zMDEuNDEtLjU1Ljk3NS0uODI1IDEuNjk1LS48MjUuNzU1IDAgMS4zMzIuMjk0IDEuNzI5Ljg4MWguMDU0YTYuNjk3IDYuNjk3IDAgMCAxLS4xMjQtMS4xOTh2LTEuOTIyaDEuNjQ0VjI0SDQ2LjQzbC0uMzE3LS43NzloLS4wN2MtLjM3Mi41OTEtLjk0Ljg4Ni0xLjcwMi44ODZ6bS41NzQtMS4zMDZjLjQyIDAgLjcyNi0uMTIxLjkyMS0uMzY1LjE5Ni0uMjQzLjMwMi0uNjU3LjI5OC0xLjI0di0uMTc4YzAtLjY0NC0uMS0xLjEwNi0uMjk4LTEuMzg2LS4xOTktLjI3OS0uNTIyLS45Ny0uOTktLjQxOWEuOTYyLjk2MiAwIDAgMC0uODUuNDY1Yy0uMjAzLjMxLS4zMDQuNzYtLjMwNCAxLjM1IDAgLjU5Mi4xMDIgMS4wMzUuMzA2IDEuMzMuMjA0LjI5Ni40OTYuNDM0Ljg3NS40NDN6bTEwLjkyMi00LjkyYy43MDkgMCAxLjI2NC4yNzcgMS42NjUuODMuNC41NTMuNjAxIDEuMzEyLjYwMSAyLjI3NSAwIC45OTItLjIwNiAxLjc2LS42MiAyLjMwNC0uNDE0LjU0NC0uOTc3LjgxNi0xLjY5LjgxNi0uNzA1IDAtMS4yNTgtLjI1Ni0xLjY1OS0uNzY4aC0uMTEzbC0uMjc0LjY2MWgtMS4yNTF2LTguMzU3aDEuNjM4djEuOTQ0YzAgLjI0Ny0uMDIxLjY0My0uMDY0IDEuMTg3aC4wNjRjLjM4My0uNTk0Ljk1LS44OTIgMS43MDMtLjg5MnptLS41MjcgMS4zMWMtLjQwNCAwLS43LjIwOS0uODg2Lj3NC0uMTg2LjI0OS0uMjgzLjY2LS4yOSAxLjIzM3YuMTc3YzAgLjY0NS4wOTYgMS4xMDcuMjg3IDEuMzg2LjE5Mi4yOC40OTUuNDE5LjkxLjQxOS4zMzcgMCAuNjA1LS4xNTUuODA0LS40NjUuMTk5LS4zMS4yOTgtLjc2LjI5OC0xLjM1IDAtLjU5MS0uMS0xLjAzNS0uMy0xLjMzYS45NDMuOTQzIDAgMCAwLS44MjMtLjQ0M3ptMy4xODYtMS4xOTdoMS43OTRsMS4xMzQgMy4zNzljLjA5Ni4yOTMuMTYzLjY0LjE5OCAxLjA0MmguMDMzYy4wMzktLjM3LjExNi0uNzE3LjIzLS4wNDJsMS4xMTItMy4zNzloMS43NTZsLTIuNTQgNi43NzNjLS4yMzQuNjI3LS41NjYgMS4wOTYtLjk5NyAxLjQwNy0uNDMyLjMxMi0uOTM2LjQ2OC0xLjUxMi40NjgtLjI4MyAwLS41Ni0uMDMtLjgzMy0uMDkydi0xLjNhMi44IDI4IDAgMCAwIC42NDUuMDdjLjI5IDAgLjU0My0uMDg4Ljc2LS4yNjYuMjE3LS4xNzcuMzg2LS40NDQuNTA4LS44MDNsLjA5Ni0uMjk1LTIuMzg1LTUuOTYyeiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNmb3JtKzczKSI+CiAgICAgICAgICAgIDxjaXJjbGUgY3g9IjE5IiBjeT0iMTkiIHI9IjE5IiBmaWxsPSIjRDFEMUQxIi8+CiAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0yMi40NzQgMTUuNDQzaDUuMTYyTDEyLjQzNiAzMC40VjEwLjM2M2gxNS4ybC01LjE2MiA1LjA4eiIvPgogICAgICAgIDwvZz4KICAgICAgICA8cGF0aCBmaWxsPSIjRDFEMUQxIiBkPSJNMTIxLjQ0NCAxNC41NnYtMS43MjhoOC4yNzJ2MS43MjhoLTMuMDI0VjI0aC0yLjI0di05LjQ0aC0zLjAwOHptMTMuNzQ0IDkuNTY4Yy0xLjI5IDAtMi4zNDEtLjQxOS0zLjE1Mi0xLjI1Ni0uODEtLjgzNy0xLjIxNi0xLjk0NC0xLjIxNi0zLjMycy40MDgtMi40NzcgMS4yMjQtMy4zMDRjLjgxNi0uODI3IDEuODcyLTEuMjQgMy4xNjgtMS4yNHMyLjM2LjQwMyAzLjE5MiAxLjIwOGMuODMyLjgwNSAxLjI0OCAxLjg4IDEuMjQ4IDMuMjI0IDAgLjMxLS4wMjEuNTk3LS4wNjQuODY0aC02LjQ2NGMuMDUzLjU3Ni4yNjcgMS4wNC42NCAxLjM5Mi4zNzMuMzUyLjg0OC41MjggMS40MjQuNTI4Ljc3OSAwIDEuMzU1LS4zMiAxLjcyOC0uOTZoMi40MzJhMy44OTEgMy44OTEgMCAwIDEtMS40ODggMi4wNjRjLS43MzYuNTMzLTEuNjI3LjgtMi42NzIuOHptMS40OC02LjY4OGMtLjQtLjM1Mi0uODgzLS41MjgtMS40NDgtLjUyOHMtMS4wMzcuMTc2LTEuNDFlLjUyOGMtLjM3OS4zNTItLjYwNS44MjEtLjY4IDEuNDA4aDQuMTkyYy0uMDMyLS41ODctLjI0OC0xLjA1Ni0uNjQ4LTEuNDA4em03LjAxNi0yLjUwNHYxLjU2OGMuNTk3LTEuMTMgMS40NjEtMS42OTYgMi41OTItMS42OTZ2Mi4zMDRoLS41NmMtLjY3MiAwLTEuMTc5LjE2OC0xLjUyLy41MDQtLjM0MS4zMzYtLjUxMi45MTUtLjUxMiAxLjczNlYyNGgtMi4yNTZ2LTguODY0aDIuMjU2em02LjQ0OCAwdjEuMzI4Yy41NjUtLjk3IDEuNDgzLTEuNDU2Mi43NTItMS40NTYuNjcyIDAgMS4yNzIuMTU1IDEuOC40NjQuNTI4LjMxLjkzNi43NTIgMS4yMjQgMS4zMjguMzEtLjU1NS43MzMtLjk5MiAxLjI3Mi0xLjMxMmEzLjQ4OCAzLjQ4OCAwIDAgMSAxLjgxNi0uNDhjMS4wNTYgMCAxLjkwNy4zMyAyLjU1Mi45OTIuNjQ1LjY2MS45NjggMS45OS45NjggMi43ODRWMjRoLTIuMjR2LTQuODk2YzAtLjY5My0uMTc2LTEuMjI0LS41MjgtMS41OTItLjM1Mi0uMzY4LS44MzItLjU1Mi0xLjQ0LS41NTJzLTEuMDkuMTg0LTEuNDQ4LjU1MmMtLjM1Ny4zNjgtLjUzNi44OTktLjUzNiAxLjU5MlYyNGgtMi4yNHYtNC44OTZjMC0uNjkzLS4xNzYtMS4yMjQtLjUzNi0xLjU5Mi0uMzUyLS4zNjgtLjgzMi0uNTUyLTEuNDQtLjU1MnMtMS4wOS4xODQtMS40NDguNTUyYy0uMzU3LjM2OC0uNTM2Ljg5OS0uNTM2IDEuNTkyVjI0aC0yLjI1NnYtOC44NjRoMi4yNTZ6TTE2NC45MzYgMjRWMTIuMTZoMi4yNTZWMjRoLTIuMjU2em03LjA0LS4xNmwtMy40NzItOC43MDRoMi41MjhsMi4yNTYgNi4zMDQgMi4zODQtNi4zMDRoMi4zNTJsLTUuNTM2IDEzLjA1NmgtMi4zNTJsMS44NC00LjM1MnoiLz4KICAgIDwvZz4KPC9zdmc+) center no-repeat' 
+            background: 'url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzgiIGhlaWdodD0iMzgiIHZpZXdCb3g9IjAgMCAxNzggMzgiPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8cGF0aCBmaWxsPSIjRDFEMUQxIiBkPSJNNC4yODMgMjQuMTA3Yy0uNzA1IDAtMS4yNTgtLjI1Ni0xLjY2LS43NjhoLS4wODVjLjA1Ny41MDIuMDg2Ljc5Mi4wODYuODd2Mi40MzRILjk4NXYtOC42NDhoMS4zMzJsLjIzMS43NzloLjA3NmMuMzgzLS41OTQuOTUtLjg5MiAxLjcwMi0uODkyLjcxIDAgMS4yNjQuMjc0IDEuNjY1LjgyMi40MDEuNTQ4LjYwMiAxLjMwOS42MDIgMi4yODMgMCAuNjQtLjA5NCAxLjE5OC0uMjgyIDEuNjctLjE4OC40NzMtLjQ1Ni44MzMtLjgwMyAxLjA4LS4zNDcuMjQ3LS43NTYuMzctMS4yMjUuMzd6TTMuOCAxOS4xOTNjLS40MDUgMC0uNy4xMjQtLjg4Ni4zNzMtLjE4Ny4yNDktLjI4My42Ni0uMjkgMS4yMzN2LjE3N2MwIC42NDUuMDk1IDEuMTA3LjI4NyAxLjM4Ni4xOTIuMjguNDk1LjQxOS45MS40MTkuNzM0IDAgMS4xMDEtLjYwNSAxLjEwMS0xLjgxNiAwLS41OS0uMDktMS4wMzQtLjI3LTEuMzI5LS4xODItLjI5NS0uNDY1LS40NDMtLjg1Mi0uNDQzem01LjU3IDEuNzk0YzAgLjU5NC4wOTggMS4wNDQuMjkzIDEuMzQ4LjE5Ni4zMDQuNTEzLjQ1Ny45NTQuNDU3LjQzNyAwIC43NS0uMTUyLjk0Mi0uNDU0LjE5Mi0uMzAzLjI4OC0uNzUzLjI4OC0xLjM1MSAwLS41OTUtLjA5Ny0xLjA0LS4yOS0xLjMzOC0uMTk0LS4yOTctLjUxLS40NDUtLjk1LS40NDUtLjQzOCAwLS43NTMuMTQ3LS45NDYtLjQ0My0uMTk0LS4yOTUtLjI5LS43NDItLjI5IDEuMzR6bTQuMTUzIDBjMCAuOTc3LS4yNTggMS43NDItLjc3NCAyLjI5My0uNTE1LjU1Mi0xLjIzMy44MjctMi4xNTQuODI3LS41NzYgMC0xLjA4NS0uMTI2LTEuNTI1LS4zNzhhMi41MiAyLjUyIDAgMCAxLTEuMDE1LTEuMDg4Yy0uMjM3LS40NzMtLjM1NS0xLjAyNC0uMzU1LTEuNjU0IDAtLjk4MS4yNTYtMS43NDQuNzY4LTIuMjg4LjUxMi0uNTQ1IDEuMjMyLS44MTcgMi4xNi0uODE3LjU3NiAwIDEuMDg1LjEyNiAxLjUyNS4zNzYuNDQuMjUxLjc3OS42MSAxLjAxNSAxLjA4LjIzNi40NjkuMzU1IDEuMDE5LjM1NSAxLjY0OXpNMTkuNzEgMjRsLS40NjItMi4xLS42MjMtMi42NTNoLS4wMzdMMTcuNDkzIDI0SDE1LjczbC0xLjcwOC02LjAwNWgxLjYzM2wuNjkzIDIuNjU5Yy4xMS40NzYuMjI0IDEuMTMzLjMzOCAxLjk3MWguMDMyYy4wMTUtLjI3Mi4wNzctLjcwNC4xODgtMS4yOTRsLjA4Ni0uNDU3Ljc0Mi0yLjg3OWgxLjgwNGwuNzA0IDIuODc5Yy4wMTQuMDc5LjAzNy4xOTUuMDY3LjM1YTIwLjk5OCAyMC45OTggMCAwIDEgLjE2NyAxLjAwMmMuMDIzLjE2NS4wMzYuMjk5LjA0LjM5OWguMDMyYy4wMzItLjI1OC4wOS0uNjExLjE3Mi0xLjA2LjA4Mi0uNDUuMTQxLS43NTQuMTc3LS45MTFsLjcyLTIuNjU5aDEuNjA2TDIxLjQ5NCAyNGgtMS43ODN6bTcuMDg2LTQuOTUyYy0uMzQ4IDAtLjYyLjExLS44MTcuMzMtLjE5Ny4yMi0uMzEuNTMzLS4zMzguOTM3aDIuMjk5Yy0uMDA4LS40MDQtLjExMy0uNzE3LS4zMTctLjkzNy0uMjA0LS4yMi0uNDgtLjMzLS44MjctLjMzem0uMjMgNS4wNmMtLjk2NiAwLTEuNzIyLS4yNjctMi4yNjYtLjgtLjU0NC0uNTM0LS44MTYtMS4yOS0uODE2LTIuMjY3IDAtMS4wMDcuMjUxLTEuNzg1Ljc1NC0yLjMzNC41MDMtLjU1IDEuMTk5LS44MjUgMi4wODctLjgyNS44NDggMCAxLjUxLjI0MiAxLjk4Mi43MjUuNDcyLjQ4NC43MDkgMS4xNTIuNzA5IDIuMDA0di43OTVoLTMuODczYy4wMTguNDY1LjE1Ni44MjkuNDE0IDEuMDkuMjU4LjI2MS42Mi4zOTIgMS4wODUuMzkyLjM2MSAwIC43MDMtLjAzNyAxLjAyNi0uMTEzYTUuMTMzIDUuMTMzIDAgMCAwIDEuMDEtLjM2djEuMjY4Yy0uMjg3LjE0My0uNTkzLjI1LS45Mi4zMmE1Ljc5IDUuNzkgMCAwIDEtMS4xOTEuMTA0em03LjI1My02LjIyNmMuMjIyIDAgLjQwNi4wMTYuNTUzLjA0OWwtLjEyNCAxLjUzNmExLjg3NyAxLjg3NyAwIDAgMC0uNDgzLS4wNTRjLS41MjMgMC0uOTMuMTM0LTEuMjIyLjQwMy0uMjkyLjI2OC0uNDM4LjY0NC0uNDM4IDEuMTI4VjI0aC0xLjYzOHYtNi4wMDVoMS4yNGwuMjQyIDEuMDFoLjA4Yy4xODctLjMzNy40MzktLjYwOC43NTYtLjgxNGExLjg2IDEuODYgMCAwIDEgMS4wMzQtLjMwOXptNC4wMjkgMS4xNjZjLS4zNDcgMC0uNjIuMTEtLjgxNy4zMy0uMTk3LjIyLS4zMS41MzMtLjMzOC45MzdoMi4yOTljLS4wMDctLjQwNC0uMTEzLS43MTctLjMxNy0uOTM3LS4yMDQtLjIyLS40OC0uMzMtLjgyNy0uMzN6bS4yMyA1LjA2Yy0uOTY2IDAtMS43MjItLjI2Ny0yLjI2Ni0uOC0uNTQ0LS41MzQtLjgxNi0xLjI5LS44MTYtMi4yNjcgMC0xLjAwNy4yNTEtMS43ODUuNzU0LTIuMzM0LjUwNC0uNTUgMS4yLS44MjUgMi4wODctLjgyNS44NDkgMCAxLjUxLjI0MiAxLjk4Mi43MjUuNDczLjQ4NC43MDkgMS4xNTIuNzA5IDIuMDA0di43OTVoLTMuODczYy4wMTguNDY1LjE1Ni44MjkuNDE0IDEuMDkuMjU4LjI2MS42Mi4zOTIgMS4wODUuMzkyLjM2MiAwIC43MDQtLjAzNyAxLjAyNi0uMTEzYTUuMTMzIDUuMTMzIDAgMCAwIDEuMDEtLjM2djEuMjY4Yy0uMjg3LjE0My0uNTkzLjI1LS45MTkuMzJhNS43OSA1Ljc5IDAgMCAxLTEuMTkyLjEwNHptNS44MDMgMGMtLjcwNiAwLTEuMjYtLjI3NS0xLjY2My0uODIyLS40MDMtLjU0OC0uNjA0LTEuMzA3LS42MDQtMi4yNzggMC0uOTg0LjIwNS0xLjc1Mi42MTUtMi4zMDEuNDEtLjU1Ljk3NS0uODI1IDEuNjk1LS44MjUuNzU1IDAgMS4zMzIuMjk0IDEuNzI5Ljg4MWguMDU0YTYuNjk3IDYuNjk3IDAgMCAxLS4xMjQtMS4xOTh2LTEuOTIyaDEuNjQ0VjI0SDQ2LjQzbC0uMzE3LS43NzloLS4wN2MtLjM3Mi41OTEtLjk0Ljg4Ni0xLjcwMi44ODZ6bS41NzQtMS4zMDZjLjQyIDAgLjcyNi0uMTIxLjkyMS0uMzY1LjE5Ni0uMjQzLjMwMi0uNjU3LjMyLTEuMjR2LS4xNzhjMC0uNjQ0LS4xLTEuMTA2LS4yOTgtMS4zODYtLjE5OS0uMjc5LS41MjItLjQxOS0uOTctLjQxOWEuOTYyLjk2MiAwIDAgMC0uODUuNDY1Yy0uMjAzLjMxLS4zMDQuNzYtLjMwNCAxLjM1IDAgLjU5Mi4xMDIgMS4wMzUuMzA2IDEuMzMuMjA0LjI5Ni40OTYuNDQzLjg3NS40NDN6bTEwLjkyMi00LjkyYy43MDkgMCAxLjI2NC4yNzcgMS42NjUuODMuNC41NTMuNjAxIDEuMzEyLjYwMSAyLjI3NSAwIC45OTItLjIwNiAxLjc2LS42MiAyLjMwNC0uNDE0LjU0NC0uOTc3LjgxNi0xLjY5LjgxNi0uNzA1IDAtMS4yNTgtLjI1Ni0xLjY1OS0uNzY4aC0uMTEzbC0uMjc0LjY2MWgtMS4yNTF2LTguMzU3aDEuNjM4djEuOTQ0YzAgLjI0Ny0uMDIxLjY0My0uMDY0IDEuMTg3aC4wNjRjLjM4My0uNTk0Ljk1LS44OTIgMS43MDMtLjg5MnptLS41MjcgMS4zMWMtLjQwNCAwLS43LjEyNS0uODg2LjM3NC0uMTg2LjI0OS0uMjgzLjY2LS4yOSAxLjIzM3YuMTc3YzAgLjY0NS4wOTYgMS4xMDcuMjg3IDEuMzg2LjE5Mi4yOC40OTUuNDE5LjkxLjQxOS4zMzcgMCAuNjA1LS4xNTUuODA0LS40NjUuMTk5LS4zMS4yOTgtLjc2LjI5OC0xLjM1IDAtLjU5MS0uMS0xLjAzNS0uMy0xLjMzYS45NDMuOTQzIDAgMCAwLS44MjMtLjQ0M3ptMy4xODYtMS4xOTdoMS43OTRsMS4xMzQgMy4zNzljLjA5Ni4yOTMuMTYzLjY0LjE5OCAxLjA0MmguMDMzYy4wMzktLjM3LjExNi0uNzE3LjIzLS4wNDJsMS4xMTItMy4zNzloMS43NTdsLTIuNTQgNi43NzNjLS4yMzQuNjI3LS41NjYgMS4wOTYtLjk5NyAxLjQwNy0uNDMyLjMxMi0uOTM2LjQ2OC0xLjUxMi40NjgtLjI4MyAwLS41Ni0uMDMtLjgzMy0uMDkydi0xLjNhMi44IDI4IDAgMCAwIC42NDUuMDdjLjI5IDAgLjU0My0uMDg4Ljc2LS4yNjYuMjE3LS4xNzcuMzg2LS40NDQuNTA4LS44MDNsLjA5Ni0uMjk1LTIuMzg1LTUuOTYyeiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNmb3JtKzczKSI+CiAgICAgICAgICAgIDxjaXJjbGUgY3g9IjE5IiBjeT0iMTkiIHI9IjE5IiBmaWxsPSIjRDFEMUQxIi8+CiAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0yMi40NzQgMTUuNDQzaDUuMTYyTDEyLjQzNiAzMC40VjEwLjM2M2gxNS4ybC01LjE2MiA1LjA4eiIvPgogICAgICAgIDwvZz4KICAgICAgICA8cGF0aCBmaWxsPSIjRDJEMkQyIiBkPSJNMTIxLjU0NCAxNC41NnYtMS43MjhoOC4yNzJ2MS43MjhoLTMuMDI0VjI0aC0yLjI0di05LjQ0aC0zLjAwOHptMTMuNzQ0IDkuNTY4Yy0xLjI5IDAtMi4zNDEtLjQxOS0zLjE1Mi0xLjI1Ni0uODEtLjgzNy0xLjIxNi0xLjk0NC0xLjIxNi0zLjMycy40MDgtMi40NzcgMS4yMjQtMy4zMDRjLjgxNi0uODI3IDEuODcyLTEuMjQgMy4xNjgtMS4yNHMyLjM2LjQwMyAzLjE5MiAxLjIwOGMuODMyLjgwNSAxLjI0OCAxLjg4IDEuMjQ4IDMuMjI0IDAgLjMxLS4wMjEuNTk3LS4wNjQuODY0aC02LjQ2NGMuMDUzLjU3Ni4yNjcgMS4wNC42NCAxLjM5Mi4zNzMuMzUyLjg0OC41MjggMS40MjQuNTI4Ljc3OSAwIDEuMzU1LS4zMiAxLjcyOC0uOTZoMi40MzJhMy44OTEgMy44OTEgMCAwIDEtMS40ODggMi4wNjRjLS43MzYuNTMzLTEuNjI3LjgtMi42NzIuOHptMS40OC02LjY4OGMtLjQtLjM1Mi0uODgzLS41MjgtMS40NDgtLjUyOHMtMS4wMzcuMTc2LTEuNDFlLjUyOGMtLjM3OS4zNTItLjYwNS44MjEtLjY4IDEuNDA4aDQuMTkyYy0uMDMyLS41ODctLjI0OC0xLjA1Ni0uNjQ4LTEuNDA4em03LjAxNi0yLjMwNHYxLjU2OGMuNTk3LTEuMTMgMS40NjEtMS42OTYgMi41OTItMS42OTZ2Mi4zMDRoLS41NmMtLjY3MiAwLTEuMTc5LjE2OC0xLjUyLy41MDQtLjM0MS4zMzYtLjUxMi45MTUtLjUxMiAxLjczNlYyNGgtMi4yNTZ2LTguODY0aDIuMjU2em02LjQ0OCAwdjEuMzI4Yy41NjUtLjk3IDEuNDgzLTEuNDU2Mi43NTItMS40NTYuNjcyIDAgMS4yNzIuMTU1IDEuOC40NjQuNTI4LjMxLjkzNi43NTIgMS4yMjQgMS4zMjguMzEtLjU1NS43MzMtLjk5MiAxLjI3Mi0xLjMxMmEzLjQ4OCAzLjQ4OCAwIDAgMSAxLjgxNi0uNDhjMS4wNTYgMCAxLjkwNy4zMyAyLjU1Mi45OTIuNjQ1LjY2MS45NjggMS41OS45NjggMi43ODRWMjRoLTIuMjR2LTQuODk2YzAtLjY5My0uMTc2LTEuMjI0LS41MjgtMS41OTItLjM1Mi0uMzY4LS44MzItLjU1Mi0xLjQ0LS41NTJzLTEuMDkuMTg0LTEuNDQ4LjU1MmMtLjM1Ny4zNjgtLjUzNi44OTktLjUzNiAxLjU5MlYyNGgtMi4yNHYtNC44OTZjMC0uNjkzLS4xNzYtMS4yMjQtLjUyOC0xLjU5Mi0uMzUyLS4zNjgtLjgzMi0uNTUyLTEuNDQtLjU1MnMtMS4wOS4xODQtMS40NDguNTUyYy0uMzU3LjM2OC0uNTM2Ljg5OS0uNTM2IDEuNTkyVjI0aC0yLjI1NnYtOC44NjRoMi4yNTZ6TTE2NC45MzYgMjRWMTIuMTZoMi4yNTZWMjRoLTIuMjU2em03LjA0LS4xNmwtMy40NzItOC43MDRoMi41MjhsMi4yNTYgNi4zMDQgMi4zODQtNi4zMDRoMi4zNTJsLTUuNTM2IDEzLjA1NmgtMi4zNTJsMS44NC00LjM1MnoiLz4KICAgIDwvZz4KPC9zdmc+) center no-repeat' 
           }}
         />
 
@@ -140,32 +140,6 @@ export default function TermsOfService() {
             </span>
           </div>
 
-          {/* TABLE OF CONTENTS */}
-          <div id="toc" data-custom-class="heading_1" style={{ borderTop: '1px solid rgba(41,33,27,0.1)', paddingTop: '24px' }}>
-            <h2>TABLE OF CONTENTS</h2>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '32px' }}>
-            <a data-custom-class="link" href="#acceptance">1. ACCEPTANCE OF TERMS</a>
-            <a data-custom-class="link" href="#description">2. DESCRIPTION OF SERVICES</a>
-            <a data-custom-class="link" href="#eligibility">3. ELIGIBILITY</a>
-            <a data-custom-class="link" href="#accounts">4. USER ACCOUNTS</a>
-            <a data-custom-class="link" href="#obligations">5. USER OBLIGATIONS</a>
-            <a data-custom-class="link" href="#payments">6. PAYMENTS AND FEES</a>
-            <a data-custom-class="link" href="#gps">7. GPS TRACKING AND LOCATION DATA</a>
-            <a data-custom-class="link" href="#ratings">8. RATINGS AND REVIEWS</a>
-            <a data-custom-class="link" href="#prohibited">9. PROHIBITED CONDUCT</a>
-            <a data-custom-class="link" href="#ip">10. INTELLECTUAL PROPERTY</a>
-            <a data-custom-class="link" href="#thirdparty">11. THIRD-PARTY SERVICES AND LINKS</a>
-            <a data-custom-class="link" href="#liability">12. DISCLAIMERS AND LIMITATION OF LIABILITY</a>
-            <a data-custom-class="link" href="#indemnification">13. INDEMNIFICATION</a>
-            <a data-custom-class="link" href="#governinglaw">14. GOVERNING LAW AND DISPUTE RESOLUTION</a>
-            <a data-custom-class="link" href="#privacy">15. PRIVACY</a>
-            <a data-custom-class="link" href="#changes">16. CHANGES TO THE SERVICES</a>
-            <a data-custom-class="link" href="#severability">17. SEVERABILITY AND ENTIRE AGREEMENT</a>
-            <a data-custom-class="link" href="#contact">18. CONTACT US</a>
-          </div>
-
-          {/* SECTION 1 */}
           <div id="acceptance" data-custom-class="heading_1" style={{ borderTop: '1px solid rgba(41,33,27,0.1)', paddingTop: '24px' }}>
             <h2>1. ACCEPTANCE OF TERMS</h2>
           </div>
@@ -179,7 +153,6 @@ export default function TermsOfService() {
             We reserve the right to update these Terms at any time. Continued use of the Services after any changes constitutes your acceptance of the revised Terms. We will notify you of material changes via the app or via email.
           </p>
 
-          {/* SECTION 2 */}
           <div id="description" data-custom-class="heading_1">
             <h2>2. DESCRIPTION OF SERVICES</h2>
           </div>
@@ -209,7 +182,6 @@ export default function TermsOfService() {
             Ziggers acts solely as a technology platform facilitating connections between Job Posters and Gig Workers. We are not an employer, staffing agency, or labour contractor, and do not employ any Gig Workers using our platform.
           </p>
 
-          {/* SECTION 3 */}
           <div id="eligibility" data-custom-class="heading_1">
             <h2>3. ELIGIBILITY</h2>
           </div>
@@ -226,7 +198,6 @@ export default function TermsOfService() {
             By using the Services, you represent and warrant that you meet all eligibility requirements. Ziggers reserves the right to refuse service to anyone for any reason at any time, to the extent permitted by applicable law.
           </p>
 
-          {/* SECTION 4 */}
           <div id="accounts" data-custom-class="heading_1">
             <h2>4. USER ACCOUNTS</h2>
           </div>
@@ -259,7 +230,6 @@ export default function TermsOfService() {
             We reserve the right to suspend or terminate your account at any time, with or without notice, if we reasonably believe you have violated these Terms or applicable law. You may also terminate your account at any time by contacting us at <a href="mailto:hello@unfounded.in" data-custom-class="link">hello@unfounded.in</a>.
           </p>
 
-          {/* SECTION 5 */}
           <div id="obligations" data-custom-class="heading_1">
             <h2>5. USER OBLIGATIONS</h2>
           </div>
@@ -310,7 +280,6 @@ export default function TermsOfService() {
             <li data-custom-class="body_text" style={{ marginBottom: '4px' }}>Comply with the dress code and conduct standards specified by the Job Poster</li>
           </ul>
 
-          {/* SECTION 6 */}
           <div id="payments" data-custom-class="heading_1">
             <h2>6. PAYMENTS AND FEES</h2>
           </div>
@@ -359,7 +328,6 @@ export default function TermsOfService() {
             You are solely responsible for determining and fulfilling any tax obligations arising from your use of the platform, including income tax, GST, or any other applicable taxes under Indian law.
           </p>
 
-          {/* SECTION 7 */}
           <div id="gps" data-custom-class="heading_1">
             <h2>7. GPS TRACKING AND LOCATION DATA</h2>
           </div>
@@ -378,7 +346,6 @@ export default function TermsOfService() {
             Gig Workers must not use GPS spoofing, VPNs, or any other method to falsify their location. Doing so constitutes a material breach of these Terms and may result in immediate account termination and forfeiture of earned payments.
           </p>
 
-          {/* SECTION 8 */}
           <div id="ratings" data-custom-class="heading_1">
             <h2>8. RATINGS AND REVIEWS</h2>
           </div>
@@ -395,7 +362,6 @@ export default function TermsOfService() {
             Ratings and reviews form the reputation system of the platform and directly affect a user's visibility and access to gigs. Ziggers makes no warranty as to the accuracy or reliability of any rating or review posted by users.
           </p>
 
-          {/* SECTION 9 */}
           <div id="prohibited" data-custom-class="heading_1">
             <h2>9. PROHIBITED CONDUCT</h2>
           </div>
@@ -419,7 +385,6 @@ export default function TermsOfService() {
             Violation of this section may result in immediate account suspension, termination, and where appropriate, referral to law enforcement authorities.
           </p>
 
-          {/* SECTION 10 */}
           <div id="ip" data-custom-class="heading_1">
             <h2>10. INTELLECTUAL PROPERTY</h2>
           </div>
@@ -438,7 +403,6 @@ export default function TermsOfService() {
             Any feedback, suggestions, or ideas you provide to us about the Services may be used by Ziggers without any obligation to compensate you.
           </p>
 
-          {/* SECTION 11 */}
           <div id="thirdparty" data-custom-class="heading_1">
             <h2>11. THIRD-PARTY SERVICES AND LINKS</h2>
           </div>
@@ -449,7 +413,6 @@ export default function TermsOfService() {
             Your use of third-party services is at your own risk and is subject to the applicable third-party terms.
           </p>
 
-          {/* SECTION 12 */}
           <div id="liability" data-custom-class="heading_1">
             <h2>12. DISCLAIMERS AND LIMITATION OF LIABILITY</h2>
           </div>
@@ -485,7 +448,6 @@ export default function TermsOfService() {
             IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU EXCEED THE AMOUNT YOU HAVE PAID TO ZIGGERS IN THE SIX (6) MONTHS PRECEDING THE CLAIM.
           </p>
 
-          {/* SECTION 13 */}
           <div id="indemnification" data-custom-class="heading_1">
             <h2>13. INDEMNIFICATION</h2>
           </div>
@@ -500,7 +462,6 @@ export default function TermsOfService() {
             <li data-custom-class="body_text" style={{ marginBottom: '4px' }}>Any dispute between you and another user of the platform</li>
           </ul>
 
-          {/* SECTION 14 */}
           <div id="governinglaw" data-custom-class="heading_1">
             <h2>14. GOVERNING LAW AND DISPUTE RESOLUTION</h2>
           </div>
@@ -526,7 +487,6 @@ export default function TermsOfService() {
             Before initiating any legal proceedings, you agree to first attempt to resolve any dispute informally by contacting us at <a href="mailto:hello@unfounded.in" data-custom-class="link">hello@unfounded.in</a>. We will attempt to resolve the dispute within 30 days of receiving written notice.
           </p>
 
-          {/* SECTION 15 */}
           <div id="privacy" data-custom-class="heading_1">
             <h2>15. PRIVACY</h2>
           </div>
@@ -534,7 +494,6 @@ export default function TermsOfService() {
             Your use of the Services is also governed by our Privacy Policy, which is incorporated into these Terms by reference. By using the Services, you consent to the collection, use, and sharing of your personal information as described in the Privacy Policy available at <a href="https://ziggers.in/privacy" target="_blank" data-custom-class="link" rel="noreferrer">https://ziggers.in/privacy</a>.
           </p>
 
-          {/* SECTION 16 */}
           <div id="changes" data-custom-class="heading_1">
             <h2>16. CHANGES TO THE SERVICES</h2>
           </div>
@@ -542,7 +501,6 @@ export default function TermsOfService() {
             Ziggers reserves the right to modify, suspend, or discontinue any part of the Services at any time, with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuation of the Services.
           </p>
 
-          {/* SECTION 17 */}
           <div id="severability" data-custom-class="heading_1">
             <h2>17. SEVERABILITY AND ENTIRE AGREEMENT</h2>
           </div>
@@ -553,7 +511,6 @@ export default function TermsOfService() {
             These Terms, together with our Privacy Policy, constitute the entire agreement between you and Ziggers regarding the Services and supersede any prior agreements or understandings.
           </p>
 
-          {/* SECTION 18 */}
           <div id="contact" data-custom-class="heading_1">
             <h2>18. CONTACT US</h2>
           </div>
@@ -585,7 +542,6 @@ export default function TermsOfService() {
 
         </div>
       </div>
-    </div>
     </div>
   );
 }
