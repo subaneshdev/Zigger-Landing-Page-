@@ -49,13 +49,13 @@ export default function Navigation() {
     { name: 'Work', href: '#work', icon: <Home size={16} /> },
     { name: 'Features', href: '#features', icon: <Star size={16} /> },
     { name: 'Trust', href: '#trust', icon: <ShieldCheck size={16} /> },
-    { name: 'Blog', href: '#blog', icon: <BookOpen size={16} /> },
+    { name: 'Blog', href: '/blog', icon: <BookOpen size={16} /> },
   ];
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    if (href === '#blog') {
+    if (href === '/blog' || href === '#blog') {
       navigate('/blog');
       return;
     }
