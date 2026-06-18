@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, Calendar, ArrowRight } from 'lucide-react';
-import { BLOG_POSTS } from './Blog';
+import { BLOG_POSTS } from '../data/blogPosts';
 
 export default function BlogSection({ onNavigateToBlog }) {
   const featuredPosts = BLOG_POSTS.slice(0, 3);
