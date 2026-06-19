@@ -215,94 +215,8 @@ console.log('✓ Blog Catalog pre-rendered.');
 for (const post of BLOG_POSTS) {
   console.log(`Pre-rendering Blog Post: ${post.id}...`);
 
-  // Build the schema markup
-  const blogSchema = {
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.seoDescription,
-    "datePublished": post.date.includes('June 15') ? "2026-06-15" : post.date.includes('June 10') ? "2026-06-10" : "2026-06-02",
-    "author": {
-      "@type": "Person",
-      "name": post.author,
-      "jobTitle": post.authorRole
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Ziggers",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://ziggers.in/logo.png"
-      }
-    },
-    "image": post.image,
-    "mainEntityOfPage": `${baseUrl}/blog/${post.id}`
-  };
-
-  const breadcrumbSchema = {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://ziggers.in"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": "https://ziggers.in/blog"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": post.title,
-        "item": `https://ziggers.in/blog/${post.id}`
-      }
-    ]
-  };
-
-  const graph = [blogSchema, breadcrumbSchema];
-
-  if (post.id === 'hire-catering-boys-chennai') {
-    const howToSchema = {
-      "@type": "HowTo",
-      "name": "How to Hire Verified Catering Boys in Chennai",
-      "description": "Step-by-step guide to hiring reliable, background-verified catering workers and helpers in Chennai.",
-      "totalTime": "PT30M",
-      "step": [
-        {
-          "@type": "HowToStep",
-          "position": 1,
-          "name": "Define your event requirements",
-          "text": "Specify the date, location (e.g. Mylapore or OMR), number of catering boys needed, shift hours, and uniform codes.",
-          "url": "https://ziggers.in/blog/hire-catering-boys-chennai#features"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 2,
-          "name": "Choose a verified booking platform",
-          "text": "Use Ziggers to access biometric Aadhaar and KYC-verified catering workers rather than informal WhatsApp groups.",
-          "url": "https://ziggers.in/blog/hire-catering-boys-chennai#features"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 3,
-          "name": "Deposit wages into secure escrow",
-          "text": "Fund the shift wages upfront into the secure escrow system, guaranteeing payment release upon task verification.",
-          "url": "https://ziggers.in/blog/hire-catering-boys-chennai#trust"
-        },
-        {
-          "@type": "HowToStep",
-          "position": 4,
-          "name": "Monitor live GPS footprint check-in",
-          "text": "Watch your catering helpers check in on a map and automatically trigger a 10-minute backfill if a standby worker is needed.",
-          "url": "https://ziggers.in/blog/hire-catering-boys-chennai#features"
-        }
-      ]
-    };
-    graph.push(howToSchema);
-  }
+  // Use the schema explicitly defined in blogPosts.js
+  const jsonLd = post.schema;
 
   // Render the post body
   let bodyHtml = `
@@ -359,16 +273,7 @@ for (const post of BLOG_POSTS) {
         <div style="margin: 40px 0;">
           <h3 style="font-size: 22px; margin-bottom: 20px; font-weight: 800;">Frequently Asked Questions (FAQ)</h3>
       `;
-      const mainEntity = [];
       for (const item of block.items) {
-        mainEntity.push({
-          "@type": "Question",
-          "name": item.q,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": item.a
-          }
-        });
         bodyHtml += `
           <div style="border: 1px solid #f3f4f6; border-radius: 16px; margin-bottom: 16px; padding: 20px 24px; background-color: #fff;">
             <h4 style="font-weight: 700; margin-top: 0; margin-bottom: 10px; color: #29211b;">${item.q}</h4>
@@ -377,19 +282,8 @@ for (const post of BLOG_POSTS) {
         `;
       }
       bodyHtml += `        </div>\n`;
-
-      const faqSchema = {
-        "@type": "FAQPage",
-        "mainEntity": mainEntity
-      };
-      graph.push(faqSchema);
     }
   }
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": graph
-  };
 
   // Add references citation card
   if (post.references && post.references.length > 0) {
