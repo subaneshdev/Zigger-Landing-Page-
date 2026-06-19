@@ -206,7 +206,7 @@ const catalogPage = prerenderPage({
   contentHtml: catalogHtml
 });
 
-writeFile(path.join(DIST_DIR, 'blog/index.html'), catalogPage);
+writeFile(path.join(DIST_DIR, 'blog.html'), catalogPage);
 console.log('✓ Blog Catalog pre-rendered.');
 
 
@@ -323,7 +323,7 @@ for (const post of BLOG_POSTS) {
     contentHtml: bodyHtml
   });
 
-  writeFile(path.join(DIST_DIR, `blog/${post.id}/index.html`), postPage);
+  writeFile(path.join(DIST_DIR, `blog/${post.id}.html`), postPage);
   console.log(`✓ Blog Post pre-rendered: ${post.id}`);
 }
 
@@ -359,7 +359,7 @@ const privacyPage = prerenderPage({
   contentHtml: privacyHtml
 });
 
-writeFile(path.join(DIST_DIR, 'privacy/index.html'), privacyPage);
+writeFile(path.join(DIST_DIR, 'privacy.html'), privacyPage);
 console.log('✓ Privacy Policy pre-rendered.');
 
 
@@ -391,7 +391,7 @@ const termsPage = prerenderPage({
   contentHtml: termsHtml
 });
 
-  writeFile(path.join(DIST_DIR, 'terms/index.html'), termsPage);
+  writeFile(path.join(DIST_DIR, 'terms.html'), termsPage);
   console.log('✓ Terms of Service pre-rendered.');
 
   console.log('--- Ziggers SEO Pre-rendering Complete ---');
