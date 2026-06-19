@@ -6,12 +6,13 @@ import { BLOG_POSTS } from '../src/data/blogPosts.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DIST_DIR = path.resolve(__dirname, '../dist');
-const PUBLIC_DIR = path.resolve(__dirname, '../public');
+const DIST_DIR = path.resolve(process.cwd(), 'dist');
+const PUBLIC_DIR = path.resolve(process.cwd(), 'public');
 const TEMPLATE_PATH = path.join(DIST_DIR, 'index.html');
 
 console.log('--- Starting Ziggers SEO Pre-rendering System ---');
 
+try {
 if (!fs.existsSync(TEMPLATE_PATH)) {
   console.error('Error: dist/index.html not found! Make sure you run "vite build" first.');
   process.exit(1);
@@ -390,7 +391,11 @@ const termsPage = prerenderPage({
   contentHtml: termsHtml
 });
 
-writeFile(path.join(DIST_DIR, 'terms/index.html'), termsPage);
-console.log('✓ Terms of Service pre-rendered.');
+  writeFile(path.join(DIST_DIR, 'terms/index.html'), termsPage);
+  console.log('✓ Terms of Service pre-rendered.');
 
-console.log('--- Ziggers SEO Pre-rendering Complete ---');
+  console.log('--- Ziggers SEO Pre-rendering Complete ---');
+} catch (error) {
+  console.error('CRITICAL ERROR during SSG Pre-rendering:', error);
+  process.exit(1);
+}
