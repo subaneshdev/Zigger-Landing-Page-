@@ -1,153 +1,215 @@
 export const BLOG_POSTS = [
   {
-    id: 'hire-catering-boys-chennai',
-    title: 'How to Hire Verified Catering Boys in Chennai: The Complete 2026 Guide',
-    excerpt: 'Looking to hire catering boys in Chennai for your next event or wedding? Read our guide on finding background-verified, high-quality catering workers instantly.',
-    seoDescription: 'Comprehensive guide to hiring reliable, background-verified catering boys and catering workers in Chennai for weddings, corporate events, and parties.',
+    id: 'cost-hiring-acting-driver-outstation-chennai-2026',
+    title: 'Cost of Hiring an Acting Driver for Outstation Trips from Chennai (2026)',
+    excerpt: 'Planning an outstation trip from Chennai? Learn the transparent costs of hiring KYC-verified acting drivers for safe and reliable travel.',
+    seoDescription: 'Find out the exact costs of hiring background-verified acting drivers in Chennai for outstation trips. Ziggers offers secure KYC tracking and transparent pricing.',
     content: [
-      { type: 'paragraph', text: 'Planning a major wedding in Mylapore, a corporate banquet in OMR, or an upscale party along ECR? In Chennai, event success depends heavily on the service staff. Yet, organizing reliable catering boys in Chennai remains a stressful chore, marked by late arrivals and poor grooming.' },
-      { type: 'heading', text: 'The Landscape of Catering Staffing in Chennai' },
-      { type: 'paragraph', text: 'Traditionally, Chennai caterers rely on local sub-contractors, WhatsApp groups, or informal networks to procure on-demand catering workers. This system is plagued by uncertainty. You rarely know who is checking in, their hygiene standards, or their experience level until they are already serving your guests.' },
-      { type: 'heading', text: 'Statistical Comparison: Traditional vs. Tech-Driven Hiring' },
-      { type: 'paragraph', text: 'To understand the operational contrast between traditional hiring methods and verified digital platforms, analyze the performance parameters below:' },
-      {
-        type: 'table',
-        headers: ['Operational Metric', 'Traditional Contractor', 'Ziggers Platform'],
-        rows: [
-          ['Background Verification', 'None / Word-of-mouth', 'Biometric Aadhaar & KYC Verification'],
-          ['Average No-Show Rate', '15% to 30% (High on Muhurtham dates)', 'Less than 1% (with 10-Min Backfill Net)'],
-          ['Wage Disbursal Time', '15 to 45 days (Manual billing)', 'Same-Day (Secure Escrow Auto-Release)'],
-          ['Standard Shift Rate', '₹600 - ₹800', '₹900 - ₹1,200 (Fair-Wage Benchmarked)']
-        ]
-      },
-      { type: 'heading', text: 'Why Verification Matters for Chennai Events' },
-      { type: 'paragraph', text: 'Hiring verified catering staff in Chennai is no longer a luxury—it is essential for brand reputation. Verified workers undergo identity audits and biometric verification, ensuring safety for high-profile banquets and family weddings alike.' },
+      { type: 'paragraph', text: 'Whether you are planning a weekend getaway to Pondicherry, a corporate trip to Bangalore, or a family temple run, navigating the highways can be exhausting. Many families in Adyar, T. Nagar, and Velachery are now opting to hire acting drivers for their outstation trips. However, the traditional process of finding a reliable driver is fraught with anxiety. Hidden costs, unverified backgrounds, and erratic driving behaviors can easily ruin what should be a relaxing journey.' },
+      { type: 'heading', text: 'The Importance of Trust and KYC' },
+      { type: 'paragraph', text: 'When handing over the keys to your personal vehicle, safety is paramount. Relying on an unverified contact from a local stand is a high-risk gamble. This is where modern platforms like Ziggers fundamentally change the landscape. Every acting driver on Ziggers undergoes stringent KYC verification, including biometric Aadhaar checks and background screening. This ensures that the person behind the wheel is a professional, trusted, and fully accountable individual.' },
+      { type: 'heading', text: 'Transparent Cost Breakdown for 2026' },
+      { type: 'paragraph', text: 'Pricing in the gig economy can often be opaque, but Ziggers champions transparency. For outstation trips originating from Chennai (like Anna Nagar or Velachery), the standard pricing structure is designed to be fair for both the car owner and the driver. Typically, an acting driver for outstation travel charges a base daily rate ranging from ₹1,000 to ₹1,500, plus a nominal overnight outstation allowance (usually around ₹300-₹500 per night) to cover their basic food and lodging. There are no hidden middleman fees.' },
+      { type: 'heading', text: 'Why Choose Ziggers for Your Next Trip?' },
+      { type: 'paragraph', text: 'Beyond fair pricing, Ziggers brings peace of mind. With real-time tracking, a secure escrow payment system, and a zero-tolerance policy for unprofessional conduct, you are guaranteed a smooth ride. Avoid the last-minute scramble and book a verified acting driver through Ziggers to ensure your next outstation trip from Chennai is safe, comfortable, and professionally managed.' },
       { 
         type: 'faq', 
         items: [
           { 
-            q: "How much does it cost to hire catering boys in Chennai per day?", 
-            a: "The average daily rate for booking catering staff and helpers in Chennai ranges between ₹600 to ₹1,200 per shift (typically 8 to 10 hours), depending on experience, grooming standards, and event location (e.g., standard wedding halls vs. five-star venues)." 
+            q: "How much does an acting driver charge per day for outstation trips from Chennai?", 
+            a: "In 2026, the average daily rate is between ₹1,000 and ₹1,500, plus an overnight allowance of ₹300 to ₹500 to cover the driver's food and stay." 
           },
           { 
-            q: "Where can I book verified catering workers in Chennai instantly?", 
-            a: "Platforms like Ziggers provide automated, background-verified dispatch, matching you with professional catering workers nearby within minutes, with live GPS check-in tracking." 
+            q: "How does Ziggers verify acting drivers?", 
+            a: "Ziggers implements a strict KYC process involving biometric Aadhaar verification, criminal background checks, and driving history reviews to ensure complete passenger safety." 
           }
         ] 
-      },
-      { type: 'heading', text: 'Streamline Your Event Execution' },
-      { type: 'paragraph', text: 'For event organizers seeking reliable field execution, Ziggers offers a unified operating system. You can bypass chaotic coordinator calls and [Join the Ziggers Waitlist](#waitlist) to access Aadhaar-verified event helpers on-demand. Learn more about our [features and GPS footprint tracking](#features) and see how our [secure escrow payments](#trust) protect both caterers and workers.' }
+      }
     ],
-    references: [
-      { name: "UIDAI Aadhaar Client Verification Standards Guide (2025)", url: "https://uidai.gov.in" },
-      { name: "Chennai Event Management Association (CEMA) Wage & Compliance Report (2025)", url: "#" }
-    ],
-    date: 'June 15, 2026',
-    readTime: '5 min read',
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Cost of Hiring an Acting Driver for Outstation Trips from Chennai (2026)",
+          "description": "Find out the exact costs of hiring background-verified acting drivers in Chennai for outstation trips. Ziggers offers secure KYC tracking and transparent pricing.",
+          "author": {
+            "@type": "Organization",
+            "name": "Ziggers"
+          },
+          "datePublished": "2026-06-19T08:00:00+05:30"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much does an acting driver charge per day for outstation trips from Chennai?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In 2026, the average daily rate is between ₹1,000 and ₹1,500, plus an overnight allowance of ₹300 to ₹500 to cover the driver's food and stay."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Ziggers verify acting drivers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ziggers implements a strict KYC process involving biometric Aadhaar verification, criminal background checks, and driving history reviews to ensure complete passenger safety."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    date: 'June 19, 2026',
+    readTime: '4 min read',
     author: 'Karthik Raja',
-    authorRole: 'Chennai Operations Head',
-    category: 'Staffing',
-    image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80',
+    authorRole: 'Mobility Operations Head',
+    category: 'Logistics',
+    image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80',
     color: '#E0F2FE'
   },
   {
-    id: 'solving-no-show-catering-chennai',
-    title: 'Solving the No-Show Problem: Managing Catering Workers in Chennai',
-    excerpt: 'Tired of catering workers defaulting at the last minute? Discover how automated dispatch and 10-minute backfills secure your event execution in Chennai.',
-    seoDescription: 'Learn how modern technology solves the catering worker no-show issue in Chennai. Discover GPS check-ins, automated backfills, and escrow systems.',
+    id: 'last-minute-catering-staff-weddings-ecr-omr',
+    title: 'Last-Minute Catering Staff for Weddings in ECR and OMR',
+    excerpt: 'Struggling with caterer no-shows along the ECR and OMR corridors? Discover how to instantly hire verified catering staff for your Chennai wedding.',
+    seoDescription: 'Hire last-minute, KYC-verified catering staff for weddings in ECR and OMR. Ziggers provides reliable, background-checked event helpers instantly.',
     content: [
-      { type: 'paragraph', text: 'It\'s 7:00 AM on a Muhurtham morning. You have booked 30 catering boys for a massive breakfast service at a marriage hall in T. Nagar. But only 18 show up. The coordinator\'s phone is switched off. This is the ultimate nightmare for every professional wedding planner and caterer in Chennai.' },
-      { type: 'heading', text: 'Why Attendance Fails in Informal Staffing' },
-      { type: 'paragraph', text: 'The root cause of catering staff defaults in Chennai is the lack of direct accountability. Traditional agents book workers without any tracking. If a worker gets a slightly higher offer elsewhere or decides not to travel, they simply drop out without warning.' },
-      { type: 'heading', text: 'Impact of Attendance Verification on Catering Logistics' },
-      { type: 'paragraph', text: 'By introducing a tracking standard, caterers can predict worker presence before the event starts. The table below represents attendance outcomes:' },
-      {
-        type: 'table',
-        headers: ['Tracking System', 'Average Attendance Rate', 'Coordinator Resolution Time'],
-        rows: [
-          ['Informal Agencies (No tracking)', '70% - 80%', '2 to 4 hours (Chaotic phone calls)'],
-          ['GPS-Enabled Dispatch (Ziggers)', '99.4%', 'Under 10 minutes (Automated backfill)']
-        ]
-      },
-      { type: 'heading', text: 'Using Technology to Guarantee Execution' },
-      { type: 'paragraph', text: 'To combat this, modern agencies use automated scheduling software. Real-time GPS footprints allow caterers to watch their staff check in on a map as they approach the venue. If a worker is not within the geofence 30 minutes before the shift, the system alerts the caterer.' },
+      { type: 'paragraph', text: 'The picturesque East Coast Road (ECR) and the bustling Old Mahabalipuram Road (OMR) are home to some of Chennai\'s most spectacular destination weddings. The luxury resorts and expansive marriage halls offer a perfect backdrop. However, the geographical distance from central hubs like Anna Nagar, T. Nagar, or Velachery often creates a massive logistical nightmare. The biggest dread for any event planner is the dreaded last-minute staff drop-out. When your catering boys fail to show up, the entire dining experience of a luxury wedding is instantly jeopardized.' },
+      { type: 'heading', text: 'The Cost of Unverified Agency Staff' },
+      { type: 'paragraph', text: 'Traditionally, catering contractors rely on informal WhatsApp groups to round up workers at 5:00 AM. This unverified labor pool lacks accountability. A worker might agree to a shift but back out if they find a closer gig in Adyar. Without formal KYC or binding agreements, the event manager is left helpless, forced to compromise on service quality by hiring untrained replacements off the street.' },
+      { type: 'heading', text: 'Ziggers: Trust, KYC, and the 10-Minute Backfill' },
+      { type: 'paragraph', text: 'This is exactly why Ziggers was built. Our platform eradicates the uncertainty of gig work. Every catering worker registered on Ziggers goes through rigorous Aadhaar KYC verification and a strict onboarding protocol. If you are hosting a wedding in an OMR resort and face a sudden shortage, Ziggers utilizes its hyper-local network to trigger an automated 10-minute backfill. The system immediately locates verified, standby catering staff nearby and dispatches them to your venue with real-time GPS tracking.' },
+      { type: 'heading', text: 'Securing Your Event with Escrow' },
+      { type: 'paragraph', text: 'To ensure maximum reliability, Ziggers operates on a secure escrow model. Payments are locked in advance and disbursed immediately post-shift. This builds immense trust; workers are motivated to travel to ECR/OMR knowing their payment is guaranteed, and organizers rest easy knowing their premium buffet will be impeccably serviced by accountable professionals.' },
       { 
         type: 'faq', 
         items: [
           { 
-            q: "What should I do if my catering workers don't show up?", 
-            a: "Traditionally, caterers scramble for sub-agents. With modern tech platforms like Ziggers, a 10-minute backfill safety net is triggered automatically, identifying nearby standby workers and dispatching them to your location instantly." 
+            q: "Can I get catering staff on the same day for a wedding in ECR?", 
+            a: "Yes. Ziggers features a rapid-response backfill system that connects you with nearby, standby KYC-verified catering workers to ensure your event runs smoothly, even at the last minute." 
           },
           { 
-            q: "How does GPS tracking help in event helper management?", 
-            a: "GPS tracking ensures that you only pay for the exact hours the worker is physically present at the venue, preventing false attendance logs and billing disputes." 
+            q: "How does Ziggers ensure the reliability of catering boys?", 
+            a: "Every worker on Ziggers undergoes biometric Aadhaar verification. Furthermore, our escrow payment system ensures that workers are financially protected and motivated to complete their shifts professionally." 
           }
         ] 
-      },
-      { type: 'heading', text: 'Scale Securely with Ziggers' },
-      { type: 'paragraph', text: 'By shifting from loose contracts to a secure, digital platform, Chennai\'s event managers can scale operations seamlessly. Our [on-demand staffing engine](#features) guarantees that standby helpers are always ready. Avoid operational disruptions by signing up on our [exclusive waitlist today](#waitlist).' }
+      }
     ],
-    references: [
-      { name: "CEMA Event Logistics Reliability Metrics Database (2025)", url: "#" },
-      { name: "Ziggers Platform Internal Shift Completion Audits (Q1 2026)", url: "#" }
-    ],
-    date: 'June 10, 2026',
-    readTime: '6 min read',
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Last-Minute Catering Staff for Weddings in ECR and OMR",
+          "description": "Hire last-minute, KYC-verified catering staff for weddings in ECR and OMR. Ziggers provides reliable, background-checked event helpers instantly.",
+          "author": {
+            "@type": "Organization",
+            "name": "Ziggers"
+          },
+          "datePublished": "2026-06-18T09:00:00+05:30"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can I get catering staff on the same day for a wedding in ECR?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Ziggers features a rapid-response backfill system that connects you with nearby, standby KYC-verified catering workers to ensure your event runs smoothly, even at the last minute."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Ziggers ensure the reliability of catering boys?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every worker on Ziggers undergoes biometric Aadhaar verification. Furthermore, our escrow payment system ensures that workers are financially protected and motivated to complete their shifts professionally."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    date: 'June 18, 2026',
+    readTime: '5 min read',
     author: 'Deepa Ramakrishnan',
     authorRole: 'Event Logistics Lead',
-    category: 'Operations',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80',
+    category: 'Events',
+    image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=800&q=80',
     color: '#FEF3C7'
   },
   {
-    id: 'wedding-catering-boys-chennai',
-    title: 'Muhurtham Season Rush: Scaling Wedding Catering Staff in Chennai',
-    excerpt: 'How Chennai\'s top wedding caterers manage extreme demand fluctuations on auspicious dates by leveraging on-demand catering boys and helpers.',
-    seoDescription: 'How wedding caterers in Chennai scale their catering staff and helpers during peak wedding dates using instant booking, escrows, and verified networks.',
+    id: 'hire-verified-brand-promoters-mall-activations-chennai',
+    title: 'How to Hire Verified Brand Promoters for Mall Activations in Chennai',
+    excerpt: 'Maximize the ROI of your Chennai mall activations by hiring KYC-verified, highly engaging brand promoters through Ziggers.',
+    seoDescription: 'Looking to hire verified brand promoters in Chennai? Learn how to source KYC-verified marketing staff for mall activations in VR Mall, Express Avenue, and Phoenix Marketcity.',
     content: [
-      { type: 'paragraph', text: 'Chennai\'s wedding seasons—especially during major Muhurtham dates in months like Chithirai, Vaigasi, and Aani—bring unprecedented demand. A single caterer might handle 10 weddings on the same day. Sourcing enough trained catering boys in Chennai to maintain luxury standards becomes an operational bottleneck.' },
-      { type: 'heading', text: 'The Muhurtham Staffing Crisis' },
-      { type: 'paragraph', text: 'During peak seasons, the demand for catering workers in Chennai surges by 400%. Wages skyrocket, and quality drops as untrained students or part-timers are rushed into service. To survive, caterers must build a resilient, pre-screened labor pool.' },
-      { type: 'heading', text: 'Comparative Muhurtham Daily Wage Standards in Chennai' },
-      { type: 'paragraph', text: 'Wages fluctuate based on location and service level. The table below outlines average pricing structures for wedding event helpers in key areas:' },
-      {
-        type: 'table',
-        headers: ['Chennai Region', 'Helper Daily Rate (Traditional)', 'Vetted Helper Daily Rate (Ziggers)'],
-        rows: [
-          ['Mylapore / Adyar', '₹700 - ₹900', '₹1,000 - ₹1,200'],
-          ['T. Nagar / Kodambakkam', '₹650 - ₹850', '₹950 - ₹1,150'],
-          ['ECR / OMR (Premium halls)', '₹800 - ₹1,000', '₹1,100 - ₹1,300'],
-          ['Tambaram / Porur', '₹600 - ₹750', '₹900 - ₹1,050']
-        ]
-      },
-      { type: 'heading', text: 'Escrow Systems: Building Mutual Trust' },
-      { type: 'paragraph', text: 'One of the best ways to secure high-quality catering staff is by offering secure, fast payments. Professional catering boys prefer clients who use secure escrow structures where their wages are locked and released immediately upon successful task completion. This eliminates the fear of payment default after a long, exhausting shift.' },
+      { type: 'paragraph', text: 'Executing a flawless mall activation at Phoenix Marketcity in Velachery, Express Avenue, or VR Mall in Anna Nagar requires more than just a great booth design. The frontline representation of your product relies entirely on your brand promoters. A disengaged, unprofessional, or unverified promoter can instantly damage your brand\'s reputation and waste thousands of rupees in marketing spend. Yet, finding energetic, reliable marketing staff in Chennai remains a significant challenge for retail brands.' },
+      { type: 'heading', text: 'The Risks of Unverified Promoters' },
+      { type: 'paragraph', text: 'Many marketing agencies source local students from neighborhoods like Adyar or T. Nagar through informal networks. The lack of structured vetting leads to acute problems: late arrivals, improper uniform compliance, and poor communication skills. More importantly, without proper KYC, brands are exposing themselves to severe liability risks by placing unverified individuals directly in front of their target demographic.' },
+      { type: 'heading', text: 'Elevating Brand Representation with Ziggers KYC' },
+      { type: 'paragraph', text: 'To protect your brand equity, hiring must be strictly formalized. Ziggers revolutionizes retail staffing in Chennai by offering a curated pool of brand promoters. Before a promoter can accept a gig, they must clear comprehensive KYC protocols, including Aadhaar authentication and profile vetting. This rigorous trust-building mechanism ensures that the promoters representing your products are genuine, accountable, and professional.' },
+      { type: 'heading', text: 'GPS Tracking and Guaranteed Performance' },
+      { type: 'paragraph', text: 'When you hire brand promoters via Ziggers for a weekend activation in Anna Nagar, you are not left in the dark. The platform features live GPS tracking, meaning you can monitor your staff\'s check-in at the mall from your dashboard. Coupled with a secure escrow payment system, promoters are incentivized to maintain high energy and punctuality, knowing their payments are protected and performance-linked. Don\'t leave your mall activation to chance—hire verified talent.' },
       { 
         type: 'faq', 
         items: [
           { 
-            q: "How do wedding caterers handle bulk staffing requests in Chennai?", 
-            a: "Successful caterers split their staff between core culinary teams and on-demand service helpers. They utilize digital platforms like Ziggers to book service staff in bulk, filtering by trust score and verified grooming compliance." 
+            q: "How can I verify the identity of a brand promoter before an event?", 
+            a: "By using Ziggers, every brand promoter is pre-verified using biometric Aadhaar KYC. You have full transparency and assurance regarding the identity and background of the marketing staff." 
           },
           { 
-            q: "Why is grooming and language training important for catering boys?", 
-            a: "Wedding guests expect courteous hospitality. Professional platforms screen catering workers for basic service etiquette, uniform compliance, and grooming before matching them to high-end events." 
+            q: "What happens if a brand promoter does not show up to the mall activation?", 
+            a: "Ziggers provides a 10-minute automated backfill feature. If a promoter fails to check-in via GPS at the required time, the system instantly alerts and dispatches a verified standby replacement." 
           }
         ] 
-      },
-      { type: 'heading', text: 'Take Control of Your Operations' },
-      { type: 'paragraph', text: 'Don\'t let staffing shortages compromise your culinary reputation. Transition to a tech-driven workforce solution. [Join our waitlist](#waitlist) to access Chennai\'s premier, vetted catering boys and helpers, and read our [terms of service](#terms) to understand our operational guarantees.' }
+      }
     ],
-    references: [
-      { name: "Reserve Bank of India Master Direction on Escrow Accounts & Settlement Rules", url: "https://rbi.org.in" },
-      { name: "Ziggers Fair-Wage & Local Hospitality Staffing Audits", url: "#" }
-    ],
-    date: 'June 02, 2026',
-    readTime: '5 min read',
-    author: 'Srinivasan Iyer',
-    authorRole: 'Hospitality Consultant',
-    category: 'Business',
-    image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=800&q=80',
-    color: '#DCFCE7'
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "How to Hire Verified Brand Promoters for Mall Activations in Chennai",
+          "description": "Looking to hire verified brand promoters in Chennai? Learn how to source KYC-verified marketing staff for mall activations in VR Mall, Express Avenue, and Phoenix Marketcity.",
+          "author": {
+            "@type": "Organization",
+            "name": "Ziggers"
+          },
+          "datePublished": "2026-06-17T10:00:00+05:30"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How can I verify the identity of a brand promoter before an event?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "By using Ziggers, every brand promoter is pre-verified using biometric Aadhaar KYC. You have full transparency and assurance regarding the identity and background of the marketing staff."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens if a brand promoter does not show up to the mall activation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ziggers provides a 10-minute automated backfill feature. If a promoter fails to check-in via GPS at the required time, the system instantly alerts and dispatches a verified standby replacement."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    date: 'June 17, 2026',
+    readTime: '4 min read',
+    author: 'Priya Sundaram',
+    authorRole: 'Retail Marketing Specialist',
+    category: 'Marketing',
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=800&q=80',
+    color: '#FCE7F3'
   }
 ];
