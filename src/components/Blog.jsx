@@ -61,7 +61,7 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
 
   const currentPost = BLOG_POSTS.find(post => post.id === activePostId);
 
-  // Dynamic SEO & GEO JSON-LD Injection
+  // Dynamic SEO Injection
   useEffect(() => {
     if (activePostId) {
       const post = BLOG_POSTS.find(p => p.id === activePostId);
@@ -71,136 +71,12 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
         if (metaDesc) {
           metaDesc.setAttribute('content', post.seoDescription);
         }
-
-        // Inject/Update GEO-optimised JSON-LD Schema block
-        let schemaScript = document.getElementById('seo-jsonld');
-        if (!schemaScript) {
-          schemaScript = document.createElement('script');
-          schemaScript.id = 'seo-jsonld';
-          schemaScript.type = 'application/ld+json';
-          document.head.appendChild(schemaScript);
-        }
-
-        const blogSchema = {
-          "@type": "BlogPosting",
-          "headline": post.title,
-          "description": post.seoDescription,
-          "datePublished": post.date.includes('June 15') ? "2026-06-15" : post.date.includes('June 10') ? "2026-06-10" : "2026-06-02",
-          "author": {
-            "@type": "Person",
-            "name": post.author,
-            "jobTitle": post.authorRole
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Ziggers",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://ziggers.in/logo.png"
-            }
-          },
-          "image": post.image,
-          "mainEntityOfPage": `https://ziggers.in/blog/${post.id}`
-        };
-
-        const breadcrumbSchema = {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://ziggers.in"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Blog",
-              "item": "https://ziggers.in/blog"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": post.title,
-              "item": `https://ziggers.in/blog/${post.id}`
-            }
-          ]
-        };
-
-        const graph = [blogSchema, breadcrumbSchema];
-
-        if (post.id === 'hire-catering-boys-chennai') {
-          const howToSchema = {
-            "@type": "HowTo",
-            "name": "How to Hire Verified Catering Boys in Chennai",
-            "description": "Step-by-step guide to hiring reliable, background-verified catering workers and helpers in Chennai.",
-            "totalTime": "PT30M",
-            "step": [
-              {
-                "@type": "HowToStep",
-                "position": 1,
-                "name": "Define your event requirements",
-                "text": "Specify the date, location (e.g. Mylapore or OMR), number of catering boys needed, shift hours, and uniform codes.",
-                "url": "https://ziggers.in/blog/hire-catering-boys-chennai#features"
-              },
-              {
-                "@type": "HowToStep",
-                "position": 2,
-                "name": "Choose a verified booking platform",
-                "text": "Use Ziggers to access biometric Aadhaar and KYC-verified catering workers rather than informal WhatsApp groups.",
-                "url": "https://ziggers.in/blog/hire-catering-boys-chennai#features"
-              },
-              {
-                "@type": "HowToStep",
-                "position": 3,
-                "name": "Deposit wages into secure escrow",
-                "text": "Fund the shift wages upfront into the secure escrow system, guaranteeing payment release upon task verification.",
-                "url": "https://ziggers.in/blog/hire-catering-boys-chennai#trust"
-              },
-              {
-                "@type": "HowToStep",
-                "position": 4,
-                "name": "Monitor live GPS footprint check-in",
-                "text": "Watch your catering helpers check in on a map and automatically trigger a 10-minute backfill if a standby worker is needed.",
-                "url": "https://ziggers.in/blog/hire-catering-boys-chennai#features"
-              }
-            ]
-          };
-          graph.push(howToSchema);
-        }
-
-        const faqBlock = post.content.find(b => b.type === 'faq');
-        if (faqBlock) {
-          const faqSchema = {
-            "@type": "FAQPage",
-            "mainEntity": faqBlock.items.map(item => ({
-              "@type": "Question",
-              "name": item.q,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.a
-              }
-            }))
-          };
-          graph.push(faqSchema);
-        }
-
-        schemaScript.textContent = JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": graph
-        });
       }
     } else {
       document.title = "ZIGGERS | The Operating System for On-Ground Gig Work";
       let metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
         metaDesc.setAttribute('content', "Hire nearby workers with live tracking, proof of work, and secure escrow payments. Turn informal hiring into structured execution.");
-      }
-
-      // Remove JSON-LD Script on Catalog view to avoid duplicates
-      const schemaScript = document.getElementById('seo-jsonld');
-      if (schemaScript) {
-        schemaScript.remove();
       }
     }
   }, [activePostId]);
@@ -610,6 +486,14 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
 
               {currentPost ? (
                 <div>
+                  {/* Inject JSON-LD Schema directly into DOM for SSG */}
+                  {currentPost.schema && (
+                    <script 
+                      type="application/ld+json" 
+                      dangerouslySetInnerHTML={{ __html: JSON.stringify(currentPost.schema) }} 
+                    />
+                  )}
+
                   {/* Article Metadata Header */}
                   <div style={{ marginBottom: '40px' }}>
                     <span style={{ 
