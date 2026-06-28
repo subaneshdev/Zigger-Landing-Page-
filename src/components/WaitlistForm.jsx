@@ -17,11 +17,11 @@ export default function WaitlistForm() {
     try {
       const { error } = await supabase
         .from('waitlist')
-        .insert([{ email }]);
+        .insert([{ email, razorpay_payment_id: null }]);
 
       if (error && error.code !== '23505') {
         // 23505 = unique violation (email already registered) — treat as success
-        console.error('Supabase insert error:', error);
+        console.error('Supabase insert error:', error.message, error.details, error.hint);
         setStatus('error');
         return;
       }
