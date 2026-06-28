@@ -1,77 +1,37 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle2, Loader2, ShieldCheck, CreditCard } from 'lucide-react';
+import { Send, CheckCircle2, Loader2, ShieldCheck } from 'lucide-react';
 import Magnetic from './Magnetic';
 import { supabase } from '../lib/supabase';
 
-const RAZORPAY_KEY = import.meta.env.VITE_RAZORPAY_KEY_ID;
-
 export default function WaitlistForm() {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('idle'); // idle, loading, success
+  const [status, setStatus] = useState('idle'); // idle, loading, success, error
 
-  const openRazorpay = () => {
-    const options = {
-      key: RAZORPAY_KEY,
-      amount: 500, // ₹5.00 in paise
-      currency: 'INR',
-      name: 'Ziggers',
-      description: 'Waitlist Verification Fee — ₹5',
-      image: '', // Will use default
-      prefill: {
-        email: email,
-      },
-      theme: {
-        color: '#29211B',
-        backdrop_color: 'rgba(41, 33, 27, 0.85)',
-      },
-      modal: {
-        confirm_close: true,
-        ondismiss: () => {
-          setStatus('idle');
-        },
-      },
-      handler: async (response) => {
-        // Payment succeeded — save to Supabase
-        const paymentId = response.razorpay_payment_id;
-
-        try {
-          const { error } = await supabase
-            .from('waitlist')
-            .insert([{ 
-              email, 
-              razorpay_payment_id: paymentId
-            }]);
-
-          if (error && error.code !== '23505') {
-            console.error('Supabase insert error:', error);
-          }
-        } catch (err) {
-          console.error('DB error:', err);
-        }
-
-        setStatus('success');
-      },
-    };
-
-    const rzp = new window.Razorpay(options);
-    rzp.on('payment.failed', (response) => {
-      console.error('Payment failed:', response.error);
-      setStatus('idle');
-    });
-    rzp.open();
-  };
-
-  const handleEmailSubmit = (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
 
     setStatus('loading');
 
-    // Small delay for UX before opening modal
-    setTimeout(() => {
-      openRazorpay();
-    }, 400);
+    try {
+      const { error } = await supabase
+        .from('waitlist')
+        .insert([{ email }]);
+
+      if (error && error.code !== '23505') {
+        // 23505 = unique violation (email already registered) — treat as success
+        console.error('Supabase insert error:', error);
+        setStatus('error');
+        return;
+      }
+    } catch (err) {
+      console.error('DB error:', err);
+      setStatus('error');
+      return;
+    }
+
+    setStatus('success');
   };
 
   return (
@@ -99,9 +59,9 @@ export default function WaitlistForm() {
             >
               <CheckCircle2 size={64} style={{ margin: '0 auto' }} />
             </motion.div>
-            <h3 style={{ fontSize: '24px', marginBottom: '8px', color: 'var(--color-primary)' }}>Payment Verified!</h3>
+            <h3 style={{ fontSize: '24px', marginBottom: '8px', color: 'var(--color-primary)' }}>You're on the list!</h3>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '15px' }}>
-              Your spot is secured. We'll notify you as soon as Ziggers launches on App Store & Play Store.
+              Your spot is secured. We'll notify you as soon as Ziggers launches on App Store &amp; Play Store.
             </p>
           </motion.div>
         ) : (
@@ -154,13 +114,19 @@ export default function WaitlistForm() {
               </div>
             </form>
 
+            {status === 'error' && (
+              <p style={{ fontSize: '13px', color: '#e53e3e', textAlign: 'center', marginTop: '8px' }}>
+                Something went wrong. Please try again.
+              </p>
+            )}
+
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginTop: '16px' }}>
               <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', textAlign: 'center' }}>
                 ✦ Join 1,248+ early access members
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: 'var(--color-text-muted)', opacity: 0.7 }}>
                 <ShieldCheck size={14} />
-                <span>₹5 · Secured by Razorpay</span>
+                <span>Free · No credit card required</span>
               </div>
             </div>
           </motion.div>
