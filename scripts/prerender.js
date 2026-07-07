@@ -102,7 +102,7 @@ function writeFile(filePath, content) {
 // 1. Generate Sitemap XML
 // ------------------------------------
 console.log('Generating sitemap.xml...');
-const baseUrl = 'https://ziggers.in';
+const baseUrl = 'https://www.ziggers.in';
 const lastMod = new Date().toISOString().split('T')[0];
 
 let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
