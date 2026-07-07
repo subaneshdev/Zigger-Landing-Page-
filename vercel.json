@@ -2,7 +2,6 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/blog/:slug", "destination": "/blog/:slug.html" },
-    { "source": "/((?!blog|assets|api).*)", "destination": "/index.html" }
+    { "source": "/((?!blog|assets|api|sitemap.xml|robots.txt|llms.txt).*)", "destination": "/index.html" }
   ]
 }

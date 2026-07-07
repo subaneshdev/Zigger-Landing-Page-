@@ -35,7 +35,6 @@ function prerenderPage({
   url,
   image,
   jsonLd,
-  redirectHash,
   contentHtml
 }) {
   let html = template;
@@ -52,8 +51,16 @@ function prerenderPage({
     html = html.replace('<head>', `<head>\n    ${newDescMeta}`);
   }
 
-  // 3. Inject Open Graph and Twitter Card tags
+  // 3. Strip existing OG and Twitter meta tags from template to avoid duplicates
+  html = html.replace(/\s*<!-- Open Graph \/ Facebook -->.*?<!-- Twitter -->.*?<meta name="twitter:image"[^>]*\/?>\s*/s, '\n');
+
+  // 3b. Strip homepage canonical tag from template (each page gets its own)
+  html = html.replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>\s*/i, '');
+
+  // 4. Inject page-specific Open Graph and Twitter Card tags + canonical URL
   const ogMetaTags = `
+    <!-- Canonical URL -->
+    <link rel="canonical" href="${url}" />
     <!-- SEO & Social Graph Meta Tags -->
     <meta property="og:type" content="article" />
     <meta property="og:url" content="${url}" />
@@ -67,22 +74,14 @@ function prerenderPage({
     <meta name="twitter:image" content="${image}" />
   `;
 
-  // 4. Inject JSON-LD Schema
+  // 5. Inject JSON-LD Schema
   let schemaScript = '';
   if (jsonLd) {
     schemaScript = `\n    <script type="application/ld+json" id="seo-jsonld">\n      ${JSON.stringify(jsonLd, null, 2)}\n    </script>\n`;
   }
 
-  // 5. Inject client redirect script (for SPA takeover)
-  const redirectScript = `
-    <script>
-      // Redirect to React SPA hash route for navigation takeover
-      window.location.replace("${redirectHash}");
-    </script>
-  `;
-
-  // Insert Header additions
-  html = html.replace('</head>', `${ogMetaTags}${schemaScript}${redirectScript}\n  </head>`);
+  // Insert Header additions (NO redirect script — let the static HTML be indexed)
+  html = html.replace('</head>', `${ogMetaTags}${schemaScript}\n  </head>`);
 
   // 6. Inject the pre-rendered static content inside the root div
   html = html.replace('<div id="root"></div>', `<div id="root">${contentHtml}</div>`);
@@ -202,12 +201,11 @@ const catalogPage = prerenderPage({
   description: 'Learn how we are building the operating system for verified, geofenced catering and field staffing in Chennai.',
   url: `${baseUrl}/blog`,
   image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80',
-  redirectHash: '/#blog',
   contentHtml: catalogHtml
 });
 
-writeFile(path.join(DIST_DIR, 'blog.html'), catalogPage);
-console.log('✓ Blog Catalog pre-rendered.');
+writeFile(path.join(DIST_DIR, 'blog/index.html'), catalogPage);
+console.log('✓ Blog Catalog pre-rendered at blog/index.html');
 
 
 // ------------------------------------
@@ -319,11 +317,10 @@ for (const post of BLOG_POSTS) {
     url: `${baseUrl}/blog/${post.id}`,
     image: post.image,
     jsonLd,
-    redirectHash: `/#blog-post/${post.id}`,
     contentHtml: bodyHtml
   });
 
-  writeFile(path.join(DIST_DIR, `blog/${post.id}.html`), postPage);
+  writeFile(path.join(DIST_DIR, `blog/${post.id}/index.html`), postPage);
   console.log(`✓ Blog Post pre-rendered: ${post.id}`);
 }
 
@@ -355,11 +352,10 @@ const privacyPage = prerenderPage({
   description: 'Privacy Notice details on how Ziggers protects, collects, and manages employer and gig worker information in India.',
   url: `${baseUrl}/privacy`,
   image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80',
-  redirectHash: '/#privacy',
   contentHtml: privacyHtml
 });
 
-writeFile(path.join(DIST_DIR, 'privacy.html'), privacyPage);
+writeFile(path.join(DIST_DIR, 'privacy/index.html'), privacyPage);
 console.log('✓ Privacy Policy pre-rendered.');
 
 
@@ -387,11 +383,10 @@ const termsPage = prerenderPage({
   description: 'Legal terms and conditions governing the booking of on-demand catering workers and payment escrows on Ziggers.',
   url: `${baseUrl}/terms`,
   image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80',
-  redirectHash: '/#terms',
   contentHtml: termsHtml
 });
 
-  writeFile(path.join(DIST_DIR, 'terms.html'), termsPage);
+  writeFile(path.join(DIST_DIR, 'terms/index.html'), termsPage);
   console.log('✓ Terms of Service pre-rendered.');
 
   console.log('--- Ziggers SEO Pre-rendering Complete ---');
