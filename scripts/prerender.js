@@ -340,7 +340,7 @@ const privacyHtml = `
     <h2 style="margin-top: 40px;">1. WHAT INFORMATION DO WE COLLECT?</h2>
     <p>We collect names, phone numbers, email addresses, billing addresses, government ID records for background checks, and geofencing timestamps during active event operations...</p>
     <h2 style="margin-top: 32px;">2. HOW DO WE PROCESS YOUR INFORMATION?</h2>
-    <p>We process coordinates for security check-ins, manage secure escrow deposits with Zoho Pay, and run ratings layers to protect workers and employers from no-shows...</p>
+    <p>We process coordinates for security check-ins, manage secure escrow deposits with Razorpay, and run ratings layers to protect workers and employers from no-shows...</p>
     <div style="margin-top: 60px; border-top: 1px solid #f3f4f6; padding-top: 32px;">
       <a href="/" style="color: #29211b; font-weight: 600; text-decoration: none;">← Back to Home</a>
     </div>

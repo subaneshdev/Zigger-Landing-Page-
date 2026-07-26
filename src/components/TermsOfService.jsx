@@ -287,7 +287,7 @@ export default function TermsOfService() {
             <h3>6.2 Payment Processing</h3>
           </div>
           <p data-custom-class="body_text">
-            All payments on the platform are processed through ZOHO PAY. By using the payment features, you also agree to ZOHO PAY's terms and privacy policy, available at <a href="https://www.zoho.com/in/payments/privacy.html" target="_blank" data-custom-class="link" rel="noreferrer">https://www.zoho.com/in/payments/privacy.html</a>. Ziggers does not store your full payment card details.
+            All payments on the platform are processed through Razorpay. By using the payment features, you also agree to Razorpay's terms and privacy policy, available at <a href="https://razorpay.com/privacy/" target="_blank" data-custom-class="link" rel="noreferrer">https://razorpay.com/privacy/</a>. Ziggers does not store your full payment card details.
           </p>
 
           <div data-custom-class="heading_2">
@@ -399,7 +399,7 @@ export default function TermsOfService() {
             <h2>11. THIRD-PARTY SERVICES AND LINKS</h2>
           </div>
           <p data-custom-class="body_text">
-            The Services may integrate with or contain links to third-party services (such as ZOHO PAY, Google Maps, Auth0, and others). These third-party services are governed by their own terms and privacy policies, and Ziggers has no control over and assumes no responsibility for their content, practices, or availability.
+            The Services may integrate with or contain links to third-party services (such as Razorpay, Google Maps, Auth0, and others). These third-party services are governed by their own terms and privacy policies, and Ziggers has no control over and assumes no responsibility for their content, practices, or availability.
           </p>
           <p data-custom-class="body_text" style={{ marginTop: '12px' }}>
             Your use of third-party services is at your own risk and is subject to the applicable third-party terms.

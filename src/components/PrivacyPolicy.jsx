@@ -322,7 +322,7 @@ export default function PrivacyPolicy() {
           </ul>
 
           <p data-custom-class="body_text">
-            <strong>Payment Data.</strong> We may collect data necessary to process your payment if you choose to make purchases, such as your payment instrument number, and the security code associated with your payment instrument. All payment data is handled and stored by <strong>ZOHO PAY</strong>. You may find their privacy notice link(s) here: <a target="_blank" data-custom-class="link" href="https://www.zoho.com/in/payments/privacy.html" rel="noreferrer">https://www.zoho.com/in/payments/privacy.html</a>.
+            <strong>Payment Data.</strong> We may collect data necessary to process your payment if you choose to make purchases, such as your payment instrument number, and the security code associated with your payment instrument. All payment data is handled and stored by <strong>Razorpay</strong>. You may find their privacy notice link(s) here: <a target="_blank" data-custom-class="link" href="https://razorpay.com/privacy/" rel="noreferrer">https://razorpay.com/privacy/</a>.
           </p>
 
           <p data-custom-class="body_text">
@@ -362,7 +362,7 @@ export default function PrivacyPolicy() {
             <li data-custom-class="body_text" style={{ marginBottom: '6px' }}>To facilitate account creation and authentication and otherwise manage user accounts.</li>
             <li data-custom-class="body_text" style={{ marginBottom: '6px' }}>To deliver and facilitate delivery of services to the user, including matching gigs based on location.</li>
             <li data-custom-class="body_text" style={{ marginBottom: '6px' }}>To conduct KYC verifications and fraud monitoring.</li>
-            <li data-custom-class="body_text" style={{ marginBottom: '6px' }}>To manage secure, protected prepaid Zoho Pay escrow deposits.</li>
+            <li data-custom-class="body_text" style={{ marginBottom: '6px' }}>To manage secure, protected prepaid Razorpay escrow deposits.</li>
             <li data-custom-class="body_text" style={{ marginBottom: '6px' }}>To enforce active dispute mediation and anti-tamper telemetry check-ins.</li>
             <li data-custom-class="body_text" style={{ marginBottom: '6px' }}>To send you administrative information, including about changes to our terms and policies.</li>
             <li data-custom-class="body_text" style={{ marginBottom: '6px' }}>To save or protect an individual's vital interest.</li>
@@ -376,7 +376,7 @@ export default function PrivacyPolicy() {
             <strong><em>In Short:</em></strong> <em>We may share information in specific situations described in this section and/or with the following third parties.</em>
           </p>
           <p data-custom-class="body_text">
-            We share details between matched employers and gig workers during active shifts. Wallet and banking operations are securely synchronized with Zoho Pay and Supabase storage layers. We do not sell your personal details to third-party advertisers.
+            We share details between matched employers and gig workers during active shifts. Wallet and banking operations are securely synchronized with Razorpay and Supabase storage layers. We do not sell your personal details to third-party advertisers.
           </p>
 
           {/* SECTION 4 */}
