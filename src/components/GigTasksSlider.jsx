@@ -18,36 +18,36 @@ export default function GigTasksSlider() {
 
   const tasks = [
     {
-      title: "Acting Driver",
-      desc: "Book vetted professional drivers for private transits, executive travel, and vehicle delivery runs.",
+      title: "Driver Jobs",
+      desc: "Hire verified gig workers for acting drivers, delivery partners, and private transit — instant hiring with live tracking.",
       icon: <Car size={24} />,
       bgImage: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=400&q=80",
       color: "rgba(193, 154, 107, 0.15)"
     },
     {
-      title: "Caterers",
-      desc: "On-demand culinary staff, servers, and kitchen helpers to manage hospitality logistics at events.",
+      title: "Catering Staff",
+      desc: "On-demand hospitality staffing — catering staff, servers, and kitchen helpers for event staffing and weddings.",
       icon: <Utensils size={24} />,
       bgImage: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=400&q=80",
       color: "rgba(167, 130, 91, 0.15)"
     },
     {
-      title: "Communication Workers",
-      desc: "Promotional staff, customer survey heads, and brand hosts to run operations smoothly.",
+      title: "Promotional Staff",
+      desc: "Hire promotional staff, brand hosts, and retail staff for mall activations and event hiring.",
       icon: <MessageSquare size={24} />,
       bgImage: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80",
       color: "rgba(41, 33, 27, 0.05)"
     },
     {
-      title: "Construction",
-      desc: "Vetted labor force for manual site support, assembly operations, and heavy lifting tasks.",
+      title: "Construction Labour",
+      desc: "Blue collar hiring for construction labour, site support, assembly operations, and heavy lifting tasks.",
       icon: <HardHat size={24} />,
       bgImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80",
       color: "rgba(193, 154, 107, 0.15)"
     },
     {
-      title: "Packers",
-      desc: "Experienced packers, loaders, and moving crew to execute instant packing and inventory shifts.",
+      title: "Packers and Movers Helpers",
+      desc: "Experienced packers, warehouse workers, and moving crew for instant packing and inventory shifts.",
       icon: <Package size={24} />,
       bgImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80",
       color: "rgba(167, 130, 91, 0.15)"
@@ -67,8 +67,8 @@ export default function GigTasksSlider() {
       color: "rgba(193, 154, 107, 0.15)"
     },
     {
-      title: "Volunteer",
-      desc: "Vetted coordinate volunteers for charity operations, event crowd safety, and community outreach.",
+      title: "Event Volunteers",
+      desc: "Hire event volunteers for charity operations, crowd safety, and community outreach with verified workers.",
       icon: <Heart size={24} />,
       bgImage: "https://images.unsplash.com/photo-1559027615-cd4486d2303f?auto=format&fit=crop&w=400&q=80",
       color: "rgba(167, 130, 91, 0.15)"
@@ -103,7 +103,7 @@ export default function GigTasksSlider() {
               textTransform: 'uppercase', 
               marginBottom: '12px' 
             }}>
-              GIG FORCE SERVICES
+              GIG MARKETPLACE
             </p>
             <h2 style={{ 
               fontSize: '40px', 
@@ -112,7 +112,7 @@ export default function GigTasksSlider() {
               lineHeight: 1.1,
               fontFamily: 'var(--font-heading)'
             }}>
-              What Can Your Ziggers Do?
+              Hire Gig Workers Across Every Industry
             </h2>
           </div>
           

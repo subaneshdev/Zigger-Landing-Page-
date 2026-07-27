@@ -2,6 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { BLOG_POSTS } from '../src/data/blogPosts.js';
+import {
+  DEFAULT_OG_IMAGE,
+  PAGE_SEO,
+  PRERENDER_LANDING_PAGES,
+  SITEMAP_ROUTES,
+  SITE_URL,
+} from '../src/constants/seo.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,7 +42,8 @@ function prerenderPage({
   url,
   image,
   jsonLd,
-  contentHtml
+  contentHtml,
+  ogType = 'website',
 }) {
   let html = template;
 
@@ -62,7 +70,7 @@ function prerenderPage({
     <!-- Canonical URL -->
     <link rel="canonical" href="${url}" />
     <!-- SEO & Social Graph Meta Tags -->
-    <meta property="og:type" content="article" />
+    <meta property="og:type" content="${ogType}" />
     <meta property="og:url" content="${url}" />
     <meta property="og:title" content="${title.replace(/"/g, '&quot;')}" />
     <meta property="og:description" content="${description.replace(/"/g, '&quot;')}" />
@@ -102,55 +110,26 @@ function writeFile(filePath, content) {
 // 1. Generate Sitemap XML
 // ------------------------------------
 console.log('Generating sitemap.xml...');
-const baseUrl = 'https://www.ziggers.in';
 const lastMod = new Date().toISOString().split('T')[0];
 
 let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${baseUrl}/</loc>
+`;
+
+for (const route of SITEMAP_ROUTES) {
+  const loc = route.path === '/' ? `${SITE_URL}/` : `${SITE_URL}${route.path}`;
+  sitemapXml += `  <url>
+    <loc>${loc}</loc>
     <lastmod>${lastMod}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/hire-acting-drivers-chennai</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/hire-catering-staff-chennai</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/hire-brand-promoters-chennai</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/blog</loc>
-    <lastmod>${lastMod}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/privacy</loc>
-    <lastmod>${lastMod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>${baseUrl}/terms</loc>
-    <lastmod>${lastMod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>${route.changefreq}</changefreq>
+    <priority>${route.priority}</priority>
   </url>
 `;
+}
 
 for (const post of BLOG_POSTS) {
   sitemapXml += `  <url>
-    <loc>${baseUrl}/blog/${post.id}</loc>
+    <loc>${SITE_URL}/blog/${post.id}</loc>
     <lastmod>${lastMod}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -172,7 +151,7 @@ let catalogHtml = `
     <header style="text-align: center; margin-bottom: 60px;">
       <span style="letter-spacing: 0.15em; font-size: 12px; font-weight: 700; color: #c19a6b; text-transform: uppercase;">ZIGGERS KNOWLEDGE BASE</span>
       <h1 style="font-size: 48px; margin-top: 12px; margin-bottom: 20px; font-weight: 800;">Insights on ground operations.</h1>
-      <p style="font-size: 18px; color: #4b5563; max-width: 600px; margin: 0 auto;">Learn how we are building the operating system for verified, geofenced catering and field staffing in Chennai.</p>
+      <p style="font-size: 18px; color: #4b5563; max-width: 600px; margin: 0 auto;">Guides on gig jobs, event staffing, temporary staffing, and flexible jobs in Chennai and across India.</p>
     </header>
     <div style="display: grid; grid-template-columns: 1fr; gap: 32px;">
 `;
@@ -197,11 +176,12 @@ catalogHtml += `
 `;
 
 const catalogPage = prerenderPage({
-  title: 'Insights on Ground Operations | Ziggers Blog',
-  description: 'Learn how we are building the operating system for verified, geofenced catering and field staffing in Chennai.',
-  url: `${baseUrl}/blog`,
+  title: PAGE_SEO.blog.title,
+  description: PAGE_SEO.blog.description,
+  url: `${SITE_URL}/blog`,
   image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80',
-  contentHtml: catalogHtml
+  contentHtml: catalogHtml,
+  ogType: 'website',
 });
 
 writeFile(path.join(DIST_DIR, 'blog/index.html'), catalogPage);
@@ -314,10 +294,11 @@ for (const post of BLOG_POSTS) {
   const postPage = prerenderPage({
     title: `${post.title} | Ziggers`,
     description: post.seoDescription,
-    url: `${baseUrl}/blog/${post.id}`,
+    url: `${SITE_URL}/blog/${post.id}`,
     image: post.image,
     jsonLd,
-    contentHtml: bodyHtml
+    contentHtml: bodyHtml,
+    ogType: 'article',
   });
 
   writeFile(path.join(DIST_DIR, `blog/${post.id}/index.html`), postPage);
@@ -348,11 +329,12 @@ const privacyHtml = `
 `;
 
 const privacyPage = prerenderPage({
-  title: 'Privacy Policy | Ziggers',
-  description: 'Privacy Notice details on how Ziggers protects, collects, and manages employer and gig worker information in India.',
-  url: `${baseUrl}/privacy`,
-  image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80',
-  contentHtml: privacyHtml
+  title: PAGE_SEO.privacy.title,
+  description: PAGE_SEO.privacy.description,
+  url: `${SITE_URL}/privacy`,
+  image: DEFAULT_OG_IMAGE,
+  contentHtml: privacyHtml,
+  ogType: 'website',
 });
 
 writeFile(path.join(DIST_DIR, 'privacy/index.html'), privacyPage);
@@ -379,15 +361,54 @@ const termsHtml = `
 `;
 
 const termsPage = prerenderPage({
-  title: 'Terms of Service | Ziggers',
-  description: 'Legal terms and conditions governing the booking of on-demand catering workers and payment escrows on Ziggers.',
-  url: `${baseUrl}/terms`,
-  image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80',
-  contentHtml: termsHtml
+  title: PAGE_SEO.terms.title,
+  description: PAGE_SEO.terms.description,
+  url: `${SITE_URL}/terms`,
+  image: DEFAULT_OG_IMAGE,
+  contentHtml: termsHtml,
+  ogType: 'website',
 });
 
   writeFile(path.join(DIST_DIR, 'terms/index.html'), termsPage);
   console.log('✓ Terms of Service pre-rendered.');
+
+// ------------------------------------
+// 6. Pre-render Work, Hire & Landing Pages
+// ------------------------------------
+function buildLandingPageHtml({ eyebrow, heading, intro }) {
+  return `
+  <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 900px; margin: 0 auto; padding: 140px 20px 100px; color: #29211b;">
+    <p style="font-size: 12px; font-weight: 700; letter-spacing: 0.15em; color: #c19a6b; text-transform: uppercase; margin-bottom: 12px;">${eyebrow}</p>
+    <h1 style="font-size: clamp(32px, 5vw, 48px); line-height: 1.15; margin-bottom: 20px; font-weight: 800;">${heading}</h1>
+    <p style="font-size: 18px; color: #6b7280; line-height: 1.7; max-width: 640px; margin-bottom: 32px;">${intro}</p>
+    <a href="/" style="color: #29211b; font-weight: 600; text-decoration: none;">← Back to Home</a>
+  </div>
+`;
+}
+
+for (const page of PRERENDER_LANDING_PAGES) {
+  console.log(`Pre-rendering ${page.path}...`);
+  const seo = page.pageKey ? PAGE_SEO[page.pageKey] : null;
+  const title = page.title ?? seo?.title;
+  const description = page.description ?? seo?.description;
+
+  const landingPage = prerenderPage({
+    title,
+    description,
+    url: `${SITE_URL}${page.path}`,
+    image: DEFAULT_OG_IMAGE,
+    contentHtml: buildLandingPageHtml(page),
+    jsonLd: page.jsonLd,
+    ogType: 'website',
+  });
+
+  const outputPath = page.path === '/'
+    ? path.join(DIST_DIR, 'index.html')
+    : path.join(DIST_DIR, page.path.slice(1), 'index.html');
+
+  writeFile(outputPath, landingPage);
+  console.log(`✓ ${page.path} pre-rendered.`);
+}
 
   console.log('--- Ziggers SEO Pre-rendering Complete ---');
 } catch (error) {

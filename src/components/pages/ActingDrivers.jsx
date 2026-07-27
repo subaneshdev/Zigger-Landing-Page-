@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, ShieldCheck, CreditCard, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getAppOpenHref, isMobile, openAppOrPlayStore } from '../../lib/appLink';
 
 export default function ActingDrivers() {
-  useEffect(() => {
-    document.title = "Hire Acting Drivers in Chennai | Ziggers";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Hire verified acting drivers in Chennai instantly. Ziggers offers live location tracking, background-checked drivers, and secure escrow payments.');
-    }
-  }, []);
-
   return (
     <div style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh', paddingTop: '120px', paddingBottom: '80px' }}>
       <div className="container" style={{ maxWidth: '1000px' }}>
@@ -42,12 +35,17 @@ export default function ActingDrivers() {
             Hire Acting Drivers in <span style={{ color: 'var(--color-accent)' }}>Chennai</span>
           </h1>
           <p style={{ fontSize: '18px', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto 40px', lineHeight: '1.6' }}>
-            Need a reliable driver for a few hours or a full day? Connect with locally verified acting drivers in Chennai instantly. Focus on your journey while our professionals take the wheel.
+            Need a reliable driver for a few hours or a full day? Hire verified gig workers for driver jobs in Chennai — instant hiring with live tracking and secure payments.
           </p>
           <a 
-            href="/#waitlist" 
+            href={getAppOpenHref()}
+            target={isMobile() ? undefined : '_blank'}
+            rel="noopener noreferrer"
+            onClick={(event) => {
+              if (isMobile()) openAppOrPlayStore(event);
+            }}
             className="btn-primary"
-            style={{ display: 'inline-flex', padding: '16px 32px', fontSize: '16px', borderRadius: '100px', textDecoration: 'none' }}
+            style={{ display: 'inline-flex', padding: '16px 32px', fontSize: '16px', borderRadius: '100px', textDecoration: 'none', background: 'var(--color-gold)', color: 'var(--color-espresso)' }}
           >
             Download the App to Book a Driver
           </a>
@@ -56,7 +54,7 @@ export default function ActingDrivers() {
         {/* Features Section */}
         <div style={{ marginBottom: '60px' }}>
           <h2 style={{ fontSize: '32px', color: 'var(--color-primary)', marginBottom: '40px', textAlign: 'center', fontFamily: 'var(--font-heading)' }}>
-            Why Choose Ziggers for Acting Drivers?
+            Why Choose Ziggers for Driver Jobs?
           </h2>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>

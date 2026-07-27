@@ -1,84 +1,89 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShieldAlert, Award, Globe, Heart } from 'lucide-react';
+import { ShieldAlert, Award, Users, ShieldCheck } from 'lucide-react';
+import { fetchPlatformStats } from '../lib/ziggersData';
 
 export default function TrustSection() {
-  const stats = [
-    { label: "Identity Verified", val: "100%", icon: <ShieldAlert size={24} /> },
-    { label: "Cities Covered", val: "25+", icon: <Globe size={24} /> },
-    { label: "Successful Gigs", val: "150k+", icon: <Award size={24} /> },
-    { label: "Happy Employers", val: "5k+", icon: <Heart size={24} /> },
+  const [stats, setStats] = useState({
+    verifiedWorkers: 2,
+    totalWorkers: 2,
+    totalEmployers: 1,
+    totalCompleted: 0,
+    trustScore: 100,
+  });
+
+  useEffect(() => {
+    fetchPlatformStats()
+      .then(setStats)
+      .catch(() => {});
+  }, []);
+
+  const displayStats = [
+    { label: 'KYC Verified Gig Workers', val: `${stats.verifiedWorkers}`, icon: <ShieldAlert size={22} /> },
+    { label: 'Registered Gig Workers', val: `${stats.totalWorkers}`, icon: <Users size={22} /> },
+    { label: 'Registered Employers', val: `${stats.totalEmployers}`, icon: <Award size={22} /> },
+    { label: 'Gig Jobs Completed', val: `${stats.totalCompleted}`, icon: <ShieldCheck size={22} /> },
   ];
 
   return (
-    <section id="trust" className="section-padding" style={{ backgroundColor: 'var(--color-primary)', color: 'white', overflow: 'hidden' }}>
+    <section id="trust" className="section-padding" style={{ backgroundColor: 'var(--color-espresso)', color: 'white', overflow: 'hidden' }}>
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '80px', alignItems: 'center' }}>
-          
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 style={{ fontSize: '48px', marginBottom: '24px', color: 'white' }}>Trusted by Thousands. <br/><span style={{ color: 'var(--color-secondary)' }}>Secured by Ziggers.</span></h2>
-            <p style={{ fontSize: '18px', color: '#9CA3AF', marginBottom: '40px' }}>
-              We've built a multi-layered trust ecosystem to ensure that every handshake on our platform lead to a successful outcome. Our tech stack is designed to defend against uncertainty.
+        <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '48px', alignItems: 'center' }} className="trust-grid">
+          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <h2 style={{ fontSize: 'clamp(26px, 4vw, 36px)', marginBottom: '16px', color: 'white' }}>
+              100% <span style={{ color: 'var(--color-gold)' }}>Verified Workers.</span>
+            </h2>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.7)', marginBottom: '32px', lineHeight: 1.6 }}>
+              Every gig worker and employer on our workforce marketplace goes through verification. Verified workers, real flexible work — no fakes, no strangers.
             </p>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
-              {stats.map((stat, idx) => (
-                <div key={idx} style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                  <div style={{ color: 'var(--color-secondary)' }}>{stat.icon}</div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+              {displayStats.map((stat, idx) => (
+                <div key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                  <div style={{ color: 'var(--color-gold)' }}>{stat.icon}</div>
                   <div>
-                    <h4 style={{ fontSize: '24px', color: 'white' }}>{stat.val}</h4>
-                    <p style={{ fontSize: '14px', color: '#9CA3AF' }}>{stat.label}</p>
+                    <h4 style={{ fontSize: '22px', color: 'white', marginBottom: '2px' }}>{stat.val}</h4>
+                    <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)' }}>{stat.label}</p>
                   </div>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, rotate: 5, scale: 0.9 }}
-            whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
-            viewport={{ once: true }}
-            style={{ position: 'relative' }}
-          >
-            <div className="glass" style={{ padding: '40px', borderRadius: '40px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,0.1)' }}>
-               {/* A visual representation of a "Trust Score" card */}
-               <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-                  <div style={{ fontSize: '64px', fontWeight: '800', color: 'var(--color-secondary)' }}>98.5</div>
-                  <div style={{ fontSize: '16px', color: '#9CA3AF', fontWeight: '600', letterSpacing: '2px' }}>PLATFORM TRUST INDEX</div>
-               </div>
-               
-               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} style={{ height: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', overflow: 'hidden' }}>
-                      <motion.div 
-                        initial={{ width: '0%' }}
-                        whileInView={{ width: `${80 + i*5}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.5 + i*0.2 }}
-                        style={{ height: '100%', background: 'var(--color-secondary)', opacity: 0.6 + i*0.1 }}
-                      />
-                    </div>
-                  ))}
-               </div>
-               
-               <div style={{ marginTop: '40px', display: 'flex', justifyContent: 'center' }}>
-                  <div style={{ padding: '12px 24px', borderRadius: '100px', background: 'rgba(255,255,255,0.05)', fontSize: '12px', fontWeight: '700', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    POW PROTOCOL ACTIVE
+          <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
+            <div style={{ padding: '32px', borderRadius: '24px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(196,160,82,0.2)' }}>
+              <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+                <div style={{ fontSize: '48px', fontWeight: 800, color: 'var(--color-gold)' }}>{stats.trustScore}</div>
+                <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase' }}>
+                  Average Trust Score
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {['Identity verification', 'Bank audit', 'Live GPS tracking'].map((label, i) => (
+                  <div key={label} style={{ height: '10px', background: 'rgba(255,255,255,0.06)', borderRadius: '6px', overflow: 'hidden' }}>
+                    <motion.div
+                      initial={{ width: '0%' }}
+                      whileInView={{ width: `${85 + i * 5}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.2 + i * 0.15 }}
+                      style={{ height: '100%', background: 'var(--color-gold)', opacity: 0.7 + i * 0.1 }}
+                    />
                   </div>
-               </div>
+                ))}
+              </div>
+
+              <p style={{ marginTop: '24px', textAlign: 'center', fontSize: '12px', fontWeight: 700, letterSpacing: '1px', color: 'var(--color-gold)', textTransform: 'uppercase' }}>
+                Safety first — always
+              </p>
             </div>
           </motion.div>
-
         </div>
       </div>
-      
+
       <style>{`
-        @media (max-width: 992px) {
-          .section-padding > .container > div { grid-template-columns: 1fr !important; gap: 60px !important; }
+        @media (max-width: 900px) {
+          .trust-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
         }
       `}</style>
     </section>

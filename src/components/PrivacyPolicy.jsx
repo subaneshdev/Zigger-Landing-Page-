@@ -195,7 +195,7 @@ export default function PrivacyPolicy() {
                 borderLeft: '4px solid var(--color-accent)',
                 color: '#595959' 
               }}>
-                <strong>Ziggers</strong> is a mobile platform that connects employers with local gig workers for short-term, on-ground work opportunities across India. Our platform enables structured job posting, worker discovery, GPS-based attendance tracking, proof-of-work submission, and protected payment processing — all designed to bring transparency and trust to informal short-term employment.
+                <strong>Ziggers</strong> is an AI-powered gig marketplace that connects employers with local gig workers for part-time jobs, temporary jobs, and daily wage jobs across India. Our workforce marketplace enables structured job posting, worker discovery, GPS-based attendance tracking, proof-of-work submission, and protected payment processing.
                 <br/><br/>
                 As part of delivering these services, we collect and process certain personal information from both employers and gig workers, including identity details, location data, payment information, and work history. We are committed to handling this information responsibly, transparently, and in accordance with applicable Indian data protection laws.
                 <br/><br/>
@@ -212,7 +212,7 @@ export default function PrivacyPolicy() {
                   <li><strong>Performance ratings</strong> — builds a reputation layer over time, giving top workers access to better gigs and higher pay</li>
                 </ul>
                 <br/>
-                <strong>The bigger vision</strong> is to become the credentialing and operating system for India's on-ground informal workforce — turning gig work from a fallback into a legitimate career path.
+                <strong>The bigger vision</strong> is to become India's leading workforce marketplace and talent marketplace — turning flexible work and gig jobs from a fallback into a legitimate career path.
                 It's essentially <strong>Uber meets Upwork, built specifically for India's blue-collar daily-wage market</strong>, currently being developed out of Chennai by a student team under the collective Unfounded.in.
               </div>
             </li>

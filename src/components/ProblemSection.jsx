@@ -4,14 +4,14 @@ import { MessageSquare, PhoneOff, AlertTriangle, CheckCircle2, Navigation, Shiel
 
 export default function ProblemSection() {
   const painPoints = [
-    { icon: <MessageSquare size={20} />, text: "Spamming 20 WhatsApp groups to recruit 10 gig workers" },
-    { icon: <PhoneOff size={20} />, text: "Coordinators calling workers on repeat, only to get ghosted" },
+    { icon: <MessageSquare size={20} />, text: "Spamming 20 WhatsApp groups to recruit 10 gig workers for event staffing" },
+    { icon: <PhoneOff size={20} />, text: "Coordinators calling gig workers on repeat, only to get ghosted on last-minute hiring" },
     { icon: <AlertTriangle size={20} />, text: "Zero physical evidence. Did they actually show up?" },
     { icon: <AlertTriangle size={20} />, text: "Frequent payment disputes and manual cash handshakes" },
   ];
 
   const solutions = [
-    { icon: <Navigation size={20} />, text: "KYC-verified workers matched in 10 minutes" },
+    { icon: <Navigation size={20} />, text: "KYC-verified gig workers matched in 10 minutes with AI job matching" },
     { icon: <ShieldCheck size={20} />, text: "Live GPS coordinates showing exact operational footprint" },
     { icon: <ClipboardCheck size={20} />, text: "Mandatory photo uploads during execution milestones" },
     { icon: <CheckCircle2 size={20} />, text: "Funds locked in secure escrow until you approve the proof" },
@@ -27,9 +27,9 @@ export default function ProblemSection() {
           transition={{ duration: 0.8 }}
           style={{ textAlign: 'center', marginBottom: '80px' }}
         >
-          <h2 style={{ fontSize: '48px', marginBottom: '20px' }}>Staff didn't show up? <span style={{ color: '#D97706' }}>Stop the Chaos.</span></h2>
+          <h2 style={{ fontSize: '48px', marginBottom: '20px' }}>Event staffing no-show? <span style={{ color: '#D97706' }}>Stop the Chaos.</span></h2>
           <p style={{ fontSize: '18px', color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', lineHeight: 1.5 }}>
-            Managing a physical promotional campaign, logistics run, or event shouldn't feel like a gamble. We replace endless WhatsApp groups and last-minute ghosting with single-tap operational peace.
+            Managing event staffing, promotional campaigns, or last-minute hiring shouldn't feel like a gamble. Replace endless WhatsApp groups with instant on-demand staffing.
           </p>
         </motion.div>
 
@@ -78,7 +78,7 @@ export default function ProblemSection() {
               ))}
             </div>
             <div style={{ marginTop: '40px', padding: '20px', borderRadius: '16px', backgroundColor: 'rgba(255,255,255,0.05)', color: 'var(--color-secondary)', fontSize: '14px', fontWeight: '600' }}>
-              \"Attendance verified automatically. Backup staff activated nearby as safety net.\"
+              \"Attendance verified automatically. Backup temporary staff activated nearby as safety net.\"
             </div>
           </motion.div>
 

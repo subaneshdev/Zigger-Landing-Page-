@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { applyRouteSEO } from './lib/seo';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
@@ -12,14 +13,23 @@ import TrustSection from './components/TrustSection';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
-import BlogSection from './components/BlogSection';
 import Blog from './components/Blog';
 import ActingDrivers from './components/pages/ActingDrivers';
 import CateringStaff from './components/pages/CateringStaff';
 import BrandPromoters from './components/pages/BrandPromoters';
+import Work from './components/pages/Work';
+import Hire from './components/pages/Hire';
+import IntentLandingPage from './components/pages/IntentLandingPage';
+import { ALL_INTENT_PAGES } from './constants/seoPages';
+
+const pageMotion = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.4 },
+};
 
 function Home() {
-  const navigate = useNavigate();
   return (
     <main>
       <Hero />
@@ -28,7 +38,6 @@ function Home() {
       <WorkflowSwitcher />
       <AppShowcaseSection />
       <Features />
-      <BlogSection onNavigateToBlog={(postId) => postId ? navigate(`/blog/${postId}`) : navigate('/blog')} />
       <TrustSection />
     </main>
   );
@@ -38,12 +47,22 @@ function BlogRoute() {
   const navigate = useNavigate();
   const { id } = useParams();
   return (
-    <Blog 
-      activePostId={id || null} 
-      setActivePostId={(newId) => newId ? navigate(`/blog/${newId}`) : navigate('/blog')} 
-      onBackToHome={() => navigate('/')} 
+    <Blog
+      activePostId={id || null}
+      setActivePostId={(newId) => newId ? navigate(`/blog/${newId}`) : navigate('/blog')}
+      onBackToHome={() => navigate('/')}
     />
   );
+}
+
+function RouteSEO() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    applyRouteSEO(pathname);
+  }, [pathname]);
+
+  return null;
 }
 
 function AppContent() {
@@ -51,6 +70,7 @@ function AppContent() {
 
   return (
     <div className="app-wrapper">
+      <RouteSEO />
       <Navigation />
       
       <AnimatePresence mode="wait">
@@ -67,6 +87,18 @@ function AppContent() {
             </motion.div>
           } />
           
+          <Route path="/work" element={
+            <motion.div key="work" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
+              <Work />
+            </motion.div>
+          } />
+
+          <Route path="/hire" element={
+            <motion.div key="hire" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
+              <Hire />
+            </motion.div>
+          } />
+
           {/* Acting Drivers SEO Page */}
           <Route path="/hire-acting-drivers-chennai" element={
             <motion.div
@@ -153,6 +185,18 @@ function AppContent() {
               <BlogRoute />
             </motion.div>
           } />
+
+          {ALL_INTENT_PAGES.map((page) => (
+            <Route
+              key={page.path}
+              path={page.path}
+              element={
+                <motion.div key={page.path} {...pageMotion}>
+                  <IntentLandingPage page={page} />
+                </motion.div>
+              }
+            />
+          ))}
         </Routes>
       </AnimatePresence>
       

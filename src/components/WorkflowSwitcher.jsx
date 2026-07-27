@@ -7,13 +7,13 @@ export default function WorkflowSwitcher() {
 
   const employerSteps = [
     { title: "Post & Fund Escrow", desc: "Define task locations, pay rates, and lock funds securely in our escrow vault.", icon: <Briefcase /> },
-    { title: "Auto-Match", desc: "Smart systems link verified workers nearby. Backfills activated automatically.", icon: <Smartphone /> },
+    { title: "AI Job Matching", desc: "Smart matching links verified gig workers nearby. Automatic backfill for on-demand staffing.", icon: <Smartphone /> },
     { title: "Watch Live Maps", desc: "Follow live GPS coordinates as workers check-in and execute tasks.", icon: <MapPin /> },
     { title: "Approve & Release", desc: "Review geofenced milestone photographs and unlock funds instantly.", icon: <CheckCircle /> },
   ];
 
   const workerSteps = [
-    { title: "Claim Tasks", desc: "Browse and claim verified, high-payout on-ground work in your area.", icon: <User /> },
+    { title: "Find Nearby Jobs", desc: "Browse and claim verified gig jobs — part-time jobs, daily wage jobs, and flexible work in your area.", icon: <User /> },
     { title: "Coordinate Check-In", desc: "Verify arrival via GPS coordinate enclaves and photo-checks.", icon: <MapPin /> },
     { title: "Snap Proofs", desc: "Upload live photos directly inside the app at key milestones.", icon: <Camera /> },
     { title: "Instant UPI Payout", desc: "Get credited directly to your bank account via secure token handshake.", icon: <CheckCircle /> },

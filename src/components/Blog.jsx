@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Search, Calendar, Clock, User, Share2, Twitter, Linkedin, Link2, Check, ArrowRight, Table } from 'lucide-react';
 import { BLOG_POSTS } from '../data/blogPosts';
@@ -60,26 +60,6 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
   const categories = ['All', 'Staffing', 'Operations', 'Business'];
 
   const currentPost = BLOG_POSTS.find(post => post.id === activePostId);
-
-  // Dynamic SEO Injection
-  useEffect(() => {
-    if (activePostId) {
-      const post = BLOG_POSTS.find(p => p.id === activePostId);
-      if (post) {
-        document.title = `${post.title} | Ziggers`;
-        let metaDesc = document.querySelector('meta[name="description"]');
-        if (metaDesc) {
-          metaDesc.setAttribute('content', post.seoDescription);
-        }
-      }
-    } else {
-      document.title = "ZIGGERS | The Operating System for On-Ground Gig Work";
-      let metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', "Hire nearby workers with live tracking, proof of work, and secure escrow payments. Turn informal hiring into structured execution.");
-      }
-    }
-  }, [activePostId]);
 
   // Filter posts
   const filteredPosts = BLOG_POSTS.filter(post => {

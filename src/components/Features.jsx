@@ -6,44 +6,44 @@ export default function Features() {
   const features = [
     {
       title: "Live GPS Footprints",
-      desc: "No more 'I am just 5 minutes away' texts. Watch your matched workforce check-in and operate on an interactive live map.",
+      desc: "Track your local workforce on an interactive live map. Real-time workforce management for on-demand staffing and event staffing.",
       icon: <Map />,
-      color: "#E0F2FE", // Blue tint
+      color: "#F6F1EB",
       size: "large"
     },
     {
       title: "Secure Escrows",
       desc: "Lock funds safely. Payments are only released to the worker once you approve the completed task proof.",
       icon: <Shield />,
-      color: "#FEF3C7", // Amber tint
+      color: "#EDE8DF",
       size: "small"
     },
     {
       title: "Proof of Work",
       desc: "Anti-tamper, geofenced milestone photographs uploaded by workers on the spot. Verifiable truth in seconds.",
       icon: <Camera />,
-      color: "#DCFCE7", // Green tint
+      color: "#F6F1EB",
       size: "small"
     },
     {
-      title: "KYC Verified",
-      desc: "Every Zigger undergoes biometric Aadhaar verification, address checks, and bank-account audits before matching.",
+      title: "KYC Verified Workers",
+      desc: "Every gig worker undergoes biometric Aadhaar verification, address checks, and bank-account audits before AI job matching.",
       icon: <Users />,
-      color: "#F3E8FF", // Purple tint
+      color: "#EDE8DF",
       size: "small"
     },
     {
-      title: "Match Engine",
-      desc: "Our automated dispatch instantly links your tasks with workers based on distance, category history, and trust rank.",
+      title: "AI Match Engine",
+      desc: "Smart matching instantly links your gig jobs with verified gig workers based on distance, category history, and trust rank.",
       icon: <Target />,
-      color: "#FFEDD5", // Orange tint
+      color: "#F6F1EB",
       size: "small"
     },
     {
       title: "10-Min Backfill Safety Net",
       desc: "If a worker falls sick or defaults, our smart ecosystem automatically dispatches a trained backup nearby. Your ground operations never stop.",
       icon: <Zap />,
-      color: "#F1F5F9", // Slate tint
+      color: "#EDE8DF",
       size: "large"
     }
   ];
@@ -55,11 +55,11 @@ export default function Features() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '80px' }}
+          style={{ textAlign: 'center', marginBottom: '40px' }}
         >
-          <h2 style={{ fontSize: '48px', marginBottom: '20px' }}>Built for <span style={{ color: 'var(--color-secondary)' }}>Reliability</span>.</h2>
-          <p style={{ fontSize: '18px', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto' }}>
-            We've integrated every tool needed to ensure your on-ground execution is flawless and stress-free.
+          <h2 style={{ fontSize: 'clamp(26px, 4vw, 36px)', marginBottom: '12px' }}>Built for <span style={{ color: 'var(--color-gold)' }}>Temporary Staffing</span>.</h2>
+          <p style={{ fontSize: '16px', color: 'var(--color-text-muted)', maxWidth: '560px', margin: '0 auto' }}>
+            India's instant staffing platform with AI hiring, verified workers, and workforce automation for flawless on-ground execution.
           </p>
         </motion.div>
 
@@ -74,8 +74,8 @@ export default function Features() {
               className={`feature-card ${feature.size}`}
               style={{
                 backgroundColor: feature.color,
-                padding: '40px',
-                borderRadius: '32px',
+                padding: '28px',
+                borderRadius: '20px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -100,8 +100,8 @@ export default function Features() {
                 }}>
                   {React.cloneElement(feature.icon, { size: 28 })}
                 </div>
-                <h3 style={{ fontSize: '24px', marginBottom: '16px' }}>{feature.title}</h3>
-                <p style={{ color: 'var(--color-text-muted)', fontSize: '16px', lineHeight: '1.6' }}>{feature.desc}</p>
+                <h3 style={{ fontSize: '18px', marginBottom: '10px' }}>{feature.title}</h3>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '14px', lineHeight: '1.55' }}>{feature.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -112,8 +112,8 @@ export default function Features() {
         .features-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          grid-auto-rows: 320px;
-          gap: 24px;
+          grid-auto-rows: 260px;
+          gap: 16px;
         }
         .feature-card.large {
           grid-column: span 2;
