@@ -166,7 +166,7 @@ export default function Footer() {
             <div style={{ marginTop: '16px' }}>
               <img 
                 src="/assets/mascot_winking.jpg" 
-                alt="Ziggers Mascot Bee" 
+                alt="Ziggers Mascot Winking Bee - On-Demand Staffing Companion" 
                 style={{ 
                   height: '110px', 
                   width: 'auto',
@@ -197,7 +197,7 @@ export default function Footer() {
             <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
-                alt="Download on App Store" 
+                alt="Download Ziggers App on Apple App Store for iOS Gigs & Hiring" 
                 style={{ height: '42px', borderRadius: '6px' }}
               />
             </a>
@@ -205,7 +205,7 @@ export default function Footer() {
             <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
-                alt="Get it on Google Play" 
+                alt="Get Ziggers App on Google Play Store for Android Gig Jobs" 
                 style={{ height: '42px', borderRadius: '6px' }}
               />
             </a>

@@ -154,6 +154,8 @@ export default function Home() {
               <Link
                 key={item.title}
                 href={item.href}
+                aria-label={`${item.title} - ${item.count}`}
+                title={`${item.title} - ${item.count}`}
                 style={{
                   position: 'relative',
                   height: '320px',
@@ -307,7 +309,7 @@ export default function Home() {
             }}>
               <img 
                 src="/assets/screen-hire-talent.png" 
-                alt="Ziggers App Interface" 
+                alt="Ziggers On-Demand Gig Staffing App Interface - Hire Catering Workers, Drivers & Delivery Partners" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
             </div>
