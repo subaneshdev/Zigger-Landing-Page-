@@ -4,6 +4,7 @@ import '../index.css';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import MobileStickyCTA from '../components/MobileStickyCTA';
+import FirebaseInit from '../components/FirebaseInit';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -83,6 +84,8 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-295EB79EJJ');
           `}
         </Script>
+
+        <FirebaseInit />
 
         <div className="app-wrapper">
           <Navigation />
