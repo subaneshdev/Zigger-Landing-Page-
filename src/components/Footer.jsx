@@ -163,6 +163,18 @@ export default function Footer() {
               <a href="https://www.instagram.com/ziggers.in?igsh=MXIwcXdqcWs0Z3gx" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}><Instagram size={20} /></a>
               <a href="https://www.facebook.com/share/1MVoXCTfP7/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}><Facebook size={20} /></a>
             </div>
+            <div style={{ marginTop: '16px' }}>
+              <img 
+                src="/assets/mascot_winking.jpg" 
+                alt="Ziggers Mascot Bee" 
+                style={{ 
+                  height: '110px', 
+                  width: 'auto',
+                  mixBlendMode: 'multiply',
+                  display: 'block'
+                }} 
+              />
+            </div>
           </div>
 
         </div>
