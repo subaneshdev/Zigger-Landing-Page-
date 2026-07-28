@@ -1,4 +1,5 @@
 import { Poppins } from 'next/font/google';
+import Script from 'next/script';
 import '../index.css';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
@@ -69,6 +70,20 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-295EB79EJJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-295EB79EJJ');
+          `}
+        </Script>
+
         <div className="app-wrapper">
           <Navigation />
           {children}
