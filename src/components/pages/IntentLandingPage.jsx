@@ -1,7 +1,8 @@
+"use client";
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, ShieldCheck, Zap, Wallet } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { getAppOpenHref, isMobile, openAppOrPlayStore } from '../../lib/appLink';
 
 const featureIcons = [ShieldCheck, Zap, Wallet];
@@ -16,7 +17,7 @@ export default function IntentLandingPage({ page }) {
           aria-label="Breadcrumb"
           style={{ marginBottom: '40px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: 'var(--color-text-muted)', flexWrap: 'wrap' }}
         >
-          <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
+          <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
           <ChevronRight size={14} aria-hidden="true" />
           <span style={{ color: 'var(--color-primary)', fontWeight: '600' }}>{page.h1}</span>
         </nav>
@@ -52,11 +53,11 @@ export default function IntentLandingPage({ page }) {
             {page.intro}
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to={page.workLink} className="btn-primary" style={{ display: 'inline-flex', padding: '14px 28px', borderRadius: '100px', textDecoration: 'none' }}>
+            <Link href={page.workLink} className="btn-primary" style={{ display: 'inline-flex', padding: '14px 28px', borderRadius: '100px', textDecoration: 'none' }}>
               Find Jobs
             </Link>
             <Link
-              to={page.hireLink}
+              href={page.hireLink}
               style={{
                 display: 'inline-flex',
                 padding: '14px 28px',
@@ -166,7 +167,7 @@ export default function IntentLandingPage({ page }) {
               {page.relatedLinks.map((link) => (
                 <Link
                   key={link.path}
-                  to={link.path}
+                  href={link.path}
                   style={{
                     padding: '10px 16px',
                     borderRadius: '100px',

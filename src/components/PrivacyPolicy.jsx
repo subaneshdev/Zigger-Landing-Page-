@@ -1,6 +1,7 @@
+"use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { 
   ArrowLeft, 
   Shield, 
@@ -98,7 +99,7 @@ export default function PrivacyPolicy() {
       <div className="container" style={{ maxWidth: '800px' }}>
         
         {/* Back Button */}
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <Link href="/" style={{ textDecoration: 'none' }}>
           <motion.div 
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}

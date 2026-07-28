@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export default function TermsOfService() {
   return (
@@ -65,7 +65,7 @@ export default function TermsOfService() {
       <div className="container" style={{ maxWidth: '800px' }}>
         
         {/* Back Button */}
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <Link href="/" style={{ textDecoration: 'none' }}>
           <div 
             className="btn-secondary"
             style={{ 

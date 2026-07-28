@@ -1,16 +1,18 @@
+"use client";
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import PlayStoreButton from './PlayStoreButton';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { getSectionIdFromHref, scrollToSection } from '../lib/scrollToSection';
+import { getAppOpenHref, isMobile, openAppOrPlayStore } from '../lib/appLink';
+import { Linkedin, Instagram, Facebook, Twitter } from 'lucide-react';
 
 function SectionLink({ to, children, style }) {
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
   const sectionId = getSectionIdFromHref(to);
 
   if (!sectionId) {
-    return <Link to={to} style={style}>{children}</Link>;
+    return <Link href={to} style={style}>{children}</Link>;
   }
 
   return (
@@ -19,8 +21,9 @@ function SectionLink({ to, children, style }) {
       style={style}
       onClick={(e) => {
         e.preventDefault();
-        if (location.pathname !== '/') {
-          navigate('/', { state: { scrollTo: sectionId } });
+        if (pathname !== '/') {
+          localStorage.setItem('scrollToSection', sectionId);
+          router.push('/');
         } else {
           window.history.pushState(null, '', to);
           scrollToSection(sectionId);
@@ -33,92 +36,170 @@ function SectionLink({ to, children, style }) {
 }
 
 export default function Footer() {
+  const router = useRouter();
+  
+  const handleDownloadClick = (e) => {
+    if (isMobile()) {
+      openAppOrPlayStore(e);
+    } else {
+      window.open(getAppOpenHref(), '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const cities = [
+    { name: 'Bangalore', href: '/jobs-in-bangalore' },
+    { name: 'Chennai', href: '/jobs-in-chennai' },
+    { name: 'Hyderabad', href: '/jobs-in-hyderabad' },
+    { name: 'Delhi', href: '/jobs-in-delhi' },
+    { name: 'Mumbai', href: '/jobs-in-mumbai' },
+    { name: 'Pune', href: '/jobs-in-pune' },
+  ];
+
   return (
-    <footer style={{ backgroundColor: 'var(--color-linen)', paddingTop: '64px', paddingBottom: '32px' }}>
+    <footer style={{ backgroundColor: '#f0f0f5', color: '#02060c', paddingTop: '64px', paddingBottom: '48px', fontFamily: 'var(--font-body)' }}>
       <div className="container">
-        <div
-          style={{
-            backgroundColor: 'var(--color-espresso)',
-            borderRadius: '24px',
-            padding: '48px 32px',
-            textAlign: 'center',
-            marginBottom: '64px',
-            color: 'white',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
-        >
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', marginBottom: '12px', color: 'white' }}>
-              Ziggers is <span style={{ color: 'var(--color-gold)' }}>live</span>
-            </h2>
-            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.75)', marginBottom: '28px', maxWidth: '480px', margin: '0 auto 28px' }}>
-              Download the staffing app to post gig jobs, find flexible work, track shifts, and get paid securely.
+        
+        {/* Swiggy-like Multi-column Grid */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: '1.2fr 1fr 1fr 1fr 1.2fr', 
+          gap: '40px', 
+          marginBottom: '56px' 
+        }} className="footer-grid">
+          
+          {/* Logo & Copyright */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+              <div
+                style={{
+                  width: '32px',
+                  height: '32px',
+                  backgroundColor: 'var(--color-espresso)',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#fff',
+                  fontWeight: 800,
+                  fontSize: '16px',
+                }}
+              >
+                Z
+              </div>
+              <span style={{ fontSize: '22px', fontWeight: 900, letterSpacing: '-0.02em', color: 'var(--color-espresso)' }}>Ziggers</span>
+            </div>
+            <p style={{ color: '#686b78', fontSize: '15px', marginBottom: '8px' }}>
+              © {new Date().getFullYear()} Ziggers Limited
             </p>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <PlayStoreButton label="Get it on Google Play" size="lg" />
-            </div>
-          </motion.div>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr 1fr 1fr', gap: '28px', marginBottom: '48px' }} className="footer-grid">
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-              <div style={{ width: '28px', height: '28px', backgroundColor: 'var(--color-espresso)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: '13px' }}>Z</div>
-              <span style={{ fontSize: '18px', fontWeight: 800 }}>Ziggers</span>
-            </div>
-            <p style={{ color: 'var(--color-muted)', fontSize: '14px', lineHeight: 1.6 }}>
-              India's AI-powered gig marketplace for flexible work. Hire temporary staff or find part-time and daily wage jobs — reliable, tracked, and secure.
+            <p style={{ fontSize: '13px', color: '#686b78' }}>
+              An <a href="https://www.unfounded.in/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-gold)', textDecoration: 'none', fontWeight: 'bold' }}>Unfounded</a> Company
             </p>
           </div>
 
+          {/* Company */}
           <div>
-            <h4 style={{ marginBottom: '16px', fontSize: '15px' }}>Product</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: 'var(--color-muted)' }}>
-              <Link to="/hire">Hire Gig Workers</Link>
-              <Link to="/work">Find Part-time Jobs</Link>
-              <SectionLink to="/#features">Features</SectionLink>
-              <SectionLink to="/#trust">Trust & Safety</SectionLink>
+            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginBottom: '20px' }}>Company</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px' }}>
+              <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>About Us</SectionLink>
+              <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>Ziggers Corporate</SectionLink>
+              <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>Careers</SectionLink>
+              <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>Team</SectionLink>
             </div>
           </div>
 
+          {/* Contact us */}
           <div>
-            <h4 style={{ marginBottom: '16px', fontSize: '15px' }}>Job Categories</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: 'var(--color-muted)' }}>
-              <Link to="/catering-jobs">Catering Jobs</Link>
-              <Link to="/waiter-jobs">Waiter Jobs</Link>
-              <Link to="/driver-jobs">Driver Jobs</Link>
-              <Link to="/delivery-jobs">Delivery Jobs</Link>
-              <Link to="/event-staff">Event Staff</Link>
-              <Link to="/student-part-time-jobs">Student Part-time Jobs</Link>
+            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginBottom: '20px' }}>Contact us</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px' }}>
+              <a href="mailto:hello@unfounded.in" style={{ color: '#686b78', textDecoration: 'none' }}>Help & Support</a>
+              <Link href="/work" style={{ color: '#686b78', textDecoration: 'none' }}>Partner With Us</Link>
+              <Link href="/hire" style={{ color: '#686b78', textDecoration: 'none' }}>Ride With Us</Link>
+            </div>
+
+            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginTop: '36px', marginBottom: '20px' }}>Legal</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px' }}>
+              <Link href="/terms" style={{ color: '#686b78', textDecoration: 'none' }}>Terms & Conditions</Link>
+              <Link href="/privacy" style={{ color: '#686b78', textDecoration: 'none' }}>Cookie Policy</Link>
+              <Link href="/privacy" style={{ color: '#686b78', textDecoration: 'none' }}>Privacy Policy</Link>
             </div>
           </div>
 
+          {/* Available in: */}
           <div>
-            <h4 style={{ marginBottom: '16px', fontSize: '15px' }}>Jobs by City</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: 'var(--color-muted)' }}>
-              <Link to="/jobs-in-chennai">Jobs in Chennai</Link>
-              <Link to="/jobs-in-bangalore">Jobs in Bangalore</Link>
-              <Link to="/jobs-in-hyderabad">Jobs in Hyderabad</Link>
-              <Link to="/jobs-in-mumbai">Jobs in Mumbai</Link>
-              <Link to="/catering-jobs-chennai">Catering Jobs in Chennai</Link>
+            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginBottom: '20px' }}>Available in:</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px' }}>
+              {cities.map((city) => (
+                <Link key={city.name} href={city.href} style={{ color: '#686b78', textDecoration: 'none' }}>
+                  {city.name}
+                </Link>
+              ))}
+              
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '6px 12px',
+                border: '1.5px solid #d3d3d3',
+                borderRadius: '8px',
+                fontSize: '13px',
+                color: '#686b78',
+                fontWeight: 700,
+                width: 'fit-content',
+                cursor: 'pointer',
+                marginTop: '8px'
+              }}
+              onClick={() => router.push('/work')}
+              >
+                8 cities <span style={{ marginLeft: '6px', fontSize: '10px' }}>▼</span>
+              </div>
             </div>
           </div>
 
+          {/* Social Links */}
           <div>
-            <h4 style={{ marginBottom: '16px', fontSize: '15px' }}>Company</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: 'var(--color-muted)' }}>
-              <Link to="/">About</Link>
-              <Link to="/privacy">Privacy</Link>
-              <Link to="/terms">Terms</Link>
+            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginBottom: '20px' }}>Social Links</h4>
+            <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', color: '#02060c' }}>
+              <a href="https://www.linkedin.com/company/ziggers" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}><Linkedin size={20} /></a>
+              <a href="https://www.instagram.com/ziggers.in?igsh=MXIwcXdqcWs0Z3gx" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}><Instagram size={20} /></a>
+              <a href="https://www.facebook.com/share/1MVoXCTfP7/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}><Facebook size={20} /></a>
             </div>
+          </div>
+
+        </div>
+
+        {/* Bottom Download Banner */}
+        <div style={{ 
+          borderTop: '1px solid rgba(0, 0, 0, 0.1)', 
+          paddingTop: '36px', 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center', 
+          flexWrap: 'wrap', 
+          gap: '24px' 
+        }}>
+          <p style={{ fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: '#02060c', letterSpacing: '-0.02em' }}>
+            For better experience, download the Ziggers app now
+          </p>
+          <div style={{ display: 'flex', gap: '14px' }}>
+            {/* App Store badge */}
+            <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
+                alt="Download on App Store" 
+                style={{ height: '42px', borderRadius: '6px' }}
+              />
+            </a>
+            {/* Play Store badge */}
+            <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                alt="Get it on Google Play" 
+                style={{ height: '42px', borderRadius: '6px' }}
+              />
+            </a>
           </div>
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(61,43,31,0.1)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-          <p style={{ fontSize: '13px', color: 'var(--color-muted)' }}>© {new Date().getFullYear()} Ziggers. All rights reserved.</p>
-          <p style={{ fontSize: '12px', color: 'var(--color-muted)' }}>hello@unfounded.in · Chennai Gig Jobs · India Gig Platform</p>
-        </div>
       </div>
 
       <style>{`

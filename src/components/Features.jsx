@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Map, Shield, Camera, Users, Target, Zap } from 'lucide-react';

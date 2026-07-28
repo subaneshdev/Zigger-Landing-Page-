@@ -1,7 +1,9 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, Home, Briefcase, Star, ShieldCheck } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import PlayStoreButton from './PlayStoreButton';
 import { getSectionIdFromHref, scrollToSection } from '../lib/scrollToSection';
 
@@ -9,23 +11,31 @@ export default function Navigation() {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
-    if (location.pathname !== '/') return undefined;
+    if (pathname !== '/') return undefined;
 
-    const sectionId = location.state?.scrollTo || (location.hash ? location.hash.slice(1) : null);
-    if (!sectionId) {
-      if (!location.hash) {
+    const storedSection = typeof window !== 'undefined' ? localStorage.getItem('scrollToSection') : null;
+    if (storedSection) {
+      localStorage.removeItem('scrollToSection');
+      const timer = setTimeout(() => scrollToSection(storedSection), 150);
+      return () => clearTimeout(timer);
+    }
+
+    const hash = typeof window !== 'undefined' ? window.location.hash : '';
+    if (!hash) {
+      if (typeof window !== 'undefined' && !window.location.hash) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
       return undefined;
     }
 
+    const sectionId = hash.slice(1);
     const timer = setTimeout(() => scrollToSection(sectionId), 150);
     return () => clearTimeout(timer);
-  }, [location.pathname, location.hash, location.state?.scrollTo]);
+  }, [pathname]);
 
   useMotionValueEvent(scrollYProgress, 'change', () => {
     const current = scrollYProgress.get();
@@ -53,8 +63,9 @@ export default function Navigation() {
     const sectionId = getSectionIdFromHref(href);
     if (!sectionId) return;
 
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: sectionId } });
+    if (pathname !== '/') {
+      localStorage.setItem('scrollToSection', sectionId);
+      router.push('/');
       return;
     }
 
@@ -72,7 +83,7 @@ export default function Navigation() {
       return;
     }
 
-    navigate(href);
+    router.push(href);
   };
 
   return (
@@ -86,10 +97,10 @@ export default function Navigation() {
         >
           <div className="container site-header-inner">
             <Link
-              to="/"
+              href="/"
               onClick={(e) => {
                 e.preventDefault();
-                navigate('/');
+                router.push('/');
                 window.scrollTo(0, 0);
               }}
               style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', flexShrink: 0 }}
@@ -125,7 +136,7 @@ export default function Navigation() {
                     gap: '6px',
                     fontSize: '14px',
                     fontWeight: 600,
-                    color: location.pathname === item.href ? 'var(--color-espresso)' : 'var(--color-muted)',
+                    color: pathname === item.href ? 'var(--color-espresso)' : 'var(--color-muted)',
                   }}
                 >
                   {item.icon}
@@ -149,6 +160,7 @@ export default function Navigation() {
                   color: 'var(--color-espresso)',
                   display: 'flex',
                   padding: '8px',
+                  cursor: 'pointer'
                 }}
               >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}

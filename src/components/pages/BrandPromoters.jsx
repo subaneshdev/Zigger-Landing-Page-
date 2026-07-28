@@ -1,7 +1,8 @@
+"use client";
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Megaphone, Users, MapPin, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { getAppOpenHref, isMobile, openAppOrPlayStore } from '../../lib/appLink';
 
 export default function BrandPromoters() {
@@ -11,7 +12,7 @@ export default function BrandPromoters() {
         
         {/* Breadcrumb */}
         <div style={{ marginBottom: '40px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-          <Link to="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-primary)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Home</Link>
+          <Link href="/" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = 'var(--color-primary)'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Home</Link>
           <ChevronRight size={14} />
           <span style={{ color: 'var(--color-primary)', fontWeight: '600' }}>Hire Brand Promoters in Chennai</span>
         </div>

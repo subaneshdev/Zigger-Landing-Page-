@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Wallet, Navigation, Eye } from 'lucide-react';

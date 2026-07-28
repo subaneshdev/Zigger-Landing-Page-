@@ -1,7 +1,12 @@
+"use client";
 import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Navigation, Loader2, Search } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { geocodeLocation, getCurrentPosition, searchLocationSuggestions } from '../lib/geo';
-import LocationMapPicker from './LocationMapPicker';
+
+const LocationMapPicker = dynamic(() => import('./LocationMapPicker'), {
+  ssr: false,
+});
 
 export default function LocationSearchInput({
   value,

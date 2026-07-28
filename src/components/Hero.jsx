@@ -1,216 +1,338 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Smartphone } from 'lucide-react';
-import { gsap } from 'gsap';
-import PlayStoreButton from './PlayStoreButton';
-import { fetchPlatformStats } from '../lib/ziggersData';
+"use client";
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Search, MapPin, ArrowRight } from 'lucide-react';
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, -40]);
-  const y2 = useTransform(scrollY, [0, 500], [0, 25]);
+  const router = useRouter();
+  const [city, setCity] = useState('chennai');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const badgeRef = useRef(null);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
-  const phoneRef = useRef(null);
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/work?query=${encodeURIComponent(searchQuery)}&city=${city}`);
+    } else {
+      router.push(`/work?city=${city}`);
+    }
+  };
 
-  const [stats, setStats] = useState({ totalWorkers: 2, totalPosted: 0 });
-
-  useEffect(() => {
-    fetchPlatformStats()
-      .then(setStats)
-      .catch(() => {});
-  }, []);
-
-  useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    tl.fromTo(badgeRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 })
-      .fromTo(titleRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, '-=0.5')
-      .fromTo(subtitleRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.6')
-      .fromTo(phoneRef.current, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 1 }, '-=0.5');
-  }, []);
+  const citiesList = [
+    { slug: 'chennai', name: 'Chennai' },
+    { slug: 'bangalore', name: 'Bangalore' },
+    { slug: 'hyderabad', name: 'Hyderabad' },
+    { slug: 'mumbai', name: 'Mumbai' },
+    { slug: 'delhi', name: 'Delhi' },
+    { slug: 'coimbatore', name: 'Coimbatore' },
+    { slug: 'pune', name: 'Pune' },
+    { slug: 'madurai', name: 'Madurai' },
+  ];
 
   return (
     <section
-      className="hero-section"
       style={{
+        backgroundColor: 'var(--color-linen)',
+        color: 'var(--color-espresso)',
+        paddingTop: '160px',
+        paddingBottom: '100px',
         position: 'relative',
-        background: 'linear-gradient(180deg, var(--color-linen) 0%, #fff 100%)',
         overflow: 'hidden',
-        paddingTop: 'calc(var(--header-height) + 40px)',
-        paddingBottom: '56px',
-        minHeight: 'auto',
+        minHeight: '560px',
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
-      <motion.div
+      {/* Decorative background grid pattern */}
+      <div 
         style={{
           position: 'absolute',
-          top: '10%',
-          right: '-5%',
-          width: '420px',
-          height: '420px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(196,160,82,0.1) 0%, transparent 70%)',
-          y: y2,
-          pointerEvents: 'none',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          opacity: 0.05,
+          backgroundImage: 'radial-gradient(circle, var(--color-gold) 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+          pointerEvents: 'none'
         }}
       />
 
-      <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 0.9fr)', gap: 'clamp(24px, 4vw, 48px)', alignItems: 'start' }}>
-          <div>
-            <div ref={badgeRef} style={{ opacity: 0 }}>
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '8px 16px',
-                  borderRadius: '100px',
-                  backgroundColor: 'var(--color-espresso)',
-                  color: 'var(--color-gold)',
-                  fontWeight: 700,
-                  fontSize: '11px',
-                  marginBottom: '20px',
-                  letterSpacing: '1.5px',
-                  textTransform: 'uppercase',
-                }}
-              >
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--color-gold)' }} />
-                Now live on Google Play
-              </div>
-            </div>
+      <div className="container" style={{ position: 'relative', zIndex: 10, maxWidth: '820px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
+        
+        <h1
+          style={{
+            fontSize: 'clamp(32px, 5vw, 48px)',
+            fontWeight: 900,
+            lineHeight: 1.15,
+            marginBottom: '24px',
+            color: 'var(--color-espresso)',
+            letterSpacing: '-0.03em',
+            fontFamily: 'var(--font-heading)'
+          }}
+        >
+          Find gig jobs & verified staff. Discover local shifts. <span style={{ color: 'var(--color-gold)' }}>Zigger it!</span>
+        </h1>
 
-            <h1
-              ref={titleRef}
+        <p style={{ fontSize: '16px', color: 'var(--color-muted)', marginBottom: '36px', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto 36px' }}>
+          Connect instantly with verified on-demand catering staff, drivers, and delivery partners near you. Paid same-day via secure UPI.
+        </p>
+
+        {/* Premium, High-Contrast Search Bar (Centered & Mobile Optimized) */}
+        <form
+          onSubmit={handleSearchSubmit}
+          style={{
+            backgroundColor: '#ffffff',
+            borderRadius: '16px',
+            boxShadow: '0 12px 40px rgba(61, 43, 31, 0.12)',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '6px',
+            marginBottom: '48px',
+            border: '2px solid var(--color-gold)',
+            transition: 'all 0.25s ease',
+            maxWidth: '720px',
+            margin: '0 auto 48px'
+          }}
+          className="search-bar-form-premium"
+        >
+          {/* Location Select (Left side) */}
+          <div 
+            className="location-wrapper"
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '8px', 
+              padding: '12px 20px', 
+              borderRight: '2px solid rgba(61, 43, 31, 0.08)', 
+              position: 'relative', 
+              flexShrink: 0 
+            }}
+          >
+            <MapPin size={22} color="var(--color-gold)" />
+            <select
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
               style={{
-                fontSize: 'clamp(30px, 4.2vw, 46px)',
-                marginBottom: '16px',
-                opacity: 0,
-                lineHeight: 1.12,
+                border: 'none',
+                outline: 'none',
+                background: 'transparent',
+                color: 'var(--color-espresso)',
+                fontSize: '16px',
+                fontWeight: 700,
+                cursor: 'pointer',
+                paddingRight: '16px',
+                WebkitAppearance: 'none'
               }}
             >
-              Find gig jobs. Get paid. <span style={{ color: 'var(--color-gold)' }}>Today.</span>
-            </h1>
+              {citiesList.map((c) => (
+                <option key={c.slug} value={c.slug}>{c.name}</option>
+              ))}
+            </select>
+            <span style={{ fontSize: '10px', color: 'var(--color-muted)', pointerEvents: 'none', marginLeft: '-6px' }}>▼</span>
+          </div>
 
-            <div ref={subtitleRef} style={{ opacity: 0 }}>
-              <p style={{ fontSize: '16px', color: 'var(--color-muted)', marginBottom: '24px', maxWidth: '480px', lineHeight: 1.6 }}>
-                India's AI-powered gig marketplace — hire gig workers in 15 minutes, find part-time and daily wage jobs nearby, and get paid same-day via UPI.
-              </p>
+          {/* Job/Skill Search Input (Right side) */}
+          <div 
+            className="search-input-wrapper"
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              flex: 1, 
+              padding: '8px 16px', 
+              gap: '10px' 
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Search for catering jobs, driver jobs, delivery partners..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              style={{
+                border: 'none',
+                outline: 'none',
+                width: '100%',
+                fontSize: '16px',
+                color: 'var(--color-espresso)',
+                fontWeight: 600,
+              }}
+            />
+            <button
+              type="submit"
+              style={{
+                backgroundColor: 'var(--color-espresso)',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '10px 20px',
+                borderRadius: '10px',
+                color: '#ffffff',
+                fontWeight: 700,
+                fontSize: '14px',
+                gap: '6px',
+                transition: 'background-color 0.2s',
+                flexShrink: 0
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#523a2a'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--color-espresso)'}
+            >
+              <Search size={18} />
+              <span>Search</span>
+            </button>
+          </div>
+        </form>
 
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
-                <div style={{ padding: '8px 14px', borderRadius: '100px', background: '#fff', border: '1px solid rgba(61,43,31,0.08)', fontSize: '12px', fontWeight: 600 }}>
-                  {stats.totalWorkers}+ gig workers registered
-                </div>
-                <div style={{ padding: '8px 14px', borderRadius: '100px', background: '#fff', border: '1px solid rgba(61,43,31,0.08)', fontSize: '12px', fontWeight: 600 }}>
-                  {stats.totalPosted}+ gig jobs posted
-                </div>
-              </div>
-
-              <div style={{ marginBottom: '28px' }}>
-                <p
-                  style={{
-                    fontSize: '12px',
-                    fontWeight: 700,
-                    color: 'var(--color-muted)',
-                    letterSpacing: '1px',
-                    textTransform: 'uppercase',
-                    marginBottom: '12px',
-                  }}
-                >
-                  Explore on the web
-                </p>
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  <Link to="/work" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center' }}>
-                    Browse jobs
-                  </Link>
-                  <Link to="/hire" className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center' }}>
-                    Hire
-                  </Link>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <PlayStoreButton label="Download on Google Play" size="lg" />
-              </div>
+        {/* 3 Premium Service Cards (Centered) */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '20px',
+        }} className="cards-grid">
+          
+          <div 
+            onClick={() => router.push('/work')}
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '16px',
+              padding: '20px',
+              textAlign: 'left',
+              color: 'var(--color-espresso)',
+              cursor: 'pointer',
+              boxShadow: 'var(--shadow-soft)',
+              transition: 'transform 0.2s',
+              border: '1px solid rgba(61, 43, 31, 0.04)'
+            }}
+            className="hover-card"
+          >
+            <h3 style={{ fontSize: '15px', fontWeight: 800, marginBottom: '6px', color: 'var(--color-espresso)', letterSpacing: '0.5px' }}>FIND GIG JOBS</h3>
+            <p style={{ fontSize: '12px', color: 'var(--color-muted)', marginBottom: '14px', lineHeight: 1.4 }}>
+              Flexible shifts, catering gigs, driver jobs & same-day UPI
+            </p>
+            <div style={{
+              width: '28px',
+              height: '28px',
+              borderRadius: '50%',
+              backgroundColor: 'var(--color-gold)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff'
+            }}>
+              <ArrowRight size={14} />
             </div>
           </div>
 
-          <motion.div
-            ref={phoneRef}
-            className="hero-phone-wrap"
+          <div 
+            onClick={() => router.push('/hire')}
             style={{
-              opacity: 0,
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'center',
+              backgroundColor: '#ffffff',
+              borderRadius: '16px',
+              padding: '20px',
+              textAlign: 'left',
+              color: 'var(--color-espresso)',
+              cursor: 'pointer',
+              boxShadow: 'var(--shadow-soft)',
+              transition: 'transform 0.2s',
+              border: '1px solid rgba(61, 43, 31, 0.04)'
             }}
+            className="hover-card"
           >
-            <motion.div style={{ y: y1 }}>
-              <div
-                style={{
-                  width: '280px',
-                  height: '580px',
-                  borderRadius: '40px',
-                  border: '8px solid var(--color-espresso)',
-                  background: 'var(--color-espresso)',
-                  boxShadow: 'var(--shadow-strong)',
-                  overflow: 'hidden',
-                  position: 'relative',
-                }}
-              >
-                <img
-                  src="/assets/screen-hire-talent.png"
-                  alt="Ziggers gig marketplace app — find gig jobs near you"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'center top',
-                    borderRadius: '32px',
-                  }}
-                />
-              </div>
-            </motion.div>
+            <h3 style={{ fontSize: '15px', fontWeight: 800, marginBottom: '6px', color: 'var(--color-espresso)', letterSpacing: '0.5px' }}>HIRE GIG STAFF</h3>
+            <p style={{ fontSize: '12px', color: 'var(--color-muted)', marginBottom: '14px', lineHeight: 1.4 }}>
+              Post requirements & match verified workers in 15 mins
+            </p>
+            <div style={{
+              width: '28px',
+              height: '28px',
+              borderRadius: '50%',
+              backgroundColor: 'var(--color-gold)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff'
+            }}>
+              <ArrowRight size={14} />
+            </div>
+          </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6 }}
-              style={{
-                position: 'absolute',
-                bottom: '32px',
-                left: '-24px',
-                background: '#fff',
-                borderRadius: '16px',
-                padding: '14px 16px',
-                boxShadow: 'var(--shadow-soft)',
-                border: '1px solid rgba(61,43,31,0.06)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-                minWidth: '160px',
-              }}
-            >
-              <Smartphone size={18} color="var(--color-gold)" />
-              <div>
-                <p style={{ fontSize: '11px', fontWeight: 700, margin: 0, textTransform: 'uppercase' }}>Available now</p>
-                <p style={{ fontSize: '12px', color: 'var(--color-muted)', margin: 0 }}>Google Play</p>
-              </div>
-            </motion.div>
-          </motion.div>
+          <div 
+            onClick={() => router.push('/work')}
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: '16px',
+              padding: '20px',
+              textAlign: 'left',
+              color: 'var(--color-espresso)',
+              cursor: 'pointer',
+              boxShadow: 'var(--shadow-soft)',
+              transition: 'transform 0.2s',
+              border: '1px solid rgba(61, 43, 31, 0.04)'
+            }}
+            className="hover-card"
+          >
+            <h3 style={{ fontSize: '15px', fontWeight: 800, marginBottom: '6px', color: 'var(--color-espresso)', letterSpacing: '0.5px' }}>DAILY WAGES</h3>
+            <p style={{ fontSize: '12px', color: 'var(--color-muted)', marginBottom: '14px', lineHeight: 1.4 }}>
+              Escrow secure deposits, instant withdrawals & ratings
+            </p>
+            <div style={{
+              width: '28px',
+              height: '28px',
+              borderRadius: '50%',
+              backgroundColor: 'var(--color-gold)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#ffffff'
+            }}>
+              <ArrowRight size={14} />
+            </div>
+          </div>
+
         </div>
+
       </div>
 
       <style>{`
-        @media (max-width: 960px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
+        .hover-card:hover {
+          transform: translateY(-4px);
+        }
+        @media (max-width: 768px) {
+          .search-bar-form-premium {
+            flex-direction: column;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 20px;
           }
-          .hero-phone-wrap {
-            margin: 8px auto 0;
+          .location-wrapper {
+            width: 100% !important;
+            border-right: none !important;
+            border-bottom: 2px solid rgba(61, 43, 31, 0.08);
+            justify-content: center;
+            padding-bottom: 14px !important;
+          }
+          .search-input-wrapper {
+            width: 100% !important;
+            flex-direction: column !important;
+            gap: 14px !important;
+            padding: 4px 0 0 0 !important;
+          }
+          .search-bar-form-premium select,
+          .search-bar-form-premium input {
+            height: 48px !important;
+            width: 100% !important;
+            text-align: center;
+            font-size: 15px !important;
+          }
+          .search-bar-form-premium button {
+            width: 100%;
+            height: 48px;
+            font-size: 15px !important;
+            justify-content: center;
+          }
+          .cards-grid {
+            grid-template-columns: 1fr !important;
+            gap: 16px;
           }
         }
       `}</style>

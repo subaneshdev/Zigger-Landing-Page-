@@ -1,3 +1,4 @@
+"use client";
 import React, { useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Loader2, Search } from 'lucide-react';
