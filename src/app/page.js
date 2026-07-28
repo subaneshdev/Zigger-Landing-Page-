@@ -14,28 +14,28 @@ export default function Home() {
 
   const collections = [
     {
-      title: 'Catering & Waiters Gigs',
-      count: '420 active gigs today',
-      image: 'https://images.unsplash.com/photo-1555244162-803834f70033?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
+      title: 'Catering Workers',
+      count: 'Explore verified gig roles and match with on-demand work portfolios',
+      image: '/assets/col_catering.jpg',
       href: '/catering-jobs-chennai',
     },
     {
       title: 'Acting Drivers',
-      count: '280 active gigs today',
-      image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
+      count: 'Explore verified gig roles and match with on-demand work portfolios',
+      image: '/assets/col_driver.jpg',
       href: '/driver-jobs',
     },
     {
-      title: 'Event Staffing',
-      count: '310 active gigs today',
-      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-      href: '/event-staff',
+      title: 'Delivery Partners',
+      count: 'Explore verified gig roles and match with on-demand work portfolios',
+      image: '/assets/col_delivery.jpg',
+      href: '/jobs-in-chennai',
     },
     {
-      title: 'Warehouse Helpers',
-      count: '215 active gigs today',
-      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-      href: '/warehouse-workers',
+      title: 'Pamphlet Workers',
+      count: 'Explore verified gig roles and match with on-demand work portfolios',
+      image: '/assets/col_pamphlet.jpg',
+      href: '/work',
     },
   ];
 
