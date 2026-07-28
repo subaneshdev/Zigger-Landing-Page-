@@ -146,7 +146,24 @@ export default function Navigation() {
             </nav>
 
             <div className="site-header-actions">
-              <div className="hidden md-flex">
+              <div className="hidden md-flex" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <a 
+                  href="https://app.ziggers.in" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="btn-secondary"
+                  style={{
+                    padding: '8px 18px',
+                    fontSize: '13px',
+                    textDecoration: 'none',
+                    fontWeight: 700,
+                    borderRadius: '100px',
+                    display: 'inline-flex',
+                    alignItems: 'center'
+                  }}
+                >
+                  Sign In
+                </a>
                 <PlayStoreButton label="Download" size="md" />
               </div>
 
@@ -217,6 +234,27 @@ export default function Navigation() {
                 </a>
               ))}
               <PlayStoreButton label="Download on Google Play" style={{ width: '100%', justifyContent: 'center' }} />
+              <a
+                href="https://app.ziggers.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+                style={{
+                  width: '100%',
+                  textAlign: 'center',
+                  textDecoration: 'none',
+                  boxSizing: 'border-box',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '12px',
+                  borderRadius: '100px',
+                  fontSize: '14px',
+                  fontWeight: 700
+                }}
+              >
+                Sign In
+              </a>
             </div>
           </motion.div>
         )}
