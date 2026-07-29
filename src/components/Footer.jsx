@@ -238,6 +238,14 @@ export default function Footer() {
                 style={{ height: '42px', width: 'auto' }} 
               />
             </a>
+            {/* Startup Fame badge */}
+            <a href="https://startupfa.me/s/ziggers?utm_source=www.ziggers.in" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+              <img 
+                src="https://startupfa.me/badges/featured/light.webp" 
+                alt="ziggers.in - Featured on Startup Fame" 
+                style={{ height: '42px', width: 'auto' }} 
+              />
+            </a>
             {/* App Store badge */}
             <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
               <img 
