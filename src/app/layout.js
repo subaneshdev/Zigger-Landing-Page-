@@ -15,7 +15,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: 'Ziggers | Hire Temporary Staff & Find Part-time Jobs in India',
-  description: "Hire catering staff, waiters, drivers, delivery boys, warehouse workers, and temporary staff on demand — or find part-time jobs, daily wage jobs, and weekend jobs near you. Ziggers is India's verified staffing app.",
+  description: "Ziggers is India's on-demand gig marketplace for hiring catering staff, event workers, delivery partners, warehouse workers, hospitality staff, and finding part-time, temporary, flexible, and daily wage jobs across India.",
   keywords: "Hire Catering Staff, Catering Jobs, Waiter Jobs, Part-time Jobs, Daily Wage Jobs, Temporary Workers, Event Staff, Delivery Jobs, Warehouse Jobs, Driver Jobs, Student Jobs, Weekend Jobs, Near Me Jobs, Chennai Jobs, Bangalore Jobs",
   metadataBase: new URL('https://www.ziggers.in'),
   alternates: {
@@ -25,7 +25,7 @@ export const metadata = {
     type: 'website',
     url: 'https://www.ziggers.in/',
     title: 'Ziggers | Hire Temporary Staff & Find Part-time Jobs in India',
-    description: "Hire catering staff, waiters, drivers, delivery boys, warehouse workers, and temporary staff on demand — or find part-time jobs, daily wage jobs, and weekend jobs near you.",
+    description: "Ziggers is India's on-demand gig marketplace for hiring catering staff, event workers, delivery partners, warehouse workers, hospitality staff, and finding part-time, temporary, flexible, and daily wage jobs across India.",
     images: [
       {
         url: '/og-image.jpg',
@@ -38,7 +38,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Ziggers | Hire Temporary Staff & Find Part-time Jobs in India',
-    description: "Hire catering staff, waiters, drivers, delivery boys, warehouse workers, and temporary staff on demand — or find part-time jobs, daily wage jobs, and weekend jobs near you.",
+    description: "Ziggers is India's on-demand gig marketplace for hiring catering staff, event workers, delivery partners, warehouse workers, hospitality staff, and finding part-time, temporary, flexible, and daily wage jobs across India.",
     images: ['/twitter-image.jpg'],
   },
   other: {

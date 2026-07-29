@@ -10,7 +10,7 @@ export const SITE_URL = 'https://www.ziggers.in';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export const SITE_DESCRIPTION =
-  'Hire catering staff, waiters, drivers, delivery boys, warehouse workers, and temporary staff on demand — or find part-time jobs, daily wage jobs, and weekend jobs near you. Ziggers is India\'s verified staffing app.';
+  "Ziggers is India's on-demand gig marketplace for hiring catering staff, event workers, delivery partners, warehouse workers, hospitality staff, and finding part-time, temporary, flexible, and daily wage jobs across India.";
 
 export const SITE_TITLE =
   'Ziggers | Hire Temporary Staff & Find Part-time Jobs in India';
