@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { getSectionIdFromHref, scrollToSection } from '../lib/scrollToSection';
 import { getAppOpenHref, isMobile, openAppOrPlayStore } from '../lib/appLink';
 import { Linkedin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { BLOG_POSTS } from '../data/blogPosts';
 
 function SectionLink({ to, children, style }) {
   const pathname = usePathname();
@@ -62,7 +63,7 @@ export default function Footer() {
         {/* Swiggy-like Multi-column Grid */}
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: '1.2fr 1fr 1fr 1fr 1.2fr', 
+          gridTemplateColumns: '1.2fr 1fr 1fr 1fr 1.2fr 1.2fr', 
           gap: '40px', 
           marginBottom: '56px' 
         }} className="footer-grid">
@@ -152,6 +153,34 @@ export default function Footer() {
               >
                 8 cities <span style={{ marginLeft: '6px', fontSize: '10px' }}>▼</span>
               </div>
+            </div>
+          </div>
+
+          {/* Recent Blogs */}
+          <div>
+            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginBottom: '20px' }}>Recent Blogs</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '14px' }}>
+              {BLOG_POSTS.slice(0, 4).map((post) => (
+                <Link 
+                  key={post.id} 
+                  href={`/blog/${post.id}`} 
+                  style={{ 
+                    color: '#686b78', 
+                    textDecoration: 'none',
+                    lineHeight: '1.4',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden'
+                  }}
+                  title={post.title}
+                >
+                  {post.title}
+                </Link>
+              ))}
+              <Link href="/blog" style={{ color: 'var(--color-gold)', textDecoration: 'none', fontWeight: 'bold', marginTop: '4px' }}>
+                View All Blogs →
+              </Link>
             </div>
           </div>
 
