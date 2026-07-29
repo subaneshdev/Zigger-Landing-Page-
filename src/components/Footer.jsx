@@ -201,6 +201,14 @@ export default function Footer() {
                 style={{ height: '42px', width: 'auto' }} 
               />
             </a>
+            {/* Startup Inspire badge */}
+            <a href="https://www.startupinspire.com" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+              <img 
+                src="https://www.startupinspire.com/images/badge_3.svg" 
+                alt="Featured on Startup Inspire" 
+                style={{ height: '42px', width: 'auto' }} 
+              />
+            </a>
             {/* App Store badge */}
             <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
               <img 
