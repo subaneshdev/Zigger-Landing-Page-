@@ -84,6 +84,13 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-295EB79EJJ');
           `}
         </Script>
+        
+        {/* LaunchList Widget */}
+        <Script 
+          src="https://getlaunchlist.com/js/widget.js" 
+          strategy="afterInteractive"
+          defer 
+        />
 
         <FirebaseInit />
 
