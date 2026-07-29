@@ -192,7 +192,15 @@ export default function Footer() {
           <p style={{ fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: '#02060c', letterSpacing: '-0.02em' }}>
             For better experience, download the Ziggers app now
           </p>
-          <div style={{ display: 'flex', gap: '14px' }}>
+          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+            {/* StartupBase badge */}
+            <a href="https://startupbase.io/products/ziggers?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-light" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+              <img 
+                src="https://statics.startupbase.io/site/badges/launched-on-sb.svg" 
+                alt="Launched on StartupBase" 
+                style={{ height: '42px', width: 'auto' }} 
+              />
+            </a>
             {/* App Store badge */}
             <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
               <img 
