@@ -14,11 +14,11 @@ export const SEO_CITIES = [
 export const SEO_CATEGORIES = [
   {
     slug: 'catering-jobs',
-    primaryKeyword: 'Catering Jobs',
+    primaryKeyword: 'Catering Workers',
     hireKeyword: 'Hire Catering Staff',
-    role: 'catering staff',
-    workerTerms: ['Catering Jobs', 'Kitchen Helper Jobs', 'Waiter Jobs', 'One-day Jobs', 'Daily Wage Jobs'],
-    employerTerms: ['Hire Catering Staff', 'Catering Workers', 'Catering Helpers', 'Kitchen Helpers', 'Restaurant Helpers'],
+    role: 'catering workers',
+    workerTerms: ['Catering Workers', 'Catering Jobs', 'Kitchen Helper Jobs', 'Waiter Jobs', 'Daily Wage Jobs'],
+    employerTerms: ['Catering Workers', 'Hire Catering Staff', 'Catering Helpers', 'Kitchen Helpers', 'Restaurant Helpers'],
     workLink: '/work',
     hireLink: '/hire',
   },

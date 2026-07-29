@@ -98,9 +98,9 @@ export const PAGE_SEO = {
       'Hire verified driver jobs and acting drivers in Chennai instantly. AI-powered gig marketplace with live tracking, verified workers, and secure payments for temporary staffing.',
   },
   cateringStaff: {
-    title: 'Hire Catering Staff & Event Staffing in Chennai | Ziggers',
+    title: 'Catering Workers & Catering Staff in Chennai | Ziggers',
     description:
-      'Hire catering staff and hospitality staffing for weddings and events in Chennai. Last-minute hiring of verified temporary staff through India\'s on-demand workforce marketplace.',
+      'Hire catering workers, catering staff, and hospitality staffing for weddings and events in Chennai. Last-minute hiring of verified temporary staff through Ziggers.',
   },
   brandPromoters: {
     title: 'Hire Promotional Staff & Event Staffing in Chennai | Ziggers',
