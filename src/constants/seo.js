@@ -117,6 +117,11 @@ export const PAGE_SEO = {
     description:
       'Legal terms for booking temporary staff, gig jobs, and on-demand staffing through the Ziggers hiring marketplace.',
   },
+  partner: {
+    title: 'Official Manpower Partner for Sports Events, Brands, & Governments | Ziggers',
+    description:
+      'Partner with Ziggers as your official manpower supplier. Scale BTL marketing, brand promotions, and major sports events (IPL, ISL, Pro Kabaddi) with KYC-verified temporary staff.',
+  },
 };
 
 /** Static routes included in sitemap.xml (blog posts added separately at build time) */
@@ -124,6 +129,7 @@ export const SITEMAP_ROUTES = [
   { path: '/', pageKey: 'home', changefreq: 'daily', priority: '1.0' },
   { path: '/work', pageKey: 'work', changefreq: 'daily', priority: '0.9' },
   { path: '/hire', pageKey: 'hire', changefreq: 'daily', priority: '0.9' },
+  { path: '/partner', pageKey: 'partner', changefreq: 'weekly', priority: '0.8' },
   { path: '/hire-acting-drivers-chennai', pageKey: 'actingDrivers', changefreq: 'weekly', priority: '0.8' },
   { path: '/hire-catering-staff-chennai', pageKey: 'cateringStaff', changefreq: 'weekly', priority: '0.8' },
   { path: '/hire-brand-promoters-chennai', pageKey: 'brandPromoters', changefreq: 'weekly', priority: '0.8' },
