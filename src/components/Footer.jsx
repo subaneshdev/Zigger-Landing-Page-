@@ -95,6 +95,9 @@ export default function Footer() {
             <p style={{ fontSize: '13px', color: '#686b78' }}>
               An <a href="https://www.unfounded.in/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-gold)', textDecoration: 'none', fontWeight: 'bold' }}>Unfounded</a> Company
             </p>
+            <p style={{ fontSize: '12px', color: '#888896', marginTop: '16px', lineHeight: '1.5' }}>
+              Looking for Zigger? Whether you spell it Zigger or Ziggers, we are India's premier platform for reliable temporary staffing and daily wage gigs.
+            </p>
           </div>
 
           {/* Company */}

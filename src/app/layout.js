@@ -16,7 +16,7 @@ const poppins = Poppins({
 export const metadata = {
   title: 'Ziggers | Hire Temporary Staff & Find Part-time Jobs in India',
   description: "Ziggers is India's on-demand gig marketplace for hiring catering staff, event workers, delivery partners, warehouse workers, hospitality staff, and finding part-time, temporary, flexible, and daily wage jobs across India.",
-  keywords: "Hire Catering Staff, Catering Jobs, Waiter Jobs, Part-time Jobs, Daily Wage Jobs, Temporary Workers, Event Staff, Delivery Jobs, Warehouse Jobs, Driver Jobs, Student Jobs, Weekend Jobs, Near Me Jobs, Chennai Jobs, Bangalore Jobs",
+  keywords: "Zigger, Zigger App, Zigger Jobs, Zigger Chennai, Hire Catering Staff, Catering Jobs, Waiter Jobs, Part-time Jobs, Daily Wage Jobs, Temporary Workers, Event Staff, Delivery Jobs, Warehouse Jobs, Driver Jobs, Student Jobs, Weekend Jobs, Near Me Jobs, Chennai Jobs, Bangalore Jobs",
   metadataBase: new URL('https://www.ziggers.in'),
   alternates: {
     canonical: '/',
@@ -51,6 +51,7 @@ export default function RootLayout({ children }) {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: 'Ziggers',
+    alternateName: ["Zigger", "Zigger App"],
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Android',
     description: "Ziggers is an AI-powered gig marketplace that helps businesses hire verified temporary staff and enables workers to discover flexible part-time and daily gig opportunities across India.",
