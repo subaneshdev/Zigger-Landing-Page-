@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ziggers.ziggers",
+      "sha256_cert_fingerprints": [
+        "E5:09:CC:29:DF:1A:9E:BA:27:4B:43:A2:2B:9F:70:83:30:8A:A8:6A:B4:B0:1F:6B:89:70:03:D2:EA:DD:0B:39",
+        "16:75:B1:4D:39:50:53:E8:52:0D:72:81:F9:E5:63:AF:73:C6:56:BE:21:E4:CF:8D:F5:24:44:B5:33:E5:71:88"
+      ]
+    }
+  }
+]
