@@ -249,6 +249,14 @@ export default function Footer() {
                 style={{ height: '42px', width: 'auto' }} 
               />
             </a>
+            {/* F6S badge */}
+            <a href="https://www.f6s.com/ziggers" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+              <img 
+                src="https://www.vectorlogo.zone/logos/f6s/f6s-ar21.svg" 
+                alt="Featured on F6S" 
+                style={{ height: '42px', width: 'auto', backgroundColor: '#fff', padding: '6px 12px', borderRadius: '6px', border: '1px solid #e2e8f0' }} 
+              />
+            </a>
             {/* App Store badge */}
             <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
               <img 
