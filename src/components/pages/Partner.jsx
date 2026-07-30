@@ -35,7 +35,7 @@ export default function Partner() {
     {
       icon: <Trophy size={32} style={{ color: 'var(--color-gold)' }} />,
       title: 'Sports Events',
-      description: 'Official manpower partner for premier sporting events like IPL, ISL, Pro Kabaddi, and international marathons. We deploy ushers, ticketing staff, crowd management, and field helpers.'
+      description: 'Manpower solutions for premier sporting events like IPL, ISL, Pro Kabaddi leagues, and international marathons. We deploy ushers, ticketing staff, crowd management, and field helpers.'
     },
     {
       icon: <Target size={32} style={{ color: 'var(--color-gold)' }} />,
@@ -59,10 +59,10 @@ export default function Partner() {
             Enterprise Manpower Partner
           </p>
           <h1 style={{ fontSize: 'clamp(28px, 5vw, 44px)', marginBottom: '16px', lineHeight: '1.2' }}>
-            Official Workforce Partner for <span style={{ color: 'var(--color-gold)' }}>Events, Brands &amp; Governments</span>
+            Workforce Solutions Partner for <span style={{ color: 'var(--color-gold)' }}>Events, Brands &amp; Governments</span>
           </h1>
           <p style={{ color: 'var(--color-muted)', fontSize: '17px', lineHeight: 1.6, margin: 0 }}>
-            Scale your operations seamlessly. Ziggers provides fully KYC-verified, on-demand workforce solutions for India\'s largest sports events (IPL, ISL, Pro Kabaddi), brand promotions, and public sector projects.
+            Scale your operations seamlessly. Ziggers provides fully KYC-verified, on-demand workforce solutions for India\'s largest sports events (like IPL, ISL, Pro Kabaddi), brand promotions, and public sector projects.
           </p>
         </div>
 
