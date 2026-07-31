@@ -257,6 +257,14 @@ export default function Footer() {
                 style={{ height: '42px', width: 'auto', backgroundColor: '#fff', padding: '6px 12px', borderRadius: '6px', border: '1px solid #e2e8f0' }} 
               />
             </a>
+            {/* Product Hunt badge */}
+            <a href="https://www.producthunt.com/products/ziggers?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-ziggers" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+              <img 
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1211369&theme=light&t=1785492962316" 
+                alt="Ziggers - India's marketplace for flexible local work. | Product Hunt" 
+                style={{ height: '42px', width: 'auto' }} 
+              />
+            </a>
             {/* App Store badge */}
             <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
               <img 
