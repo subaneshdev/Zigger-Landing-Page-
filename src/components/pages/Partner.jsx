@@ -33,14 +33,14 @@ export default function Partner() {
     email: '',
     city: '',
     platform: 'WhatsApp Group',
-    memberCount: '1,000 - 5,000',
+    memberCount: '512 - 1,024',
     category: 'Event Staff & Promoters',
     message: ''
   });
   const [status, setStatus] = useState('idle');
 
   // Calculator State
-  const [groupSize, setGroupSize] = useState(2500);
+  const [groupSize, setGroupSize] = useState(1024);
   const [joinPercent, setJoinPercent] = useState(15);
   const [gigsPerWorker, setGigsPerWorker] = useState(8);
 
@@ -397,9 +397,9 @@ Get verified today & start receiving daily gig alerts! 💰🚀`;
                   </div>
                   <input 
                     type="range" 
-                    min="500" 
-                    max="20000" 
-                    step="500" 
+                    min="100" 
+                    max="1024" 
+                    step="10" 
                     value={groupSize} 
                     onChange={(e) => setGroupSize(Number(e.target.value))} 
                     style={{ width: '100%', accentColor: 'var(--color-gold)', cursor: 'pointer' }}
@@ -858,10 +858,10 @@ Get verified today & start receiving daily gig alerts! 💰🚀`;
                             onChange={handleFormChange} 
                             style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1.5px solid rgba(61,43,31,0.12)', fontSize: '14px', outline: 'none', background: '#fff' }}
                           >
-                            <option value="500 - 1,000">500 - 1,000 members</option>
-                            <option value="1,000 - 5,000">1,000 - 5,000 members</option>
-                            <option value="5,000 - 10,000">5,000 - 10,000 members</option>
-                            <option value="10,000+">10,000+ members</option>
+                            <option value="100 - 256">100 - 256 members</option>
+                            <option value="256 - 512">256 - 512 members</option>
+                            <option value="512 - 1,024">512 - 1,024 members (Full WhatsApp Group)</option>
+                            <option value="Multiple Groups (1,024+)">Multiple Groups (1,024+ members)</option>
                           </select>
                         </div>
                       </div>
