@@ -8,51 +8,63 @@ const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 const supabaseAdmin = serviceKey ? createClient(supabaseUrl, serviceKey) : defaultSupabase;
 
+const MESSAGE_CENTRAL_CUSTOMER_ID = process.env.MESSAGE_CENTRAL_CUSTOMER_ID || 'C-3911A8398E68431';
+const MESSAGE_CENTRAL_AUTH_TOKEN = process.env.MESSAGE_CENTRAL_AUTH_TOKEN || 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJDLTM5MTFBODM5OEU2ODQzMSIsImlhdCI6MTc4MDU3MTU0OSwiZXhwIjoxOTM4MjUxNTQ5fQ.XnpqkNqpsS1DPlQs0dnT5szgSo_qG8bB6rim68L-eXra_Gs2lumTQLqTBzhxIPuU3f0qribvtJdTfoOfefbCZQ';
+
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { action, emailOrPhone, otp, newPassword } = body;
+    const { action, phone, otp, newPassword } = body;
 
-    const identifier = (emailOrPhone || '').trim().toLowerCase();
+    const rawPhone = (phone || body.emailOrPhone || '').trim();
+    const cleanDigits = rawPhone.replace(/[^0-9]/g, '');
+    const mobileNumber = cleanDigits.length >= 10 ? cleanDigits.slice(-10) : cleanDigits;
 
-    if (!identifier) {
+    if (!mobileNumber) {
       return NextResponse.json(
-        { error: 'Email Address or WhatsApp Number is required' },
+        { error: 'Registered WhatsApp Phone Number is required' },
         { status: 400 }
       );
     }
 
-    // Find organization by email or contact_number or unique_code
+    // Find organization by contact_number or unique_code
     const { data: partner, error } = await supabaseAdmin
       .from('organizations')
       .select('*')
-      .or(`email.eq.${identifier},contact_number.eq.${identifier},unique_code.eq.${identifier.toUpperCase()}`)
+      .ilike('contact_number', `%${mobileNumber}%`)
       .maybeSingle();
 
     if (error || !partner) {
       return NextResponse.json(
-        { error: 'No Community Partner account found with this email or phone' },
+        { error: `No Community Partner account found with mobile number ${mobileNumber}` },
         { status: 404 }
       );
     }
 
-    // Step 1: Trigger Supabase Auth Reset Email & Generate 6-Digit OTP
+    // Step 1: Generate & Send 4-Digit OTP via Message Central API
     if (action === 'send_otp') {
-      const generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+      // Generate 4-digit OTP
+      const generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
       const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
 
-      // Trigger Supabase Auth reset email if partner has email
-      if (partner.email) {
-        try {
-          await supabaseAdmin.auth.resetPasswordForEmail(partner.email, {
-            redirectTo: 'https://ziggers.in/partner'
-          });
-        } catch (authErr) {
-          console.warn('Supabase Auth resetPasswordForEmail notice:', authErr.message);
-        }
+      // Dispatch 4-digit OTP via Message Central API
+      let mcStatus = 'dispatched';
+      try {
+        const mcUrl = `https://cpaas.messagecentral.com/verification/v2/verification/sendCode?countryCode=91&customerId=${MESSAGE_CENTRAL_CUSTOMER_ID}&flowType=SMS&mobileNumber=${mobileNumber}&otpLength=4`;
+        const mcRes = await fetch(mcUrl, {
+          method: 'POST',
+          headers: {
+            'authToken': MESSAGE_CENTRAL_AUTH_TOKEN,
+            'Content-Type': 'application/json'
+          }
+        });
+        const mcData = await mcRes.json();
+        console.log('[MESSAGE CENTRAL OTP RESPONSE]:', mcData);
+      } catch (mcErr) {
+        console.warn('[MESSAGE CENTRAL NOTICE]:', mcErr.message);
       }
 
-      // Save OTP to organizations table
+      // Save 4-digit OTP to organizations table in Supabase
       try {
         await supabaseAdmin
           .from('organizations')
@@ -65,22 +77,21 @@ export async function POST(request) {
         console.warn('Notice updating reset_otp column:', err.message);
       }
 
-      console.log(`[SUPABASE AUTH OTP SENT] Security verification code for ${partner.name} (${partner.contact_number}): ${generatedOtp}`);
+      console.log(`[4-DIGIT MESSAGE CENTRAL OTP] Sent code to ${partner.name} (+91 ${mobileNumber}): ${generatedOtp}`);
 
       return NextResponse.json({
         success: true,
-        message: `Supabase Auth verification code & email link sent to ${partner.contact_number || partner.email}!`,
-        otp: generatedOtp,
+        message: `4-Digit Security OTP sent to your WhatsApp number (+91 ${mobileNumber.slice(0, 5)}*****). Please verify!`,
         partnerName: partner.name,
-        maskedContact: partner.contact_number ? `${partner.contact_number.slice(0, 6)}*****` : partner.email
+        maskedContact: `+91 ${mobileNumber.slice(0, 5)}*****`
       });
     }
 
-    // Step 2: Verify 6-Digit OTP
+    // Step 2: Verify 4-Digit OTP
     if (action === 'verify_otp') {
-      if (!otp || otp.trim().length !== 6) {
+      if (!otp || otp.trim().length !== 4) {
         return NextResponse.json(
-          { error: 'Please enter the valid 6-digit OTP code' },
+          { error: 'Please enter the valid 4-digit Security OTP' },
           { status: 400 }
         );
       }
@@ -92,13 +103,13 @@ export async function POST(request) {
       if (storedOtp) {
         if (storedOtp !== inputOtp) {
           return NextResponse.json(
-            { error: 'Invalid OTP code. Please check your messages and try again.' },
+            { error: 'Invalid 4-digit OTP code. Please check your SMS/WhatsApp messages.' },
             { status: 400 }
           );
         }
         if (expiresAt && new Date() > expiresAt) {
           return NextResponse.json(
-            { error: 'OTP code has expired. Please request a new verification code.' },
+            { error: 'OTP code has expired. Please click Resend OTP.' },
             { status: 400 }
           );
         }
@@ -106,11 +117,11 @@ export async function POST(request) {
 
       return NextResponse.json({
         success: true,
-        message: 'OTP verified successfully via Supabase Auth! You may now set your new password.'
+        message: '4-Digit OTP verified successfully! You may now create your new password.'
       });
     }
 
-    // Step 3: Reset Password in Supabase Auth & Organizations
+    // Step 3: Reset Password
     if (action === 'reset_password') {
       if (!newPassword || newPassword.length < 6) {
         return NextResponse.json(
@@ -121,7 +132,7 @@ export async function POST(request) {
 
       const newHash = hashPassword(newPassword);
 
-      // Update password in Supabase Auth if partner user exists
+      // Update password in Supabase Auth if partner has email
       if (partner.email) {
         try {
           const { data: users } = await supabaseAdmin.auth.admin.listUsers();
@@ -132,11 +143,11 @@ export async function POST(request) {
             });
           }
         } catch (authErr) {
-          console.warn('Supabase Auth updateUserById notice:', authErr.message);
+          console.warn('Supabase Auth update notice:', authErr.message);
         }
       }
 
-      // Update password in organizations table
+      // Clear OTP and save new password hash in organizations table
       await supabaseAdmin
         .from('organizations')
         .update({
@@ -148,7 +159,7 @@ export async function POST(request) {
 
       return NextResponse.json({
         success: true,
-        message: 'Password updated successfully in Supabase Auth! You can now sign in.'
+        message: 'Password updated successfully! You can now sign in with your new password.'
       });
     }
 

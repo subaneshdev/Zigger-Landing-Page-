@@ -1,13 +1,14 @@
 "use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Lock, Mail, ArrowRight, Loader2, LogIn, KeyRound, CheckCircle2, ArrowLeft, ShieldAlert, Smartphone } from 'lucide-react';
+import { X, Lock, Mail, ArrowRight, Loader2, LogIn, KeyRound, CheckCircle2, ArrowLeft, Smartphone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function PartnerAuthModal({ isOpen, onClose }) {
   // Modes: 'login' | 'forgot_send' | 'forgot_otp' | 'reset_new'
   const [mode, setMode] = useState('login'); 
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [otp, setOtp] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -15,7 +16,6 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
-  const [devOtpHint, setDevOtpHint] = useState('');
   const [maskedContact, setMaskedContact] = useState('');
 
   const router = useRouter();
@@ -63,21 +63,20 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
 
   const handleSendOtp = async (e) => {
     e.preventDefault();
-    if (!email) {
-      setError('Please enter your registered Email or WhatsApp Phone');
+    if (!phone) {
+      setError('Please enter your registered WhatsApp Phone Number');
       return;
     }
 
     setLoading(true);
     setError('');
     setSuccessMsg('');
-    setDevOtpHint('');
 
     try {
       const response = await fetch('/api/partner/auth/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'send_otp', emailOrPhone: email })
+        body: JSON.stringify({ action: 'send_otp', phone })
       });
 
       const data = await response.json();
@@ -88,10 +87,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
         return;
       }
 
-      setMaskedContact(data.maskedContact || email);
-      if (data.otp) {
-        setDevOtpHint(data.otp);
-      }
+      setMaskedContact(data.maskedContact || phone);
       setSuccessMsg(data.message);
       setMode('forgot_otp');
       setLoading(false);
@@ -103,8 +99,8 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
 
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
-    if (!otp || otp.trim().length !== 6) {
-      setError('Please enter the 6-digit OTP code sent to your phone/email');
+    if (!otp || otp.trim().length !== 4) {
+      setError('Please enter the 4-digit OTP code sent to your phone');
       return;
     }
 
@@ -115,18 +111,18 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
       const response = await fetch('/api/partner/auth/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'verify_otp', emailOrPhone: email, otp: otp.trim() })
+        body: JSON.stringify({ action: 'verify_otp', phone, otp: otp.trim() })
       });
 
       const data = await response.json();
 
       if (!response.ok || !data.success) {
-        setError(data.error || 'Invalid OTP code.');
+        setError(data.error || 'Invalid 4-digit OTP code.');
         setLoading(false);
         return;
       }
 
-      setSuccessMsg('OTP verified successfully! Please set your new password.');
+      setSuccessMsg('4-Digit OTP verified successfully! Create your new password below.');
       setMode('reset_new');
       setLoading(false);
     } catch (err) {
@@ -153,7 +149,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
       const response = await fetch('/api/partner/auth/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'reset_password', emailOrPhone: email, newPassword })
+        body: JSON.stringify({ action: 'reset_password', phone, newPassword })
       });
 
       const data = await response.json();
@@ -248,16 +244,16 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             
             <h3 style={{ fontSize: '24px', fontWeight: 900, margin: '0 0 6px', color: 'var(--color-espresso)' }}>
               {mode === 'login' && 'Partner Sign In'}
-              {mode === 'forgot_send' && 'Send Security OTP'}
-              {mode === 'forgot_otp' && 'Verify 6-Digit OTP'}
+              {mode === 'forgot_send' && 'Send 4-Digit OTP'}
+              {mode === 'forgot_otp' && 'Verify 4-Digit OTP'}
               {mode === 'reset_new' && 'Set New Password'}
             </h3>
             
             <p style={{ color: 'var(--color-muted)', fontSize: '13px', margin: 0, lineHeight: 1.5 }}>
               {mode === 'login' && 'Sign in to track your referral earnings, active workers, & total completed gigs.'}
-              {mode === 'forgot_send' && 'Enter your registered Email or WhatsApp Phone to receive a 6-digit verification OTP code.'}
-              {mode === 'forgot_otp' && `Enter the 6-digit security code sent to ${maskedContact || 'your phone'}.`}
-              {mode === 'reset_new' && 'Your account is verified! Create a new secure password.'}
+              {mode === 'forgot_send' && 'Enter your registered WhatsApp phone number to receive a 4-digit verification code.'}
+              {mode === 'forgot_otp' && `Enter the 4-digit code sent to ${maskedContact || 'your phone'}.`}
+              {mode === 'reset_new' && 'Your phone is verified! Create a new secure password.'}
             </p>
           </div>
 
@@ -270,20 +266,6 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
           {successMsg && (
             <div style={{ background: 'rgba(37,211,102,0.12)', border: '1px solid rgba(37,211,102,0.3)', color: '#128C7E', padding: '10px 14px', borderRadius: '12px', fontSize: '13px', fontWeight: 600, marginBottom: '16px', textAlign: 'center' }}>
               {successMsg}
-            </div>
-          )}
-
-          {/* Developer OTP Auto-Fill Banner */}
-          {devOtpHint && mode === 'forgot_otp' && (
-            <div style={{ background: '#fcf8f3', border: '1px dashed var(--color-gold)', color: 'var(--color-espresso)', padding: '10px 14px', borderRadius: '12px', fontSize: '12px', fontWeight: 700, marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span>Security Verification Code: <strong style={{ fontSize: '15px', color: 'var(--color-gold)' }}>{devOtpHint}</strong></span>
-              <button
-                type="button"
-                onClick={() => setOtp(devOtpHint)}
-                style={{ background: 'var(--color-gold)', color: '#fff', border: 'none', padding: '4px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: 800, cursor: 'pointer' }}
-              >
-                Auto-fill OTP
-              </button>
             </div>
           )}
 
@@ -314,7 +296,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
                   </label>
                   <button
                     type="button"
-                    onClick={() => { setMode('forgot_send'); setError(''); setSuccessMsg(''); }}
+                    onClick={() => { setMode('forgot_send'); setError(''); setSuccessMsg(''); setPhone(email); }}
                     style={{ background: 'none', border: 'none', color: 'var(--color-gold)', fontSize: '12px', fontWeight: 700, cursor: 'pointer', padding: 0 }}
                   >
                     Forgot Password?
@@ -359,20 +341,20 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             </form>
           )}
 
-          {/* MODE 2: FORGOT - SEND OTP */}
+          {/* MODE 2: FORGOT - SEND OTP BY PHONE */}
           {mode === 'forgot_send' && (
             <form onSubmit={handleSendOtp} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
                 <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>
-                  Registered Email Address or WhatsApp Phone
+                  Registered WhatsApp Phone Number *
                 </label>
                 <div style={{ position: 'relative' }}>
                   <Smartphone size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-muted)' }} />
                   <input
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="partner@ziggers.in or +919876543210"
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="+91 98765 43210"
                     style={{ width: '100%', padding: '12px 14px 12px 42px', borderRadius: '12px', border: '1.5px solid rgba(61,43,31,0.12)', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }}
                     required
                   />
@@ -399,7 +381,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
                   marginTop: '8px'
                 }}
               >
-                {loading ? <Loader2 size={18} className="partner-submit-spin" /> : <>Send Security OTP Code <KeyRound size={18} /></>}
+                {loading ? <Loader2 size={18} className="partner-submit-spin" /> : <>Send 4-Digit OTP Code <KeyRound size={18} /></>}
               </button>
 
               <button
@@ -412,20 +394,20 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             </form>
           )}
 
-          {/* MODE 3: FORGOT - VERIFY OTP */}
+          {/* MODE 3: FORGOT - VERIFY 4-DIGIT OTP */}
           {mode === 'forgot_otp' && (
             <form onSubmit={handleVerifyOtp} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
                 <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>
-                  Enter 6-Digit Verification OTP *
+                  Enter 4-Digit Security OTP *
                 </label>
                 <input
                   type="text"
-                  maxLength={6}
+                  maxLength={4}
                   value={otp}
                   onChange={(e) => setOtp(e.target.value.replace(/[^0-9]/g, ''))}
-                  placeholder="e.g. 591823"
-                  style={{ width: '100%', padding: '14px', borderRadius: '12px', border: '1.5px solid var(--color-gold)', fontSize: '20px', fontWeight: 900, textAlign: 'center', letterSpacing: '4px', outline: 'none', boxSizing: 'border-box' }}
+                  placeholder="e.g. 4821"
+                  style={{ width: '100%', padding: '14px', borderRadius: '12px', border: '1.5px solid var(--color-gold)', fontSize: '24px', fontWeight: 900, textAlign: 'center', letterSpacing: '8px', outline: 'none', boxSizing: 'border-box' }}
                   required
                 />
               </div>
@@ -450,7 +432,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
                   marginTop: '8px'
                 }}
               >
-                {loading ? <Loader2 size={18} className="partner-submit-spin" /> : <>Verify OTP Code <CheckCircle2 size={18} /></>}
+                {loading ? <Loader2 size={18} className="partner-submit-spin" /> : <>Verify 4-Digit OTP <CheckCircle2 size={18} /></>}
               </button>
 
               <button
@@ -458,7 +440,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
                 onClick={() => { setMode('forgot_send'); setError(''); setSuccessMsg(''); }}
                 style={{ background: 'none', border: 'none', color: 'var(--color-muted)', fontSize: '13px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', marginTop: '4px' }}
               >
-                <ArrowLeft size={14} /> Resend OTP / Change Contact
+                <ArrowLeft size={14} /> Resend OTP / Change Mobile Number
               </button>
             </form>
           )}

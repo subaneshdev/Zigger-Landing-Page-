@@ -30,14 +30,18 @@ export default function PartnerDashboard() {
     total_cash_earned: 0
   });
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+  const [toastNotice, setToastNotice] = useState('');
   const [copiedCode, setCopiedCode] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedMsg, setCopiedMsg] = useState(false);
 
   const router = useRouter();
 
-  const fetchDashboardData = async (userObj) => {
-    setLoading(true);
+  const fetchDashboardData = async (userObj, isManualRefresh = false) => {
+    if (isManualRefresh) setRefreshing(true);
+    else setLoading(true);
+
     try {
       const code = userObj?.unique_code;
       const email = userObj?.email;
@@ -57,11 +61,17 @@ export default function PartnerDashboard() {
           total_cash_earned: data.partner.total_rewards || 0
         });
         setReferredMembers(data.referred_members || []);
+
+        if (isManualRefresh) {
+          setToastNotice('✨ Dashboard stats refreshed with live database data!');
+          setTimeout(() => setToastNotice(''), 4000);
+        }
       }
     } catch (err) {
       console.warn('Dashboard data fetch error:', err);
     }
     setLoading(false);
+    setRefreshing(false);
   };
 
   useEffect(() => {
@@ -128,6 +138,13 @@ export default function PartnerDashboard() {
     }}>
       <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
         
+        {/* Toast Notification */}
+        {toastNotice && (
+          <div style={{ background: '#25D366', color: '#fff', padding: '12px 20px', borderRadius: '14px', fontWeight: 800, fontSize: '14px', marginBottom: '20px', textAlign: 'center', boxShadow: '0 4px 14px rgba(37,211,102,0.3)' }}>
+            {toastNotice}
+          </div>
+        )}
+
         {/* Header Title & Logout Bar */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '32px' }}>
           <div>
@@ -145,10 +162,11 @@ export default function PartnerDashboard() {
 
           <div style={{ display: 'flex', gap: '10px' }}>
             <button
-              onClick={() => fetchDashboardData(partner)}
+              onClick={() => fetchDashboardData(partner, true)}
+              disabled={refreshing}
               style={{ background: '#fff', border: '1.5px solid rgba(61,43,31,0.12)', padding: '10px 16px', borderRadius: '12px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
             >
-              <RefreshCw size={15} /> Refresh Stats
+              <RefreshCw size={15} style={{ animation: refreshing ? 'spin 1s linear infinite' : 'none' }} /> {refreshing ? 'Refreshing...' : 'Refresh Stats'}
             </button>
             <button
               onClick={handleLogout}
