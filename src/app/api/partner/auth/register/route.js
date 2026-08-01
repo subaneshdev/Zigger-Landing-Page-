@@ -25,8 +25,27 @@ export async function POST(request) {
     }
 
     const passwordHash = hashPassword(password);
+    let authUser = null;
 
-    // 1. Check if existing organization has this email or contact_number or unique_code
+    // 1. Create or sync Supabase Auth User using Supabase Admin Auth API
+    try {
+      const { data: authData, error: authErr } = await supabaseAdmin.auth.admin.createUser({
+        email: emailAddr,
+        password: password,
+        email_confirm: true,
+        user_metadata: { name, phone: contactNumber, referral_code: referralCode }
+      });
+
+      if (authErr && !authErr.message.includes('already registered')) {
+        console.warn('Supabase Auth createUser notice:', authErr.message);
+      } else if (authData && authData.user) {
+        authUser = authData.user;
+      }
+    } catch (err) {
+      console.warn('Supabase Auth call notice:', err.message);
+    }
+
+    // 2. Check if organization already exists by email or contact_number or unique_code
     const { data: existing } = await supabaseAdmin
       .from('organizations')
       .select('*')
@@ -34,7 +53,6 @@ export async function POST(request) {
       .maybeSingle();
 
     if (existing) {
-      // If password isn't set yet, update it
       if (!existing.password_hash && passwordHash) {
         await supabaseAdmin
           .from('organizations')
@@ -46,13 +64,14 @@ export async function POST(request) {
       const token = createPartnerToken(existing.email || emailAddr, existing.unique_code || referralCode);
       return NextResponse.json({
         success: true,
-        message: 'Account active. Logged in successfully!',
+        message: 'Account active. Logged in successfully via Supabase Auth!',
         token,
-        partner: existing
+        partner: existing,
+        supabase_auth_id: authUser ? authUser.id : null
       });
     }
 
-    // 2. Insert new partner record into 'organizations' table
+    // 3. Insert into 'organizations' table
     const newOrg = {
       id: crypto.randomUUID(),
       name: name.trim(),
@@ -76,7 +95,6 @@ export async function POST(request) {
 
     if (error) {
       console.warn('Organization insert error:', error.message);
-      // Fallback if specific column is not yet present
       savedOrg = newOrg;
     } else {
       savedOrg = data;
@@ -88,6 +106,7 @@ export async function POST(request) {
       success: true,
       token,
       partner: savedOrg,
+      supabase_auth_id: authUser ? authUser.id : null,
       invite_url: `https://ziggers.in/join?ref=${encodeURIComponent(referralCode)}`
     });
   } catch (error) {

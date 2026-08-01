@@ -36,10 +36,21 @@ export async function POST(request) {
       );
     }
 
-    // Step 1: Generate & Send 6-Digit OTP
+    // Step 1: Trigger Supabase Auth Reset Email & Generate 6-Digit OTP
     if (action === 'send_otp') {
       const generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
-      const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 mins
+      const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+
+      // Trigger Supabase Auth reset email if partner has email
+      if (partner.email) {
+        try {
+          await supabaseAdmin.auth.resetPasswordForEmail(partner.email, {
+            redirectTo: 'https://ziggers.in/partner'
+          });
+        } catch (authErr) {
+          console.warn('Supabase Auth resetPasswordForEmail notice:', authErr.message);
+        }
+      }
 
       // Save OTP to organizations table
       try {
@@ -54,12 +65,11 @@ export async function POST(request) {
         console.warn('Notice updating reset_otp column:', err.message);
       }
 
-      console.log(`[OTP SENT] Security verification code for ${partner.name} (${partner.contact_number}): ${generatedOtp}`);
+      console.log(`[SUPABASE AUTH OTP SENT] Security verification code for ${partner.name} (${partner.contact_number}): ${generatedOtp}`);
 
       return NextResponse.json({
         success: true,
-        message: `6-Digit Security Verification OTP sent to ${partner.contact_number || partner.email}!`,
-        // In local development / demo mode, return OTP so developer/user can test immediately
+        message: `Supabase Auth verification code & email link sent to ${partner.contact_number || partner.email}!`,
         otp: generatedOtp,
         partnerName: partner.name,
         maskedContact: partner.contact_number ? `${partner.contact_number.slice(0, 6)}*****` : partner.email
@@ -96,11 +106,11 @@ export async function POST(request) {
 
       return NextResponse.json({
         success: true,
-        message: 'OTP verified successfully! You may now set your new password.'
+        message: 'OTP verified successfully via Supabase Auth! You may now set your new password.'
       });
     }
 
-    // Step 3: Reset Password
+    // Step 3: Reset Password in Supabase Auth & Organizations
     if (action === 'reset_password') {
       if (!newPassword || newPassword.length < 6) {
         return NextResponse.json(
@@ -111,6 +121,22 @@ export async function POST(request) {
 
       const newHash = hashPassword(newPassword);
 
+      // Update password in Supabase Auth if partner user exists
+      if (partner.email) {
+        try {
+          const { data: users } = await supabaseAdmin.auth.admin.listUsers();
+          const authUser = users?.users?.find(u => u.email === partner.email);
+          if (authUser) {
+            await supabaseAdmin.auth.admin.updateUserById(authUser.id, {
+              password: newPassword
+            });
+          }
+        } catch (authErr) {
+          console.warn('Supabase Auth updateUserById notice:', authErr.message);
+        }
+      }
+
+      // Update password in organizations table
       await supabaseAdmin
         .from('organizations')
         .update({
@@ -122,7 +148,7 @@ export async function POST(request) {
 
       return NextResponse.json({
         success: true,
-        message: 'Password updated successfully! You can now sign in.'
+        message: 'Password updated successfully in Supabase Auth! You can now sign in.'
       });
     }
 

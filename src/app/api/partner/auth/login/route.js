@@ -22,7 +22,22 @@ export async function POST(request) {
       );
     }
 
-    // Query organizations table by email or contact_number or unique_code
+    // 1. Attempt Supabase Auth Sign-In
+    let supabaseAuthSession = null;
+    try {
+      const { data: authData, error: authErr } = await supabaseAdmin.auth.signInWithPassword({
+        email: identifier,
+        password: password
+      });
+
+      if (authData && authData.session) {
+        supabaseAuthSession = authData.session;
+      }
+    } catch (err) {
+      console.warn('Supabase Auth signIn notice:', err.message);
+    }
+
+    // 2. Query organizations table by email or contact_number or unique_code
     const { data: partner, error } = await supabaseAdmin
       .from('organizations')
       .select('*')
@@ -36,8 +51,8 @@ export async function POST(request) {
       );
     }
 
-    // Verify password if hash exists
-    if (partner.password_hash) {
+    // 3. Verify password hash if not authenticated via Supabase Auth session
+    if (!supabaseAuthSession && partner.password_hash) {
       const isValid = verifyPassword(password, partner.password_hash);
       if (!isValid) {
         return NextResponse.json(
@@ -45,15 +60,6 @@ export async function POST(request) {
           { status: 401 }
         );
       }
-    } else {
-      // If password_hash wasn't set during initial creation, set it now
-      const hashPassword = require('../../../../../lib/auth').hashPassword;
-      const newHash = hashPassword(password);
-      await supabaseAdmin
-        .from('organizations')
-        .update({ email: identifier, password_hash: newHash })
-        .eq('id', partner.id);
-      partner.password_hash = newHash;
     }
 
     const token = createPartnerToken(partner.email || identifier, partner.unique_code);
@@ -61,6 +67,7 @@ export async function POST(request) {
     return NextResponse.json({
       success: true,
       token,
+      supabase_session: supabaseAuthSession,
       partner: {
         id: partner.id,
         name: partner.name,
