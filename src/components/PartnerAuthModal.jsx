@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Lock, Mail, ArrowRight, Loader2, LogIn, KeyRound, CheckCircle2, ArrowLeft, Smartphone } from 'lucide-react';
+import { X, Lock, Mail, ArrowRight, Loader2, LogIn, KeyRound, CheckCircle2, ArrowLeft, Smartphone, MessageSquare } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function PartnerAuthModal({ isOpen, onClose }) {
@@ -17,6 +17,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const [maskedContact, setMaskedContact] = useState('');
+  const [whatsappUrl, setWhatsappUrl] = useState('');
 
   const router = useRouter();
 
@@ -71,6 +72,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
     setLoading(true);
     setError('');
     setSuccessMsg('');
+    setWhatsappUrl('');
 
     try {
       const response = await fetch('/api/partner/auth/reset-password', {
@@ -82,13 +84,16 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
       const data = await response.json();
 
       if (!response.ok || !data.success) {
-        setError(data.error || 'Account not found.');
+        setError(data.error || 'No Community Partner account found with this phone number.');
         setLoading(false);
         return;
       }
 
       setMaskedContact(data.maskedContact || phone);
       setSuccessMsg(data.message);
+      if (data.whatsapp_url) {
+        setWhatsappUrl(data.whatsapp_url);
+      }
       setMode('forgot_otp');
       setLoading(false);
     } catch (err) {
@@ -160,7 +165,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
         return;
       }
 
-      setSuccessMsg('Password updated successfully! You can now sign in.');
+      setSuccessMsg('Password updated successfully! You can now sign in with your new password.');
       setMode('login');
       setPassword('');
       setNewPassword('');
@@ -406,18 +411,41 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
                   maxLength={4}
                   value={otp}
                   onChange={(e) => setOtp(e.target.value.replace(/[^0-9]/g, ''))}
-                  placeholder="e.g. 4821"
+                  placeholder="••••"
                   style={{ width: '100%', padding: '14px', borderRadius: '12px', border: '1.5px solid var(--color-gold)', fontSize: '24px', fontWeight: 900, textAlign: 'center', letterSpacing: '8px', outline: 'none', boxSizing: 'border-box' }}
                   required
                 />
               </div>
+
+              {whatsappUrl && (
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    background: '#25D366',
+                    color: '#fff',
+                    padding: '12px',
+                    borderRadius: '12px',
+                    fontSize: '13px',
+                    fontWeight: 800,
+                    textDecoration: 'none'
+                  }}
+                >
+                  <MessageSquare size={16} /> Open WhatsApp to Receive OTP Message
+                </a>
+              )}
 
               <button
                 type="submit"
                 disabled={loading}
                 style={{
                   width: '100%',
-                  background: '#25D366',
+                  background: 'var(--color-espresso)',
                   color: '#fff',
                   border: 'none',
                   padding: '14px',
@@ -429,7 +457,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '8px',
-                  marginTop: '8px'
+                  marginTop: '4px'
                 }}
               >
                 {loading ? <Loader2 size={18} className="partner-submit-spin" /> : <>Verify 4-Digit OTP <CheckCircle2 size={18} /></>}
@@ -437,7 +465,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
 
               <button
                 type="button"
-                onClick={() => { setMode('forgot_send'); setError(''); setSuccessMsg(''); }}
+                onClick={() => { setMode('forgot_send'); setError(''); setSuccessMsg(''); setOtp(''); }}
                 style={{ background: 'none', border: 'none', color: 'var(--color-muted)', fontSize: '13px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', marginTop: '4px' }}
               >
                 <ArrowLeft size={14} /> Resend OTP / Change Mobile Number
