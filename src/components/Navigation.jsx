@@ -1,18 +1,40 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X, Home, Briefcase, Star, ShieldCheck } from 'lucide-react';
+import { Menu, X, Home, Briefcase, Star, ShieldCheck, User, LogOut } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import PlayStoreButton from './PlayStoreButton';
 import { getSectionIdFromHref, scrollToSection } from '../lib/scrollToSection';
+import PartnerAuthModal from './PartnerAuthModal';
 
 export default function Navigation() {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [partnerUser, setPartnerUser] = useState(null);
   const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    const checkPartnerSession = () => {
+      const stored = typeof window !== 'undefined' ? localStorage.getItem('ziggers_partner_user') : null;
+      if (stored) {
+        try {
+          setPartnerUser(JSON.parse(stored));
+        } catch (e) {
+          setPartnerUser(null);
+        }
+      } else {
+        setPartnerUser(null);
+      }
+    };
+
+    checkPartnerSession();
+    window.addEventListener('storage', checkPartnerSession);
+    return () => window.removeEventListener('storage', checkPartnerSession);
+  }, []);
 
   useEffect(() => {
     if (pathname !== '/') return undefined;
@@ -147,23 +169,43 @@ export default function Navigation() {
 
             <div className="site-header-actions">
               <div className="hidden md-flex" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <a 
-                  href="https://app.ziggers.in" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="btn-secondary"
-                  style={{
-                    padding: '8px 18px',
-                    fontSize: '13px',
-                    textDecoration: 'none',
-                    fontWeight: 700,
-                    borderRadius: '100px',
-                    display: 'inline-flex',
-                    alignItems: 'center'
-                  }}
-                >
-                  Sign In
-                </a>
+                {partnerUser ? (
+                  <button 
+                    onClick={() => router.push('/partner/dashboard')}
+                    className="btn-secondary"
+                    style={{
+                      padding: '8px 18px',
+                      fontSize: '13px',
+                      fontWeight: 700,
+                      borderRadius: '100px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      cursor: 'pointer',
+                      background: 'rgba(37,211,102,0.12)',
+                      color: '#128C7E',
+                      border: '1px solid rgba(37,211,102,0.3)'
+                    }}
+                  >
+                    <User size={15} /> Partner Dashboard
+                  </button>
+                ) : (
+                  <button 
+                    onClick={() => setAuthModalOpen(true)}
+                    className="btn-secondary"
+                    style={{
+                      padding: '8px 18px',
+                      fontSize: '13px',
+                      fontWeight: 700,
+                      borderRadius: '100px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Sign In
+                  </button>
+                )}
                 <PlayStoreButton label="Download" size="md" />
               </div>
 
@@ -234,31 +276,64 @@ export default function Navigation() {
                 </a>
               ))}
               <PlayStoreButton label="Download on Google Play" style={{ width: '100%', justifyContent: 'center' }} />
-              <a
-                href="https://app.ziggers.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary"
-                style={{
-                  width: '100%',
-                  textAlign: 'center',
-                  textDecoration: 'none',
-                  boxSizing: 'border-box',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '12px',
-                  borderRadius: '100px',
-                  fontSize: '14px',
-                  fontWeight: 700
-                }}
-              >
-                Sign In
-              </a>
+              {partnerUser ? (
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    router.push('/partner/dashboard');
+                  }}
+                  className="btn-secondary"
+                  style={{
+                    width: '100%',
+                    textAlign: 'center',
+                    boxSizing: 'border-box',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '12px',
+                    borderRadius: '100px',
+                    fontSize: '14px',
+                    fontWeight: 700,
+                    background: 'rgba(37,211,102,0.12)',
+                    color: '#128C7E',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <User size={16} style={{ marginRight: '6px' }} /> Partner Dashboard
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setAuthModalOpen(true);
+                  }}
+                  className="btn-secondary"
+                  style={{
+                    width: '100%',
+                    textAlign: 'center',
+                    boxSizing: 'border-box',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '12px',
+                    borderRadius: '100px',
+                    fontSize: '14px',
+                    fontWeight: 700,
+                    cursor: 'pointer'
+                  }}
+                >
+                  Sign In
+                </button>
+              )}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <PartnerAuthModal 
+        isOpen={authModalOpen} 
+        onClose={() => setAuthModalOpen(false)} 
+      />
 
       <style>{`
         @media (max-width: 768px) {

@@ -33,6 +33,7 @@ export default function Partner() {
     name: '',
     phone: '',
     email: '',
+    password: '',
     city: '',
     platform: 'WhatsApp Group',
     memberCount: '512 - 1,024',
@@ -72,18 +73,20 @@ export default function Partner() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.city) return;
+    if (!formData.name || !formData.phone || !formData.city || !formData.email || !formData.password) return;
 
     setStatus('loading');
     const finalCode = generateCodeFromMobile(formData.name, formData.phone) || 'ZIGPARTNER';
 
     try {
-      const response = await fetch('/api/referrals/generate-custom-code', {
+      const response = await fetch('/api/partner/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
           phone: formData.phone,
+          email: formData.email,
+          password: formData.password,
           city: formData.city,
           platform: formData.platform,
           memberCount: formData.memberCount,
@@ -93,6 +96,12 @@ export default function Partner() {
       });
       const resData = await response.json();
       setReferralData(resData);
+
+      if (resData.token && resData.partner) {
+        localStorage.setItem('ziggers_partner_token', resData.token);
+        localStorage.setItem('ziggers_partner_user', JSON.stringify(resData.partner));
+        window.dispatchEvent(new Event('storage'));
+      }
     } catch (err) {
       console.warn('API route call notice:', err);
     }
@@ -1013,6 +1022,33 @@ export default function Partner() {
                             value={formData.city} 
                             onChange={handleFormChange} 
                             placeholder="e.g. Chennai / Bangalore"
+                            style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1.5px solid rgba(61,43,31,0.12)', fontSize: '14px', outline: 'none' }}
+                            required 
+                          />
+                        </div>
+                      </div>
+
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                        <div>
+                          <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>Email Address *</label>
+                          <input 
+                            type="email" 
+                            name="email" 
+                            value={formData.email} 
+                            onChange={handleFormChange} 
+                            placeholder="partner@gmail.com"
+                            style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1.5px solid rgba(61,43,31,0.12)', fontSize: '14px', outline: 'none' }}
+                            required 
+                          />
+                        </div>
+                        <div>
+                          <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>Set Account Password *</label>
+                          <input 
+                            type="password" 
+                            name="password" 
+                            value={formData.password} 
+                            onChange={handleFormChange} 
+                            placeholder="••••••••"
                             style={{ width: '100%', padding: '12px 16px', borderRadius: '12px', border: '1.5px solid rgba(61,43,31,0.12)', fontSize: '14px', outline: 'none' }}
                             required 
                           />
