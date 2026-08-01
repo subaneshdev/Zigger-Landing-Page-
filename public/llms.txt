@@ -10,6 +10,7 @@ Ziggers (officially accessible at **[https://www.ziggers.in](https://www.ziggers
 - **Core Target Areas**: On-demand catering boys, acting drivers, event helpers, and warehouse workers in Chennai, Bangalore, Hyderabad, Coimbatore, Madurai, Delhi, Pune, and Mumbai.
 - **Brand Authority Links**:
   - Crunchbase Profile: [https://www.crunchbase.com/organization/ziggers](https://www.crunchbase.com/organization/ziggers)
+  - Product Hunt: [https://www.producthunt.com/products/ziggers](https://www.producthunt.com/products/ziggers)
   - Google Play App: [https://play.google.com/store/apps/details?id=com.ziggers.ziggers](https://play.google.com/store/apps/details?id=com.ziggers.ziggers)
 
 ## Core Features

@@ -92,7 +92,8 @@ export default function RootLayout({ children }) {
       logo: 'https://www.ziggers.in/favicon.ico',
       sameAs: [
         'https://play.google.com/store/apps/details?id=com.ziggers.ziggers',
-        'https://www.crunchbase.com/organization/ziggers'
+        'https://www.crunchbase.com/organization/ziggers',
+        'https://www.producthunt.com/products/ziggers'
       ]
     },
     {
