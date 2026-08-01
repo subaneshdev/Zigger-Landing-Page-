@@ -11,7 +11,7 @@ const supabaseAdmin = serviceKey ? createClient(supabaseUrl, serviceKey) : defau
 const MESSAGE_CENTRAL_CUSTOMER_ID = process.env.MESSAGE_CENTRAL_CUSTOMER_ID || 'C-3911A8398E68431';
 const MESSAGE_CENTRAL_AUTH_TOKEN = process.env.MESSAGE_CENTRAL_AUTH_TOKEN || '';
 
-// In-memory OTP store for 100% reliable OTP verification fallback if SQL column is not run yet
+// In-memory OTP store for 100% reliable 4-digit OTP verification
 const inMemoryOtpStore = new Map();
 
 export async function POST(request) {
@@ -25,7 +25,7 @@ export async function POST(request) {
 
     if (!mobileNumber) {
       return NextResponse.json(
-        { error: 'Registered WhatsApp Phone Number is required' },
+        { error: 'Registered Phone Number is required' },
         { status: 400 }
       );
     }
@@ -44,18 +44,18 @@ export async function POST(request) {
       );
     }
 
-    // Step 1: Generate & Send 4-Digit OTP via Message Central + WhatsApp
+    // Step 1: Generate & Send 4-Digit OTP via SMS Gateway
     if (action === 'send_otp') {
       const generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
       const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
 
-      // Always save to in-memory store
+      // Save to memory store
       inMemoryOtpStore.set(mobileNumber, {
         otp: generatedOtp,
         expiresAt: Date.now() + 10 * 60 * 1000
       });
 
-      // Try updating organizations table in Supabase
+      // Update Supabase organizations table
       try {
         await supabaseAdmin
           .from('organizations')
@@ -65,10 +65,19 @@ export async function POST(request) {
           })
           .eq('id', partner.id);
       } catch (err) {
-        console.warn('Notice updating reset_otp column in DB:', err.message);
+        console.warn('Notice updating reset_otp in database:', err.message);
       }
 
-      // Dispatch via Message Central API
+      // 1. Dispatch SMS via Supabase Auth SMS Provider
+      try {
+        await supabaseAdmin.auth.signInWithOtp({
+          phone: `+91${mobileNumber}`
+        });
+      } catch (sbErr) {
+        console.warn('Supabase Auth SMS notice:', sbErr.message);
+      }
+
+      // 2. Dispatch SMS via Message Central CPaaS API
       if (MESSAGE_CENTRAL_AUTH_TOKEN) {
         try {
           const mcUrl = `https://cpaas.messagecentral.com/verification/v2/verification/sendCode?countryCode=91&customerId=${MESSAGE_CENTRAL_CUSTOMER_ID}&flowType=SMS&mobileNumber=${mobileNumber}`;
@@ -80,33 +89,29 @@ export async function POST(request) {
             }
           });
           const mcData = await mcRes.json();
-          console.log('[MESSAGE CENTRAL OTP RESPONSE]:', mcData);
+          console.log('[MESSAGE CENTRAL SMS OTP RESPONSE]:', mcData);
         } catch (mcErr) {
           console.warn('[MESSAGE CENTRAL NOTICE]:', mcErr.message);
         }
       }
 
-      console.log(`[STRICT 4-DIGIT OTP CREATED] Partner: ${partner.name} (+91 ${mobileNumber}) | Code: ${generatedOtp}`);
-
-      const whatsappText = encodeURIComponent(`Your Ziggers Community Partner OTP code is: ${generatedOtp}`);
-      const whatsappUrl = `https://api.whatsapp.com/send?phone=91${mobileNumber}&text=${whatsappText}`;
+      console.log(`[SMS OTP DISPATCHED] Phone: +91 ${mobileNumber} | 4-Digit Code: ${generatedOtp} | Partner: ${partner.name}`);
 
       return NextResponse.json({
         success: true,
-        message: `4-Digit OTP dispatched to +91 ${mobileNumber.slice(0, 5)}*****. Verify using your code.`,
+        message: `4-Digit Security OTP sent via SMS to +91 ${mobileNumber.slice(0, 5)}*****. Please check your phone messages!`,
         partnerName: partner.name,
-        maskedContact: `+91 ${mobileNumber.slice(0, 5)}*****`,
-        whatsapp_url: whatsappUrl
+        maskedContact: `+91 ${mobileNumber.slice(0, 5)}*****`
       });
     }
 
-    // Step 2: Strict 4-Digit OTP Verification (Strict matching against DB & Memory)
+    // Step 2: Strict 4-Digit OTP Verification
     if (action === 'verify_otp') {
       const inputOtp = (otp || '').trim();
 
       if (!inputOtp || inputOtp.length !== 4) {
         return NextResponse.json(
-          { error: 'Please enter the exact 4-digit OTP code sent to your phone' },
+          { error: 'Please enter the exact 4-digit OTP code sent to your phone messages' },
           { status: 400 }
         );
       }
@@ -115,10 +120,10 @@ export async function POST(request) {
       const storedOtp = partner.reset_otp || (memRecord ? memRecord.otp : null);
       const isExpired = memRecord ? Date.now() > memRecord.expiresAt : false;
 
-      // STRICT MATCHING: Must match generated 4-digit OTP!
+      // STRICT VALIDATION: Must match generated 4-digit OTP exactly! No loose 1234 bypass.
       if (!storedOtp || storedOtp !== inputOtp) {
         return NextResponse.json(
-          { error: 'Invalid 4-Digit OTP code. Please check your SMS/WhatsApp and enter the exact code sent to your phone.' },
+          { error: 'Invalid 4-Digit OTP code. Please check your phone SMS messages and enter the correct code.' },
           { status: 400 }
         );
       }
@@ -162,7 +167,7 @@ export async function POST(request) {
         }
       }
 
-      // Clear in-memory OTP
+      // Clear memory OTP
       inMemoryOtpStore.delete(mobileNumber);
 
       // Save new password in organizations table

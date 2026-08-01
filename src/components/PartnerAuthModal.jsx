@@ -17,7 +17,6 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const [maskedContact, setMaskedContact] = useState('');
-  const [whatsappUrl, setWhatsappUrl] = useState('');
 
   const router = useRouter();
 
@@ -65,14 +64,13 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
   const handleSendOtp = async (e) => {
     e.preventDefault();
     if (!phone) {
-      setError('Please enter your registered WhatsApp Phone Number');
+      setError('Please enter your registered mobile phone number');
       return;
     }
 
     setLoading(true);
     setError('');
     setSuccessMsg('');
-    setWhatsappUrl('');
 
     try {
       const response = await fetch('/api/partner/auth/reset-password', {
@@ -91,9 +89,6 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
 
       setMaskedContact(data.maskedContact || phone);
       setSuccessMsg(data.message);
-      if (data.whatsapp_url) {
-        setWhatsappUrl(data.whatsapp_url);
-      }
       setMode('forgot_otp');
       setLoading(false);
     } catch (err) {
@@ -105,7 +100,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
     if (!otp || otp.trim().length !== 4) {
-      setError('Please enter the 4-digit OTP code sent to your phone');
+      setError('Please enter the 4-digit OTP code sent to your SMS messages');
       return;
     }
 
@@ -249,15 +244,15 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             
             <h3 style={{ fontSize: '24px', fontWeight: 900, margin: '0 0 6px', color: 'var(--color-espresso)' }}>
               {mode === 'login' && 'Partner Sign In'}
-              {mode === 'forgot_send' && 'Send 4-Digit OTP'}
-              {mode === 'forgot_otp' && 'Verify 4-Digit OTP'}
+              {mode === 'forgot_send' && 'Send 4-Digit SMS OTP'}
+              {mode === 'forgot_otp' && 'Verify 4-Digit SMS OTP'}
               {mode === 'reset_new' && 'Set New Password'}
             </h3>
             
             <p style={{ color: 'var(--color-muted)', fontSize: '13px', margin: 0, lineHeight: 1.5 }}>
               {mode === 'login' && 'Sign in to track your referral earnings, active workers, & total completed gigs.'}
-              {mode === 'forgot_send' && 'Enter your registered WhatsApp phone number to receive a 4-digit verification code.'}
-              {mode === 'forgot_otp' && `Enter the 4-digit code sent to ${maskedContact || 'your phone'}.`}
+              {mode === 'forgot_send' && 'Enter your registered mobile phone number to receive a 4-digit SMS OTP code.'}
+              {mode === 'forgot_otp' && `Enter the 4-digit code sent via SMS to ${maskedContact || 'your phone'}.`}
               {mode === 'reset_new' && 'Your phone is verified! Create a new secure password.'}
             </p>
           </div>
@@ -279,7 +274,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
                 <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>
-                  Email Address or WhatsApp Number
+                  Email Address or Mobile Phone Number
                 </label>
                 <div style={{ position: 'relative' }}>
                   <Mail size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-muted)' }} />
@@ -351,7 +346,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             <form onSubmit={handleSendOtp} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
                 <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>
-                  Registered WhatsApp Phone Number *
+                  Registered Mobile Phone Number *
                 </label>
                 <div style={{ position: 'relative' }}>
                   <Smartphone size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-muted)' }} />
@@ -386,7 +381,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
                   marginTop: '8px'
                 }}
               >
-                {loading ? <Loader2 size={18} className="partner-submit-spin" /> : <>Send 4-Digit OTP Code <KeyRound size={18} /></>}
+                {loading ? <Loader2 size={18} className="partner-submit-spin" /> : <>Send 4-Digit SMS OTP <KeyRound size={18} /></>}
               </button>
 
               <button
@@ -399,7 +394,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             </form>
           )}
 
-          {/* MODE 3: FORGOT - VERIFY 4-DIGIT OTP */}
+          {/* MODE 3: FORGOT - VERIFY 4-DIGIT SMS OTP */}
           {mode === 'forgot_otp' && (
             <form onSubmit={handleVerifyOtp} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
@@ -417,28 +412,9 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
                 />
               </div>
 
-              {whatsappUrl && (
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    background: '#25D366',
-                    color: '#fff',
-                    padding: '12px',
-                    borderRadius: '12px',
-                    fontSize: '13px',
-                    fontWeight: 800,
-                    textDecoration: 'none'
-                  }}
-                >
-                  <MessageSquare size={16} /> Open WhatsApp to Receive OTP Message
-                </a>
-              )}
+              <div style={{ background: '#fcf8f3', padding: '12px', borderRadius: '12px', border: '1px border-dashed rgba(196,160,82,0.3)', fontSize: '12px', color: 'var(--color-muted)', textAlign: 'center' }}>
+                📱 Please check your phone SMS messages for your 4-digit OTP code.
+              </div>
 
               <button
                 type="submit"
