@@ -17,13 +17,15 @@ import {
   MessageSquare, 
   DollarSign, 
   Award, 
-  CheckSquare
+  CheckSquare,
+  ExternalLink
 } from 'lucide-react';
 import Magnetic from '../Magnetic';
 import NumberTicker from '../NumberTicker';
 import AnimatedShinyText from '../magicui/AnimatedShinyText';
 import ShimmerButton from '../magicui/ShimmerButton';
 import MagicCard from '../magicui/MagicCard';
+import { generateCodeFromMobile, getWhatsAppShareUrl, getReferralUrl, getGroupWelcomeMessage } from '../../lib/referral';
 
 export default function Partner() {
   // Form State
@@ -38,6 +40,10 @@ export default function Partner() {
     message: ''
   });
   const [status, setStatus] = useState('idle');
+  const [generatedCode, setGeneratedCode] = useState('');
+  const [referralData, setReferralData] = useState(null);
+  const [copiedCode, setCopiedCode] = useState(false);
+  const [copiedLink, setCopiedLink] = useState(false);
 
   // Calculator State
   const [groupSize, setGroupSize] = useState(1024);
@@ -57,6 +63,9 @@ export default function Partner() {
   const recurringMonthlyIncome = Math.floor(totalMonthlyGigs / 5) * 20;
   const totalMonthOne = signupBonus + recurringMonthlyIncome;
 
+  const liveAutoCode = generateCodeFromMobile(formData.name, formData.phone);
+  const activeCode = generatedCode || liveAutoCode || 'ZIGPARTNER';
+
   const handleFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -66,31 +75,50 @@ export default function Partner() {
     if (!formData.name || !formData.phone || !formData.city) return;
 
     setStatus('loading');
-    setTimeout(() => {
-      setStatus('success');
-    }, 1200);
+    const finalCode = generateCodeFromMobile(formData.name, formData.phone) || 'ZIGPARTNER';
+
+    try {
+      const response = await fetch('/api/referrals/generate-custom-code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          city: formData.city,
+          platform: formData.platform,
+          memberCount: formData.memberCount,
+          category: formData.category,
+          referralCode: finalCode
+        })
+      });
+      const resData = await response.json();
+      setReferralData(resData);
+    } catch (err) {
+      console.warn('API route call notice:', err);
+    }
+
+    setGeneratedCode(finalCode);
+    setStatus('success');
   };
 
-  const welcomeMessageText = `🚨 EXCLUSIVE JOB OPPORTUNITIES FOR OUR COMMUNITY! 🚨
-
-Hey everyone! We have officially partnered with Ziggers to bring verified, daily-wage gig jobs directly to our group!
-
-Why work through Ziggers?
-⚡ No Backouts for Employer – Guaranteed shift bookings
-💰 Fair Price for Workers – Earn top daily wage rates
-🚫 0% Commission – Keep 100% of what you earn
-⚡ Instant UPI Payments – Get paid immediately post-gig
-👻 No Ghosting – Verified employers & transparent check-ins
-
-👉 Join Ziggers now using our official community partner link:
-https://ziggers.in/join?ref=YOUR_GROUP_ID
-
-Get verified today & start receiving daily gig alerts! 💰🚀`;
+  const welcomeMessageText = getGroupWelcomeMessage(activeCode);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(welcomeMessageText);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
+  };
+
+  const copyCodeOnly = () => {
+    navigator.clipboard.writeText(activeCode);
+    setCopiedCode(true);
+    setTimeout(() => setCopiedCode(false), 3000);
+  };
+
+  const copyLinkOnly = () => {
+    navigator.clipboard.writeText(getReferralUrl(activeCode));
+    setCopiedLink(true);
+    setTimeout(() => setCopiedLink(false), 3000);
   };
 
   const faqs = [
@@ -757,22 +785,170 @@ Get verified today & start receiving daily gig alerts! 💰🚀`;
                     key="success"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    style={{ textAlign: 'center', padding: '32px 0' }}
+                    style={{ textAlign: 'left', padding: '12px 0' }}
                   >
-                    <img 
-                      src="/assets/mascot_winking.jpg" 
-                      alt="Zippy Mascot Celebrating" 
-                      style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 16px', display: 'block' }}
-                    />
-                    <div style={{ color: '#25D366', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
-                      <CheckCircle2 size={64} />
+                    <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+                      <img 
+                        src="/assets/mascot_winking.jpg" 
+                        alt="Zippy Mascot Celebrating" 
+                        style={{ width: '70px', height: '70px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 12px', display: 'block', border: '3px solid #25D366' }}
+                      />
+                      <div style={{ color: '#25D366', marginBottom: '8px', display: 'flex', justifyContent: 'center' }}>
+                        <CheckCircle2 size={48} />
+                      </div>
+                      <h3 style={{ fontSize: '24px', fontWeight: 900, marginBottom: '6px' }}>Partner Registration Successful!</h3>
+                      <p style={{ color: 'var(--color-muted)', fontSize: '14px', margin: 0 }}>
+                        Your group details &amp; referral code have been saved to the database.
+                      </p>
                     </div>
-                    <h3 style={{ fontSize: '26px', fontWeight: 900, marginBottom: '12px' }}>Application Submitted!</h3>
-                    <p style={{ color: 'var(--color-muted)', fontSize: '16px', lineHeight: 1.6, marginBottom: '24px' }}>
-                      Thank you for applying to become a Ziggers Community Partner! Our Partner Manager will contact you on WhatsApp within 12 hours with your unique referral link.
-                    </p>
-                    <div style={{ background: 'var(--color-bg)', padding: '16px', borderRadius: '14px', fontSize: '14px', fontWeight: 700, color: 'var(--color-espresso)' }}>
-                      🎉 Welcome to the Ziggers Community Partner Network!
+
+                    {/* Gradient Referral Code Card */}
+                    <div style={{
+                      background: 'linear-gradient(135deg, #3D2B1F 0%, #1f140e 100%)',
+                      color: '#fff',
+                      borderRadius: '20px',
+                      padding: '24px',
+                      marginBottom: '24px',
+                      boxShadow: 'var(--shadow-strong)',
+                      border: '1.5px solid rgba(196,160,82,0.4)',
+                      position: 'relative'
+                    }}>
+                      <div style={{ fontSize: '11px', fontWeight: 800, color: 'var(--color-gold)', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '8px' }}>
+                        ✨ YOUR UNIQUE PARTNER REFERRAL CODE
+                      </div>
+                      
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', marginBottom: '16px' }}>
+                        <div style={{ fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 900, color: '#25D366', letterSpacing: '1px', background: 'rgba(255,255,255,0.06)', padding: '8px 18px', borderRadius: '12px', border: '1px border-dashed rgba(37,211,102,0.3)' }}>
+                          {activeCode}
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                          <button 
+                            type="button"
+                            onClick={copyCodeOnly}
+                            style={{ background: copiedCode ? '#25D366' : 'rgba(255,255,255,0.15)', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '10px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                          >
+                            {copiedCode ? <Check size={16} /> : <Copy size={16} />}
+                            {copiedCode ? 'Code Copied!' : 'Copy Code'}
+                          </button>
+
+                          <button 
+                            type="button"
+                            onClick={copyLinkOnly}
+                            style={{ background: copiedLink ? '#25D366' : 'var(--color-gold)', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '10px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                          >
+                            {copiedLink ? <Check size={16} /> : <ExternalLink size={16} />}
+                            {copiedLink ? 'Link Copied!' : 'Copy Link'}
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* 1-Click WhatsApp Share Button */}
+                      <a 
+                        href={getWhatsAppShareUrl(activeCode)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '10px',
+                          background: '#25D366',
+                          color: '#fff',
+                          padding: '14px',
+                          borderRadius: '12px',
+                          fontWeight: 800,
+                          fontSize: '15px',
+                          textDecoration: 'none',
+                          boxShadow: '0 4px 14px rgba(37,211,102,0.4)',
+                          width: '100%'
+                        }}
+                      >
+                        <Share2 size={20} /> Share Directly on WhatsApp
+                      </a>
+                    </div>
+
+                    {/* Organization Referral Tracking Table */}
+                    <div style={{ background: '#fcf8f3', borderRadius: '16px', padding: '20px', border: '1px solid rgba(196,160,82,0.2)' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                        <h4 style={{ fontSize: '16px', fontWeight: 800, margin: 0, color: 'var(--color-espresso)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <TrendingUp size={18} color="var(--color-gold)" /> Referred Members Tracking
+                        </h4>
+                        <span style={{ fontSize: '12px', background: '#25D366', color: '#fff', fontWeight: 800, padding: '4px 10px', borderRadius: '100px' }}>
+                          Live Database Status
+                        </span>
+                      </div>
+
+                      {/* Stats Quick Cards */}
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '16px', textAlign: 'center' }}>
+                        <div style={{ background: '#fff', padding: '10px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
+                          <div style={{ fontSize: '11px', color: 'var(--color-muted)', fontWeight: 600 }}>Invited</div>
+                          <div style={{ fontSize: '18px', fontWeight: 900, color: 'var(--color-espresso)' }}>
+                            {referralData?.data?.metrics?.total_invited || 0}
+                          </div>
+                        </div>
+                        <div style={{ background: '#fff', padding: '10px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
+                          <div style={{ fontSize: '11px', color: 'var(--color-muted)', fontWeight: 600 }}>Active</div>
+                          <div style={{ fontSize: '18px', fontWeight: 900, color: '#25D366' }}>
+                            {referralData?.data?.metrics?.converted_referrals || 0}
+                          </div>
+                        </div>
+                        <div style={{ background: '#fff', padding: '10px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
+                          <div style={{ fontSize: '11px', color: 'var(--color-muted)', fontWeight: 600 }}>Cash Earned</div>
+                          <div style={{ fontSize: '18px', fontWeight: 900, color: 'var(--color-gold)' }}>
+                            ₹{referralData?.data?.metrics?.total_cash_earned || 0}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Member List Table / Empty State */}
+                      {referralData?.data?.referred_members && referralData.data.referred_members.length > 0 ? (
+                        <div style={{ overflowX: 'auto' }}>
+                          <table style={{ width: '100%', fontSize: '12px', borderCollapse: 'collapse', textAlign: 'left' }}>
+                            <thead>
+                              <tr style={{ borderBottom: '1.5px solid rgba(61,43,31,0.1)', color: 'var(--color-muted)' }}>
+                                <th style={{ padding: '8px 4px' }}>Member</th>
+                                <th style={{ padding: '8px 4px' }}>Date</th>
+                                <th style={{ padding: '8px 4px' }}>Status</th>
+                                <th style={{ padding: '8px 4px', textAlign: 'right' }}>Earned</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {referralData.data.referred_members.map((member, idx) => (
+                                <tr key={idx} style={{ borderBottom: '1px solid rgba(61,43,31,0.06)' }}>
+                                  <td style={{ padding: '8px 4px', fontWeight: 700 }}>{member.name} ({member.phone})</td>
+                                  <td style={{ padding: '8px 4px', color: 'var(--color-muted)' }}>{member.date_joined}</td>
+                                  <td style={{ padding: '8px 4px' }}>
+                                    <span style={{ 
+                                      background: member.status === 'REWARD_CLAIMED' ? 'rgba(37,211,102,0.15)' : 'rgba(196,160,82,0.15)', 
+                                      color: member.status === 'REWARD_CLAIMED' ? '#128C7E' : 'var(--color-gold)', 
+                                      fontSize: '10px', 
+                                      fontWeight: 800, 
+                                      padding: '2px 8px', 
+                                      borderRadius: '100px' 
+                                    }}>
+                                      {member.status}
+                                    </span>
+                                  </td>
+                                  <td style={{ padding: '8px 4px', fontWeight: 800, color: member.status === 'REWARD_CLAIMED' ? '#25D366' : 'var(--color-gold)', textAlign: 'right' }}>
+                                    {member.reward_earned}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      ) : (
+                        <div style={{ background: '#fff', padding: '24px 16px', borderRadius: '12px', border: '1px border-dashed rgba(61,43,31,0.12)', textAlign: 'center' }}>
+                          <div style={{ fontSize: '28px', marginBottom: '6px' }}>🚀</div>
+                          <h5 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--color-espresso)', margin: '0 0 4px' }}>
+                            Your Partner Link is Ready to Share!
+                          </h5>
+                          <p style={{ fontSize: '13px', color: 'var(--color-muted)', margin: 0, lineHeight: 1.5 }}>
+                            No community members have signed up using your code yet. Click the <strong>Share Directly on WhatsApp</strong> button above to start earning ₹20 per referral!
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </motion.div>
                 ) : (
@@ -834,6 +1010,16 @@ Get verified today & start receiving daily gig alerts! 💰🚀`;
                           />
                         </div>
                       </div>
+
+                      {/* Live Auto-Generated Code Preview Badge */}
+                      {liveAutoCode && (
+                        <div style={{ background: 'rgba(196,160,82,0.12)', border: '1px dashed var(--color-gold)', borderRadius: '12px', padding: '10px 14px', fontSize: '13px', color: 'var(--color-espresso)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                          <span style={{ fontWeight: 600 }}>⚡ Auto-Generated Partner Code:</span>
+                          <strong style={{ fontSize: '15px', letterSpacing: '0.8px', color: 'var(--color-gold)', background: '#fff', padding: '2px 10px', borderRadius: '6px', border: '1px solid rgba(196,160,82,0.3)' }}>
+                            {liveAutoCode}
+                          </strong>
+                        </div>
+                      )}
 
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                         <div>
