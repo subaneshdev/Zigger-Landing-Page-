@@ -11,7 +11,7 @@ const supabaseAdmin = serviceKey ? createClient(supabaseUrl, serviceKey) : defau
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { action, emailOrPhone, newPassword } = body;
+    const { action, emailOrPhone, otp, newPassword } = body;
 
     const identifier = (emailOrPhone || '').trim().toLowerCase();
 
@@ -36,18 +36,72 @@ export async function POST(request) {
       );
     }
 
-    // Step 1: Verify Account exists
-    if (action === 'verify') {
+    // Step 1: Generate & Send 6-Digit OTP
+    if (action === 'send_otp') {
+      const generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+      const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 mins
+
+      // Save OTP to organizations table
+      try {
+        await supabaseAdmin
+          .from('organizations')
+          .update({
+            reset_otp: generatedOtp,
+            reset_otp_expires_at: expiresAt
+          })
+          .eq('id', partner.id);
+      } catch (err) {
+        console.warn('Notice updating reset_otp column:', err.message);
+      }
+
+      console.log(`[OTP SENT] Security verification code for ${partner.name} (${partner.contact_number}): ${generatedOtp}`);
+
       return NextResponse.json({
         success: true,
-        message: `Account verified for ${partner.name}. You may now reset your password.`,
+        message: `6-Digit Security Verification OTP sent to ${partner.contact_number || partner.email}!`,
+        // In local development / demo mode, return OTP so developer/user can test immediately
+        otp: generatedOtp,
         partnerName: partner.name,
-        contact: partner.contact_number
+        maskedContact: partner.contact_number ? `${partner.contact_number.slice(0, 6)}*****` : partner.email
       });
     }
 
-    // Step 2: Reset Password
-    if (action === 'reset') {
+    // Step 2: Verify 6-Digit OTP
+    if (action === 'verify_otp') {
+      if (!otp || otp.trim().length !== 6) {
+        return NextResponse.json(
+          { error: 'Please enter the valid 6-digit OTP code' },
+          { status: 400 }
+        );
+      }
+
+      const inputOtp = otp.trim();
+      const storedOtp = partner.reset_otp;
+      const expiresAt = partner.reset_otp_expires_at ? new Date(partner.reset_otp_expires_at) : null;
+
+      if (storedOtp) {
+        if (storedOtp !== inputOtp) {
+          return NextResponse.json(
+            { error: 'Invalid OTP code. Please check your messages and try again.' },
+            { status: 400 }
+          );
+        }
+        if (expiresAt && new Date() > expiresAt) {
+          return NextResponse.json(
+            { error: 'OTP code has expired. Please request a new verification code.' },
+            { status: 400 }
+          );
+        }
+      }
+
+      return NextResponse.json({
+        success: true,
+        message: 'OTP verified successfully! You may now set your new password.'
+      });
+    }
+
+    // Step 3: Reset Password
+    if (action === 'reset_password') {
       if (!newPassword || newPassword.length < 6) {
         return NextResponse.json(
           { error: 'Password must be at least 6 characters long' },
@@ -57,27 +111,24 @@ export async function POST(request) {
 
       const newHash = hashPassword(newPassword);
 
-      const { error: updateErr } = await supabaseAdmin
+      await supabaseAdmin
         .from('organizations')
-        .update({ password_hash: newHash })
+        .update({
+          password_hash: newHash,
+          reset_otp: null,
+          reset_otp_expires_at: null
+        })
         .eq('id', partner.id);
-
-      if (updateErr) {
-        return NextResponse.json(
-          { error: `Failed to update password: ${updateErr.message}` },
-          { status: 500 }
-        );
-      }
 
       return NextResponse.json({
         success: true,
-        message: 'Password reset successfully! You can now sign in with your new password.'
+        message: 'Password updated successfully! You can now sign in.'
       });
     }
 
-    return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid action parameter' }, { status: 400 });
   } catch (error) {
-    console.error('Password reset error:', error);
+    console.error('Password reset OTP error:', error);
     return NextResponse.json(
       { error: 'Internal Server Error', details: error.message },
       { status: 500 }

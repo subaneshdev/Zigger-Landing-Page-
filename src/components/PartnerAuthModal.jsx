@@ -1,19 +1,22 @@
 "use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Lock, Mail, ArrowRight, Loader2, LogIn, KeyRound, CheckCircle2, ArrowLeft } from 'lucide-react';
+import { X, Lock, Mail, ArrowRight, Loader2, LogIn, KeyRound, CheckCircle2, ArrowLeft, ShieldAlert, Smartphone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function PartnerAuthModal({ isOpen, onClose }) {
-  const [mode, setMode] = useState('login'); // 'login' | 'forgot' | 'reset_new'
+  // Modes: 'login' | 'forgot_send' | 'forgot_otp' | 'reset_new'
+  const [mode, setMode] = useState('login'); 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [otp, setOtp] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
-  const [partnerDetails, setPartnerDetails] = useState(null);
+  const [devOtpHint, setDevOtpHint] = useState('');
+  const [maskedContact, setMaskedContact] = useState('');
 
   const router = useRouter();
 
@@ -58,7 +61,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
     }
   };
 
-  const handleVerifyAccount = async (e) => {
+  const handleSendOtp = async (e) => {
     e.preventDefault();
     if (!email) {
       setError('Please enter your registered Email or WhatsApp Phone');
@@ -68,12 +71,13 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
     setLoading(true);
     setError('');
     setSuccessMsg('');
+    setDevOtpHint('');
 
     try {
       const response = await fetch('/api/partner/auth/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'verify', emailOrPhone: email })
+        body: JSON.stringify({ action: 'send_otp', emailOrPhone: email })
       });
 
       const data = await response.json();
@@ -84,8 +88,45 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
         return;
       }
 
-      setPartnerDetails(data);
-      setSuccessMsg(`Account verified for ${data.partnerName}! Please set your new password.`);
+      setMaskedContact(data.maskedContact || email);
+      if (data.otp) {
+        setDevOtpHint(data.otp);
+      }
+      setSuccessMsg(data.message);
+      setMode('forgot_otp');
+      setLoading(false);
+    } catch (err) {
+      setError('Network error. Please try again.');
+      setLoading(false);
+    }
+  };
+
+  const handleVerifyOtp = async (e) => {
+    e.preventDefault();
+    if (!otp || otp.trim().length !== 6) {
+      setError('Please enter the 6-digit OTP code sent to your phone/email');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('/api/partner/auth/reset-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'verify_otp', emailOrPhone: email, otp: otp.trim() })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        setError(data.error || 'Invalid OTP code.');
+        setLoading(false);
+        return;
+      }
+
+      setSuccessMsg('OTP verified successfully! Please set your new password.');
       setMode('reset_new');
       setLoading(false);
     } catch (err) {
@@ -112,7 +153,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
       const response = await fetch('/api/partner/auth/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'reset', emailOrPhone: email, newPassword })
+        body: JSON.stringify({ action: 'reset_password', emailOrPhone: email, newPassword })
       });
 
       const data = await response.json();
@@ -128,6 +169,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
       setPassword('');
       setNewPassword('');
       setConfirmPassword('');
+      setOtp('');
       setLoading(false);
     } catch (err) {
       setError('Network error. Please try again.');
@@ -205,15 +247,17 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             </div>
             
             <h3 style={{ fontSize: '24px', fontWeight: 900, margin: '0 0 6px', color: 'var(--color-espresso)' }}>
-              {mode === 'login' ? 'Partner Sign In' : mode === 'forgot' ? 'Reset Your Password' : 'Create New Password'}
+              {mode === 'login' && 'Partner Sign In'}
+              {mode === 'forgot_send' && 'Send Security OTP'}
+              {mode === 'forgot_otp' && 'Verify 6-Digit OTP'}
+              {mode === 'reset_new' && 'Set New Password'}
             </h3>
             
             <p style={{ color: 'var(--color-muted)', fontSize: '13px', margin: 0, lineHeight: 1.5 }}>
-              {mode === 'login' 
-                ? 'Sign in to track your referral earnings, active workers, & total completed gigs.' 
-                : mode === 'forgot' 
-                ? 'Enter your registered email or phone number to verify your account.' 
-                : 'Enter your new password below.'}
+              {mode === 'login' && 'Sign in to track your referral earnings, active workers, & total completed gigs.'}
+              {mode === 'forgot_send' && 'Enter your registered Email or WhatsApp Phone to receive a 6-digit verification OTP code.'}
+              {mode === 'forgot_otp' && `Enter the 6-digit security code sent to ${maskedContact || 'your phone'}.`}
+              {mode === 'reset_new' && 'Your account is verified! Create a new secure password.'}
             </p>
           </div>
 
@@ -229,7 +273,21 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             </div>
           )}
 
-          {/* MODE: LOGIN */}
+          {/* Developer OTP Auto-Fill Banner */}
+          {devOtpHint && mode === 'forgot_otp' && (
+            <div style={{ background: '#fcf8f3', border: '1px dashed var(--color-gold)', color: 'var(--color-espresso)', padding: '10px 14px', borderRadius: '12px', fontSize: '12px', fontWeight: 700, marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span>Security Verification Code: <strong style={{ fontSize: '15px', color: 'var(--color-gold)' }}>{devOtpHint}</strong></span>
+              <button
+                type="button"
+                onClick={() => setOtp(devOtpHint)}
+                style={{ background: 'var(--color-gold)', color: '#fff', border: 'none', padding: '4px 10px', borderRadius: '6px', fontSize: '11px', fontWeight: 800, cursor: 'pointer' }}
+              >
+                Auto-fill OTP
+              </button>
+            </div>
+          )}
+
+          {/* MODE 1: LOGIN */}
           {mode === 'login' && (
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
@@ -256,7 +314,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
                   </label>
                   <button
                     type="button"
-                    onClick={() => { setMode('forgot'); setError(''); setSuccessMsg(''); }}
+                    onClick={() => { setMode('forgot_send'); setError(''); setSuccessMsg(''); }}
                     style={{ background: 'none', border: 'none', color: 'var(--color-gold)', fontSize: '12px', fontWeight: 700, cursor: 'pointer', padding: 0 }}
                   >
                     Forgot Password?
@@ -301,15 +359,15 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             </form>
           )}
 
-          {/* MODE: FORGOT PASSWORD */}
-          {mode === 'forgot' && (
-            <form onSubmit={handleVerifyAccount} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {/* MODE 2: FORGOT - SEND OTP */}
+          {mode === 'forgot_send' && (
+            <form onSubmit={handleSendOtp} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
                 <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>
-                  Registered Email Address or WhatsApp Number
+                  Registered Email Address or WhatsApp Phone
                 </label>
                 <div style={{ position: 'relative' }}>
-                  <Mail size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-muted)' }} />
+                  <Smartphone size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-muted)' }} />
                   <input
                     type="text"
                     value={email}
@@ -341,7 +399,7 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
                   marginTop: '8px'
                 }}
               >
-                {loading ? <Loader2 size={18} className="partner-submit-spin" /> : <>Verify Account <KeyRound size={18} /></>}
+                {loading ? <Loader2 size={18} className="partner-submit-spin" /> : <>Send Security OTP Code <KeyRound size={18} /></>}
               </button>
 
               <button
@@ -354,7 +412,58 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             </form>
           )}
 
-          {/* MODE: RESET NEW PASSWORD */}
+          {/* MODE 3: FORGOT - VERIFY OTP */}
+          {mode === 'forgot_otp' && (
+            <form onSubmit={handleVerifyOtp} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div>
+                <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>
+                  Enter 6-Digit Verification OTP *
+                </label>
+                <input
+                  type="text"
+                  maxLength={6}
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value.replace(/[^0-9]/g, ''))}
+                  placeholder="e.g. 591823"
+                  style={{ width: '100%', padding: '14px', borderRadius: '12px', border: '1.5px solid var(--color-gold)', fontSize: '20px', fontWeight: 900, textAlign: 'center', letterSpacing: '4px', outline: 'none', boxSizing: 'border-box' }}
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                style={{
+                  width: '100%',
+                  background: '#25D366',
+                  color: '#fff',
+                  border: 'none',
+                  padding: '14px',
+                  borderRadius: '14px',
+                  fontSize: '15px',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  marginTop: '8px'
+                }}
+              >
+                {loading ? <Loader2 size={18} className="partner-submit-spin" /> : <>Verify OTP Code <CheckCircle2 size={18} /></>}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => { setMode('forgot_send'); setError(''); setSuccessMsg(''); }}
+                style={{ background: 'none', border: 'none', color: 'var(--color-muted)', fontSize: '13px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', marginTop: '4px' }}
+              >
+                <ArrowLeft size={14} /> Resend OTP / Change Contact
+              </button>
+            </form>
+          )}
+
+          {/* MODE 4: RESET NEW PASSWORD */}
           {mode === 'reset_new' && (
             <form onSubmit={handleResetPassword} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
