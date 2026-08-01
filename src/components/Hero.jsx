@@ -183,6 +183,17 @@ export default function Hero() {
           </div>
         </form>
 
+        {/* PeerPush Rating Badge */}
+        <div style={{ marginBottom: '48px', display: 'flex', justifyContent: 'center' }}>
+          <a href="https://peerpush.com/p/ziggers" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', transition: 'transform 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'} onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}>
+            <img
+              src="https://peerpush.com/p/ziggers/rating-badge.png"
+              alt="Ziggers rating on PeerPush"
+              style={{ width: '100%', maxWidth: '320px', height: 'auto', display: 'block' }}
+            />
+          </a>
+        </div>
+
         {/* 3 Premium Service Cards (Centered) */}
         <div style={{
           display: 'grid',
