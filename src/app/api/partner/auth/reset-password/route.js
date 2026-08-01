@@ -62,7 +62,7 @@ export async function POST(request) {
         const mcData = await mcRes.json();
         console.log('[MESSAGECENTRAL V3 SEND SUCCESS]:', mcData);
 
-        if (mcData && mcData.responseCode === 200 && mcData.data && mcData.data.verificationId) {
+        if (mcData && (mcData.responseCode === 200 || mcData.responseCode === 506) && mcData.data && mcData.data.verificationId) {
           verificationId = mcData.data.verificationId;
           sendSuccess = true;
           mcVerificationStore.set(mobileNumber, verificationId);
@@ -90,7 +90,7 @@ export async function POST(request) {
       });
     }
 
-    // Step 2: Validate 4-Digit OTP via MessageCentral v3 API
+    // Step 2: Validate 4-Digit OTP via MessageCentral v3 API (GET Method as per Official PDF)
     if (action === 'verify_otp') {
       const inputOtp = (otp || '').trim();
 
@@ -110,7 +110,7 @@ export async function POST(request) {
         );
       }
 
-      // Call MessageCentral v3 Validate OTP API
+      // Call MessageCentral v3 Validate OTP API using GET method as per official PDF guide
       const validateUrl = `https://cpaas.messagecentral.com/verification/v3/validateOtp?verificationId=${storedVerificationId}&code=${inputOtp}`;
       
       let isVerified = false;
@@ -118,19 +118,32 @@ export async function POST(request) {
 
       try {
         const valRes = await fetch(validateUrl, {
-          method: 'POST',
+          method: 'GET',
           headers: {
             'authToken': MESSAGE_CENTRAL_AUTH_TOKEN
           }
         });
 
-        const valData = await valRes.json();
-        console.log('[MESSAGECENTRAL V3 VALIDATE RESPONSE]:', valData);
+        const rawText = await valRes.text();
+        console.log('[MESSAGECENTRAL V3 RAW VALIDATE RESPONSE]:', rawText);
 
-        if (valData && valData.responseCode === 200 && valData.data && valData.data.verificationStatus === 'VERIFICATION_COMPLETED') {
+        let valData = {};
+        if (rawText) {
+          try {
+            valData = JSON.parse(rawText);
+          } catch (jsonErr) {
+            console.warn('Validate JSON parse notice:', jsonErr.message);
+          }
+        }
+
+        if (valData && (valData.responseCode === 200 || (valData.data && valData.data.verificationStatus === 'VERIFICATION_COMPLETED'))) {
           isVerified = true;
+        } else if (valData.responseCode === 702) {
+          validateError = 'Incorrect 4-digit OTP code. Please check your SMS and enter the exact code.';
+        } else if (valData.responseCode === 705) {
+          validateError = 'OTP code has expired. Please request a new code.';
         } else {
-          validateError = valData?.message || (valData?.data ? valData.data.errorMessage : null) || 'Invalid OTP code';
+          validateError = valData?.message || (valData?.data ? valData.data.errorMessage : null) || 'Invalid 4-digit OTP code.';
         }
       } catch (err) {
         console.error('[MESSAGECENTRAL VALIDATE ERROR]:', err.message);
@@ -139,7 +152,7 @@ export async function POST(request) {
 
       if (!isVerified) {
         return NextResponse.json(
-          { error: `Invalid 4-Digit OTP code. ${validateError || 'Please check your phone SMS messages and enter the exact code.'}` },
+          { error: validateError || 'Invalid 4-Digit OTP code. Please check your phone SMS messages.' },
           { status: 400 }
         );
       }
