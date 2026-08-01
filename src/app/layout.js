@@ -5,6 +5,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import MobileStickyCTA from '../components/MobileStickyCTA';
 import FirebaseInit from '../components/FirebaseInit';
+import AutoAppDownloadPopup from '../components/AutoAppDownloadPopup';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -47,21 +48,52 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Ziggers',
-    alternateName: ["Zigger", "Zigger App"],
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Android',
-    description: "Ziggers is an AI-powered gig marketplace that helps businesses hire verified temporary staff and enables workers to discover flexible part-time and daily gig opportunities across India.",
-    url: 'https://www.ziggers.in/',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'INR',
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'Ziggers',
+      alternateName: ["Zigger", "Zigger App"],
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Android',
+      description: "Ziggers is an AI-powered gig marketplace that helps businesses hire verified temporary staff and enables workers to discover flexible part-time and daily gig opportunities across India.",
+      url: 'https://www.ziggers.in/',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'INR',
+      },
     },
-  };
+    {
+      '@context': 'https://schema.org',
+      '@type': 'MobileApplication',
+      name: 'Ziggers',
+      operatingSystem: 'Android',
+      applicationCategory: 'BusinessApplication',
+      downloadUrl: 'https://play.google.com/store/apps/details?id=com.ziggers.ziggers',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'INR',
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Ziggers',
+      url: 'https://www.ziggers.in/',
+      logo: 'https://www.ziggers.in/favicon.ico',
+      sameAs: [
+        'https://play.google.com/store/apps/details?id=com.ziggers.ziggers'
+      ]
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Ziggers',
+      url: 'https://www.ziggers.in/'
+    }
+  ];
 
   return (
     <html lang="en" className={poppins.variable}>
@@ -100,8 +132,10 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
           <MobileStickyCTA />
+          <AutoAppDownloadPopup />
         </div>
       </body>
     </html>
   );
 }
+
