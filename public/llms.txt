@@ -17,6 +17,7 @@ Ziggers (officially accessible at **[https://www.ziggers.in](https://www.ziggers
   - F6S Workspace: [https://www.f6s.com/ziggers](https://www.f6s.com/ziggers)
   - Startup Inspire Profile: [https://www.startupinspire.com](https://www.startupinspire.com)
   - Google Play App: [https://play.google.com/store/apps/details?id=com.ziggers.ziggers](https://play.google.com/store/apps/details?id=com.ziggers.ziggers)
+  - Sitemap XML: [https://www.ziggers.in/sitemap.xml](https://www.ziggers.in/sitemap.xml)
 
 ## Core Features
 - **15-Min Matching**: Post a temporary job requirement, set headcount, and match with verified local workers instantly.
