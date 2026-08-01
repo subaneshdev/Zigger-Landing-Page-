@@ -27,7 +27,7 @@ export async function POST(request) {
       );
     }
 
-    // Find organization by contact_number or unique_code
+    // Find organization by contact_number
     const { data: partner, error } = await supabaseAdmin
       .from('organizations')
       .select('*')
@@ -43,12 +43,24 @@ export async function POST(request) {
 
     // Step 1: Generate & Send 4-Digit OTP via Message Central API
     if (action === 'send_otp') {
-      // Generate 4-digit OTP
+      // Generate secure 4-digit OTP
       const generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
-      const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+      const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 minutes expiry
 
-      // Dispatch 4-digit OTP via Message Central API
-      let mcStatus = 'dispatched';
+      // Save generated 4-digit OTP in Supabase organizations table
+      const { error: updateErr } = await supabaseAdmin
+        .from('organizations')
+        .update({
+          reset_otp: generatedOtp,
+          reset_otp_expires_at: expiresAt
+        })
+        .eq('id', partner.id);
+
+      if (updateErr) {
+        console.warn('Database error saving OTP:', updateErr.message);
+      }
+
+      // Dispatch OTP via Message Central CPaaS API
       try {
         const mcUrl = `https://cpaas.messagecentral.com/verification/v2/verification/sendCode?countryCode=91&customerId=${MESSAGE_CENTRAL_CUSTOMER_ID}&flowType=SMS&mobileNumber=${mobileNumber}&otpLength=4`;
         const mcRes = await fetch(mcUrl, {
@@ -64,60 +76,48 @@ export async function POST(request) {
         console.warn('[MESSAGE CENTRAL NOTICE]:', mcErr.message);
       }
 
-      // Save 4-digit OTP to organizations table in Supabase
-      try {
-        await supabaseAdmin
-          .from('organizations')
-          .update({
-            reset_otp: generatedOtp,
-            reset_otp_expires_at: expiresAt
-          })
-          .eq('id', partner.id);
-      } catch (err) {
-        console.warn('Notice updating reset_otp column:', err.message);
-      }
-
-      console.log(`[4-DIGIT MESSAGE CENTRAL OTP] Sent code to ${partner.name} (+91 ${mobileNumber}): ${generatedOtp}`);
+      console.log(`[MESSAGE CENTRAL OTP DISPATCHED] Phone: +91 ${mobileNumber} | Code: ${generatedOtp} | Account: ${partner.name}`);
 
       return NextResponse.json({
         success: true,
-        message: `4-Digit Security OTP sent to your WhatsApp number (+91 ${mobileNumber.slice(0, 5)}*****). Please verify!`,
+        message: `4-Digit Security OTP sent to +91 ${mobileNumber.slice(0, 5)}*****. Please check your SMS/WhatsApp.`,
         partnerName: partner.name,
         maskedContact: `+91 ${mobileNumber.slice(0, 5)}*****`
       });
     }
 
-    // Step 2: Verify 4-Digit OTP
+    // Step 2: Strict 4-Digit OTP Verification
     if (action === 'verify_otp') {
-      if (!otp || otp.trim().length !== 4) {
+      const inputOtp = (otp || '').trim();
+
+      if (!inputOtp || inputOtp.length !== 4) {
         return NextResponse.json(
-          { error: 'Please enter the valid 4-digit Security OTP' },
+          { error: 'Please enter the valid 4-digit OTP code sent to your phone' },
           { status: 400 }
         );
       }
 
-      const inputOtp = otp.trim();
       const storedOtp = partner.reset_otp;
       const expiresAt = partner.reset_otp_expires_at ? new Date(partner.reset_otp_expires_at) : null;
 
-      if (storedOtp) {
-        if (storedOtp !== inputOtp) {
-          return NextResponse.json(
-            { error: 'Invalid 4-digit OTP code. Please check your SMS/WhatsApp messages.' },
-            { status: 400 }
-          );
-        }
-        if (expiresAt && new Date() > expiresAt) {
-          return NextResponse.json(
-            { error: 'OTP code has expired. Please click Resend OTP.' },
-            { status: 400 }
-          );
-        }
+      // STRICT VALIDATION: Must match stored OTP exactly!
+      if (!storedOtp || storedOtp !== inputOtp) {
+        return NextResponse.json(
+          { error: 'Invalid 4-Digit OTP code. Please enter the exact code sent to your phone.' },
+          { status: 400 }
+        );
+      }
+
+      if (expiresAt && new Date() > expiresAt) {
+        return NextResponse.json(
+          { error: 'OTP code has expired. Please request a new code.' },
+          { status: 400 }
+        );
       }
 
       return NextResponse.json({
         success: true,
-        message: '4-Digit OTP verified successfully! You may now create your new password.'
+        message: '4-Digit OTP verified successfully! You may now set your new password.'
       });
     }
 
@@ -147,7 +147,7 @@ export async function POST(request) {
         }
       }
 
-      // Clear OTP and save new password hash in organizations table
+      // Clear OTP and update password in organizations table
       await supabaseAdmin
         .from('organizations')
         .update({
@@ -165,7 +165,7 @@ export async function POST(request) {
 
     return NextResponse.json({ error: 'Invalid action parameter' }, { status: 400 });
   } catch (error) {
-    console.error('Password reset OTP error:', error);
+    console.error('Password reset error:', error);
     return NextResponse.json(
       { error: 'Internal Server Error', details: error.message },
       { status: 500 }
