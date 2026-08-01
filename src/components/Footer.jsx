@@ -265,6 +265,14 @@ export default function Footer() {
                 style={{ height: '42px', width: 'auto' }} 
               />
             </a>
+            {/* PeerPush badge */}
+            <a href="https://peerpush.com/p/ziggers" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+              <img 
+                src="https://peerpush.com/p/ziggers/badge.png" 
+                alt="Ziggers on PeerPush" 
+                style={{ height: '42px', width: 'auto' }} 
+              />
+            </a>
             {/* App Store badge */}
             <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
               <img 
