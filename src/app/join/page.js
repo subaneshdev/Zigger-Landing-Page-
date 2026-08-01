@@ -31,7 +31,7 @@ function JoinContent() {
       >
         <img 
           src="/assets/mascot_winking.jpg" 
-          alt="Zippy Mascot" 
+          alt="Ziggi Mascot" 
           style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', margin: '0 auto 16px', display: 'block', border: '3px solid var(--color-gold)' }}
         />
 

@@ -188,12 +188,12 @@ export default function Partner() {
           >
             <img 
               src="/assets/mascot_winking.jpg" 
-              alt="Zippy Ziggers Mascot" 
+              alt="Ziggi Ziggers Mascot" 
               style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover' }}
             />
             <div style={{ textAlign: 'left' }}>
               <AnimatedShinyText style={{ fontSize: '13px', fontWeight: 800, letterSpacing: '0.5px' }}>
-                ✨ MEET ZIPPY THE ZIGGERS MASCOT
+                ✨ MEET ZIGGI THE ZIGGERS MASCOT
               </AnimatedShinyText>
               <div style={{ fontSize: '11px', color: 'var(--color-muted)', fontWeight: 600 }}>
                 WhatsApp &amp; Telegram Group Monetization
@@ -682,7 +682,7 @@ export default function Partner() {
                     Official WhatsApp Group Welcome Template
                   </h3>
                   <p style={{ color: '#8696a0', fontSize: '13px', margin: 0 }}>
-                    Zippy says: Copy &amp; paste this message directly into your WhatsApp group!
+                    Ziggi says: Copy &amp; paste this message directly into your WhatsApp group!
                   </p>
                 </div>
               </div>
