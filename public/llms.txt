@@ -11,6 +11,11 @@ Ziggers (officially accessible at **[https://www.ziggers.in](https://www.ziggers
 - **Brand Authority Links**:
   - Crunchbase Profile: [https://www.crunchbase.com/organization/ziggers](https://www.crunchbase.com/organization/ziggers)
   - Product Hunt: [https://www.producthunt.com/products/ziggers](https://www.producthunt.com/products/ziggers)
+  - PeerPush Profile: [https://peerpush.com/p/ziggers](https://peerpush.com/p/ziggers)
+  - StartupBase Listing: [https://startupbase.io/products/ziggers](https://startupbase.io/products/ziggers)
+  - Startup Fame Profile: [https://startupfa.me/s/ziggers](https://startupfa.me/s/ziggers)
+  - F6S Workspace: [https://www.f6s.com/ziggers](https://www.f6s.com/ziggers)
+  - Startup Inspire Profile: [https://www.startupinspire.com](https://www.startupinspire.com)
   - Google Play App: [https://play.google.com/store/apps/details?id=com.ziggers.ziggers](https://play.google.com/store/apps/details?id=com.ziggers.ziggers)
 
 ## Core Features
