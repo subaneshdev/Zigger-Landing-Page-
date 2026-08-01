@@ -880,22 +880,28 @@ export default function Partner() {
                       </div>
 
                       {/* Stats Quick Cards */}
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '16px', textAlign: 'center' }}>
-                        <div style={{ background: '#fff', padding: '10px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
-                          <div style={{ fontSize: '11px', color: 'var(--color-muted)', fontWeight: 600 }}>Invited</div>
-                          <div style={{ fontSize: '18px', fontWeight: 900, color: 'var(--color-espresso)' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', marginBottom: '16px', textAlign: 'center' }}>
+                        <div style={{ background: '#fff', padding: '10px 6px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
+                          <div style={{ fontSize: '10px', color: 'var(--color-muted)', fontWeight: 600 }}>Invited</div>
+                          <div style={{ fontSize: '17px', fontWeight: 900, color: 'var(--color-espresso)' }}>
                             {referralData?.data?.metrics?.total_invited || 0}
                           </div>
                         </div>
-                        <div style={{ background: '#fff', padding: '10px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
-                          <div style={{ fontSize: '11px', color: 'var(--color-muted)', fontWeight: 600 }}>Active</div>
-                          <div style={{ fontSize: '18px', fontWeight: 900, color: '#25D366' }}>
+                        <div style={{ background: '#fff', padding: '10px 6px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
+                          <div style={{ fontSize: '10px', color: 'var(--color-muted)', fontWeight: 600 }}>Active</div>
+                          <div style={{ fontSize: '17px', fontWeight: 900, color: '#25D366' }}>
                             {referralData?.data?.metrics?.converted_referrals || 0}
                           </div>
                         </div>
-                        <div style={{ background: '#fff', padding: '10px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
-                          <div style={{ fontSize: '11px', color: 'var(--color-muted)', fontWeight: 600 }}>Cash Earned</div>
-                          <div style={{ fontSize: '18px', fontWeight: 900, color: 'var(--color-gold)' }}>
+                        <div style={{ background: '#fff', padding: '10px 6px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
+                          <div style={{ fontSize: '10px', color: 'var(--color-muted)', fontWeight: 600 }}>Works Done</div>
+                          <div style={{ fontSize: '17px', fontWeight: 900, color: '#128C7E' }}>
+                            {referralData?.data?.metrics?.total_works_completed || 0}
+                          </div>
+                        </div>
+                        <div style={{ background: '#fff', padding: '10px 6px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
+                          <div style={{ fontSize: '10px', color: 'var(--color-muted)', fontWeight: 600 }}>Earned</div>
+                          <div style={{ fontSize: '17px', fontWeight: 900, color: 'var(--color-gold)' }}>
                             ₹{referralData?.data?.metrics?.total_cash_earned || 0}
                           </div>
                         </div>
@@ -909,6 +915,7 @@ export default function Partner() {
                               <tr style={{ borderBottom: '1.5px solid rgba(61,43,31,0.1)', color: 'var(--color-muted)' }}>
                                 <th style={{ padding: '8px 4px' }}>Member</th>
                                 <th style={{ padding: '8px 4px' }}>Date</th>
+                                <th style={{ padding: '8px 4px' }}>Works</th>
                                 <th style={{ padding: '8px 4px' }}>Status</th>
                                 <th style={{ padding: '8px 4px', textAlign: 'right' }}>Earned</th>
                               </tr>
@@ -918,6 +925,7 @@ export default function Partner() {
                                 <tr key={idx} style={{ borderBottom: '1px solid rgba(61,43,31,0.06)' }}>
                                   <td style={{ padding: '8px 4px', fontWeight: 700 }}>{member.name} ({member.phone})</td>
                                   <td style={{ padding: '8px 4px', color: 'var(--color-muted)' }}>{member.date_joined}</td>
+                                  <td style={{ padding: '8px 4px', fontWeight: 800, color: '#128C7E' }}>{member.works_completed || 0} gigs</td>
                                   <td style={{ padding: '8px 4px' }}>
                                     <span style={{ 
                                       background: member.status === 'REWARD_CLAIMED' ? 'rgba(37,211,102,0.15)' : 'rgba(196,160,82,0.15)', 

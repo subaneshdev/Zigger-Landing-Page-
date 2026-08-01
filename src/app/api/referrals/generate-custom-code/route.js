@@ -45,6 +45,7 @@ export async function POST(request) {
           total_rewards: 0,
           active_workers_count: 0,
           total_referred_users: 0,
+          total_works_completed: 0,
           created_at: new Date().toISOString()
         };
 
@@ -55,7 +56,7 @@ export async function POST(request) {
           .single();
 
         if (error) {
-          // If active_workers_count column doesn't exist yet, insert basic payload
+          // If total_works_completed column doesn't exist yet, fallback payload
           if (error.code === 'PGRST204' || error.message.includes('column')) {
             const fallbackPayload = {
               id: crypto.randomUUID(),
@@ -63,6 +64,8 @@ export async function POST(request) {
               contact_number: contactNumber.trim(),
               unique_code: referralCode.trim(),
               total_rewards: 0,
+              active_workers_count: 0,
+              total_referred_users: 0,
               created_at: new Date().toISOString()
             };
             const { data: fbData, error: fbErr } = await supabaseAdmin
@@ -101,7 +104,8 @@ export async function POST(request) {
         unique_code: referralCode,
         total_rewards: 0,
         active_workers_count: 0,
-        total_referred_users: 0
+        total_referred_users: 0,
+        total_works_completed: 0
       },
       db_status: dbError ? `Notice: ${dbError}` : 'synced'
     });
