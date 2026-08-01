@@ -8,11 +8,10 @@ const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 const supabaseAdmin = serviceKey ? createClient(supabaseUrl, serviceKey) : defaultSupabase;
 
-const MESSAGE_CENTRAL_CUSTOMER_ID = process.env.MESSAGE_CENTRAL_CUSTOMER_ID || 'C-3911A8398E68431';
-const MESSAGE_CENTRAL_AUTH_TOKEN = process.env.MESSAGE_CENTRAL_AUTH_TOKEN || '';
+const MESSAGE_CENTRAL_AUTH_TOKEN = process.env.MESSAGE_CENTRAL_AUTH_TOKEN || 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJDLTM5MTFBODM5OEU2ODQzMSIsImlhdCI6MTc4MDU3MTU0OSwiZXhwIjoxOTM4MjUxNTQ5fQ.XnpqkNqpsS1DPlQs0dnT5szgSo_qG8bB6rim68L-eXra_Gs2lumTQLqTBzhxIPuU3f0qribvtJdTfoOfefbCZQ';
 
-// In-memory OTP store for 100% reliable 4-digit OTP verification
-const inMemoryOtpStore = new Map();
+// Session store mapping mobileNumber -> verificationId from MessageCentral v3
+const mcVerificationStore = new Map();
 
 export async function POST(request) {
   try {
@@ -25,7 +24,7 @@ export async function POST(request) {
 
     if (!mobileNumber) {
       return NextResponse.json(
-        { error: 'Registered Phone Number is required' },
+        { error: 'Registered WhatsApp/Mobile Phone Number is required' },
         { status: 400 }
       );
     }
@@ -44,68 +43,54 @@ export async function POST(request) {
       );
     }
 
-    // Step 1: Generate & Send 4-Digit OTP via SMS Gateway
+    // Step 1: Send 4-Digit SMS OTP via MessageCentral v3 API
     if (action === 'send_otp') {
-      const generatedOtp = Math.floor(1000 + Math.random() * 9000).toString();
-      const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+      const mcUrl = `https://cpaas.messagecentral.com/verification/v3/send?countryCode=91&flowType=SMS&mobileNumber=${mobileNumber}&otpLength=4`;
+      
+      let verificationId = null;
+      let sendSuccess = false;
+      let apiErrorMsg = null;
 
-      // Save to memory store
-      inMemoryOtpStore.set(mobileNumber, {
-        otp: generatedOtp,
-        expiresAt: Date.now() + 10 * 60 * 1000
-      });
-
-      // Update Supabase organizations table
       try {
-        await supabaseAdmin
-          .from('organizations')
-          .update({
-            reset_otp: generatedOtp,
-            reset_otp_expires_at: expiresAt
-          })
-          .eq('id', partner.id);
-      } catch (err) {
-        console.warn('Notice updating reset_otp in database:', err.message);
-      }
-
-      // 1. Dispatch SMS via Supabase Auth SMS Provider
-      try {
-        await supabaseAdmin.auth.signInWithOtp({
-          phone: `+91${mobileNumber}`
+        const mcRes = await fetch(mcUrl, {
+          method: 'POST',
+          headers: {
+            'authToken': MESSAGE_CENTRAL_AUTH_TOKEN
+          }
         });
-      } catch (sbErr) {
-        console.warn('Supabase Auth SMS notice:', sbErr.message);
-      }
 
-      // 2. Dispatch SMS via Message Central CPaaS API
-      if (MESSAGE_CENTRAL_AUTH_TOKEN) {
-        try {
-          const mcUrl = `https://cpaas.messagecentral.com/verification/v2/verification/sendCode?countryCode=91&customerId=${MESSAGE_CENTRAL_CUSTOMER_ID}&flowType=SMS&mobileNumber=${mobileNumber}`;
-          const mcRes = await fetch(mcUrl, {
-            method: 'POST',
-            headers: {
-              'authToken': MESSAGE_CENTRAL_AUTH_TOKEN,
-              'Content-Type': 'application/json'
-            }
-          });
-          const mcData = await mcRes.json();
-          console.log('[MESSAGE CENTRAL SMS OTP RESPONSE]:', mcData);
-        } catch (mcErr) {
-          console.warn('[MESSAGE CENTRAL NOTICE]:', mcErr.message);
+        const mcData = await mcRes.json();
+        console.log('[MESSAGECENTRAL V3 SEND SUCCESS]:', mcData);
+
+        if (mcData && mcData.responseCode === 200 && mcData.data && mcData.data.verificationId) {
+          verificationId = mcData.data.verificationId;
+          sendSuccess = true;
+          mcVerificationStore.set(mobileNumber, verificationId);
+        } else {
+          apiErrorMsg = mcData?.message || 'Failed to dispatch SMS via MessageCentral';
         }
+      } catch (mcErr) {
+        console.error('[MESSAGECENTRAL V3 ERROR]:', mcErr.message);
+        apiErrorMsg = mcErr.message;
       }
 
-      console.log(`[SMS OTP DISPATCHED] Phone: +91 ${mobileNumber} | 4-Digit Code: ${generatedOtp} | Partner: ${partner.name}`);
+      if (!sendSuccess) {
+        return NextResponse.json(
+          { error: `MessageCentral SMS dispatch notice: ${apiErrorMsg || 'SMS delivery failed. Please check phone number.'}` },
+          { status: 500 }
+        );
+      }
 
       return NextResponse.json({
         success: true,
-        message: `4-Digit Security OTP sent via SMS to +91 ${mobileNumber.slice(0, 5)}*****. Please check your phone messages!`,
+        message: `4-Digit Security OTP sent via SMS to +91 ${mobileNumber.slice(0, 5)}*****. Please check your phone SMS messages!`,
         partnerName: partner.name,
-        maskedContact: `+91 ${mobileNumber.slice(0, 5)}*****`
+        maskedContact: `+91 ${mobileNumber.slice(0, 5)}*****`,
+        verificationId: verificationId
       });
     }
 
-    // Step 2: Strict 4-Digit OTP Verification
+    // Step 2: Validate 4-Digit OTP via MessageCentral v3 API
     if (action === 'verify_otp') {
       const inputOtp = (otp || '').trim();
 
@@ -116,28 +101,52 @@ export async function POST(request) {
         );
       }
 
-      const memRecord = inMemoryOtpStore.get(mobileNumber);
-      const storedOtp = partner.reset_otp || (memRecord ? memRecord.otp : null);
-      const isExpired = memRecord ? Date.now() > memRecord.expiresAt : false;
+      const storedVerificationId = mcVerificationStore.get(mobileNumber);
 
-      // STRICT VALIDATION: Must match generated 4-digit OTP exactly! No loose 1234 bypass.
-      if (!storedOtp || storedOtp !== inputOtp) {
+      if (!storedVerificationId) {
         return NextResponse.json(
-          { error: 'Invalid 4-Digit OTP code. Please check your phone SMS messages and enter the correct code.' },
+          { error: 'Verification session expired. Please click Resend OTP.' },
           { status: 400 }
         );
       }
 
-      if (isExpired) {
+      // Call MessageCentral v3 Validate OTP API
+      const validateUrl = `https://cpaas.messagecentral.com/verification/v3/validateOtp?verificationId=${storedVerificationId}&code=${inputOtp}`;
+      
+      let isVerified = false;
+      let validateError = null;
+
+      try {
+        const valRes = await fetch(validateUrl, {
+          method: 'POST',
+          headers: {
+            'authToken': MESSAGE_CENTRAL_AUTH_TOKEN
+          }
+        });
+
+        const valData = await valRes.json();
+        console.log('[MESSAGECENTRAL V3 VALIDATE RESPONSE]:', valData);
+
+        if (valData && valData.responseCode === 200 && valData.data && valData.data.verificationStatus === 'VERIFICATION_COMPLETED') {
+          isVerified = true;
+        } else {
+          validateError = valData?.message || (valData?.data ? valData.data.errorMessage : null) || 'Invalid OTP code';
+        }
+      } catch (err) {
+        console.error('[MESSAGECENTRAL VALIDATE ERROR]:', err.message);
+        validateError = err.message;
+      }
+
+      if (!isVerified) {
         return NextResponse.json(
-          { error: 'OTP code has expired. Please click Resend OTP.' },
+          { error: `Invalid 4-Digit OTP code. ${validateError || 'Please check your phone SMS messages and enter the exact code.'}` },
           { status: 400 }
         );
       }
 
       return NextResponse.json({
         success: true,
-        message: '4-Digit OTP verified successfully! You may now set your new password.'
+        message: '4-Digit MessageCentral OTP verified successfully! You may now set your new password.'
       });
     }
 
@@ -167,22 +176,16 @@ export async function POST(request) {
         }
       }
 
-      // Clear memory OTP
-      inMemoryOtpStore.delete(mobileNumber);
+      // Clear verification session
+      mcVerificationStore.delete(mobileNumber);
 
-      // Save new password in organizations table
-      try {
-        await supabaseAdmin
-          .from('organizations')
-          .update({
-            password_hash: newHash,
-            reset_otp: null,
-            reset_otp_expires_at: null
-          })
-          .eq('id', partner.id);
-      } catch (err) {
-        console.warn('DB update password notice:', err.message);
-      }
+      // Save new password hash in organizations table
+      await supabaseAdmin
+        .from('organizations')
+        .update({
+          password_hash: newHash
+        })
+        .eq('id', partner.id);
 
       return NextResponse.json({
         success: true,
