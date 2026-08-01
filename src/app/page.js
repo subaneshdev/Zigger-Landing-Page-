@@ -66,7 +66,8 @@ export default function Home() {
     'Last-minute Event Staff', 'Hire Helpers Today', 'Gig Jobs Near Me', 'Need Catering Staff',
     'Hire Waiters', 'Need Delivery Boys', 'Temporary Workers', 'Warehouse Labour',
     'Construction Helpers', 'Restaurant Staff', 'Housekeeping Services', 'Cleaning Workers',
-    'Promoters for Exhibition', 'Security Guards Near Me', 'Event Volunteers'
+    'Promoters for Exhibition', 'Security Guards Near Me', 'Event Volunteers',
+    'Giggers Alternative', 'Hire staff like Giggers', 'Sites like Giggers'
   ];
 
   const jobIntentKeywords = [
@@ -78,7 +79,8 @@ export default function Home() {
     'Flexible Jobs', 'Temporary Jobs', 'Near Me Jobs', 'Part-time Job Near Me',
     'Weekend Job', 'Daily Salary Job', 'Catering Job Today', 'Waiter Job',
     'Delivery Job', 'Kitchen Helper Job', 'Student Job', 'Night Shift Job',
-    'Flexible Work', 'One-day Job', 'Temporary Job', 'Daily Wage Job'
+    'Flexible Work', 'One-day Job', 'Temporary Job', 'Daily Wage Job',
+    'Giggers Jobs', 'Giggers App Download', 'Jobs in Giggers'
   ];
 
   const cityCombos = [

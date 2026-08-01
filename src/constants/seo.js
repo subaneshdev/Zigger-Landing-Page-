@@ -66,10 +66,18 @@ export const META_KEYWORDS = [
   'Last-minute Event Staff',
   'Instant Staff Hiring',
   'Daily Wage Workers Near Me',
-  'Gig Jobs Near Me',
   'On-demand Staffing',
   'Verified Workers',
   'Staffing App India',
+  'Giggers',
+  'Gigger',
+  'Gigger App',
+  'Giggers App',
+  'Giggers Jobs',
+  'Giggers Chennai',
+  'Giggers alternative',
+  'sites like Giggers',
+  'Giggers vs Ziggers',
 ].join(', ');
 
 export const PAGE_SEO = {
