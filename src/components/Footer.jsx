@@ -104,10 +104,10 @@ export default function Footer() {
           <div>
             <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginBottom: '20px' }}>Company</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px' }}>
-              <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>About Us</SectionLink>
-              <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>Ziggers Corporate</SectionLink>
-              <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>Careers</SectionLink>
-              <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>Team</SectionLink>
+              <a href="https://www.unfounded.in/" target="_blank" rel="noopener noreferrer" style={{ color: '#686b78', textDecoration: 'none' }}>About Us</a>
+              <a href="https://www.unfounded.in/" target="_blank" rel="noopener noreferrer" style={{ color: '#686b78', textDecoration: 'none' }}>Ziggers Corporate</a>
+              <a href="https://www.unfounded.in/" target="_blank" rel="noopener noreferrer" style={{ color: '#686b78', textDecoration: 'none' }}>Careers</a>
+              <a href="https://www.unfounded.in/" target="_blank" rel="noopener noreferrer" style={{ color: '#686b78', textDecoration: 'none' }}>Team</a>
             </div>
           </div>
 
