@@ -106,6 +106,7 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px' }}>
               <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>About Us</SectionLink>
               <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>Ziggers Corporate</SectionLink>
+              <a href="https://execute.ziggers.in" target="_blank" rel="noopener noreferrer" style={{ color: '#686b78', textDecoration: 'none', fontWeight: 'bold' }}>Ziggers Execute</a>
               <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>Careers</SectionLink>
               <SectionLink to="/" style={{ color: '#686b78', textDecoration: 'none' }}>Team</SectionLink>
             </div>
