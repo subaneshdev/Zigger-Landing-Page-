@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import PlayStoreButton from './PlayStoreButton';
 import { getSectionIdFromHref, scrollToSection } from '../lib/scrollToSection';
+import PartnerAuthModal from './PartnerAuthModal';
 
 export default function Navigation() {
   const { scrollYProgress } = useScroll();
@@ -13,6 +14,16 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  const handleManagerSignIn = () => {
+    const token = typeof window !== 'undefined' ? localStorage.getItem('ziggers_partner_token') : null;
+    if (token) {
+      router.push('/partner/dashboard');
+    } else {
+      setIsAuthModalOpen(true);
+    }
+  };
 
   useEffect(() => {
     if (pathname !== '/') return undefined;
@@ -152,23 +163,23 @@ export default function Navigation() {
 
             <div className="site-header-actions">
               <div className="hidden md-flex" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <a 
-                  href="https://app.ziggers.in" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <button 
+                  onClick={handleManagerSignIn}
                   className="btn-secondary"
                   style={{
                     padding: '8px 18px',
                     fontSize: '13px',
-                    textDecoration: 'none',
                     fontWeight: 700,
                     borderRadius: '100px',
                     display: 'inline-flex',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    background: 'transparent',
+                    border: '1.5px solid var(--color-espresso)',
+                    cursor: 'pointer'
                   }}
                 >
-                  Sign In
-                </a>
+                  Manager Sign In
+                </button>
                 <PlayStoreButton label="Download" size="md" />
               </div>
 
@@ -239,15 +250,12 @@ export default function Navigation() {
                 </a>
               ))}
               <PlayStoreButton label="Download on Google Play" style={{ width: '100%', justifyContent: 'center' }} />
-              <a
-                href="https://app.ziggers.in"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={handleManagerSignIn}
                 className="btn-secondary"
                 style={{
                   width: '100%',
                   textAlign: 'center',
-                  textDecoration: 'none',
                   boxSizing: 'border-box',
                   display: 'flex',
                   alignItems: 'center',
@@ -255,15 +263,20 @@ export default function Navigation() {
                   padding: '12px',
                   borderRadius: '100px',
                   fontSize: '14px',
-                  fontWeight: 700
+                  fontWeight: 700,
+                  background: 'transparent',
+                  border: '1.5px solid var(--color-espresso)',
+                  cursor: 'pointer'
                 }}
               >
-                Sign In
-              </a>
+                Manager Sign In
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <PartnerAuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
 
       <style>{`
         @media (max-width: 768px) {

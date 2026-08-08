@@ -34,3 +34,5 @@ dist-ssr
 .next/
 out/
 build/
+.vercel
+.env*
