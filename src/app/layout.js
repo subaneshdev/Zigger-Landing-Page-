@@ -44,6 +44,9 @@ export const metadata = {
   other: {
     'google-play-app': 'app-id=com.ziggers.ziggers',
   },
+  verification: {
+    google: 'google98e541b2f18a43ee',
+  },
 };
 
 export default function RootLayout({ children }) {
