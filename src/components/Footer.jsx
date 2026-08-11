@@ -56,6 +56,15 @@ export default function Footer() {
     { name: 'Pune', href: '/jobs-in-pune' },
   ];
 
+  const popularCategories = [
+    { name: 'Catering Jobs', href: '/catering-jobs' },
+    { name: 'Waiter Jobs', href: '/waiter-jobs' },
+    { name: 'Driver Jobs', href: '/driver-jobs' },
+    { name: 'Event Staff', href: '/event-staff' },
+    { name: 'Delivery Jobs', href: '/delivery-jobs' },
+    { name: 'Warehouse Jobs', href: '/warehouse-workers' },
+  ];
+
   return (
     <footer style={{ backgroundColor: '#f0f0f5', color: '#02060c', paddingTop: '64px', paddingBottom: '48px', fontFamily: 'var(--font-body)' }}>
       <div className="container">
@@ -138,25 +147,15 @@ export default function Footer() {
                   {city.name}
                 </Link>
               ))}
-              
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '6px 12px',
-                border: '1.5px solid #d3d3d3',
-                borderRadius: '8px',
-                fontSize: '13px',
-                color: '#686b78',
-                fontWeight: 700,
-                width: 'fit-content',
-                cursor: 'pointer',
-                marginTop: '8px'
-              }}
-              onClick={() => router.push('/work')}
-              >
-                8 cities <span style={{ marginLeft: '6px', fontSize: '10px' }}>▼</span>
-              </div>
+            </div>
+
+            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginTop: '36px', marginBottom: '20px' }}>Popular Roles</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px' }}>
+              {popularCategories.map((cat) => (
+                <Link key={cat.name} href={cat.href} style={{ color: '#686b78', textDecoration: 'none' }}>
+                  {cat.name}
+                </Link>
+              ))}
             </div>
           </div>
 

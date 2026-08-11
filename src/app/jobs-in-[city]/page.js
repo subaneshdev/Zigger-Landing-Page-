@@ -1,5 +1,6 @@
 import { SEO_CITIES, buildCityHubPage } from '../../constants/seoPages';
 import IntentLandingPage from '../../components/pages/IntentLandingPage';
+import { SITE_URL } from '../../constants/seo';
 
 export async function generateStaticParams() {
   return SEO_CITIES.map((city) => ({
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }) {
     title: page.title,
     description: page.description,
     alternates: {
-      canonical: `/jobs-in-${city}`,
+      canonical: `${SITE_URL}/jobs-in-${city}`,
     },
   };
 }

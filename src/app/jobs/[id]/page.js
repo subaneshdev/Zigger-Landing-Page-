@@ -1,8 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { Calendar, Clock, IndianRupee, MapPin, Users, ArrowLeft, ShieldCheck } from 'lucide-react';
 import { fetchTaskById } from '../../../lib/ziggersData';
 import { getAppOpenHref } from '../../../lib/appLink';
+import { SITE_URL } from '../../../constants/seo';
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -18,7 +20,7 @@ export async function generateMetadata({ params }) {
       title: `${task.title} | ${task.location_name?.split(',')[0] || 'Chennai'} | Ziggers`,
       description: task.description ? task.description.slice(0, 160) : `Apply for ${task.title} job on Ziggers. verified temporary gigs with same-day UPI payouts.`,
       alternates: {
-        canonical: `/jobs/${id}`,
+        canonical: `${SITE_URL}/jobs/${id}`,
       },
     };
   } catch (error) {
@@ -40,19 +42,7 @@ export default async function JobDetailPage({ params }) {
   }
 
   if (fetchError || !task) {
-    return (
-      <div style={{ backgroundColor: 'var(--color-linen)', minHeight: '100vh', paddingTop: '140px', paddingBottom: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ maxWidth: '480px', width: '90%', background: '#fff', padding: '40px', borderRadius: '24px', boxShadow: 'var(--shadow-soft)', textAlign: 'center', border: '1px solid rgba(61,43,31,0.06)' }}>
-          <h1 style={{ fontSize: '24px', color: 'var(--color-espresso)', marginBottom: '16px' }}>Job Posting Not Found</h1>
-          <p style={{ color: 'var(--color-muted)', marginBottom: '24px', lineHeight: 1.6 }}>
-            This job posting may have expired, been filled, or is no longer active.
-          </p>
-          <Link href="/work" className="btn-primary" style={{ display: 'inline-flex', textDecoration: 'none', background: 'var(--color-espresso)', color: '#fff' }}>
-            Browse Other Jobs
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   // Format Helper

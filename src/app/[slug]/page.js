@@ -1,5 +1,6 @@
 import { ALL_INTENT_PAGES } from '../../constants/seoPages';
 import IntentLandingPage from '../../components/pages/IntentLandingPage';
+import { SITE_URL } from '../../constants/seo';
 
 export async function generateStaticParams() {
   // We only want paths that are not city hubs (city hubs are in /jobs-in-[city])
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }) {
     title: page.title,
     description: page.description,
     alternates: {
-      canonical: path,
+      canonical: `${SITE_URL}${path}`,
     },
   };
 }
