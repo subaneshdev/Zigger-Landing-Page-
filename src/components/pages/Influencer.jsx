@@ -338,10 +338,9 @@ export default function Influencer() {
         {/* ========================================================================= */}
         <section id="creator-calculator" style={{ marginBottom: '80px', scrollMarginTop: '100px' }}>
           
-          <div style={{ 
+          <div className="responsive-container" style={{ 
             background: 'linear-gradient(135deg, #ffffff 0%, #fcf8f3 100%)', 
             borderRadius: '28px', 
-            padding: '48px 36px', 
             border: '2px solid rgba(196,160,82,0.2)',
             boxShadow: 'var(--shadow-strong)'
           }}>
@@ -358,13 +357,11 @@ export default function Influencer() {
               </p>
             </div>
 
-            <div style={{ 
+            <div className="responsive-inner-grid" style={{ 
               background: '#3D2B1F', 
               color: '#fff', 
               borderRadius: '24px', 
-              padding: '36px 30px', 
               display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
               gap: '36px',
               alignItems: 'center'
             }}>
@@ -735,7 +732,7 @@ export default function Influencer() {
                           Your Referral Performance
                         </h4>
                       </div>
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', textAlign: 'center' }}>
+                      <div className="stats-grid-4" style={{ textAlign: 'center' }}>
                         <div style={{ background: '#fff', padding: '10px 6px', borderRadius: '10px', border: '1px solid rgba(61,43,31,0.08)' }}>
                           <div style={{ fontSize: '10px', color: 'var(--color-muted)', fontWeight: 600 }}>Invited</div>
                           <div style={{ fontSize: '17px', fontWeight: 900, color: 'var(--color-espresso)' }}>{referralData?.data?.metrics?.total_invited || 0}</div>
@@ -788,7 +785,7 @@ export default function Influencer() {
                         />
                       </div>
 
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                      <div className="form-grid-2">
                         <div>
                           <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>WhatsApp Number *</label>
                           <input 
@@ -815,7 +812,7 @@ export default function Influencer() {
                         </div>
                       </div>
 
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                      <div className="form-grid-2">
                         <div>
                           <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>Email Address *</label>
                           <input 
@@ -842,7 +839,7 @@ export default function Influencer() {
                         </div>
                       </div>
 
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                      <div className="form-grid-2">
                         <div>
                           <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>Primary Platform</label>
                           <select 
@@ -871,7 +868,7 @@ export default function Influencer() {
                         </div>
                       </div>
 
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                      <div className="form-grid-2">
                         <div>
                           <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>Follower Count</label>
                           <select 
@@ -998,6 +995,45 @@ export default function Influencer() {
       <style>{`
         .partner-submit-spin { animation: partnerSubmitSpin 1s linear infinite; }
         @keyframes partnerSubmitSpin { to { transform: rotate(360deg); } }
+
+        .responsive-container {
+          padding: 48px 36px;
+        }
+        .responsive-inner-grid {
+          padding: 36px 30px;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        .form-grid-2 {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+        }
+        .stats-grid-4 {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 8px;
+        }
+
+        @media (max-width: 768px) {
+          .responsive-container {
+            padding: 24px 16px !important;
+            border-radius: 20px !important;
+          }
+          .responsive-inner-grid {
+            padding: 24px 16px !important;
+            border-radius: 16px !important;
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .form-grid-2 {
+            grid-template-columns: 1fr !important;
+          }
+          .stats-grid-4 {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 12px !important;
+          }
+        }
+
       `}</style>
     </main>
   );
