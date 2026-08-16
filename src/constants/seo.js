@@ -130,6 +130,11 @@ export const PAGE_SEO = {
     description:
       'Partner with Ziggers as your official manpower supplier. Scale BTL marketing, brand promotions, and major sports events (IPL, ISL, Pro Kabaddi) with KYC-verified temporary staff.',
   },
+  influencer: {
+    title: 'Become an Influencer Partner | Create UGC & Earn | Ziggers',
+    description:
+      'We are looking for UGC creators to help us spread the word about Ziggers. Earn ₹20 for every referred registration + ₹20 for every 5 completed gigs for recurring passive income!',
+  },
 };
 
 /** Static routes included in sitemap.xml (blog posts added separately at build time) */
@@ -138,6 +143,7 @@ export const SITEMAP_ROUTES = [
   { path: '/work', pageKey: 'work', changefreq: 'daily', priority: '0.9' },
   { path: '/hire', pageKey: 'hire', changefreq: 'daily', priority: '0.9' },
   { path: '/partner', pageKey: 'partner', changefreq: 'weekly', priority: '0.8' },
+  { path: '/influencer', pageKey: 'influencer', changefreq: 'weekly', priority: '0.8' },
   { path: '/hire-acting-drivers-chennai', pageKey: 'actingDrivers', changefreq: 'weekly', priority: '0.8' },
   { path: '/hire-catering-staff-chennai', pageKey: 'cateringStaff', changefreq: 'weekly', priority: '0.8' },
   { path: '/hire-brand-promoters-chennai', pageKey: 'brandPromoters', changefreq: 'weekly', priority: '0.8' },
@@ -203,6 +209,7 @@ export const ROUTE_SEO = {
   '/blog': 'blog',
   '/privacy': 'privacy',
   '/terms': 'terms',
+  '/influencer': 'influencer',
 };
 
 export const ORGANIZATION_JSON_LD = {

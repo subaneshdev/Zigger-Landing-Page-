@@ -127,6 +127,7 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px' }}>
               <a href="mailto:hello@unfounded.in" style={{ color: '#686b78', textDecoration: 'none' }}>Help & Support</a>
               <Link href="/partner" style={{ color: '#686b78', textDecoration: 'none' }}>Become a Community Partner</Link>
+              <Link href="/influencer" style={{ color: '#686b78', textDecoration: 'none' }}>Become an Influencer Partner</Link>
               <Link href="/hire" style={{ color: '#686b78', textDecoration: 'none' }}>Ride With Us</Link>
             </div>
 
