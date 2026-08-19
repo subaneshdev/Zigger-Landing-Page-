@@ -58,7 +58,7 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [copiedId, setCopiedId] = useState(null);
 
-  const categories = ['All', 'Staffing', 'Operations', 'Business'];
+  const categories = ['All', ...Array.from(new Set(BLOG_POSTS.map(post => post.category).filter(Boolean)))];
 
   const currentPost = BLOG_POSTS.find(post => post.id === activePostId);
 

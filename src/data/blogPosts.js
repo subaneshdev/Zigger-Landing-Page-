@@ -1,5 +1,134 @@
 export const BLOG_POSTS = [
   {
+    id: 'boycott-rapido-driver-suspension-ankit-kumar-ziggers-alternative',
+    title: '#BoycottRapido: What the 100-Year Ban on Dalit Driver Ankit Kumar Reveals About Gig Injustice (And Why Drivers Are Moving to Ziggers)',
+    excerpt: 'The #BoycottRapido trend swept India in August 2026 after Lucknow driver Ankit Kumar received a 100-year suspension for resisting casteist harassment. Here is the full breakdown of the controversy and why gig workers are switching to Ziggers.',
+    seoDescription: 'The #BoycottRapido trend erupted in August 2026 after Dalit driver Ankit Kumar was banned for nearly 100 years. Learn how algorithmic bias harms gig workers and why Ziggers offers a fair, high-paying, and dignified alternative.',
+    content: [
+      { type: 'paragraph', text: 'In August 2026, social media feeds across India exploded with the viral hashtag **#BoycottRapido**. What started as an isolated ride in Lucknow quickly evolved into a nationwide conversation about caste discrimination, algorithmic cruelty, and the total erosion of gig worker rights in the ride-hailing industry.' },
+      { type: 'paragraph', text: 'The flashpoint occurred when Ankit Kumar, a hardworking Rapido cab driver from the Dalit community in Lucknow, was handed a shocking **100-year account suspension (blocked until the year 2125)** by Rapido\'s automated system. His "offense"? Asking four passengers to step out of his car after they subjected him to severe casteist slurs and verbal humiliation during a ride.' },
+      { type: 'heading', text: 'The Lucknow Incident: How the #BoycottRapido Movement Started' },
+      { type: 'paragraph', text: 'According to reports and driver union statements, Ankit Kumar accepted a standard city trip in Lucknow. During the journey, the four passengers onboard began making casteist remarks and derogatory insults directed at him. Refusing to tolerate caste discrimination in his own vehicle, Ankit pulled over in a safe, public spot and politely asked the passengers to deboard and book another ride.' },
+      { type: 'paragraph', text: 'Rather than apologizing, the passengers retaliated by filing a fraudulent complaint on the Rapido app, claiming driver misbehavior and sudden ride cancellation. Within minutes, Rapido\'s algorithmic enforcement triggered an automatic lifetime ban—locking Ankit\'s driver partner profile until the 22nd century.' },
+      { type: 'paragraph', text: 'There was no human grievance officer assigned, no opportunity for Ankit to present his side of the story, and zero inquiry into the casteist abuse he had endured. In an instant, his sole source of family income was stripped away by an algorithm.' },
+      { type: 'heading', text: 'Nationwide Backlash: Driver Unions and Netizens Speak Up' },
+      { type: 'paragraph', text: 'When Ankit shared screenshots of his century-long ban alongside his account of the casteist harassment, it triggered an outpouring of solidarity from gig worker unions—including the Telangana Gig and Platform Workers Union (TGPWU), the All India Gig Workers Alliance, and driver welfare associations across Uttar Pradesh, Tamil Nadu, Maharashtra, and Karnataka.' },
+      { type: 'paragraph', text: 'Social media users, civil rights advocates, and everyday commuters joined the call, demanding immediate accountability, an unconditional apology, and the uninstallation of the application under **#BoycottRapido**. The controversy has brought uncomfortable truths about the modern platform economy to the forefront:' },
+      { type: 'paragraph', text: '1. **Algorithmic Tyranny**: Gig workers are judged, penalized, and permanently terminated by automated bots without human empathy or due process.' },
+      { type: 'paragraph', text: '2. **Zero Protection Against Discrimination**: Drivers from marginalized communities face routine harassment on the road, yet platform policies treat them as disposable assets rather than human partners.' },
+      { type: 'paragraph', text: '3. **The Customer-Always-Right Myth**: Platform algorithms are fundamentally skewed to appease passenger complaints regardless of whether those complaints are malicious or fabricated.' },
+      { type: 'paragraph', text: '4. **Economic Precarity**: After bearing fuel costs, vehicle loan EMIs, and 25–30% platform commissions, drivers are left defenseless when an arbitrary de-boarding occurs.' },
+      { type: 'heading', text: 'Traditional Ride-Hailing vs. Ziggers: A Fundamental Shift' },
+      { type: 'paragraph', text: 'The #BoycottRapido crisis is not an isolated glitch—it is the direct symptom of an outdated aggregator model that prioritizes corporate margins over worker dignity. At Ziggers, we engineered our platform from day one to guarantee that gig workers and drivers are treated with respect, safety, and financial transparency.' },
+      {
+        type: 'table',
+        headers: ['Feature / Policy', 'Traditional Ride-Hailing Apps (Rapido / Uber / Ola)', 'Ziggers Platform Model'],
+        rows: [
+          ['Dispute Redressal', 'Automated bot bans without human hearing (up to 100 years)', 'Human-in-the-loop dispute mediation with mandatory evidence review'],
+          ['Anti-Discrimination Safety', 'Zero driver protection against passenger abuse or casteism', 'Strict mutual KYC; zero tolerance for abusive clients with instant blacklisting'],
+          ['Vehicle Seizure & Legal Risk', 'High risk on private two-wheelers (banned in several states)', '100% legal acting driver model (driving client cars) & off-road event gigs'],
+          ['Vehicle Wear & Fuel Cost', 'Borne 100% by driver; leaves <40% net margin', 'Zero vehicle depreciation; fuel provided by client or no vehicle required'],
+          ['Daily Net Take-Home', '₹500 - ₹900 (after fuel, commission & EMI deductions)', '₹1,200 - ₹2,500 guaranteed per shift'],
+          ['Payout Reliability', 'Weekly or subject to arbitrary holdbacks', 'Instant escrow-backed payouts directly to UPI post-shift']
+        ]
+      },
+      { type: 'heading', text: 'Why Gig Drivers Are Migrating to Ziggers' },
+      { type: 'paragraph', text: 'As trust in traditional aggregators reaches an all-time low, thousands of drivers and flexible workers across India are discovering a safer, more profitable path on [Ziggers](#waitlist).' },
+      { type: 'paragraph', text: '• **Dignified Acting Driver Gigs**: Instead of running personal vehicles into the ground for meager commissions, acting drivers on Ziggers drive private car owners and corporate executives. You operate with dignity, professional respect, and zero risk of traffic department seizures under the Motor Vehicles Act.' },
+      { type: 'paragraph', text: '• **Mutual Aadhaar KYC Verification**: Safety is a two-way street. Both employers/clients and gig workers undergo biometric Aadhaar authentication before booking. If a client exhibits disrespectful or discriminatory behavior, their access to the platform is terminated immediately.' },
+      { type: 'paragraph', text: '• **Multi-Category Income Flexibility**: On Ziggers, you aren\'t trapped behind a steering wheel. Giggers can switch seamlessly between [acting driving gigs](/hire-acting-drivers-chennai), event management, catering staff, warehouse operations, and brand promotion—maximizing daily earnings on their own terms.' },
+      { type: 'paragraph', text: '• **Escrow-Secured UPI Payments**: No waiting for weekly settlement cycles or fearing unjustified deduction penalties. Every rupee earned on Ziggers is held in smart escrow before the shift begins and released instantly to your bank account upon completion.' },
+      { type: 'heading', text: 'The Future of Gig Work Demands Respect' },
+      { type: 'paragraph', text: 'The #BoycottRapido outcry is a wake-up call for the entire tech industry in India. Gig workers are the backbone of urban mobility and logistics—they are not disposable lines of code. Platforms must guarantee due process, protection against casteist and social harassment, and fair compensation.' },
+      { type: 'paragraph', text: 'If you are a driver or gig worker tired of arbitrary bans, commission cuts, and lack of dignity, it is time to make the switch. Join the [Ziggers community today](#waitlist) and experience work that respects your time, skills, and dignity.' },
+      { 
+        type: 'faq', 
+        items: [
+          { 
+            q: "What is the #BoycottRapido trend about?", 
+            a: "The #BoycottRapido trend started in August 2026 after Lucknow-based Dalit cab driver Ankit Kumar had his account suspended for 100 years by Rapido's automated system after he asked passengers who allegedly used casteist slurs to deboard." 
+          },
+          { 
+            q: "Why was driver Ankit Kumar suspended for 100 years?", 
+            a: "Rapido's automated algorithm processed a retaliatory passenger complaint after the driver refused to tolerate casteist harassment, resulting in an algorithmic lifetime ban without any human review or due process." 
+          },
+          { 
+            q: "How does Ziggers prevent unfair driver bans?", 
+            a: "Ziggers utilizes human-in-the-loop dispute mediation. No worker account can be unilaterally suspended by a bot. Both parties submit evidence, and mutual Aadhaar verification ensures client accountability." 
+          },
+          { 
+            q: "What are the best alternatives to Rapido for drivers in India?", 
+            a: "Ziggers is the leading ethical alternative. It offers 100% legal acting driver gigs (driving client vehicles) and versatile event/logistics jobs paying ₹1,200 to ₹2,500 daily with instant same-day UPI payouts." 
+          }
+        ] 
+      }
+    ],
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "#BoycottRapido: What the 100-Year Ban on Dalit Driver Ankit Kumar Reveals About Gig Injustice (And Why Drivers Are Moving to Ziggers)",
+          "description": "The #BoycottRapido trend erupted in August 2026 after Dalit driver Ankit Kumar received a 100-year suspension. Learn why automated platform bias harms gig workers and how Ziggers offers a fair, high-paying alternative.",
+          "author": {
+            "@type": "Organization",
+            "name": "Ziggers"
+          },
+          "datePublished": "2026-08-19T10:00:00+05:30"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the #BoycottRapido trend about?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The #BoycottRapido trend started in August 2026 after Lucknow-based Dalit cab driver Ankit Kumar had his account suspended for 100 years by Rapido's automated system after he asked passengers who allegedly used casteist slurs to deboard."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why was driver Ankit Kumar suspended for 100 years?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Rapido's automated algorithm processed a retaliatory passenger complaint after the driver refused to tolerate casteist harassment, resulting in an algorithmic lifetime ban without any human review or due process."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Ziggers prevent unfair driver bans?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ziggers utilizes human-in-the-loop dispute mediation. No worker account can be unilaterally suspended by a bot. Both parties submit evidence, and mutual Aadhaar verification ensures client accountability."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the best alternatives to Rapido for drivers in India?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ziggers is the leading ethical alternative. It offers 100% legal acting driver gigs (driving client vehicles) and versatile event/logistics jobs paying ₹1,200 to ₹2,500 daily with instant same-day UPI payouts."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    date: 'August 19, 2026',
+    readTime: '7 min read',
+    author: 'Subanesh R',
+    authorRole: 'Head of Growth & Worker Advocacy',
+    category: 'Gig Mobility',
+    image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80',
+    color: '#0F172A',
+    references: [
+      { name: 'Driver Unions Outcry on Algorithmic Bans & Fair Work India', url: '#waitlist' },
+      { name: 'Explore Legal Acting Driver Opportunities with Ziggers', url: '/hire-acting-drivers-chennai' },
+      { name: 'Join the Verified Gigger Network on Ziggers', url: '#waitlist' }
+    ]
+  },
+  {
     id: 'best-rapido-alternative-apps-drivers-gig-workers-2026',
     title: 'Top Rapido Alternative Apps in 2026: Best High-Paying Gigs for Drivers & Captains',
     excerpt: 'Looking for a reliable Rapido alternative in 2026? Discover the top legal gig platforms in India for drivers and captains with higher daily earnings and same-day payouts.',
