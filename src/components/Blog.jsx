@@ -512,23 +512,50 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                       paddingBottom: '24px'
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <div style={{ 
-                          width: '44px', 
-                          height: '44px', 
-                          borderRadius: '50%', 
-                          backgroundColor: 'var(--color-primary)', 
-                          color: 'white',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '14px',
-                          fontWeight: '700'
-                        }}>
+                        <a 
+                          href={currentPost.authorUrl || 'https://www.linkedin.com/in/subanesh/'}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={`View ${currentPost.author}'s LinkedIn Profile`}
+                          style={{ 
+                            width: '44px', 
+                            height: '44px', 
+                            borderRadius: '50%', 
+                            backgroundColor: 'var(--color-primary)', 
+                            color: 'white',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: '14px',
+                            fontWeight: '700',
+                            textDecoration: 'none',
+                            transition: 'transform 0.2s ease',
+                            flexShrink: 0
+                          }}
+                        >
                           {currentPost.author.split(' ').map(n => n[0]).join('')}
-                        </div>
+                        </a>
                         <div>
-                          <h4 style={{ fontSize: '15px', fontWeight: '700' }}>{currentPost.author}</h4>
-                          <span style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>{currentPost.authorRole}</span>
+                          <a 
+                            href={currentPost.authorUrl || 'https://www.linkedin.com/in/subanesh/'}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ 
+                              fontSize: '15px', 
+                              fontWeight: '700', 
+                              color: 'var(--color-primary)',
+                              textDecoration: 'none',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '6px'
+                            }}
+                          >
+                            <span>{currentPost.author}</span>
+                            <Linkedin size={14} style={{ color: '#0A66C2' }} />
+                          </a>
+                          <div>
+                            <span style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>{currentPost.authorRole}</span>
+                          </div>
                         </div>
                       </div>
 
@@ -741,6 +768,71 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                         </ul>
                       </div>
                     )}
+
+                    {/* Author Byline / LinkedIn Box */}
+                    <div style={{
+                      marginTop: '48px',
+                      padding: '28px',
+                      backgroundColor: 'white',
+                      borderRadius: '24px',
+                      border: '1px solid rgba(0,0,0,0.06)',
+                      boxShadow: 'var(--shadow-soft)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      flexWrap: 'wrap',
+                      gap: '20px'
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                        <div style={{
+                          width: '56px',
+                          height: '56px',
+                          borderRadius: '50%',
+                          backgroundColor: 'var(--color-primary)',
+                          color: 'white',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '18px',
+                          fontWeight: '800',
+                          flexShrink: 0
+                        }}>
+                          {currentPost.author.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <h4 style={{ fontSize: '17px', fontWeight: '800', margin: 0, color: 'var(--color-primary)' }}>
+                              Written by {currentPost.author}
+                            </h4>
+                          </div>
+                          <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', margin: '4px 0 0' }}>
+                            {currentPost.authorRole} • Building India's on-demand gig work operating system at Ziggers
+                          </p>
+                        </div>
+                      </div>
+                      <a
+                        href={currentPost.authorUrl || 'https://www.linkedin.com/in/subanesh/'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          backgroundColor: '#0A66C2',
+                          color: 'white',
+                          padding: '10px 18px',
+                          borderRadius: '100px',
+                          fontSize: '13px',
+                          fontWeight: '700',
+                          textDecoration: 'none',
+                          boxShadow: '0 4px 12px rgba(10, 102, 194, 0.25)',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        <Linkedin size={16} />
+                        Connect on LinkedIn
+                      </a>
+                    </div>
                   </div>
 
                   {/* Share Bottom & Back Footer */}

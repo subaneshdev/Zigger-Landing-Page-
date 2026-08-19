@@ -71,8 +71,9 @@ export const BLOG_POSTS = [
           "headline": "#BoycottRapido: What the 100-Year Ban on Dalit Driver Ankit Kumar Reveals About Gig Injustice (And Why Drivers Are Moving to Ziggers)",
           "description": "The #BoycottRapido trend erupted in August 2026 after Dalit driver Ankit Kumar received a 100-year suspension. Learn why automated platform bias harms gig workers and how Ziggers offers a fair, high-paying alternative.",
           "author": {
-            "@type": "Organization",
-            "name": "Ziggers"
+            "@type": "Person",
+            "name": "Subanesh C",
+            "url": "https://www.linkedin.com/in/subanesh/"
           },
           "datePublished": "2026-08-19T10:00:00+05:30"
         },
@@ -117,8 +118,9 @@ export const BLOG_POSTS = [
     },
     date: 'August 19, 2026',
     readTime: '7 min read',
-    author: 'Subanesh R',
-    authorRole: 'Head of Growth & Worker Advocacy',
+    author: 'Subanesh C',
+    authorRole: 'Founder & Head of Growth',
+    authorUrl: 'https://www.linkedin.com/in/subanesh/',
     category: 'Gig Mobility',
     image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80',
     color: '#0F172A',
@@ -176,8 +178,9 @@ export const BLOG_POSTS = [
           "headline": "Top Rapido Alternative Apps in 2026: Best High-Paying Gigs for Drivers & Captains",
           "description": "Searching for the best Rapido alternative? Learn how Ziggers and top gig apps offer 100% legal, high-paying acting driver and flexible event jobs with same-day UPI payouts across India.",
           "author": {
-            "@type": "Organization",
-            "name": "Ziggers"
+            "@type": "Person",
+            "name": "Subanesh C",
+            "url": "https://www.linkedin.com/in/subanesh/"
           },
           "datePublished": "2026-08-11T10:00:00+05:30"
         },
@@ -214,8 +217,9 @@ export const BLOG_POSTS = [
     },
     date: 'August 11, 2026',
     readTime: '6 min read',
-    author: 'Subanesh R',
-    authorRole: 'Head of Growth & SEO',
+    author: 'Subanesh C',
+    authorRole: 'Founder & Head of Growth',
+    authorUrl: 'https://www.linkedin.com/in/subanesh/',
     category: 'Gig Mobility',
     image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80',
     color: '#F3F4F6'
@@ -257,8 +261,9 @@ export const BLOG_POSTS = [
           "headline": "Rapido Ban in Chennai: Why Ziggers is the Best Legal Alternative for Drivers and Gig Workers",
           "description": "Struggling with the Rapido bike taxi ban in Chennai? Ziggers offers a fully legal alternative for gig workers. Find high-paying acting driver jobs, catering gigs, and event work with same-day UPI payouts.",
           "author": {
-            "@type": "Organization",
-            "name": "Ziggers"
+            "@type": "Person",
+            "name": "Subanesh C",
+            "url": "https://www.linkedin.com/in/subanesh/"
           },
           "datePublished": "2026-08-06T02:30:00+05:30"
         },
@@ -287,8 +292,9 @@ export const BLOG_POSTS = [
     },
     date: 'August 6, 2026',
     readTime: '5 min read',
-    author: 'Sridhar Krishnan',
-    authorRole: 'Legal Compliance & Gig Mobility Advisor',
+    author: 'Subanesh C',
+    authorRole: 'Founder & Head of Growth',
+    authorUrl: 'https://www.linkedin.com/in/subanesh/',
     category: 'Compliance',
     image: 'https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?auto=format&fit=crop&w=800&q=80',
     color: '#F3F4F6'
@@ -328,8 +334,9 @@ export const BLOG_POSTS = [
           "headline": "Tamil Nadu Government Gig Worker Policy (2026): Key Findings & Social Security",
           "description": "Read our breakdown of the 2026 Tamil Nadu Government Gig Worker Policy report. Learn about the TN Platform-Based Gig Workers Welfare Board, CMCHIS health integrations, and how Ziggers aligns with these fair labor standards.",
           "author": {
-            "@type": "Organization",
-            "name": "Ziggers"
+            "@type": "Person",
+            "name": "Subanesh C",
+            "url": "https://www.linkedin.com/in/subanesh/"
           },
           "datePublished": "2026-07-29T17:30:00+05:30"
         },
@@ -358,8 +365,9 @@ export const BLOG_POSTS = [
     },
     date: 'July 29, 2026',
     readTime: '6 min read',
-    author: 'Sankara Pandian',
-    authorRole: 'Policy & Welfare Consultant',
+    author: 'Subanesh C',
+    authorRole: 'Founder & Head of Growth',
+    authorUrl: 'https://www.linkedin.com/in/subanesh/',
     category: 'Policy',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
     color: '#F3F4F6'
@@ -399,8 +407,9 @@ export const BLOG_POSTS = [
           "headline": "Cost of Hiring an Acting Driver for Outstation Trips from Chennai (2026)",
           "description": "Find out the exact costs of hiring background-verified acting drivers in Chennai for outstation trips. Ziggers offers secure KYC tracking and transparent pricing.",
           "author": {
-            "@type": "Organization",
-            "name": "Ziggers"
+            "@type": "Person",
+            "name": "Subanesh C",
+            "url": "https://www.linkedin.com/in/subanesh/"
           },
           "datePublished": "2026-06-19T08:00:00+05:30"
         },
@@ -429,8 +438,9 @@ export const BLOG_POSTS = [
     },
     date: 'June 19, 2026',
     readTime: '4 min read',
-    author: 'Karthik Raja',
-    authorRole: 'Mobility Operations Head',
+    author: 'Subanesh C',
+    authorRole: 'Founder & Head of Growth',
+    authorUrl: 'https://www.linkedin.com/in/subanesh/',
     category: 'Logistics',
     image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80',
     color: '#E0F2FE'
@@ -470,8 +480,9 @@ export const BLOG_POSTS = [
           "headline": "Last-Minute Catering Staff for Weddings in ECR and OMR",
           "description": "Hire last-minute, KYC-verified catering staff for weddings in ECR and OMR. Ziggers provides reliable, background-checked event helpers instantly.",
           "author": {
-            "@type": "Organization",
-            "name": "Ziggers"
+            "@type": "Person",
+            "name": "Subanesh C",
+            "url": "https://www.linkedin.com/in/subanesh/"
           },
           "datePublished": "2026-06-18T09:00:00+05:30"
         },
@@ -500,8 +511,9 @@ export const BLOG_POSTS = [
     },
     date: 'June 18, 2026',
     readTime: '5 min read',
-    author: 'Deepa Ramakrishnan',
-    authorRole: 'Event Logistics Lead',
+    author: 'Subanesh C',
+    authorRole: 'Founder & Head of Growth',
+    authorUrl: 'https://www.linkedin.com/in/subanesh/',
     category: 'Events',
     image: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=800&q=80',
     color: '#FEF3C7'
@@ -541,8 +553,9 @@ export const BLOG_POSTS = [
           "headline": "How to Hire Verified Brand Promoters for Mall Activations in Chennai",
           "description": "Looking to hire verified brand promoters in Chennai? Learn how to source KYC-verified marketing staff for mall activations in VR Mall, Express Avenue, and Phoenix Marketcity.",
           "author": {
-            "@type": "Organization",
-            "name": "Ziggers"
+            "@type": "Person",
+            "name": "Subanesh C",
+            "url": "https://www.linkedin.com/in/subanesh/"
           },
           "datePublished": "2026-06-17T10:00:00+05:30"
         },
@@ -571,8 +584,9 @@ export const BLOG_POSTS = [
     },
     date: 'June 17, 2026',
     readTime: '4 min read',
-    author: 'Priya Sundaram',
-    authorRole: 'Retail Marketing Specialist',
+    author: 'Subanesh C',
+    authorRole: 'Founder & Head of Growth',
+    authorUrl: 'https://www.linkedin.com/in/subanesh/',
     category: 'Marketing',
     image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=800&q=80',
     color: '#FCE7F3'
