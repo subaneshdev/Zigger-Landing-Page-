@@ -203,6 +203,7 @@ export const ROUTE_SEO = {
   '/': 'home',
   '/work': 'work',
   '/hire': 'hire',
+  '/partner': 'partner',
   '/hire-acting-drivers-chennai': 'actingDrivers',
   '/hire-catering-staff-chennai': 'cateringStaff',
   '/hire-brand-promoters-chennai': 'brandPromoters',

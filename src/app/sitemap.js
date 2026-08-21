@@ -21,12 +21,15 @@ export default async function sitemap() {
     priority: parseFloat(route.priority) || 0.5,
   }));
 
-  const blogRoutes = BLOG_POSTS.map((post) => ({
-    url: `${SITE_URL}/blog/${post.id}`,
-    lastModified: new Date(post.date || new Date()),
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }));
+  const blogRoutes = BLOG_POSTS.map((post) => {
+    const dateModified = post.schema?.['@graph']?.[0]?.dateModified;
+    return {
+      url: `${SITE_URL}/blog/${post.id}`,
+      lastModified: dateModified ? new Date(dateModified) : new Date(post.date || new Date()),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    };
+  });
 
   let taskRoutes = [];
   try {

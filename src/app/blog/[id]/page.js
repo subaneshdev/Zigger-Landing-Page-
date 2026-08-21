@@ -17,15 +17,17 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  const metaTitle = post.seoTitle || post.title;
+
   return {
-    title: `${post.title} | Ziggers`,
+    title: `${metaTitle} | Ziggers`,
     description: post.seoDescription,
     alternates: {
       canonical: `/blog/${id}`,
     },
     openGraph: {
       type: 'article',
-      title: `${post.title} | Ziggers`,
+      title: `${metaTitle} | Ziggers`,
       description: post.seoDescription,
       images: [
         {

@@ -91,8 +91,33 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
-  // Parse backlinks [Text](#hash) in content blocks
+  // Parse backlinks [Text](#hash) and **bold** in content blocks
   const parseMarkdownLinks = (text) => {
+    if (!text || typeof text !== 'string') return text;
+
+    const parseBold = (str, keyPrefix) => {
+      if (!str || typeof str !== 'string' || !str.includes('**')) return str;
+      const boldParts = [];
+      const boldRegex = /\*\*([^*]+)\*\*/g;
+      let bLastIndex = 0;
+      let bMatch;
+      while ((bMatch = boldRegex.exec(str)) !== null) {
+        if (bMatch.index > bLastIndex) {
+          boldParts.push(str.substring(bLastIndex, bMatch.index));
+        }
+        boldParts.push(
+          <strong key={`${keyPrefix}-bold-${bMatch.index}`} style={{ fontWeight: '700', color: 'var(--color-primary)' }}>
+            {bMatch[1]}
+          </strong>
+        );
+        bLastIndex = boldRegex.lastIndex;
+      }
+      if (bLastIndex < str.length) {
+        boldParts.push(str.substring(bLastIndex));
+      }
+      return boldParts.length > 0 ? boldParts : str;
+    };
+
     const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
     const parts = [];
     let lastIndex = 0;
@@ -100,7 +125,7 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
 
     while ((match = regex.exec(text)) !== null) {
       if (match.index > lastIndex) {
-        parts.push(text.substring(lastIndex, match.index));
+        parts.push(parseBold(text.substring(lastIndex, match.index), `txt-${lastIndex}`));
       }
       
       const linkText = match[1];
@@ -139,10 +164,10 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
     }
 
     if (lastIndex < text.length) {
-      parts.push(text.substring(lastIndex));
+      parts.push(parseBold(text.substring(lastIndex), `txt-${lastIndex}`));
     }
 
-    return parts.length > 0 ? parts : text;
+    return parts.length > 0 ? parts : parseBold(text, 'txt-0');
   };
 
   return (
@@ -628,6 +653,55 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                     {currentPost.content.map((block, bIdx) => {
                       if (block.type === 'paragraph') {
                         return <p key={bIdx} style={{ marginBottom: '28px' }}>{parseMarkdownLinks(block.text)}</p>;
+                      }
+                      if (block.type === 'callout') {
+                        return (
+                          <div 
+                            key={bIdx} 
+                            style={{ 
+                              margin: '32px 0 36px', 
+                              padding: '24px 28px', 
+                              backgroundColor: block.variant === 'warning' ? '#FEF2F2' : '#F8FAFC', 
+                              border: '1px solid rgba(0,0,0,0.08)',
+                              borderLeft: `5px solid ${block.variant === 'warning' ? '#EF4444' : 'var(--color-accent)'}`, 
+                              borderRadius: '16px',
+                              boxShadow: 'var(--shadow-soft)'
+                            }}
+                          >
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
+                              {block.badge && (
+                                <span style={{
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '6px',
+                                  backgroundColor: block.variant === 'warning' ? 'rgba(239, 68, 68, 0.12)' : 'rgba(193, 154, 107, 0.15)',
+                                  color: block.variant === 'warning' ? '#DC2626' : 'var(--color-primary)',
+                                  padding: '4px 12px',
+                                  borderRadius: '100px',
+                                  fontSize: '12px',
+                                  fontWeight: '800',
+                                  textTransform: 'uppercase',
+                                  letterSpacing: '0.05em'
+                                }}>
+                                  {block.badge}
+                                </span>
+                              )}
+                              {block.timestamp && (
+                                <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--color-text-muted)' }}>
+                                  {block.timestamp}
+                                </span>
+                              )}
+                            </div>
+                            {block.title && (
+                              <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '10px', color: 'var(--color-primary)' }}>
+                                {block.title}
+                              </h3>
+                            )}
+                            <div style={{ fontSize: '15px', lineHeight: '1.7', color: 'var(--color-text)' }}>
+                              {parseMarkdownLinks(block.text)}
+                            </div>
+                          </div>
+                        );
                       }
                       if (block.type === 'heading') {
                         return <h2 key={bIdx} style={{ fontSize: '28px', marginTop: '48px', marginBottom: '20px', fontFamily: 'var(--font-heading)', fontWeight: '800' }}>{block.text}</h2>;

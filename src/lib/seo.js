@@ -73,7 +73,7 @@ export function applyRouteSEO(pathname) {
 
     if (post) {
       setPageSEO({
-        title: `${post.title} | Ziggers`,
+        title: `${post.seoTitle || post.title} | Ziggers`,
         description: post.seoDescription,
         path: pathname,
         ogType: 'article',
