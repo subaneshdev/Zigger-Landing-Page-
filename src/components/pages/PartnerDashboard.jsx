@@ -269,9 +269,6 @@ export default function PartnerDashboard() {
             <h3 style={{ fontSize: '20px', fontWeight: 900, margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
               <Users size={22} color="var(--color-gold)" /> Referred Community Members
             </h3>
-            <span style={{ fontSize: '12px', background: '#25D366', color: '#fff', fontWeight: 800, padding: '4px 12px', borderRadius: '100px' }}>
-              Supabase Live Sync
-            </span>
           </div>
 
           {referredMembers && referredMembers.length > 0 ? (
