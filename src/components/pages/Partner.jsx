@@ -25,6 +25,7 @@ import NumberTicker from '../NumberTicker';
 import AnimatedShinyText from '../magicui/AnimatedShinyText';
 import ShimmerButton from '../magicui/ShimmerButton';
 import MagicCard from '../magicui/MagicCard';
+import { StaggeredText } from '../ui/StaggeredText';
 import { generateCodeFromMobile, getWhatsAppShareUrl, getReferralUrl, getGroupWelcomeMessage } from '../../lib/referral';
 
 export default function Partner() {
@@ -201,21 +202,26 @@ export default function Partner() {
             </div>
           </motion.div>
 
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          <StaggeredText
+            as="h1"
+            text="Turn Your Group Into Income. Earn Every Time Your Community Hires."
+            highlightWords={["Earn", "Every", "Time", "Your", "Community", "Hires."]}
+            segmentBy="words"
+            staggerDirection="forward"
+            direction="bottom"
+            duration={0.6}
+            staggerDelay={0.035}
+            triggerOnScroll={true}
             style={{ 
               fontSize: 'clamp(32px, 5.5vw, 54px)', 
               fontWeight: 900, 
               lineHeight: 1.15, 
               marginBottom: '20px',
-              letterSpacing: '-0.03em'
+              letterSpacing: '-0.03em',
+              justifyContent: 'center',
+              textAlign: 'center'
             }}
-          >
-            Turn Your Group Into Income. <br />
-            <span style={{ color: 'var(--color-gold)' }}>Earn Every Time Your Community Hires.</span>
-          </motion.h1>
+          />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -339,9 +345,18 @@ export default function Partner() {
             </div>
 
             <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 40px' }}>
-              <h2 style={{ fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: 900, marginBottom: '12px' }}>
-                How Your Recurring Income Works
-              </h2>
+              <StaggeredText
+                as="h2"
+                text="How Your Recurring Income Works"
+                highlightWords={["Recurring", "Income"]}
+                segmentBy="words"
+                staggerDirection="forward"
+                direction="bottom"
+                duration={0.5}
+                staggerDelay={0.05}
+                triggerOnScroll={true}
+                style={{ fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: 900, marginBottom: '12px', justifyContent: 'center', textAlign: 'center' }}
+              />
               <p style={{ color: 'var(--color-muted)', fontSize: '16px' }}>
                 You don't just earn once when someone joins. You get paid continuously every time your referred workers complete 5 gigs!
               </p>
