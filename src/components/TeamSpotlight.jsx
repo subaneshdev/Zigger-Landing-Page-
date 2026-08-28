@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Mail, Linkedin } from 'lucide-react';
@@ -30,6 +30,7 @@ export const TEAM_MEMBERS = [
     role: 'Chief Technology Officer (CTO)',
     shortRole: 'CTO',
     image: '/assets/team/jeeva.jpg',
+    objectPosition: 'center 4%',
     email: 'jeeva@ziggers.in',
     linkedin: 'https://www.linkedin.com/in/jeeva-cto/',
     bio: 'Directing overarching technology architecture, platform scalability, and distributed backend infrastructure.'
@@ -119,7 +120,7 @@ export default function TeamSpotlight({ members = TEAM_MEMBERS }) {
     <div className="team-spotlight-container" ref={containerRef} style={{ width: '100%', position: 'relative', overflow: 'hidden' }}>
       
       {/* 3D Spotlight Stage */}
-      <div style={{ position: 'relative', width: '100%', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 0 10px' }}>
+      <div style={{ position: 'relative', width: '100%', height: '430px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 0 12px' }}>
         
         {members.map((member, i) => {
           const rel = getRelativePosition(i);
@@ -127,7 +128,7 @@ export default function TeamSpotlight({ members = TEAM_MEMBERS }) {
           const distance = Math.abs(rel);
           
           // Responsive horizontal spread calculation
-          const baseX = rel === 0 ? 0 : rel === -1 ? -175 : rel === 1 ? 175 : rel < 0 ? -310 : 310;
+          const baseX = rel === 0 ? 0 : rel === -1 ? -180 : rel === 1 ? 180 : rel < 0 ? -320 : 320;
           const scale = distance === 0 ? 1 : distance === 1 ? 0.88 : 0.74;
           const rotate = rel === 0 ? 0 : rel < 0 ? -4 : 4;
           const opacity = distance === 0 ? 1 : distance === 1 ? 0.75 : 0.35;
@@ -142,7 +143,7 @@ export default function TeamSpotlight({ members = TEAM_MEMBERS }) {
               key={member.id || i}
               style={{
                 position: 'absolute',
-                borderRadius: '22px',
+                borderRadius: '24px',
                 transformOrigin: 'center center',
                 cursor: isCenter ? 'default' : 'pointer',
                 display: 'flex',
@@ -173,14 +174,14 @@ export default function TeamSpotlight({ members = TEAM_MEMBERS }) {
               {/* Photo Frame */}
               <div 
                 style={{
-                  width: '260px',
-                  height: '320px',
-                  borderRadius: '22px',
+                  width: '270px',
+                  height: '360px',
+                  borderRadius: '24px',
                   overflow: 'hidden',
                   position: 'relative',
                   backgroundColor: '#f1ede7',
                   border: isCenter ? '3px solid var(--color-gold)' : '1.5px solid rgba(61,43,31,0.1)',
-                  boxShadow: isCenter ? '0 18px 45px rgba(61,43,31,0.22)' : '0 6px 16px rgba(0,0,0,0.06)'
+                  boxShadow: isCenter ? '0 20px 48px rgba(61,43,31,0.22)' : '0 6px 16px rgba(0,0,0,0.06)'
                 }}
               >
                 <img
@@ -190,7 +191,7 @@ export default function TeamSpotlight({ members = TEAM_MEMBERS }) {
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    objectPosition: 'top center',
+                    objectPosition: member.objectPosition || 'center 12%',
                     display: 'block'
                   }}
                 />
