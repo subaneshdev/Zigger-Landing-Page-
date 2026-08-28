@@ -44,9 +44,8 @@ export function getWhatsAppShareUrl(referralCode) {
  */
 export function getGroupWelcomeMessage(referralCode) {
   const code = referralCode || 'YOUR_CODE';
-  const url = getReferralUrl(code);
 
-  return `🚨 EXCLUSIVE JOB OPPORTUNITIES FOR OUR COMMUNITY! 🚨
+  return `🎉 EXCLUSIVE JOB OPPORTUNITIES FOR OUR COMMUNITY! 🎉
 
 Hey everyone! We have officially partnered with Ziggers to bring verified, daily-wage gig jobs directly to our group!
 
@@ -56,9 +55,6 @@ Why work through Ziggers?
 🚫 0% Commission – Keep 100% of what you earn
 ⚡ Instant UPI Payments – Get paid immediately post-gig
 👻 No Ghosting – Verified employers & transparent check-ins
-
-👉 Join Ziggers now using our official community partner link:
-${url}
 
 Use Official Community Code: ${code}
 
