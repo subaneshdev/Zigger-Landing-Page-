@@ -831,50 +831,17 @@ export default function Partner() {
                           {activeCode}
                         </div>
 
-                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                        <div>
                           <button 
                             type="button"
                             onClick={copyCodeOnly}
-                            style={{ background: copiedCode ? '#25D366' : 'rgba(255,255,255,0.15)', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '10px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                            style={{ background: copiedCode ? '#25D366' : 'rgba(255,255,255,0.15)', color: '#fff', border: 'none', padding: '10px 20px', borderRadius: '10px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
                           >
                             {copiedCode ? <Check size={16} /> : <Copy size={16} />}
                             {copiedCode ? 'Code Copied!' : 'Copy Code'}
                           </button>
-
-                          <button 
-                            type="button"
-                            onClick={copyLinkOnly}
-                            style={{ background: copiedLink ? '#25D366' : 'var(--color-gold)', color: '#fff', border: 'none', padding: '10px 16px', borderRadius: '10px', fontSize: '13px', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
-                          >
-                            {copiedLink ? <Check size={16} /> : <ExternalLink size={16} />}
-                            {copiedLink ? 'Link Copied!' : 'Copy Link'}
-                          </button>
                         </div>
                       </div>
-
-                      {/* 1-Click WhatsApp Share Button */}
-                      <a 
-                        href={getWhatsAppShareUrl(activeCode)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '10px',
-                          background: '#25D366',
-                          color: '#fff',
-                          padding: '14px',
-                          borderRadius: '12px',
-                          fontWeight: 800,
-                          fontSize: '15px',
-                          textDecoration: 'none',
-                          boxShadow: '0 4px 14px rgba(37,211,102,0.4)',
-                          width: '100%'
-                        }}
-                      >
-                        <Share2 size={20} /> Share Directly on WhatsApp
-                      </a>
                     </div>
 
                     {/* Organization Referral Tracking Table */}

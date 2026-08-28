@@ -274,15 +274,15 @@ export default function PartnerAuthModal({ isOpen, onClose }) {
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
                 <label style={{ fontSize: '12px', fontWeight: 700, color: 'var(--color-muted)', display: 'block', marginBottom: '6px' }}>
-                  Email Address or Mobile Phone Number
+                  Email Address *
                 </label>
                 <div style={{ position: 'relative' }}>
                   <Mail size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-muted)' }} />
                   <input
-                    type="text"
+                    type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="partner@ziggers.in or +919876543210"
+                    placeholder="e.g. partner@ziggers.in or your@email.com"
                     style={{ width: '100%', padding: '12px 14px 12px 42px', borderRadius: '12px', border: '1.5px solid rgba(61,43,31,0.12)', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }}
                     required
                   />

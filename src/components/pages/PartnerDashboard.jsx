@@ -245,54 +245,22 @@ export default function PartnerDashboard() {
             ⚡ YOUR OFFICIAL COMMUNITY REFERRAL CODE
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap', marginBottom: '20px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
             <div style={{ fontSize: 'clamp(28px, 5vw, 36px)', fontWeight: 900, color: '#25D366', letterSpacing: '2px', background: 'rgba(255,255,255,0.06)', padding: '10px 22px', borderRadius: '14px', border: '1px border-dashed rgba(37,211,102,0.4)' }}>
               {code}
             </div>
 
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <div>
               <button
                 type="button"
                 onClick={copyCode}
-                style={{ background: copiedCode ? '#25D366' : 'rgba(255,255,255,0.15)', color: '#fff', border: 'none', padding: '12px 20px', borderRadius: '12px', fontSize: '14px', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
+                style={{ background: copiedCode ? '#25D366' : 'rgba(255,255,255,0.15)', color: '#fff', border: 'none', padding: '12px 24px', borderRadius: '12px', fontSize: '14px', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
               >
                 {copiedCode ? <Check size={18} /> : <Copy size={18} />}
                 {copiedCode ? 'Code Copied!' : 'Copy Code'}
               </button>
-
-              <button
-                type="button"
-                onClick={copyLink}
-                style={{ background: copiedLink ? '#25D366' : 'var(--color-gold)', color: '#fff', border: 'none', padding: '12px 20px', borderRadius: '12px', fontSize: '14px', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px' }}
-              >
-                {copiedLink ? <Check size={18} /> : <ExternalLink size={18} />}
-                {copiedLink ? 'Link Copied!' : 'Copy Link'}
-              </button>
             </div>
           </div>
-
-          <a
-            href={getWhatsAppShareUrl(code)}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '10px',
-              background: '#25D366',
-              color: '#fff',
-              padding: '16px',
-              borderRadius: '14px',
-              fontWeight: 900,
-              fontSize: '16px',
-              textDecoration: 'none',
-              boxShadow: '0 4px 16px rgba(37,211,102,0.4)',
-              width: '100%'
-            }}
-          >
-            <Share2 size={22} /> Share Directly in Your WhatsApp Group
-          </a>
         </div>
 
         {/* Referred Members Live Status Table */}
