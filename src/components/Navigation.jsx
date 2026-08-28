@@ -66,9 +66,6 @@ export default function Navigation() {
   const navItems = [
     { name: 'Hire Gig Workers', href: '/hire', icon: <Briefcase size={16} /> },
     { name: 'Find Jobs', href: '/work', icon: <Home size={16} /> },
-    { name: 'Ziggers Execute', href: 'https://execute.ziggers.in', icon: <Zap size={16} /> },
-    { name: 'Features', href: '/#features', icon: <Star size={16} /> },
-    { name: 'Trust', href: '/#trust', icon: <ShieldCheck size={16} /> },
   ];
 
   const goToSection = (href) => {
