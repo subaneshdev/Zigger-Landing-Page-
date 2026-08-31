@@ -555,10 +555,20 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                             fontWeight: '700',
                             textDecoration: 'none',
                             transition: 'transform 0.2s ease',
-                            flexShrink: 0
+                            flexShrink: 0,
+                            overflow: 'hidden',
+                            border: '1.5px solid rgba(0,0,0,0.08)'
                           }}
                         >
-                          {currentPost.author.split(' ').map(n => n[0]).join('')}
+                          {currentPost.authorImage ? (
+                            <img 
+                              src={currentPost.authorImage} 
+                              alt={currentPost.author} 
+                              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} 
+                            />
+                          ) : (
+                            currentPost.author.split(' ').map(n => n[0]).join('')
+                          )}
                         </a>
                         <div>
                           <a 

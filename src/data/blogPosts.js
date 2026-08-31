@@ -1,5 +1,249 @@
 export const BLOG_POSTS = [
   {
+    id: 'catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar',
+    title: 'Festive Delivery Jobs in Chennai: How Velachery and Anna Nagar Are Getting More Work This Wedding Season',
+    seoTitle: 'Catering and Delivery Jobs in Chennai this festive season— Velachery & Anna Nagar',
+    excerpt: 'Festive delivery jobs, catering gigs, and event staff jobs are growing fast in Velachery and Anna Nagar this wedding season. Find part-time and temporary work in Chennai — and get hired fast.',
+    seoDescription: 'Festive delivery jobs, catering gigs, and event staff jobs are growing fast in Velachery and Anna Nagar this wedding season. Find part-time and temporary work in Chennai — and get hired fast.',
+    content: [
+      { 
+        type: 'paragraph', 
+        text: 'If you live near Velachery or Anna Nagar, you\'ve probably already seen it — more delivery riders on the road, more catering vans outside apartments, more "job open" messages in local WhatsApp groups. This is not random. Chennai is entering its busiest time of the year: festive season and wedding season are happening at the same time. This means more **part-time delivery jobs in Chennai**, more **catering jobs**, and more **event staff work** — and a lot of it starts within days, not weeks.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'This happens every year around this time. If you understand why, you can get one of these jobs early, instead of hearing about it after it\'s over.' 
+      },
+      { 
+        type: 'heading', 
+        text: 'Why So Many Jobs Are Opening Right Now' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Two things are happening at the same time, and together they are creating more **temporary jobs in Chennai**.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **1. Delivery apps are hiring more people for the festive rush.** Apps like Swiggy Instamart, Zomato, and Blinkit work through small local stores near your home. Riders pick up orders from these stores and deliver them fast. These apps hire riders all year, but during festive weeks, order numbers go up a lot, so they open more rider slots. Full-time riders in big cities usually earn somewhere between ₹20,000 and ₹40,000 a month. Part-time or weekend riders get paid per order, usually around ₹15 to ₹90 depending on the distance. During festive weeks, these apps often open short-term rider slots to handle the extra orders. This is exactly when **festive delivery jobs in Chennai** open up for people who just want some part-time work, not a full-time job.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **2. Wedding season in Tamil Nadu is happening right now too.** From around August to February, Chennai has weddings and family events almost every week. Every event needs people to serve food, cook, set up decorations, and help guests. This work does not come from one single app — it comes from many small catering teams and event planners, and most of them still find workers through word of mouth or WhatsApp groups. This is the gap that **catering jobs in Chennai** and **event staff jobs in Chennai** are filling right now. Even if you have no past experience, just showing up on time gets you called back for more work.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Put together, two very different types of work — delivery apps and wedding events — are both hiring at the same time, in the same areas, for the same kind of flexible workers.' 
+      },
+      { 
+        type: 'heading', 
+        text: 'What Kind of Jobs Are Actually Open' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Here is a simple list of what\'s hiring right now:' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Delivery rider (food or grocery apps)** — You need a two-wheeler. Pick up orders from a nearby store and deliver them fast. Good if you want flexible hours.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Catering staff / kitchen helpers** — Cooking prep, serving food, and cleaning up at weddings and events. No experience needed. Being on time matters more than skill.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Event staff / helpers** — Setting up the venue, managing guests, helping with decorations and seating.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Pamphlet and promo staff** — Simple, easy, usually one-day jobs. Common during festive sales.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Warehouse / store helpers** — Sorting and packing items inside the small local stores delivery apps use. Less talking to customers, more steady shift work.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Team lead roles** — If you have some experience managing a few people, both catering teams and delivery apps sometimes need someone to lead a small group.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Most of these count as **part-time delivery jobs in Chennai** or **weekend jobs in Chennai** — meaning you can do this alongside another job, college, or family time, without quitting anything.' 
+      },
+      { 
+        type: 'heading', 
+        text: 'How to Apply — and Actually Get Picked' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Getting your name on a list is easy. Getting picked again and again takes a bit more effort. A few things that really help:' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Use a proper app instead of only WhatsApp forwards.** WhatsApp groups still have a lot of festive job posts, but they\'re crowded and hard to trust — one group can get 200+ messages a day, so good jobs get buried fast, and you can\'t be sure the employer is even real. Apps built just for local job matching, like [Ziggers](/work), show only real, nearby jobs and let you apply with one tap.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Keep your documents ready.** Aadhaar card, a bank account for UPI payments, and for delivery jobs, a driving licence and vehicle papers. Having these ready before you apply means you can start work in hours, not days.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Say exactly when you\'re free.** Employers hiring for festive or wedding work usually need someone for a set number of days — one event, one weekend, or two weeks. Being clear about your exact free days gets you picked faster than saying "I\'m available."' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Show up on time for your first job.** Your first shift is like a test. If you\'re reliable, you get called again for the next event, or added to a preferred list — this matters a lot during a season when the same people are hiring again and again.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **Be careful of anyone asking for money.** If an "employer" asks you to pay a fee, deposit, or uniform charge before you start, that\'s a warning sign. Real delivery apps and catering teams never charge workers to hire them.' 
+      },
+      { 
+        type: 'heading', 
+        text: 'Local Notes: Velachery and Anna Nagar' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Both areas have their own patterns worth knowing.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '**Velachery** is on one of Chennai\'s busiest roads for offices and shopping, with many apartment buildings and big malls nearby. During festive sales, this area gets a lot more shoppers and orders. This makes it a strong area for **part-time jobs in Velachery**, especially delivery and store-helper work, since delivery apps like to hire more riders in busy residential areas. It\'s also a good area for **catering jobs in Velachery**, since many apartment communities host their own festive and wedding events.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '**Anna Nagar** is a well-known residential area in Chennai, with many wedding halls and event venues close together. This makes it a steady spot for **event staff jobs in Anna Nagar** and **catering jobs in Anna Nagar** — during wedding season, the same halls book events back-to-back, which is great if you want to line up several jobs over a few weeks instead of just one. Anna Nagar also has steady demand for **part-time jobs in Anna Nagar** in delivery work.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'If you live in either area, the main point is simple: being close to the work helps you a lot. Delivery apps and event planners both prefer workers who live nearby, since it means faster response and fewer no-shows.' 
+      },
+      { 
+        type: 'heading', 
+        text: 'Common Questions' 
+      },
+      { 
+        type: 'faq', 
+        items: [
+          { 
+            q: "Can I do festive delivery work part-time, or only full-time?", 
+            a: "Most apps let you log in for just a few hours a day, or only on weekends. During festive season, apps often open shorter, temporary slots just to handle the extra orders." 
+          },
+          { 
+            q: "Do I need past experience for catering or event work?", 
+            a: "Usually no. Most teams train you on the spot for serving, setup, and basic kitchen help. Being on time and ready to work a full shift (6–10 hours at a wedding) matters more than experience." 
+          },
+          { 
+            q: "How fast do I get paid?", 
+            a: "This depends on who hires you. Regular catering teams often pay cash at the end of the event. Apps like Ziggers usually pay through UPI, often the same day you finish the work." 
+          },
+          { 
+            q: "Do I need to be a certain age or have documents?", 
+            a: "Most delivery apps need you to be 18 or older with a valid driving licence for two-wheeler work. Catering and event jobs usually just need a valid ID." 
+          },
+          { 
+            q: "Is this kind of work only during festive season?", 
+            a: "Delivery and gig work is there all year, just less during normal months. Wedding-season catering and event work is more seasonal, mostly from August to February in Tamil Nadu." 
+          }
+        ] 
+      },
+      { 
+        type: 'heading', 
+        text: 'Start Looking Today' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Chennai\'s festive and wedding season together create one of the busiest hiring times of the year — for **temporary jobs in Chennai** through delivery apps, or **catering jobs** and **event staff jobs** through local teams. These jobs are real, but they go fast, usually to whoever applies first and shows up on time.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'If you\'re in Velachery, Anna Nagar, or anywhere else in Chennai, and you\'re tired of scrolling through 200 WhatsApp messages, Ziggers shows you real, nearby jobs — delivery, catering, event staff, and more — so you can apply with one tap and get paid the same day through UPI. [Download Ziggers on the Play Store](#app-download) and see what\'s open near you this season.' 
+      }
+    ],
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Festive Delivery Jobs in Chennai: How Velachery and Anna Nagar Are Getting More Work This Wedding Season",
+          "description": "Festive delivery jobs, catering gigs, and event staff jobs are growing fast in Velachery and Anna Nagar this wedding season. Find part-time and temporary work in Chennai — and get hired fast.",
+          "author": {
+            "@type": "Person",
+            "name": "Vijayrajkumar",
+            "jobTitle": "Operations Lead",
+            "image": "https://www.ziggers.in/assets/team/vijayrajkumar.png",
+            "url": "https://www.linkedin.com/in/vijayrajkumar-p/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Ziggers",
+            "url": "https://www.ziggers.in"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.ziggers.in/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar"
+          },
+          "datePublished": "2026-08-31T10:00:00+05:30",
+          "dateModified": "2026-08-31T10:00:00+05:30"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can I do festive delivery work part-time, or only full-time?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most apps let you log in for just a few hours a day, or only on weekends. During festive season, apps often open shorter, temporary slots just to handle the extra orders."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need past experience for catering or event work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Usually no. Most teams train you on the spot for serving, setup, and basic kitchen help. Being on time and ready to work a full shift (6–10 hours at a wedding) matters more than experience."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How fast do I get paid?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This depends on who hires you. Regular catering teams often pay cash at the end of the event. Apps like Ziggers usually pay through UPI, often the same day you finish the work."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to be a certain age or have documents?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most delivery apps need you to be 18 or older with a valid driving licence for two-wheeler work. Catering and event jobs usually just need a valid ID."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is this kind of work only during festive season?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Delivery and gig work is there all year, just less during normal months. Wedding-season catering and event work is more seasonal, mostly from August to February in Tamil Nadu."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    date: 'August 31, 2026',
+    readTime: '5 min read',
+    author: 'Vijayrajkumar',
+    authorRole: 'Operations Lead',
+    authorImage: '/assets/team/vijayrajkumar.png',
+    authorUrl: 'https://www.linkedin.com/in/vijayrajkumar-p/',
+    category: 'Jobs',
+    image: 'https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=1200&q=80',
+    color: '#FEF3C7'
+  },
+  {
     id: 'boycott-rapido-driver-suspension-ankit-kumar-ziggers-alternative',
     title: 'Boycott Rapido: What Happened to Driver Ankit Kumar? Latest Update',
     seoTitle: 'Boycott Rapido: Ankit Kumar Suspension Latest Update',
