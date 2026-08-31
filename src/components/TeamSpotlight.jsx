@@ -7,12 +7,12 @@ export const TEAM_MEMBERS = [
   {
     id: 'subanesh',
     name: 'Subanesh C',
-    role: 'Chief Executive Officer (CEO)',
-    shortRole: 'CEO',
+    role: 'Founder & Head of Growth',
+    shortRole: 'Founder',
     image: '/assets/team/subanesh.jpg',
     email: 'c.subanesh@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/subanesh-c/',
-    bio: 'Leading Ziggers mission to organize and empower India gig workforce with verified instant staffing and on-demand daily wage opportunities.'
+    linkedin: 'https://www.linkedin.com/in/subanesh/',
+    bio: 'Leading Ziggers platform vision, growth strategy, and ecosystem expansion to empower India gig workforce.'
   },
   {
     id: 'vijayrajkumar',
