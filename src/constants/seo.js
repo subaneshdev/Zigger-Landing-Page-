@@ -148,6 +148,7 @@ export const SITEMAP_ROUTES = [
   { path: '/hire-catering-staff-chennai', pageKey: 'cateringStaff', changefreq: 'weekly', priority: '0.8' },
   { path: '/hire-brand-promoters-chennai', pageKey: 'brandPromoters', changefreq: 'weekly', priority: '0.8' },
   { path: '/blog', pageKey: 'blog', changefreq: 'weekly', priority: '0.8' },
+  { path: '/team', pageKey: 'team', changefreq: 'monthly', priority: '0.7' },
   { path: '/privacy', pageKey: 'privacy', changefreq: 'monthly', priority: '0.3' },
   { path: '/terms', pageKey: 'terms', changefreq: 'monthly', priority: '0.3' },
   ...buildIntentSitemapRoutes(),
