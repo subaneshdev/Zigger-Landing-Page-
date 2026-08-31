@@ -232,7 +232,19 @@ export function buildCategoryPage(category, city = null) {
     : `Whether you need ${category.primaryKeyword.toLowerCase()} or want to ${category.hireKeyword.toLowerCase()}, ${SITE_NAME} matches verified ${category.role} with businesses across India — part-time, temporary, and daily wage work.`;
 
   const workerHeading = `Find ${category.primaryKeyword}${locationIn}`;
-  const workerBody = `Search ${category.workerTerms.join(', ').toLowerCase()}${locationIn}. Apply for flexible shifts, weekend work, and daily salary jobs with transparent pay and instant UPI transfers after each completed gig.`;
+  let workerBody = `Search ${category.workerTerms.join(', ').toLowerCase()}${locationIn}. Apply for flexible shifts, weekend work, and daily salary jobs with transparent pay and instant UPI transfers after each completed gig.`;
+
+  if (city?.slug === 'chennai') {
+    if (category.slug === 'delivery-jobs') {
+      workerBody += ` With festive delivery orders peaking, explore high-earning [delivery jobs in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across Velachery and Anna Nagar.`;
+    } else if (category.slug === 'catering-jobs') {
+      workerBody += ` Wedding season is here — learn how to get booked repeatedly for high-paying [catering jobs in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) with same-day UPI payouts.`;
+    } else if (category.slug === 'event-staff') {
+      workerBody += ` Looking for weekend exhibition, wedding, and event helper gigs? Discover active [event staff opportunities in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across top banquet hubs.`;
+    } else if (category.slug === 'student-part-time-jobs') {
+      workerBody += ` Need flexible income alongside your college classes? Find verified, [student-friendly part-time jobs](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) in delivery, catering prep, and brand promotions.`;
+    }
+  }
 
   const employerHeading = `${category.hireKeyword}${locationIn}`;
   const employerBody = `Need ${category.employerTerms.slice(0, 4).join(', ').toLowerCase()}${locationIn}? Post a requirement and get matched with verified temporary workers — ideal for weddings, restaurants, warehouses, exhibitions, and one-day operations.`;
@@ -320,6 +332,11 @@ export function buildCityHubPage(city) {
     label: `${category.primaryKeyword} in ${city.name}`,
   }));
 
+  let workerBody = intro;
+  if (city.slug === 'chennai') {
+    workerBody += ` Looking for short-term and seasonal work? Read our latest guide on [festive season jobs in Velachery and Anna Nagar](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) to find open shifts fast.`;
+  }
+
   return {
     path,
     type: 'city-hub',
@@ -331,7 +348,7 @@ export function buildCityHubPage(city) {
     h1Accent: city.name,
     intro,
     workerHeading: `Browse jobs in ${city.name}`,
-    workerBody: intro,
+    workerBody,
     employerHeading: `Hire temporary staff in ${city.name}`,
     employerBody: `Need waiters, catering staff, delivery boys, warehouse helpers, or event volunteers in ${city.name}? Post a requirement and get verified workers matched in minutes.`,
     workLink: '/work',

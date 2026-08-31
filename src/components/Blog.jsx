@@ -199,9 +199,34 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                 <h1 style={{ fontSize: '48px', marginBottom: '20px', fontFamily: 'var(--font-heading)' }}>
                   Insights on <span style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: '400' }}>ground operations</span>.
                 </h1>
-                <p style={{ fontSize: '18px', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto' }}>
+                <p style={{ fontSize: '18px', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto 16px' }}>
                   Learn how we are building the operating system for verified, geofenced catering and field staffing in Chennai.
                 </p>
+                <div style={{ marginTop: '14px' }}>
+                  <a 
+                    href="/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleSelectPost('catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar');
+                    }}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      padding: '8px 20px',
+                      backgroundColor: 'rgba(193,154,107,0.12)',
+                      borderRadius: '100px',
+                      color: 'var(--color-primary)',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      textDecoration: 'none',
+                      border: '1px solid rgba(193,154,107,0.25)',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    <span>🔥 Featured: Read <strong style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>the new Chennai festive-season jobs guide</strong> →</span>
+                  </a>
+                </div>
               </div>
 
               {/* Filters & Search */}

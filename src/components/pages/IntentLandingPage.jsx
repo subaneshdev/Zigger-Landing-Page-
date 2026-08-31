@@ -7,6 +7,42 @@ import { getAppOpenHref, isMobile, openAppOrPlayStore } from '../../lib/appLink'
 
 const featureIcons = [ShieldCheck, Zap, Wallet];
 
+function parseMarkdownLinks(text) {
+  if (!text || typeof text !== 'string') return text;
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    const linkText = match[1];
+    const linkHref = match[2];
+    parts.push(
+      <Link 
+        key={match.index} 
+        href={linkHref}
+        style={{ 
+          color: 'var(--color-gold)', 
+          textDecoration: 'underline', 
+          fontWeight: '700' 
+        }}
+      >
+        {linkText}
+      </Link>
+    );
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 export default function IntentLandingPage({ page }) {
   if (!page) return null;
 
@@ -50,7 +86,7 @@ export default function IntentLandingPage({ page }) {
             )}
           </h1>
           <p style={{ fontSize: '18px', color: 'var(--color-text-muted)', maxWidth: '680px', margin: '0 auto 32px', lineHeight: '1.6' }}>
-            {page.intro}
+            {parseMarkdownLinks(page.intro)}
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href={page.workLink} className="btn-primary" style={{ display: 'inline-flex', padding: '14px 28px', borderRadius: '100px', textDecoration: 'none' }}>
@@ -92,7 +128,7 @@ export default function IntentLandingPage({ page }) {
             style={{ backgroundColor: '#fff', padding: '32px', borderRadius: '24px', border: '1px solid rgba(41, 33, 27, 0.06)' }}
           >
             <h2 style={{ fontSize: '22px', marginBottom: '12px', color: 'var(--color-primary)' }}>{page.workerHeading}</h2>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.7, marginBottom: '16px' }}>{page.workerBody}</p>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.7, marginBottom: '16px' }}>{parseMarkdownLinks(page.workerBody)}</p>
             {page.workerTerms && (
               <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
                 Popular searches: {page.workerTerms.join(' · ')}
@@ -108,7 +144,7 @@ export default function IntentLandingPage({ page }) {
             style={{ backgroundColor: '#fff', padding: '32px', borderRadius: '24px', border: '1px solid rgba(41, 33, 27, 0.06)' }}
           >
             <h2 style={{ fontSize: '22px', marginBottom: '12px', color: 'var(--color-primary)' }}>{page.employerHeading}</h2>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.7, marginBottom: '16px' }}>{page.employerBody}</p>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.7, marginBottom: '16px' }}>{parseMarkdownLinks(page.employerBody)}</p>
             {page.employerTerms && (
               <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
                 Employers search for: {page.employerTerms.slice(0, 5).join(' · ')}
