@@ -21,28 +21,28 @@ export const TEAM_MEMBERS = [
     shortRole: 'COO',
     image: '/assets/team/vijayrajkumar.png',
     email: 'vijaykumarunfounded@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/vijayrajkumar-p/',
+    linkedin: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
     bio: 'Spearheading ground operations, partner network growth, and hyper-local workforce fulfillment across metropolitan hubs.'
   },
   {
     id: 'jeeva',
-    name: 'Jeeva',
+    name: 'Jeevanantham V',
     role: 'Chief Technology Officer (CTO)',
     shortRole: 'CTO',
     image: '/assets/team/jeeva.jpg',
     objectPosition: 'center 4%',
     email: 'jeeva@ziggers.in',
-    linkedin: 'https://www.linkedin.com/in/jeeva-cto/',
+    linkedin: 'https://www.linkedin.com/in/jeevanantham-v-280780202/',
     bio: 'Directing overarching technology architecture, platform scalability, and distributed backend infrastructure.'
   },
   {
     id: 'mukesh',
-    name: 'Mukesh',
+    name: 'Mukesh Kumar V',
     role: 'Head of Engineering',
     shortRole: 'Head of Engg',
     image: '/assets/team/mukesh.jpg',
     email: 'mukesh@ziggers.in',
-    linkedin: 'https://www.linkedin.com/in/mukesh-eng/',
+    linkedin: 'https://www.linkedin.com/in/mukesh-kumar-v-/',
     bio: 'Leading core product engineering, low-latency microservices, and mobile system reliability for high-frequency gig transactions.'
   },
   {
@@ -52,7 +52,7 @@ export const TEAM_MEMBERS = [
     shortRole: 'CPO',
     image: '/assets/team/harishraj.png',
     email: 'harish@ziggers.in',
-    linkedin: 'https://www.linkedin.com/in/harish-raj/',
+    linkedin: 'https://www.linkedin.com/in/harish04/',
     bio: 'Architecting frictionless user experiences and cutting-edge matching algorithms for workers and enterprise hiring managers.'
   },
   {
@@ -62,7 +62,7 @@ export const TEAM_MEMBERS = [
     shortRole: 'CMO',
     image: '/assets/team/saaiabishek.jpg',
     email: 'saaiabishek@ziggers.in',
-    linkedin: 'https://www.linkedin.com/in/saai-abishek/',
+    linkedin: 'https://www.linkedin.com/in/saai-sm-942a97378/',
     bio: 'Driving brand awareness, digital engagement campaigns, and community growth for Indias next-generation gig workforce.'
   },
   {
@@ -72,7 +72,7 @@ export const TEAM_MEMBERS = [
     shortRole: 'CIO',
     image: '/assets/team/vinayak.png',
     email: 'vinayak@ziggers.in',
-    linkedin: 'https://www.linkedin.com/in/vinayak-cio/',
+    linkedin: 'https://www.linkedin.com/in/vinayak-am-bbb986257/',
     bio: 'Managing core information systems, enterprise data security, and platform reliability at scale.'
   }
 ];

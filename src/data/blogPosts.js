@@ -172,7 +172,7 @@ export const BLOG_POSTS = [
             "name": "Vijayrajkumar",
             "jobTitle": "Operations Lead",
             "image": "https://www.ziggers.in/assets/team/vijayrajkumar.png",
-            "url": "https://www.linkedin.com/in/vijayrajkumar-p/"
+            "url": "https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/"
           },
           "publisher": {
             "@type": "Organization",
@@ -238,7 +238,7 @@ export const BLOG_POSTS = [
     author: 'Vijayrajkumar',
     authorRole: 'Operations Lead',
     authorImage: '/assets/team/vijayrajkumar.png',
-    authorUrl: 'https://www.linkedin.com/in/vijayrajkumar-p/',
+    authorUrl: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
     category: 'Jobs',
     image: 'https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=1200&q=80',
     color: '#FEF3C7'
