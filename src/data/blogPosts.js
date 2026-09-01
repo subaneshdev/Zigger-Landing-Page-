@@ -249,176 +249,152 @@ export const BLOG_POSTS = [
     id: 'catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar',
     title: 'Catering, Delivery and Event Jobs in Chennai',
     seoTitle: 'Catering, Delivery and Event Jobs in Chennai-Velachery and Anna nagar',
-    excerpt: 'Looking for festive work in Chennai? Learn how to find catering, delivery and event-support shifts in Velachery and Anna Nagar, with practical application and safety tips.',
-    seoDescription: 'Looking for festive work in Chennai? Learn how to find catering, delivery and event-support shifts in Velachery and Anna Nagar, with practical application and safety tips.',
+    excerpt: 'Looking for catering, delivery, or event work in Chennai? Learn how to find verified shifts in Velachery and Anna Nagar with same-day UPI pay.',
+    seoDescription: 'Looking for catering, delivery, or event work in Chennai? Learn how to find verified shifts in Velachery and Anna Nagar with same-day UPI pay.',
     content: [
       { 
         type: 'paragraph', 
-        text: 'Looking for temporary catering, delivery, or event work in Chennai during the festive and wedding season? Opportunities can appear in areas such as Velachery and Anna Nagar, but availability changes by employer, event date, shift capacity, and role. This guide explains the types of work to look for, what to check before accepting a shift, and how students and gig workers can apply safely through the official Ziggers platform.' 
+        text: 'Looking for flexible work in Chennai this festive season?' 
       },
       { 
         type: 'paragraph', 
-        text: 'Demand may increase during periods with more events, orders, or local hiring requirements. Understanding the local hiring landscape and verifying shift details in advance helps you discover legitimate work while avoiding common gig work risks.' 
+        text: 'Festive months bring a big surge in demand for delivery riders, catering helpers, and event staff. Areas like **Velachery** and **Anna Nagar** have some of the highest numbers of openings.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'This quick guide explains what jobs are open, how they work, and how to apply safely on Ziggers.' 
       },
       { 
         type: 'heading', 
-        text: 'What Types of Festive Work May Be Available?' 
+        text: 'Popular Festive Jobs in Chennai' 
       },
       { 
         type: 'paragraph', 
-        text: 'During festive periods and banquet seasons across Chennai, businesses frequently request temporary manpower support across several operational categories:' 
+        text: 'Here are the most common short-term roles available right now:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Delivery Support (Food, Grocery, and Quick-Commerce)** — On-demand logistics partners and dark stores may open short-term delivery slots to handle seasonal order volume. Riders typically require a two-wheeler or bicycle, a valid driving licence (where applicable), and active UPI credentials for payout settlements.' 
+        text: '• **Food & Grocery Delivery** — Pick up orders from local stores and deliver them nearby. You need a two-wheeler or bicycle, a driving licence, and a smartphone.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Catering Assistants & Kitchen Helpers** — Banquet caterers and wedding planners hire staff for food preparation, serving at dining halls, refilling buffet stations, and post-event cleanup. Some listings may accept beginners; the individual job determines experience requirements.' 
+        text: '• **Catering & Kitchen Helpers** — Help cooks prepare food, serve guests at banquets, and clear tables. No past experience is required.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Event Support & Venue Staff** — Temporary helpers for venue setup, chair arrangement, guest assistance, registration desks, and directional coordination at exhibition halls and wedding mandapams.' 
+        text: '• **Event & Banquet Staff** — Set up chairs, welcome guests, and manage entry desks at wedding halls and exhibitions.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Promotional & Field Activation Staff** — One-day or weekend brand ambassadors stationed at shopping malls, retail hubs, or community festivities to distribute informational pamphlets or demonstrate products.' 
+        text: '• **Brand Promoters** — Hand out flyers and talk to shoppers at malls and festive markets during weekend sales.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Warehouse & Dark Store Sorters** — Shift-based packing, sorting, and inventory staging inside local fulfilment centres supporting quick-commerce deliveries.' 
+        text: '• **Store & Warehouse Helpers** — Pack and sort parcels inside quick-commerce stores during peak order hours.' 
       },
       { 
         type: 'heading', 
-        text: 'Catering Work in Velachery and Anna Nagar' 
+        text: 'Where to Find Work: Velachery vs. Anna Nagar' 
       },
       { 
         type: 'paragraph', 
-        text: 'Catering staffing in Chennai follows distinct local demand patterns:' 
+        text: 'Both areas offer steady work, but the type of jobs can differ:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Velachery** — Situated near major commercial corridors, IT parks, and large apartment communities, Velachery experiences frequent residential festival celebrations, corporate dinners, and community banquet functions.' 
+        text: '• **Velachery** — Known for tech parks, malls, and large apartments. It has high demand for food delivery, grocery riders, and community party catering.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Anna Nagar** — Known for its high concentration of traditional wedding halls (kalyana mandapams), banquet venues, and premium dining establishments. Events are often scheduled in succession over auspicious dates, creating multiple weekend and evening shifts.' 
-      },
-      { 
-        type: 'paragraph', 
-        text: 'Duties generally involve helping banquet cooks, plating food items, serving guests at traditional banana-leaf or buffet spreads, and maintaining dining hall cleanliness. While some listings welcome first-time workers, dependability, punctuality, and personal hygiene are essential for receiving repeat shift invitations.' 
+        text: '• **Anna Nagar** — Famous for large wedding halls (mandapams) and fine dining. It has steady demand for wedding banquet staff, waiters, and weekend event helpers.' 
       },
       { 
         type: 'heading', 
-        text: 'Delivery Work During Busy Periods' 
+        text: 'Tips for Delivery Workers' 
       },
       { 
         type: 'paragraph', 
-        text: 'Delivery volume tends to increase during festive sales and seasonal holidays in Chennai. Before accepting delivery slots, consider the following practical factors:' 
+        text: 'Delivery work offers flexible hours during busy festive days. Keep these tips in mind:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Vehicle & Documentation** — Ensure your vehicle documents, driving licence, and insurance are up to date. Many grocery hubs also support electric vehicles or bicycles for short-radius deliveries.' 
+        text: '• **Pick Local Hubs** — Choose delivery stores close to your home to save fuel and travel time.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Travel Radius & Hub Proximity** — Selecting shifts close to your residence (such as Velachery Main Road or Anna Nagar 2nd Avenue) reduces transit fuel costs and commute exhaustion.' 
+        text: '• **Keep Papers Ready** — Have your driving licence, vehicle RC, and UPI ID ready for fast onboarding.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Transparent Compensation Terms** — Earnings vary by role, hours, location, vehicle costs, employer terms, and platform; check the specific listing details before accepting a delivery slot. Official platforms calculate payouts based on completed trips or verified hourly blocks.' 
+        text: '• **Check Pay Terms** — Payouts depend on order distance, shift hours, and platform bonuses. Always review the job details before accepting.' 
       },
       { 
         type: 'heading', 
-        text: 'Event Staff and Promotional Work' 
+        text: 'Tips for Students and First-Time Workers' 
       },
       { 
         type: 'paragraph', 
-        text: 'Event assignments are typically structured as single-day or weekend contracts. Key aspects to verify include:' 
+        text: 'Part-time gigs are a great way to earn extra cash between classes or on weekends:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Assigned Reporting Point** — Confirm the exact venue address and specific meeting landmark before travelling.' 
+        text: '• **Choose Weekend Shifts** — Pick Saturday and Sunday slots so your studies are never interrupted.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Supervisor Details** — Ensure you know the name and verified contact number of the on-site team coordinator.' 
+        text: '• **Plan Your Travel** — Allow extra travel time for Chennai evening traffic.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Shift Timing & Uniform Expectations** — Check reporting times (e.g., 30 minutes prior to event start) and dress code guidelines (such as formal black trousers or platform t-shirts).' 
+        text: '• **Stay Energized** — Event and catering shifts involve standing and moving. Wear comfy shoes and carry water.' 
       },
       { 
         type: 'heading', 
-        text: 'Options for Students and Gig Workers' 
+        text: '4 Safety Checks Before Accepting Any Shift' 
       },
       { 
         type: 'paragraph', 
-        text: 'Flexible shift work is popular among college students and part-time gig workers seeking supplemental income without disrupting academic or primary work schedules.' 
+        text: 'Protect yourself from scams by following these four rules:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Schedule Planning** — Choose evening shifts (after 4 PM) or dedicated weekend slots (Saturdays and Sundays) to maintain balance.' 
+        text: '• **1. Never Pay Upfront Fees** — Real employers never ask for registration money, uniform deposits, or training charges.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Travel Time Allowance** — Account for Chennai peak-hour traffic when planning your commute between campus, home, and event locations.' 
+        text: '• **2. Use Verified Apps** — Avoid random WhatsApp groups with unverified contacts. Use official platforms like Ziggers.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Physical Readiness** — Catering and event shifts can involve 6 to 10 hours of active standing and walking; ensure you are adequately rested and hydrated.' 
+        text: '• **3. Confirm Same-Day Pay** — Make sure the shift pays directly to your bank account or UPI ID upon completion.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '• **4. Verify Venue & Supervisor** — Always confirm the exact hall address and the supervisor\'s name before you travel.' 
       },
       { 
         type: 'heading', 
-        text: 'What to Check Before Accepting a Job' 
+        text: 'How to Apply on Ziggers in 3 Easy Steps' 
       },
       { 
         type: 'paragraph', 
-        text: 'Safety and fair pay should always come first. Use this essential verification checklist before committing to any shift:' 
+        text: 'Getting hired for local shifts is fast and transparent:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **1. Verify the Employer & Platform** — Use the official platform and verify the employer, listing, reporting point, and payment terms. Avoid unverified phone numbers or random group forwards that lack official oversight.' 
+        text: '• **Step 1:** Download the Ziggers app and complete simple ID verification.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **2. Zero Upfront Fees** — Be cautious of requests for money before work begins and verify any charge through the official platform. Legitimate staffing partners never ask workers for registration fees, training charges, or uniform deposits.' 
+        text: '• **Step 2:** Browse live shifts in Velachery, Anna Nagar, or anywhere across Chennai.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **3. Documented Payout Terms** — Confirm whether pay is calculated per hour, per shift, or per delivery, and verify that payout is routed directly via secure UPI or bank transfer.' 
+        text: '• **Step 3:** Tap to apply, work your shift, and get paid via UPI the same day.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **4. On-Site Safety & Working Hours** — Confirm that shifts operate within reasonable hours and include safe transit or well-lit reporting points.' 
-      },
-      { 
-        type: 'heading', 
-        text: 'How to Find Current Ziggers Opportunities' 
-      },
-      { 
-        type: 'paragraph', 
-        text: 'Ziggers simplifies local workforce matching by connecting verified workers directly with legitimate employers in Chennai:' 
-      },
-      { 
-        type: 'paragraph', 
-        text: '• **1. Download & Quick Verification** — Create a verified profile on the Ziggers platform using your basic KYC details.' 
-      },
-      { 
-        type: 'paragraph', 
-        text: '• **2. Browse Live Local Openings** — View real-time requirements in Velachery, Anna Nagar, and across Chennai with transparent payout details.' 
-      },
-      { 
-        type: 'paragraph', 
-        text: '• **3. One-Tap Shift Applications** — Apply directly without middleman cuts or chaotic chat forwards.' 
-      },
-      { 
-        type: 'paragraph', 
-        text: '• **4. Direct UPI Payouts** — Receive earned wages directly to your verified UPI handle following shift completion and supervisor sign-off.' 
-      },
-      { 
-        type: 'paragraph', 
-        text: 'You can [browse current Ziggers jobs](/work) or explore our [Chennai jobs hub](/jobs-in-chennai) to discover active shifts.' 
+        text: 'You can [browse open jobs](/work) or explore our [Chennai jobs page](/jobs-in-chennai) right now.' 
       },
       { 
         type: 'heading', 
@@ -428,34 +404,34 @@ export const BLOG_POSTS = [
         type: 'faq', 
         items: [
           { 
-            q: "Can I take up festive delivery or catering work on a part-time basis?", 
-            a: "Yes. Many listings offer flexible 4- to 6-hour shifts or weekend-only slots designed for students and part-time workers. Availability depends on the individual listing and employer requirements." 
+            q: "Can I work part-time or only on weekends?", 
+            a: "Yes. Most delivery, catering, and event jobs offer flexible 4-hour to 8-hour shifts on weekends or evenings." 
           },
           { 
-            q: "Is previous experience required for event support or catering help?", 
-            a: "Some listings may accept beginners; the individual job determines experience requirements. Basic kitchen assistance and guest coordination roles usually provide brief on-site instructions before the shift begins." 
+            q: "Do I need prior experience for catering work?", 
+            a: "No experience is needed for most helper and banquet server roles. You receive basic instructions on-site before your shift starts." 
           },
           { 
-            q: "How and when do workers receive payment?", 
-            a: "On the official Ziggers platform, payments are credited via direct UPI transfer once the employer or on-site supervisor verifies shift completion, typically on the same day or within the platform's stated payout cycle." 
+            q: "How fast is payment sent?", 
+            a: "On Ziggers, earnings are sent directly to your UPI ID on the same day once your shift supervisor confirms completion." 
           },
           { 
-            q: "What documents are required to apply?", 
-            a: "You typically need a valid government photo ID (such as Aadhaar) and an active bank account/UPI ID for payouts. For delivery roles, a valid driving licence and vehicle documentation are required where applicable." 
+            q: "What documents do I need to register?", 
+            a: "You need a government ID (like Aadhaar) and a UPI ID for payments. Delivery roles also require a valid driving licence." 
           },
           { 
-            q: "Do staffing platforms charge workers a fee to apply?", 
-            a: "No. Legitimate platforms and registered employers do not charge candidate registration or uniform fees. Always report any individual asking for upfront money before assigning work." 
+            q: "Does Ziggers charge workers any fee?", 
+            a: "No. Ziggers is completely free for job seekers and workers. We never ask for registration or training fees." 
           }
         ] 
       },
       { 
         type: 'heading', 
-        text: 'Start Finding Verified Work in Chennai' 
+        text: 'Start Working Today' 
       },
       { 
         type: 'paragraph', 
-        text: 'Whether you are looking for delivery shifts, banquet service help, or event coordination gigs, finding legitimate work comes down to using verified platforms and knowing your rights. Check the live Ziggers board to explore verified openings across Velachery, Anna Nagar, and greater Chennai today.' 
+        text: 'Festive shifts fill up quickly across Chennai. [Download the Ziggers app](#app-download) or [view live jobs](/work) to find verified catering, delivery, and event work near you today.' 
       }
     ],
     schema: {
@@ -464,7 +440,7 @@ export const BLOG_POSTS = [
         {
           "@type": "Article",
           "headline": "Catering, Delivery and Event Jobs in Chennai",
-          "description": "Looking for festive work in Chennai? Learn how to find catering, delivery and event-support shifts in Velachery and Anna Nagar, with practical application and safety tips.",
+          "description": "Looking for catering, delivery, or event work in Chennai? Learn how to find verified shifts in Velachery and Anna Nagar with same-day UPI pay.",
           "image": "https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=1200&q=80",
           "author": {
             "@type": "Person",
@@ -494,42 +470,42 @@ export const BLOG_POSTS = [
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Can I take up festive delivery or catering work on a part-time basis?",
+              "name": "Can I work part-time or only on weekends?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Many listings offer flexible 4- to 6-hour shifts or weekend-only slots designed for students and part-time workers. Availability depends on the individual listing and employer requirements."
+                "text": "Yes. Most delivery, catering, and event jobs offer flexible 4-hour to 8-hour shifts on weekends or evenings."
               }
             },
             {
               "@type": "Question",
-              "name": "Is previous experience required for event support or catering help?",
+              "name": "Do I need prior experience for catering work?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Some listings may accept beginners; the individual job determines experience requirements. Basic kitchen assistance and guest coordination roles usually provide brief on-site instructions before the shift begins."
+                "text": "No experience is needed for most helper and banquet server roles. You receive basic instructions on-site before your shift starts."
               }
             },
             {
               "@type": "Question",
-              "name": "How and when do workers receive payment?",
+              "name": "How fast is payment sent?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "On the official Ziggers platform, payments are credited via direct UPI transfer once the employer or on-site supervisor verifies shift completion, typically on the same day or within the platform's stated payout cycle."
+                "text": "On Ziggers, earnings are sent directly to your UPI ID on the same day once your shift supervisor confirms completion."
               }
             },
             {
               "@type": "Question",
-              "name": "What documents are required to apply?",
+              "name": "What documents do I need to register?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You typically need a valid government photo ID (such as Aadhaar) and an active bank account/UPI ID for payouts. For delivery roles, a valid driving licence and vehicle documentation are required where applicable."
+                "text": "You need a government ID (like Aadhaar) and a UPI ID for payments. Delivery roles also require a valid driving licence."
               }
             },
             {
               "@type": "Question",
-              "name": "Do staffing platforms charge workers a fee to apply?",
+              "name": "Does Ziggers charge workers any fee?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. Legitimate platforms and registered employers do not charge candidate registration or uniform fees. Always report any individual asking for upfront money before assigning work."
+                "text": "No. Ziggers is completely free for job seekers and workers. We never ask for registration or training fees."
               }
             }
           ]
