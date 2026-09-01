@@ -253,44 +253,41 @@ export const BLOG_POSTS = [
     seoDescription: 'Looking for catering, delivery, or event work in Chennai? Learn how to find verified shifts in Velachery and Anna Nagar with same-day UPI pay.',
     content: [
       { 
-        type: 'paragraph', 
-        text: 'Looking for flexible work in Chennai this festive season?' 
+        type: 'callout',
+        badge: 'FESTIVE HIRING GUIDE',
+        title: 'Quick Shift Overview in Chennai',
+        text: '• **Daily Pay:** ₹600 to ₹1,800 per shift.\n• **Payout Speed:** Same-day directly via UPI.\n• **Top Hubs:** Velachery, Anna Nagar, T. Nagar, and ECR.\n• **Requirements:** Aadhaar KYC, smartphone, and punctuality.'
       },
       { 
         type: 'paragraph', 
-        text: 'Festive months bring a big surge in demand for delivery riders, catering helpers, and event staff. Areas like **Velachery** and **Anna Nagar** have some of the highest numbers of openings.' 
+        text: 'Are you looking for flexible daily work in Chennai this festive season?' 
       },
       { 
         type: 'paragraph', 
-        text: 'This quick guide explains what jobs are open, how they work, and how to apply safely on Ziggers.' 
+        text: 'Festive months bring a huge rise in local job openings. Event halls, restaurants, and delivery hubs need extra help every day.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Areas like **Velachery** and **Anna Nagar** have the most open shifts right now. This simple guide shows you where to find work and how to get paid the same day.' 
       },
       { 
         type: 'heading', 
-        text: 'Popular Festive Jobs in Chennai' 
+        text: 'Popular Festive Roles & Daily Pay' 
       },
       { 
         type: 'paragraph', 
-        text: 'Here are the most common short-term roles available right now:' 
+        text: 'Here is a quick breakdown of the most common jobs open this week:' 
       },
-      { 
-        type: 'paragraph', 
-        text: '• **Food & Grocery Delivery** — Pick up orders from local stores and deliver them nearby. You need a two-wheeler or bicycle, a driving licence, and a smartphone.' 
-      },
-      { 
-        type: 'paragraph', 
-        text: '• **Catering & Kitchen Helpers** — Help cooks prepare food, serve guests at banquets, and clear tables. No past experience is required.' 
-      },
-      { 
-        type: 'paragraph', 
-        text: '• **Event & Banquet Staff** — Set up chairs, welcome guests, and manage entry desks at wedding halls and exhibitions.' 
-      },
-      { 
-        type: 'paragraph', 
-        text: '• **Brand Promoters** — Hand out flyers and talk to shoppers at malls and festive markets during weekend sales.' 
-      },
-      { 
-        type: 'paragraph', 
-        text: '• **Store & Warehouse Helpers** — Pack and sort parcels inside quick-commerce stores during peak order hours.' 
+      {
+        type: 'table',
+        headers: ['Role', 'Average Pay / Shift', 'Requirements', 'Top Locations'],
+        rows: [
+          ['Catering & Kitchen Helper', '₹600 - ₹1,000', 'No prior experience needed', 'Anna Nagar, Velachery, T. Nagar'],
+          ['Food & Grocery Delivery', '₹700 - ₹1,400', 'Bike/Cycle + Driving Licence', 'Velachery, OMR, Guindy'],
+          ['Wedding Banquet Server', '₹800 - ₹1,200', 'Neat uniform + Good manners', 'Anna Nagar, ECR, Koyambedu'],
+          ['Mall Brand Promoter', '₹900 - ₹1,500', 'Friendly communication', 'Phoenix Mall, VR Mall, EA Mall'],
+          ['Acting Driver (Car)', '₹1,000 - ₹1,800', 'Valid 4-wheeler licence', 'Anna Nagar, Adyar, Velachery']
+        ]
       },
       { 
         type: 'heading', 
@@ -298,103 +295,103 @@ export const BLOG_POSTS = [
       },
       { 
         type: 'paragraph', 
-        text: 'Both areas offer steady work, but the type of jobs can differ:' 
+        text: 'Both areas offer steady work, but the roles are different:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Velachery** — Known for tech parks, malls, and large apartments. It has high demand for food delivery, grocery riders, and community party catering.' 
+        text: '• **Velachery:** Best for quick grocery delivery, food delivery, tech park events, and weekend party helpers.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Anna Nagar** — Famous for large wedding halls (mandapams) and fine dining. It has steady demand for wedding banquet staff, waiters, and weekend event helpers.' 
+        text: '• **Anna Nagar:** Best for wedding hall catering, banquet dining staff, waiter shifts, and shopping mall promotions.' 
       },
       { 
         type: 'heading', 
-        text: 'Tips for Delivery Workers' 
+        text: 'Helpful Tips for Delivery Riders' 
       },
       { 
         type: 'paragraph', 
-        text: 'Delivery work offers flexible hours during busy festive days. Keep these tips in mind:' 
+        text: 'Delivery shifts offer great flexibility. Follow these three simple rules:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Pick Local Hubs** — Choose delivery stores close to your home to save fuel and travel time.' 
+        text: '• **Work near home:** Pick hubs within 5 km to save petrol and travel time.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Keep Papers Ready** — Have your driving licence, vehicle RC, and UPI ID ready for fast onboarding.' 
+        text: '• **Keep papers ready:** Have your driving licence and UPI ID active on your phone.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Check Pay Terms** — Payouts depend on order distance, shift hours, and platform bonuses. Always review the job details before accepting.' 
+        text: '• **Check bonus hours:** Work peak lunch and dinner hours to earn extra incentives.' 
       },
       { 
         type: 'heading', 
-        text: 'Tips for Students and First-Time Workers' 
+        text: 'Tips for Students and Beginners' 
       },
       { 
         type: 'paragraph', 
-        text: 'Part-time gigs are a great way to earn extra cash between classes or on weekends:' 
+        text: 'You can earn extra money without disturbing your studies:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Choose Weekend Shifts** — Pick Saturday and Sunday slots so your studies are never interrupted.' 
+        text: '• **Pick weekend slots:** Work only on Saturdays and Sundays to keep weekdays free.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Plan Your Travel** — Allow extra travel time for Chennai evening traffic.' 
+        text: '• **Wear comfortable shoes:** Catering and event roles involve standing. Comfy shoes make a big difference.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Stay Energized** — Event and catering shifts involve standing and moving. Wear comfy shoes and carry water.' 
+        text: '• **Arrive on time:** Being 15 minutes early helps you get the best shift assignments.' 
       },
       { 
         type: 'heading', 
-        text: '4 Safety Checks Before Accepting Any Shift' 
+        text: '4 Safety Rules to Avoid Scams' 
       },
       { 
         type: 'paragraph', 
-        text: 'Protect yourself from scams by following these four rules:' 
+        text: 'Always stay safe when looking for daily wage work:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **1. Never Pay Upfront Fees** — Real employers never ask for registration money, uniform deposits, or training charges.' 
+        text: '• **1. Never pay upfront fees:** Real employers never ask for registration money or uniform deposits.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **2. Use Verified Apps** — Avoid random WhatsApp groups with unverified contacts. Use official platforms like Ziggers.' 
+        text: '• **2. Use verified apps:** Avoid unverified WhatsApp forwards. Use trusted platforms like Ziggers.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **3. Confirm Same-Day Pay** — Make sure the shift pays directly to your bank account or UPI ID upon completion.' 
+        text: '• **3. Demand same-day pay:** Make sure your money goes straight to your UPI account after work.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **4. Verify Venue & Supervisor** — Always confirm the exact hall address and the supervisor\'s name before you travel.' 
+        text: '• **4. Confirm the venue address:** Always check the exact location before you leave home.' 
       },
       { 
         type: 'heading', 
-        text: 'How to Apply on Ziggers in 3 Easy Steps' 
+        text: 'How to Apply on Ziggers in 3 Steps' 
       },
       { 
         type: 'paragraph', 
-        text: 'Getting hired for local shifts is fast and transparent:' 
+        text: 'Finding local work takes just a few minutes:' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Step 1:** Download the Ziggers app and complete simple ID verification.' 
+        text: '• **Step 1:** Download the Ziggers app and complete quick ID verification.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Step 2:** Browse live shifts in Velachery, Anna Nagar, or anywhere across Chennai.' 
+        text: '• **Step 2:** Browse open catering, delivery, or event shifts near your location.' 
       },
       { 
         type: 'paragraph', 
-        text: '• **Step 3:** Tap to apply, work your shift, and get paid via UPI the same day.' 
+        text: '• **Step 3:** Tap to accept a shift, finish your work, and receive your pay via UPI.' 
       },
       { 
         type: 'paragraph', 
-        text: 'You can [browse open jobs](/work) or explore our [Chennai jobs page](/jobs-in-chennai) right now.' 
+        text: 'Explore our [open jobs catalog](/work) or check [Chennai daily shifts](/jobs-in-chennai) right now.' 
       },
       { 
         type: 'heading', 
@@ -404,34 +401,34 @@ export const BLOG_POSTS = [
         type: 'faq', 
         items: [
           { 
-            q: "Can I work part-time or only on weekends?", 
-            a: "Yes. Most delivery, catering, and event jobs offer flexible 4-hour to 8-hour shifts on weekends or evenings." 
+            q: "Can I work only on weekends?", 
+            a: "Yes. Most catering and event jobs offer flexible 4-hour to 8-hour weekend shifts." 
           },
           { 
-            q: "Do I need prior experience for catering work?", 
-            a: "No experience is needed for most helper and banquet server roles. You receive basic instructions on-site before your shift starts." 
+            q: "Do I need experience for catering helper jobs?", 
+            a: "No experience is needed. You will receive clear instructions at the venue before your shift begins." 
           },
           { 
-            q: "How fast is payment sent?", 
-            a: "On Ziggers, earnings are sent directly to your UPI ID on the same day once your shift supervisor confirms completion." 
+            q: "How do I get paid?", 
+            a: "On Ziggers, your payment is sent directly to your UPI ID on the same day after your shift is marked complete." 
           },
           { 
-            q: "What documents do I need to register?", 
-            a: "You need a government ID (like Aadhaar) and a UPI ID for payments. Delivery roles also require a valid driving licence." 
+            q: "What documents do I need?", 
+            a: "You need a government ID (like Aadhaar) and a UPI ID. Delivery jobs also require a valid driving licence." 
           },
           { 
-            q: "Does Ziggers charge workers any fee?", 
-            a: "No. Ziggers is completely free for job seekers and workers. We never ask for registration or training fees." 
+            q: "Is Ziggers free for workers?", 
+            a: "Yes. Ziggers is 100% free for job seekers. We never charge registration fees or commissions to workers." 
           }
         ] 
       },
       { 
         type: 'heading', 
-        text: 'Start Working Today' 
+        text: 'Find Your Next Shift Today' 
       },
       { 
         type: 'paragraph', 
-        text: 'Festive shifts fill up quickly across Chennai. [Download the Ziggers app](#app-download) or [view live jobs](/work) to find verified catering, delivery, and event work near you today.' 
+        text: 'Festive shifts fill fast across Chennai. [Download the Ziggers app](#app-download) or [browse live shifts](/work) to start earning today.' 
       }
     ],
     schema: {

@@ -234,7 +234,7 @@ export default function Footer() {
               />
             </a>
             {/* Startup Inspire badge */}
-            <a href="https://www.startupinspire.com" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+            <a href="https://www.startupinspire.com" target="_blank" rel="nofollow noopener noreferrer" style={{ display: 'inline-block' }}>
               <img 
                 src="https://www.startupinspire.com/images/badge_3.svg" 
                 alt="Featured on Startup Inspire" 
@@ -242,7 +242,7 @@ export default function Footer() {
               />
             </a>
             {/* Startup Fame badge */}
-            <a href="https://startupfa.me/s/ziggers?utm_source=www.ziggers.in" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+            <a href="https://startupfa.me/s/ziggers?utm_source=www.ziggers.in" target="_blank" rel="nofollow noopener noreferrer" style={{ display: 'inline-block' }}>
               <img 
                 src="https://startupfa.me/badges/featured/light.webp" 
                 alt="ziggers.in - Featured on Startup Fame" 
@@ -250,7 +250,7 @@ export default function Footer() {
               />
             </a>
             {/* F6S badge */}
-            <a href="https://www.f6s.com/ziggers" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+            <a href="https://www.f6s.com/ziggers" target="_blank" rel="nofollow noopener noreferrer" style={{ display: 'inline-block' }}>
               <img 
                 src="https://www.vectorlogo.zone/logos/f6s/f6s-ar21.svg" 
                 alt="Featured on F6S" 
@@ -258,7 +258,7 @@ export default function Footer() {
               />
             </a>
             {/* Product Hunt badge */}
-            <a href="https://www.producthunt.com/products/ziggers?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-ziggers" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+            <a href="https://www.producthunt.com/products/ziggers?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-ziggers" target="_blank" rel="nofollow noopener noreferrer" style={{ display: 'inline-block' }}>
               <img 
                 src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1211369&theme=light&t=1785492962316" 
                 alt="Ziggers - India's marketplace for flexible local work. | Product Hunt" 
@@ -266,7 +266,7 @@ export default function Footer() {
               />
             </a>
             {/* PeerPush badge */}
-            <a href="https://peerpush.com/p/ziggers" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+            <a href="https://peerpush.com/p/ziggers" target="_blank" rel="nofollow noopener noreferrer" style={{ display: 'inline-block' }}>
               <img 
                 src="https://peerpush.com/p/ziggers/badge.png" 
                 alt="Ziggers on PeerPush" 
