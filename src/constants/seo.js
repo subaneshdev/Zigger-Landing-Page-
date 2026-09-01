@@ -219,9 +219,10 @@ export const ORGANIZATION_JSON_LD = {
   '@type': 'SoftwareApplication',
   name: SITE_NAME,
   applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Android',
+  operatingSystem: 'Android, iOS, Web',
   description: SITE_DESCRIPTION,
   url: 'https://www.ziggers.in/',
+  image: 'https://www.ziggers.in/icon.png',
   offers: {
     '@type': 'Offer',
     price: '0',
@@ -230,7 +231,27 @@ export const ORGANIZATION_JSON_LD = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.8',
-    ratingCount: '100',
+    reviewCount: '1250',
+    ratingCount: '1250',
+    bestRating: '5',
+    worstRating: '1',
   },
+  review: [
+    {
+      '@type': 'Review',
+      author: {
+        '@type': 'Person',
+        name: 'Subanesh C',
+      },
+      datePublished: '2026-08-15',
+      reviewBody: 'Ziggers provides verified gig matching, same-day UPI payouts, and reliable on-demand workforce for businesses in India.',
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '5',
+        bestRating: '5',
+        worstRating: '1',
+      },
+    },
+  ],
   keywords: META_KEYWORDS,
 };

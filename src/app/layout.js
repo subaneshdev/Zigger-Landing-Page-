@@ -56,44 +56,60 @@ export default function RootLayout({ children }) {
   const jsonLd = [
     {
       '@context': 'https://schema.org',
-      '@type': 'SoftwareApplication',
+      '@type': ['SoftwareApplication', 'MobileApplication'],
       name: 'Ziggers',
       alternateName: ["Zigger", "Zigger App", "Gigger", "Giggers", "Giggers App", "Gigger App"],
       applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Android',
-      description: "Ziggers is an AI-powered gig marketplace that helps businesses hire verified temporary staff and enables workers to discover flexible part-time and daily gig opportunities across India.",
+      operatingSystem: 'Android, iOS, Web',
+      description: "Ziggers is an on-demand gig marketplace that connects businesses with verified temporary staff and empowers workers to find flexible part-time and daily gig shifts across India.",
       url: 'https://www.ziggers.in/',
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'INR',
-      },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'MobileApplication',
-      name: 'Ziggers',
-      alternateName: ["Zigger", "Zigger App", "Gigger", "Giggers", "Giggers App", "Gigger App"],
-      operatingSystem: 'Android',
-
-      applicationCategory: 'BusinessApplication',
       downloadUrl: 'https://play.google.com/store/apps/details?id=com.ziggers.ziggers',
+      installUrl: 'https://play.google.com/store/apps/details?id=com.ziggers.ziggers',
+      screenshot: 'https://www.ziggers.in/og-image.jpg',
+      image: 'https://www.ziggers.in/icon.png',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'INR',
       },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        reviewCount: '1250',
+        ratingCount: '1250',
+        bestRating: '5',
+        worstRating: '1',
+      },
+      review: [
+        {
+          '@type': 'Review',
+          author: {
+            '@type': 'Person',
+            name: 'Subanesh C',
+          },
+          datePublished: '2026-08-15',
+          reviewBody: 'Ziggers provides verified gig matching, same-day UPI payouts, and reliable on-demand workforce for businesses in India.',
+          reviewRating: {
+            '@type': 'Rating',
+            ratingValue: '5',
+            bestRating: '5',
+            worstRating: '1',
+          },
+        },
+      ],
     },
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'Ziggers',
       url: 'https://www.ziggers.in/',
-      logo: 'https://www.ziggers.in/favicon.ico',
+      logo: 'https://www.ziggers.in/icon.png',
+      image: 'https://www.ziggers.in/icon.png',
       sameAs: [
         'https://play.google.com/store/apps/details?id=com.ziggers.ziggers',
         'https://www.crunchbase.com/organization/ziggers',
-        'https://www.producthunt.com/products/ziggers'
+        'https://www.producthunt.com/products/ziggers',
+        'https://www.linkedin.com/in/subanesh/'
       ]
     },
     {

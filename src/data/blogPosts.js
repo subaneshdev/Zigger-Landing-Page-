@@ -2,7 +2,7 @@ export const BLOG_POSTS = [
   {
     id: 'daily-wage-jobs-near-me-chennai-ziggers',
     title: 'Catering Jobs in Tambaram: Verified Shifts, Paid the Same Day',
-    seoTitle: 'Catering Jobs in Tambaram: Verified Shifts, Paid the Same Day | Ziggers',
+    seoTitle: 'Catering Jobs in Tambaram: Same-Day Shifts',
     excerpt: 'Looking for catering jobs in Tambaram, Chromepet, or Selaiyur? Find verified banquet staff, kitchen helper, and waiter shifts in Tambaram with same-day UPI pay on Ziggers.',
     seoDescription: 'Looking for catering jobs in Tambaram, Chromepet, or Selaiyur? Find verified banquet staff, kitchen helper, and waiter shifts in Tambaram with same-day UPI pay on Ziggers.',
     content: [
@@ -248,7 +248,7 @@ export const BLOG_POSTS = [
   {
     id: 'catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar',
     title: 'Catering, Delivery and Event Jobs in Chennai',
-    seoTitle: 'Catering, Delivery and Event Jobs in Chennai-Velachery and Anna nagar',
+    seoTitle: 'Catering, Delivery & Event Jobs in Chennai',
     excerpt: 'Looking for catering, delivery, or event work in Chennai? Learn how to find verified shifts in Velachery and Anna Nagar with same-day UPI pay.',
     seoDescription: 'Looking for catering, delivery, or event work in Chennai? Learn how to find verified shifts in Velachery and Anna Nagar with same-day UPI pay.',
     content: [
@@ -526,7 +526,7 @@ export const BLOG_POSTS = [
   {
     id: 'boycott-rapido-driver-suspension-ankit-kumar-ziggers-alternative',
     title: 'Boycott Rapido: What Happened to Driver Ankit Kumar? Latest Update',
-    seoTitle: 'Boycott Rapido: Ankit Kumar Suspension Latest Update',
+    seoTitle: 'Boycott Rapido: Ankit Kumar Case Updates',
     excerpt: 'The #BoycottRapido controversy sparked nationwide debate after driver Ankit Kumar received a 100-year suspension. Here is the latest verified update on the incident, reinstatement, and gig worker rights.',
     seoDescription: 'Boycott Rapido trend updates: What happened to driver Ankit Kumar, why his 100-year suspension sparked outrage, the latest reversal, and gig worker rights.',
     content: [
@@ -715,6 +715,7 @@ export const BLOG_POSTS = [
   {
     id: 'best-rapido-alternative-apps-drivers-gig-workers-2026',
     title: 'Top Rapido Alternative Apps in 2026: Best High-Paying Gigs for Drivers & Captains',
+    seoTitle: 'Top Rapido Alternative Apps (2026 Gigs Guide)',
     excerpt: 'Looking for a reliable Rapido alternative in 2026? Discover the top legal gig platforms in India for drivers and captains with higher daily earnings and same-day payouts.',
     seoDescription: 'Searching for the best Rapido alternative? Learn how Ziggers and top gig apps offer 100% legal, high-paying acting driver and flexible event jobs with same-day UPI payouts across India.',
     content: [
@@ -809,6 +810,7 @@ export const BLOG_POSTS = [
   {
     id: 'rapido-ban-chennai-best-legal-alternative-drivers-gig-work',
     title: 'Rapido Ban in Chennai: Why Ziggers is the Best Legal Alternative for Drivers and Gig Workers',
+    seoTitle: 'Rapido Ban in Chennai: Best Legal Alternatives',
     excerpt: 'Affected by the bike taxi bans and crackdowns in Chennai? Discover why Ziggers offers a 100% legal, high-paying alternative with acting driver and event gigs.',
     seoDescription: 'Struggling with the Rapido bike taxi ban in Chennai? Ziggers offers a fully legal alternative for gig workers. Find high-paying acting driver jobs, catering gigs, and event work with same-day UPI payouts.',
     content: [
@@ -884,6 +886,7 @@ export const BLOG_POSTS = [
   {
     id: 'tamil-nadu-government-gig-worker-policy-study-2026',
     title: 'Tamil Nadu Government Gig Worker Policy (2026): Key Findings & Social Security',
+    seoTitle: 'TN Gig Worker Policy (2026): Key Findings',
     excerpt: 'An in-depth analysis of the 2026 Tamil Nadu State Planning Commission report on gig workers, welfare boards, and modern on-demand hiring platforms.',
     seoDescription: 'Read our breakdown of the 2026 Tamil Nadu Government Gig Worker Policy report. Learn about the TN Platform-Based Gig Workers Welfare Board, CMCHIS health integrations, and how Ziggers aligns with these fair labor standards.',
     content: [
@@ -957,6 +960,7 @@ export const BLOG_POSTS = [
   {
     id: 'cost-hiring-acting-driver-outstation-chennai-2026',
     title: 'Cost of Hiring an Acting Driver for Outstation Trips from Chennai (2026)',
+    seoTitle: 'Acting Driver Cost in Chennai (2026 Rates)',
     excerpt: 'Planning an outstation trip from Chennai? Learn the transparent costs of hiring KYC-verified acting drivers for safe and reliable travel.',
     seoDescription: 'Find out the exact costs of hiring background-verified acting drivers in Chennai for outstation trips. Ziggers offers secure KYC tracking and transparent pricing.',
     content: [
@@ -1030,6 +1034,7 @@ export const BLOG_POSTS = [
   {
     id: 'last-minute-catering-staff-weddings-ecr-omr',
     title: 'Last-Minute Catering Staff for Weddings in ECR and OMR',
+    seoTitle: 'Hire Catering Staff in ECR & OMR Chennai',
     excerpt: 'Struggling with caterer no-shows along the ECR and OMR corridors? Discover how to instantly hire verified catering staff for your Chennai wedding.',
     seoDescription: 'Hire last-minute, KYC-verified catering staff for weddings in ECR and OMR. Ziggers provides reliable, background-checked event helpers instantly.',
     content: [
@@ -1103,6 +1108,7 @@ export const BLOG_POSTS = [
   {
     id: 'hire-verified-brand-promoters-mall-activations-chennai',
     title: 'How to Hire Verified Brand Promoters for Mall Activations in Chennai',
+    seoTitle: 'Hire Brand Promoters in Chennai Malls',
     excerpt: 'Maximize the ROI of your Chennai mall activations by hiring KYC-verified, highly engaging brand promoters through Ziggers.',
     seoDescription: 'Looking to hire verified brand promoters in Chennai? Learn how to source KYC-verified marketing staff for mall activations in VR Mall, Express Avenue, and Phoenix Marketcity.',
     content: [

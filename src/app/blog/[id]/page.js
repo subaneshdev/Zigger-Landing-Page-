@@ -17,18 +17,21 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const metaTitle = post.seoTitle || post.title;
+  let baseTitle = post.seoTitle || post.title;
+  if (!baseTitle.toLowerCase().includes('ziggers')) {
+    baseTitle = `${baseTitle} | Ziggers`;
+  }
 
   return {
-    title: `${metaTitle} | Ziggers`,
-    description: post.seoDescription,
+    title: baseTitle,
+    description: post.seoDescription || post.excerpt,
     alternates: {
       canonical: `/blog/${id}`,
     },
     openGraph: {
       type: 'article',
-      title: `${metaTitle} | Ziggers`,
-      description: post.seoDescription,
+      title: baseTitle,
+      description: post.seoDescription || post.excerpt,
       images: [
         {
           url: post.image || '/og-image.jpg',

@@ -216,8 +216,8 @@ export function buildCategoryPage(category, city = null) {
   const locationLabel = isLocal ? city.name : 'India';
 
   const title = isLocal
-    ? `${category.primaryKeyword} in ${city.name} | ${category.hireKeyword} | ${SITE_NAME}`
-    : `${category.primaryKeyword} & ${category.hireKeyword} | Part-time & Temporary | ${SITE_NAME}`;
+    ? `${category.primaryKeyword} in ${city.name} | ${SITE_NAME}`
+    : `${category.primaryKeyword} & ${category.hireKeyword} | ${SITE_NAME}`;
 
   const description = isLocal
     ? `Find ${category.primaryKeyword.toLowerCase()}${locationIn} or ${category.hireKeyword.toLowerCase()} for events and businesses. Verified ${category.role}, daily wage jobs, part-time shifts, and instant staffing on ${SITE_NAME}.`
@@ -307,7 +307,7 @@ export function buildCategoryPage(category, city = null) {
 
 export function buildCityHubPage(city) {
   const path = `/jobs-in-${city.slug}`;
-  const title = `Part-time Jobs in ${city.name} | Daily Wage & Temporary Jobs | ${SITE_NAME}`;
+  const title = `Part-time Jobs in ${city.name} | ${SITE_NAME}`;
   const description = `Find part-time jobs, student jobs, weekend jobs, daily wage jobs, and temporary work in ${city.name}. Browse nearby shifts, flexible hours, and same-day pay on ${SITE_NAME}.`;
   const h1 = `Part-time & Temporary Jobs in ${city.name}`;
   const intro = `Searching for part-time jobs near me in ${city.name}? ${SITE_NAME} lists catering jobs, delivery jobs, event jobs, warehouse work, and more — with verified employers and secure UPI payouts.`;
