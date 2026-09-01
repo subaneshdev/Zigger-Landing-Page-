@@ -251,7 +251,7 @@ export const BLOG_POSTS = [
   },
   {
     id: 'catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar',
-    title: 'How to Find Festive Catering and Delivery Work in Velachery and Anna Nagar',
+    title: 'How to Find Catering and Delivery Work in Velachery and Anna Nagar This Festive Season',
     seoTitle: 'Catering & Delivery Jobs in Chennai: Festive Work in Velachery and Anna Nagar',
     excerpt: 'Looking for festive work in Chennai? Learn how to find catering, delivery and event-support shifts in Velachery and Anna Nagar, with practical application and safety tips.',
     seoDescription: 'Looking for festive work in Chennai? Learn how to find catering, delivery and event-support shifts in Velachery and Anna Nagar, with practical application and safety tips.',
@@ -467,7 +467,7 @@ export const BLOG_POSTS = [
       "@graph": [
         {
           "@type": "Article",
-          "headline": "How to Find Festive Catering and Delivery Work in Velachery and Anna Nagar",
+          "headline": "How to Find Catering and Delivery Work in Velachery and Anna Nagar This Festive Season",
           "description": "Looking for festive work in Chennai? Learn how to find catering, delivery and event-support shifts in Velachery and Anna Nagar, with practical application and safety tips.",
           "image": "https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=1200&q=80",
           "author": {
