@@ -248,7 +248,7 @@ export const BLOG_POSTS = [
   {
     id: 'catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar',
     title: 'Catering, Delivery and Event Jobs in Chennai',
-    seoTitle: 'Catering, Delivery and Event Jobs in Chennai',
+    seoTitle: 'Catering, Delivery and Event Jobs in Chennai-Velachery and Anna nagar',
     excerpt: 'Looking for festive work in Chennai? Learn how to find catering, delivery and event-support shifts in Velachery and Anna Nagar, with practical application and safety tips.',
     seoDescription: 'Looking for festive work in Chennai? Learn how to find catering, delivery and event-support shifts in Velachery and Anna Nagar, with practical application and safety tips.',
     content: [
