@@ -273,6 +273,14 @@ export default function Footer() {
                 style={{ height: '42px', width: 'auto' }} 
               />
             </a>
+            {/* PostYourStartup badge */}
+            <a href="https://postyourstartup.co/startup/ziggers-1?ref=badge" target="_blank" rel="nofollow noopener noreferrer" style={{ display: 'inline-block' }}>
+              <img 
+                src="https://postyourstartup.co/api/badge/ziggers-1?theme=dark" 
+                alt="Featured on PostYourStartup" 
+                style={{ height: '42px', width: 'auto' }} 
+              />
+            </a>
             {/* App Store badge */}
             <a href="#" onClick={handleDownloadClick} style={{ display: 'inline-block' }}>
               <img 
