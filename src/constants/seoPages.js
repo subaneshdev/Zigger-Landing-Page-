@@ -236,13 +236,13 @@ export function buildCategoryPage(category, city = null) {
 
   if (city?.slug === 'chennai') {
     if (category.slug === 'delivery-jobs') {
-      workerBody += ` With festive delivery orders peaking, explore high-earning [delivery jobs in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across Velachery and Anna Nagar.`;
+      workerBody += ` Looking for delivery shifts? Explore [current delivery jobs in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) with flexible shift hours and verified payout tracking.`;
     } else if (category.slug === 'catering-jobs') {
-      workerBody += ` Wedding season is here — learn how to get booked repeatedly for high-paying [catering jobs in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) with same-day UPI payouts.`;
+      workerBody += ` Learn how to get started with banquet and [catering work in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) during peak wedding and festive dates.`;
     } else if (category.slug === 'event-staff') {
-      workerBody += ` Looking for weekend exhibition, wedding, and event helper gigs? Discover active [event staff opportunities in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across top banquet hubs.`;
+      workerBody += ` Explore active [event staff opportunities](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across wedding venues, promotional stalls, and exhibition halls.`;
     } else if (category.slug === 'student-part-time-jobs') {
-      workerBody += ` Need flexible income alongside your college classes? Find verified, [student-friendly part-time jobs](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) in delivery, catering prep, and brand promotions.`;
+      workerBody += ` Balance your college schedule with verified [student-friendly part-time work](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across delivery, catering, and event operations.`;
     }
   }
 
@@ -334,7 +334,7 @@ export function buildCityHubPage(city) {
 
   let workerBody = intro;
   if (city.slug === 'chennai') {
-    workerBody += ` Looking for short-term and seasonal work? Read our latest guide on [festive season jobs in Velachery and Anna Nagar](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) to find open shifts fast.`;
+    workerBody += ` Looking for flexible seasonal shifts? Explore our detailed guide on [part-time jobs in Velachery and Anna Nagar](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) to find legitimate local openings.`;
   }
 
   return {

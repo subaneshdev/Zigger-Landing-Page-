@@ -224,7 +224,7 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                       transition: 'all 0.2s ease'
                     }}
                   >
-                    <span>🔥 Featured: Read <strong style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>the new Chennai festive-season jobs guide</strong> →</span>
+                    <span>🔥 Featured: Guide to <strong style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>festive catering and delivery work in Chennai</strong> (Velachery & Anna Nagar) →</span>
                   </a>
                 </div>
               </div>
