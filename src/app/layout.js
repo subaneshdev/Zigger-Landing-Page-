@@ -109,6 +109,7 @@ export default function RootLayout({ children }) {
         'https://play.google.com/store/apps/details?id=com.ziggers.ziggers',
         'https://www.crunchbase.com/organization/ziggers',
         'https://www.producthunt.com/products/ziggers',
+        'https://postyourstartup.co/startup/ziggers-1',
         'https://www.linkedin.com/in/subanesh/'
       ]
     },
