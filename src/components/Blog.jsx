@@ -92,30 +92,62 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
   };
 
   // Parse backlinks [Text](#hash) and **bold** in content blocks
+  // Parse backlinks [Text](#hash), **bold**, *italic*, and line breaks
   const parseMarkdownLinks = (text) => {
     if (!text || typeof text !== 'string') return text;
 
-    const parseBold = (str, keyPrefix) => {
-      if (!str || typeof str !== 'string' || !str.includes('**')) return str;
-      const boldParts = [];
-      const boldRegex = /\*\*([^*]+)\*\*/g;
-      let bLastIndex = 0;
-      let bMatch;
-      while ((bMatch = boldRegex.exec(str)) !== null) {
-        if (bMatch.index > bLastIndex) {
-          boldParts.push(str.substring(bLastIndex, bMatch.index));
+    // Clean stray leading ### or ## markdown tags
+    let cleanedText = text.replace(/^#{1,6}\s+/gm, '');
+
+    const parseFormatting = (str, keyPrefix) => {
+      if (!str || typeof str !== 'string') return str;
+
+      // Handle newlines if present
+      const lines = str.split('\n');
+      if (lines.length > 1) {
+        return lines.map((line, lIdx) => (
+          <React.Fragment key={`${keyPrefix}-line-${lIdx}`}>
+            {lIdx > 0 && <br />}
+            {parseFormatting(line, `${keyPrefix}-l${lIdx}`)}
+          </React.Fragment>
+        ));
+      }
+
+      // Handle bold **text** and italic *text*
+      const parts = [];
+      const formatRegex = /(\*\*([^*]+)\*\*|\*([^*]+)\*)/g;
+      let lastIndex = 0;
+      let match;
+
+      while ((match = formatRegex.exec(str)) !== null) {
+        if (match.index > lastIndex) {
+          parts.push(str.substring(lastIndex, match.index));
         }
-        boldParts.push(
-          <strong key={`${keyPrefix}-bold-${bMatch.index}`} style={{ fontWeight: '700', color: 'var(--color-primary)' }}>
-            {bMatch[1]}
-          </strong>
-        );
-        bLastIndex = boldRegex.lastIndex;
+
+        if (match[2]) {
+          // **bold**
+          parts.push(
+            <strong key={`${keyPrefix}-b-${match.index}`} style={{ fontWeight: '700', color: 'var(--color-primary)' }}>
+              {match[2]}
+            </strong>
+          );
+        } else if (match[3]) {
+          // *italic*
+          parts.push(
+            <em key={`${keyPrefix}-i-${match.index}`} style={{ fontStyle: 'italic' }}>
+              {match[3]}
+            </em>
+          );
+        }
+
+        lastIndex = formatRegex.lastIndex;
       }
-      if (bLastIndex < str.length) {
-        boldParts.push(str.substring(bLastIndex));
+
+      if (lastIndex < str.length) {
+        parts.push(str.substring(lastIndex));
       }
-      return boldParts.length > 0 ? boldParts : str;
+
+      return parts.length > 0 ? parts : str;
     };
 
     const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
@@ -123,9 +155,9 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
     let lastIndex = 0;
     let match;
 
-    while ((match = regex.exec(text)) !== null) {
+    while ((match = regex.exec(cleanedText)) !== null) {
       if (match.index > lastIndex) {
-        parts.push(parseBold(text.substring(lastIndex, match.index), `txt-${lastIndex}`));
+        parts.push(parseFormatting(cleanedText.substring(lastIndex, match.index), `txt-${lastIndex}`));
       }
       
       const linkText = match[1];
@@ -163,11 +195,11 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
       lastIndex = regex.lastIndex;
     }
 
-    if (lastIndex < text.length) {
-      parts.push(parseBold(text.substring(lastIndex), `txt-${lastIndex}`));
+    if (lastIndex < cleanedText.length) {
+      parts.push(parseFormatting(cleanedText.substring(lastIndex), `txt-${lastIndex}`));
     }
 
-    return parts.length > 0 ? parts : parseBold(text, 'txt-0');
+    return parts.length > 0 ? parts : parseFormatting(cleanedText, 'txt-0');
   };
 
   return (
@@ -740,6 +772,35 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                       }
                       if (block.type === 'heading') {
                         return <h2 key={bIdx} style={{ fontSize: '28px', marginTop: '48px', marginBottom: '20px', fontFamily: 'var(--font-heading)', fontWeight: '800' }}>{block.text}</h2>;
+                      }
+                      if (block.type === 'subheading' || block.type === 'h3') {
+                        return (
+                          <h3 key={bIdx} style={{ fontSize: '22px', marginTop: '36px', marginBottom: '16px', fontFamily: 'var(--font-heading)', fontWeight: '700', color: 'var(--color-primary)' }}>
+                            {parseMarkdownLinks(block.text)}
+                          </h3>
+                        );
+                      }
+                      if (block.type === 'list') {
+                        return (
+                          <ul key={bIdx} style={{ marginBottom: '28px', paddingLeft: '24px', listStyleType: 'disc' }}>
+                            {block.items.map((item, iIdx) => (
+                              <li key={iIdx} style={{ marginBottom: '12px', lineHeight: '1.7', color: 'var(--color-text)' }}>
+                                {parseMarkdownLinks(item)}
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      }
+                      if (block.type === 'ordered_list') {
+                        return (
+                          <ol key={bIdx} style={{ marginBottom: '28px', paddingLeft: '24px' }}>
+                            {block.items.map((item, iIdx) => (
+                              <li key={iIdx} style={{ marginBottom: '12px', lineHeight: '1.7', color: 'var(--color-text)' }}>
+                                {parseMarkdownLinks(item)}
+                              </li>
+                            ))}
+                          </ol>
+                        );
                       }
                       if (block.type === 'faq') {
                         return (
