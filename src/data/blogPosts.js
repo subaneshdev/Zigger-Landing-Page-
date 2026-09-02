@@ -1,5 +1,258 @@
 export const BLOG_POSTS = [
   {
+    id: 'part-time-jobs-mumbai-pune-event-catering-gig-work',
+    title: 'Part-Time Jobs in Mumbai & Pune: Event, Catering and Gig Work',
+    seoTitle: 'Part-Time Jobs in Mumbai & Pune: Event, Catering & Gigs | Ziggers',
+    excerpt: 'Looking for part-time jobs in Mumbai and Pune? Find event staff, catering, promoter, delivery, weekend and flexible gig opportunities through Ziggers.',
+    seoDescription: 'Looking for part-time jobs in Mumbai and Pune? Find event staff, catering, promoter, delivery, weekend and flexible gig opportunities through Ziggers.',
+    content: [
+      { 
+        type: 'callout',
+        badge: 'MAHARASHTRA GIG HUB 2026',
+        title: 'Looking for Part-Time Gigs in Mumbai or Pune?',
+        text: 'Browse verified shifts in event staffing, wedding catering, brand promotion, dark-store warehouse packing, and weekend delivery with same-day UPI payouts.\n\n👉 [**Explore Mumbai & Pune Gigs on Ziggers →**](/work)'
+      },
+      { 
+        type: 'heading', 
+        text: 'The Story: Rohan’s Mumbai Part-Time Job Journey' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Rohan Patil, 21, is a B.Com student from Kurla, Mumbai. Every morning, he boards the 7:15 AM local train from Kurla to Churchgate for college. But by 4:00 PM, he is not heading home — he is heading to a wedding reception in Andheri, a luxury product launch in Bandra Kurla Complex (BKC), or a weekend brand promotion at Phoenix Marketcity in Kurla.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '“I used to think part-time work was limited to handing out pamphlets outside railway stations,” Rohan explains. “Then last Diwali, I registered on Ziggers and worked as event staff at a corporate celebration in Lower Parel. I received ₹1,200 for a 6-hour shift — credited the exact same evening directly via UPI. That was the moment I realized: Maharashtra’s on-demand gig economy is a real financial game-changer.”' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Rohan is part of a massive transformation across Maharashtra. Thousands of college students, young graduates, and flexible job seekers are turning spare hours into ₹15,000 to ₹30,000 per month by taking up verified [part-time jobs in Mumbai](/jobs-in-mumbai), [part-time jobs in Pune](/jobs-in-pune), [event staff roles](/hire-brand-promoters-chennai), banquet [catering gigs](/catering-jobs-chennai), and retail promoter shifts with fast, secure payouts.' 
+      },
+      { 
+        type: 'heading', 
+        text: 'Why Mumbai and Pune Have Growing Part-Time Job Opportunities' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Maharashtra is not just India’s financial capital — it is the **gig work capital**. With over 3.5 million gig workers, Mumbai and Pune alone account for 22% of India’s flexible part-time workforce.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '### What’s Driving Part-Time Work in Mumbai and Pune?\n\n• **Wedding & Event Capital:** Over 75+ wedding and banquet events occur daily in Mumbai alone — from five-star hotels in Juhu and Colaba to luxury lawns in Andheri and Thane.\n• **Corporate & Exhibition Hub:** BKC, Lower Parel, NESCO (Goregaon), and Hinjewadi (Pune) host over 100+ brand activations, tech summits, and commercial expos every month.\n• **Huge Student Population:** 1.2 million+ college students in Mumbai and 600,000+ in Pune seek flexible evening and weekend shifts to fund their education.\n• **Daily Payout Culture:** Over 40% of gig workers rely on immediate liquidity for travel and personal expenses — they need cash *today*, not at the end of the month.' 
+      },
+      { 
+        type: 'heading', 
+        text: 'What Workers in Mumbai and Pune Are Searching For' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'If you’re a student in Pune, a homemaker in Thane, or a fresher in Navi Mumbai, search volumes reflect the surging demand for flexible work:' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '### High-Intent Keywords for Mumbai and Pune Jobs\n\n• **Part time jobs in Mumbai** — 200K+ monthly searches\n• **Part time jobs in Pune** — 120K+ monthly searches\n• **Event staff jobs Mumbai** — 50K+ monthly searches\n• **Catering jobs Mumbai** — 45K+ monthly searches\n• **Promoter jobs in Mumbai** — 40K+ monthly searches\n• **Weekend jobs Mumbai** — 40K+ monthly searches\n• **Daily payment jobs** — 35K+ monthly searches\n• **Hourly jobs in Pune** — 30K+ monthly searches\n• **Gig jobs Mumbai** — 25K+ monthly searches\n• **Student part time jobs** — 20K+ monthly searches' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '### Long-Tail Keywords with Strong Job Intent\n\n• Part time event staff in Mumbai\n• Part time catering staff in Pune\n• Daily payout event jobs Mumbai\n• Cash payment catering jobs Pune\n• Urgent event staff needed Mumbai\n• Need boys for events Mumbai\n• Event hostess jobs Pune\n• Brand promoter jobs Mumbai\n• Mall promoter jobs Pune\n• Wedding staff jobs Mumbai' 
+      },
+      { 
+        type: 'heading', 
+        text: 'How Ziggers Helps Workers Find Local Gigs in Mumbai and Pune' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Rohan found his first gig through an unverified WhatsApp group, but faced last-minute cancellations and payment delays. That led him to switch to [Ziggers](/work) — a verified staffing marketplace that matches workers with shifts in 15 minutes.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '### Why Ziggers Works for Workers and Businesses in Maharashtra\n\n• **KYC Verified Workers:** Every gig worker completes digital biometric identity and background checks on [Ziggers](/hire).\n• **15-Minute Matching:** Event organizers and caterers post staffing requirements and get matched with nearby verified staff instantly.\n• **Real-Time GPS Tracking:** Live check-ins and venue geofencing eliminate attendance disputes and no-shows.\n• **Daily & Weekly Payouts:** Direct UPI bank transfers within 24 hours of shift approval — vital for students and freshers.\n• **Hyperlocal Focus:** Mumbai (Andheri, BKC, Malad, Kurla, Thane, Navi Mumbai) and Pune (Hinjewadi, Viman Nagar, Katraj, Swargate, Kothrud).' 
+      },
+      { 
+        type: 'heading', 
+        text: 'Part-Time Jobs, Event Staff, Catering and Promoter Work in Mumbai and Pune' 
+      },
+      {
+        type: 'table',
+        headers: ['Role', 'Location', 'Pay Range', 'Shift Type', 'Who’s Hiring'],
+        rows: [
+          ['Event Staff & Usher', 'Andheri, Mumbai', '₹150–₹350 / hour', 'Weekend / Evening', 'Wedding planners, corporates'],
+          ['Catering Waiter', 'Viman Nagar, Pune', '₹120–₹250 / hour', 'Daily / Weekly', 'Banquet halls, caterers'],
+          ['Brand Promoter', 'BKC, Mumbai', '₹180–₹280 / hour', '3–5 days / week', 'FMCG, edtech, real estate'],
+          ['Mall Promoter', 'Phoenix Mall, Pune & Kurla', '₹150–₹250 / hour', 'Weekend', 'Retail, D2C brands'],
+          ['Kitchen Helper', 'Thane, Mumbai', '₹100–₹200 / hour', 'Daily', 'Cloud kitchens, caterers'],
+          ['Exhibition Staff', 'NESCO, Mumbai', '₹200–₹400 / hour', '2–4 days / event', 'Expo agencies, startups'],
+          ['Pamphlet Distributor', 'Kurla, Mumbai', '₹80–₹160 / hour', 'Evening / Weekend', 'Coaching centers, real estate'],
+          ['Event Hostess', 'Hinjewadi, Pune', '₹250–₹500 / hour', 'Weekend', 'Corporate events, tech summits']
+        ]
+      },
+      { 
+        type: 'heading', 
+        text: 'How Students and Freshers Can Start Part-Time Work' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '1. **Sign Up on Ziggers:** Complete digital KYC verification with your Aadhaar and college photo ID.\n2. **Pick Your Shift:** Browse live event, catering, promoter, and weekend jobs in Mumbai and Pune matching your schedule.\n3. **Get Paid in 24 Hours:** Receive your wages directly via UPI upon shift completion and supervisor sign-off.' 
+      },
+      { 
+        type: 'heading', 
+        text: 'Frequently Asked Questions' 
+      },
+      { 
+        type: 'faq', 
+        items: [
+          { 
+            q: "What are the highest-paying part-time jobs in Mumbai and Pune?", 
+            a: "Exhibition booth staffing at major venues like NESCO or Jio World Convention Centre (₹200–₹400/hour) and corporate event hostess roles in BKC and Hinjewadi (₹250–₹500/hour) are among the highest-paying part-time opportunities." 
+          },
+          { 
+            q: "Can college students work on weekends without prior experience?", 
+            a: "Yes. Most catering counter helper, event usher, and brand promoter roles provide on-site orientation. Punctuality, enthusiasm, and basic communication skills are all you need to start." 
+          },
+          { 
+            q: "How do payouts work for part-time gigs on Ziggers?", 
+            a: "Ziggers locks client payments in escrow before shifts begin. Once your shift is verified via GPS check-in and completed, funds are disbursed directly to your bank account via UPI within 24 hours." 
+          },
+          { 
+            q: "Which areas have the most part-time jobs in Mumbai and Pune?", 
+            a: "In Mumbai, high-demand hubs include Andheri, BKC, Lower Parel, Thane, and Navi Mumbai. In Pune, top gig zones include Hinjewadi, Viman Nagar, Koregaon Park, and Swargate." 
+          },
+          { 
+            q: "How does Ziggers ensure worker safety and pay protection?", 
+            a: "Ziggers requires all employers and workers to complete Aadhaar KYC verification. Escrow-backed deposits ensure that giggers are never left unpaid after completing a verified shift." 
+          }
+        ] 
+      },
+      { 
+        type: 'heading', 
+        text: 'The Bottom Line: Choosing the Right Part-Time Gig' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'Maharashtra’s gig economy isn’t just a side hustle — it’s an empowering financial lifeline for students, freshers, and homemakers. With 3.5 million+ workers and 22% of India’s gig volume, Mumbai and Pune are the country’s epicenters of flexible work.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: 'If you’re searching for [part-time jobs in Mumbai](/jobs-in-mumbai), [part-time jobs in Pune](/jobs-in-pune), or daily payment catering work, you are not alone. Thousands are earning ₹15,000 to ₹30,000 per month, one shift at a time.' 
+      },
+      { 
+        type: 'paragraph', 
+        text: '👉 [**Browse verified part-time jobs in Mumbai & Pune on Ziggers**](/work)' 
+      }
+    ],
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Part-Time Jobs in Mumbai & Pune: Event, Catering and Gig Work",
+          "description": "Looking for part-time jobs in Mumbai and Pune? Find event staff, catering, promoter, delivery, weekend and flexible gig opportunities through Ziggers.",
+          "image": "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80",
+          "author": {
+            "@type": "Person",
+            "name": "Vijayrajkumar",
+            "jobTitle": "Head of Operations",
+            "image": "https://www.ziggers.in/assets/team/vijayrajkumar.png",
+            "url": "https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Ziggers",
+            "url": "https://www.ziggers.in",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.ziggers.in/icon.png"
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.ziggers.in/blog/part-time-jobs-mumbai-pune-event-catering-gig-work"
+          },
+          "datePublished": "2026-09-02T16:00:00+05:30",
+          "dateModified": "2026-09-02T16:00:00+05:30"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.ziggers.in"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://www.ziggers.in/blog"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Part-Time Jobs in Mumbai & Pune: Event, Catering and Gig Work",
+              "item": "https://www.ziggers.in/blog/part-time-jobs-mumbai-pune-event-catering-gig-work"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What are the highest-paying part-time jobs in Mumbai and Pune?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Exhibition booth staffing at major venues like NESCO or Jio World Convention Centre (₹200–₹400/hour) and corporate event hostess roles in BKC and Hinjewadi (₹250–₹500/hour) are among the highest-paying part-time opportunities."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can college students work on weekends without prior experience?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Most catering counter helper, event usher, and brand promoter roles provide on-site orientation. Punctuality, enthusiasm, and basic communication skills are all you need to start."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do payouts work for part-time gigs on Ziggers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ziggers locks client payments in escrow before shifts begin. Once your shift is verified via GPS check-in and completed, funds are disbursed directly to your bank account via UPI within 24 hours."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which areas have the most part-time jobs in Mumbai and Pune?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In Mumbai, high-demand hubs include Andheri, BKC, Lower Parel, Thane, and Navi Mumbai. In Pune, top gig zones include Hinjewadi, Viman Nagar, Koregaon Park, and Swargate."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Ziggers ensure worker safety and pay protection?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ziggers requires all employers and workers to complete Aadhaar KYC verification. Escrow-backed deposits ensure that giggers are never left unpaid after completing a verified shift."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    date: 'September 2, 2026',
+    readTime: '6 min read',
+    author: 'Vijayrajkumar',
+    authorRole: 'Head of Operations',
+    authorImage: '/assets/team/vijayrajkumar.png',
+    authorUrl: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
+    category: 'Gig Economy',
+    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Part-time event, catering, and promoter gig workers in Mumbai and Pune',
+    color: '#FFFBEB'
+  },
+  {
     id: 'chennai-multi-apping-delivery-gig-hubs-pay-guide-2026',
     title: 'Delivery Jobs in Chennai: Multi-Apping, Hubs and Dark Stores Around OMR, Taramani, Velachery and Anna Nagar',
     seoTitle: 'Delivery Jobs Chennai: Multi-Apping, Hubs & Dark Stores | Ziggers',
