@@ -163,7 +163,7 @@ export default function Footer() {
           <div>
             <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginBottom: '20px' }}>Recent Blogs</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '14px' }}>
-              {BLOG_POSTS.slice(0, 4).map((post) => (
+              {BLOG_POSTS.slice(0, 5).map((post) => (
                 <Link 
                   key={post.id} 
                   href={`/blog/${post.id}`} 

@@ -5,7 +5,7 @@ import { Clock, Calendar, ArrowRight } from 'lucide-react';
 import { BLOG_POSTS } from '../data/blogPosts';
 
 export default function BlogSection({ onNavigateToBlog }) {
-  const featuredPosts = BLOG_POSTS.slice(0, 3);
+  const featuredPosts = BLOG_POSTS.slice(0, 5);
 
   const handleCardClick = (postId) => {
     if (onNavigateToBlog) {

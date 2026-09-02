@@ -4,6 +4,7 @@ import { ChevronRight, ChevronDown, ChevronUp, ShieldCheck, Clock, Users, Star, 
 import Link from 'next/link';
 import Hero from '../components/Hero';
 import NumberTicker from '../components/NumberTicker';
+import { BLOG_POSTS } from '../data/blogPosts';
 
 export default function Home() {
   const [openSection, setOpenSection] = useState(null);
@@ -319,8 +320,87 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Recent Blogs & On-Ground Guides Section */}
+      <section style={{ padding: '60px 0', backgroundColor: '#ffffff', borderTop: '1px solid rgba(61,43,31,0.06)' }}>
+        <div className="container" style={{ maxWidth: '960px', margin: '0 auto', padding: '0 20px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '28px', flexWrap: 'wrap', gap: '16px' }}>
+            <div>
+              <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.5px', color: 'var(--color-gold)', display: 'block', marginBottom: '6px' }}>
+                Latest Insights & Guides
+              </span>
+              <h2 style={{ fontSize: '28px', fontWeight: 700, color: '#1c1c1c' }}>
+                Recent Blogs
+              </h2>
+            </div>
+            <Link 
+              href="/blog" 
+              style={{ 
+                fontSize: '14px', 
+                fontWeight: 700, 
+                color: 'var(--color-gold)', 
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px'
+              }}
+            >
+              View all articles <ChevronRight size={16} />
+            </Link>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {BLOG_POSTS.slice(0, 5).map((post, idx) => (
+              <Link
+                key={post.id}
+                href={`/blog/${post.id}`}
+                style={{
+                  border: '1px solid #e8e8e8',
+                  borderRadius: '12px',
+                  padding: '20px 24px',
+                  backgroundColor: '#ffffff',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  boxShadow: '0px 1px 4px rgba(0,0,0,0.02)',
+                  transition: 'box-shadow 0.2s, border 0.2s, transform 0.2s'
+                }}
+                className="locality-card"
+              >
+                <div style={{ paddingRight: '20px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', fontSize: '12px', color: 'var(--color-muted)' }}>
+                    <span style={{ 
+                      backgroundColor: 'var(--color-linen)', 
+                      color: 'var(--color-espresso)', 
+                      padding: '2px 8px', 
+                      borderRadius: '100px', 
+                      fontWeight: 700, 
+                      fontSize: '11px' 
+                    }}>
+                      {post.category || 'Gig Guide'}
+                    </span>
+                    <span>{post.date}</span>
+                    <span>•</span>
+                    <span>{post.readTime}</span>
+                    <span>•</span>
+                    <span style={{ fontWeight: 600 }}>By {post.author}</span>
+                  </div>
+                  <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#1c1c1c', lineHeight: 1.4, margin: 0 }}>
+                    {post.title}
+                  </h3>
+                </div>
+                <div style={{ color: 'var(--color-gold)', flexShrink: 0 }}>
+                  <ArrowUpRight size={20} />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Zomato-style Dynamic FAQ and SEO Accordions */}
-      <section style={{ padding: '60px 0', backgroundColor: '#ffffff' }}>
+      <section style={{ padding: '60px 0', backgroundColor: '#fafafa', borderTop: '1px solid rgba(61,43,31,0.06)' }}>
         <div className="container" style={{ maxWidth: '960px', margin: '0 auto', padding: '0 20px' }}>
           <h2 style={{ fontSize: '26px', fontWeight: 600, color: '#1c1c1c', marginBottom: '24px' }}>
             Explore options near me
@@ -428,6 +508,49 @@ export default function Home() {
                         {keyword} <span style={{ color: '#d3d3d3', marginLeft: '4px' }}>•</span>
                       </Link>
                     ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div style={{ border: '1px solid #e8e8e8', borderRadius: '8px', overflow: 'hidden', backgroundColor: '#ffffff' }}>
+              <button
+                onClick={() => toggleSection(3)}
+                style={{
+                  width: '100%',
+                  padding: '20px 24px',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '18px',
+                  fontWeight: 500,
+                  color: '#1c1c1c',
+                  cursor: 'pointer',
+                  textAlign: 'left'
+                }}
+              >
+                Recent blogs & gig guides
+                {openSection === 3 ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+              </button>
+
+              {openSection === 3 && (
+                <div style={{ padding: '0 24px 24px', color: '#686b78', fontSize: '14px', lineHeight: 1.8 }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    {BLOG_POSTS.slice(0, 5).map((post) => (
+                      <Link 
+                        key={post.id} 
+                        href={`/blog/${post.id}`} 
+                        style={{ color: '#1c1c1c', textDecoration: 'none', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }} 
+                        className="seo-tag"
+                      >
+                        <span style={{ color: 'var(--color-gold)' }}>•</span> {post.title}
+                      </Link>
+                    ))}
+                    <Link href="/blog" style={{ color: 'var(--color-gold)', fontWeight: 700, marginTop: '8px', textDecoration: 'none' }}>
+                      View all 10+ guides & articles →
+                    </Link>
                   </div>
                 </div>
               )}
