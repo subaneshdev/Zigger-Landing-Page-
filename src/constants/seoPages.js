@@ -244,6 +244,10 @@ export function buildCategoryPage(category, city = null) {
     } else if (category.slug === 'student-part-time-jobs') {
       workerBody += ` Balance your college schedule with verified [student-friendly part-time work](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across delivery, catering, and event operations.`;
     }
+  } else if (city?.slug === 'mumbai' || city?.slug === 'pune') {
+    if (category.slug === 'event-staff' || category.slug === 'catering-jobs' || category.slug === 'promoter-jobs' || category.slug === 'delivery-jobs' || category.slug === 'warehouse-jobs' || category.slug === 'catering-workers' || category.slug === 'catering-boys' || category.slug === 'waiter-jobs') {
+      workerBody += ` Learn more about shift dynamics and pay rates in our [event, catering and weekend gig work guide](/blog/part-time-jobs-mumbai-pune-event-catering-gig-work).`;
+    }
   }
 
   const employerHeading = `${category.hireKeyword}${locationIn}`;
@@ -335,6 +339,10 @@ export function buildCityHubPage(city) {
   let workerBody = intro;
   if (city.slug === 'chennai') {
     workerBody += ` Looking for flexible seasonal shifts? Explore our detailed guide on [part-time jobs in Velachery and Anna Nagar](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) to find legitimate local openings.`;
+  } else if (city.slug === 'pune') {
+    workerBody += ` Planning your shift schedule? Read our comprehensive [Mumbai and Pune part-time work guide](/blog/part-time-jobs-mumbai-pune-event-catering-gig-work) to understand local hubs, pay rates, and verified shift matching.`;
+  } else if (city.slug === 'mumbai') {
+    workerBody += ` Looking for verified local shifts? Read our in-depth [Mumbai and Pune part-time work guide](/blog/part-time-jobs-mumbai-pune-event-catering-gig-work) for insights on BKC, Andheri, and Lower Parel gigs.`;
   }
 
   return {

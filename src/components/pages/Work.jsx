@@ -375,6 +375,32 @@ export default function Work() {
             </div>
           )}
         </div>
+
+        {/* Helpful Guides Callout */}
+        <div style={{
+          marginTop: '40px',
+          padding: '24px',
+          backgroundColor: '#fff',
+          borderRadius: '16px',
+          border: '1px solid rgba(61, 43, 31, 0.08)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '16px'
+        }}>
+          <div>
+            <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'var(--color-espresso)', marginBottom: '4px' }}>
+              First time working on-demand gigs?
+            </h3>
+            <p style={{ fontSize: '14px', color: 'var(--color-muted)', margin: 0 }}>
+              Learn <a href="/blog/part-time-jobs-mumbai-pune-event-catering-gig-work" style={{ color: 'var(--color-gold)', fontWeight: '600', textDecoration: 'underline' }}>how event and catering gig work operates</a> across shifts, attendance verification, and instant UPI payouts.
+            </p>
+          </div>
+          <a href="/blog" style={{ fontSize: '14px', fontWeight: '700', color: 'var(--color-espresso)', textDecoration: 'none' }}>
+            View all guides →
+          </a>
+        </div>
       </div>
 
       {selectedJob && (
