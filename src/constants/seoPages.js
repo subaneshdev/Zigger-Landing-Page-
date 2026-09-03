@@ -235,14 +235,12 @@ export function buildCategoryPage(category, city = null) {
   let workerBody = `Search ${category.workerTerms.join(', ').toLowerCase()}${locationIn}. Apply for flexible shifts, weekend work, and daily salary jobs with transparent pay and instant UPI transfers after each completed gig.`;
 
   if (city?.slug === 'chennai') {
-    if (category.slug === 'delivery-jobs') {
-      workerBody += ` Looking for delivery shifts? Explore [current delivery jobs in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) with flexible shift hours and verified payout tracking.`;
-    } else if (category.slug === 'catering-jobs') {
-      workerBody += ` Learn how to get started with banquet and [catering work in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) during peak wedding and festive dates.`;
-    } else if (category.slug === 'event-staff') {
-      workerBody += ` Explore active [event staff opportunities](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across wedding venues, promotional stalls, and exhibition halls.`;
-    } else if (category.slug === 'student-part-time-jobs') {
-      workerBody += ` Balance your college schedule with verified [student-friendly part-time work](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across delivery, catering, and event operations.`;
+    if (category.slug === 'delivery-jobs' || category.slug === 'warehouse-jobs') {
+      workerBody += ` Looking for delivery or fulfillment shifts? Explore our comprehensive guide on [delivery jobs and dark store hubs in Chennai](/blog/chennai-multi-apping-delivery-gig-hubs-pay-guide-2026) with verified multi-apping and payout details.`;
+    } else if (category.slug === 'catering-jobs' || category.slug === 'catering-workers' || category.slug === 'catering-boys' || category.slug === 'waiter-jobs') {
+      workerBody += ` Learn how to get started with banquet shifts in our verified guide to [catering jobs in Tambaram and Chennai](/blog/daily-wage-jobs-near-me-chennai-ziggers).`;
+    } else if (category.slug === 'event-staff' || category.slug === 'promoter-jobs' || category.slug === 'student-part-time-jobs') {
+      workerBody += ` Explore active openings in our guide on [catering, delivery and event jobs in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across Velachery and Anna Nagar.`;
     }
   } else if (city?.slug === 'mumbai' || city?.slug === 'pune') {
     if (category.slug === 'event-staff' || category.slug === 'catering-jobs' || category.slug === 'promoter-jobs' || category.slug === 'delivery-jobs' || category.slug === 'warehouse-jobs' || category.slug === 'catering-workers' || category.slug === 'catering-boys' || category.slug === 'waiter-jobs') {
@@ -338,7 +336,7 @@ export function buildCityHubPage(city) {
 
   let workerBody = intro;
   if (city.slug === 'chennai') {
-    workerBody += ` Looking for flexible seasonal shifts? Explore our detailed guide on [part-time jobs in Velachery and Anna Nagar](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) to find legitimate local openings.`;
+    workerBody += ` Looking for flexible local shifts? Explore our verified guides on [delivery jobs and dark store hubs in Chennai](/blog/chennai-multi-apping-delivery-gig-hubs-pay-guide-2026), [catering jobs in Tambaram](/blog/daily-wage-jobs-near-me-chennai-ziggers), and [event and festival shifts in Velachery and Anna Nagar](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar).`;
   } else if (city.slug === 'pune') {
     workerBody += ` Planning your shift schedule? Read our comprehensive [Mumbai and Pune part-time work guide](/blog/part-time-jobs-mumbai-pune-event-catering-gig-work) to understand local hubs, pay rates, and verified shift matching.`;
   } else if (city.slug === 'mumbai') {

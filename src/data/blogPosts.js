@@ -540,7 +540,16 @@ export const BLOG_POSTS = [
       },
       { 
         type: 'paragraph', 
-        text: 'Ziggers is not a ride-hailing or food delivery app. It is an on-demand marketplace connecting verified gig workers with businesses, catering contractors, event managers, and car owners. When food delivery orders slow down during afternoon or weekday hours, workers can open [Ziggers Work](/work) to pick up verified shifts in:\n• **Banquet & Catering:** Food counter helpers, servers, and kitchen assistants paying ₹800–₹1,500/shift.\n• **Warehouse & Dark Store:** In-facility scanning, loading, and packing paying ₹700–₹1,200/shift.\n• **Event Staffing & Promotion:** Mall brand promoters and venue assistants paying ₹1,000–₹2,000/day.\n• **Acting Drivers:** Driving private customer cars with zero vehicle wear paying ₹1,000–₹1,800/shift.' 
+        text: 'Ziggers is an on-demand workforce marketplace connecting verified gig workers with businesses, catering contractors, event managers, and logistics hubs. When food delivery orders slow down during afternoon or weekday hours, workers can open [Ziggers Work](/work) to pick up verified shifts in:' 
+      },
+      {
+        type: 'list',
+        items: [
+          '**Banquet & Catering:** Food counter helpers, servers, and kitchen assistants paying ₹800–₹1,500/shift. Learn more in our [catering jobs in Tambaram guide](/blog/daily-wage-jobs-near-me-chennai-ziggers).',
+          '**Warehouse & Dark Store:** In-facility scanning, loading, and packing paying ₹700–₹1,200/shift across Velachery and Taramani.',
+          '**Event Staffing & Promotion:** Mall brand promoters and venue assistants paying ₹1,000–₹2,000/day. See our [catering, delivery and event jobs in Chennai guide](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar).',
+          '**Interstate & Multi-City Gigs:** Traveling to western hubs? Explore our [part-time jobs in Mumbai and Pune guide](/blog/part-time-jobs-mumbai-pune-event-catering-gig-work).'
+        ]
       },
       { 
         type: 'heading', 
