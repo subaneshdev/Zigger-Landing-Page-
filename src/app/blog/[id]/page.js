@@ -44,7 +44,18 @@ export async function generateMetadata({ params }) {
 export default async function BlogPostRoute({ params }) {
   // Resolve the id promise
   const { id } = await params;
+  const post = BLOG_POSTS.find((entry) => entry.id === id);
   const idPromise = Promise.resolve(id);
 
-  return <BlogPostClient idPromise={idPromise} />;
+  return (
+    <>
+      {post?.schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(post.schema) }}
+        />
+      )}
+      <BlogPostClient idPromise={idPromise} />
+    </>
+  );
 }
