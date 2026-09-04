@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import PlayStoreButton from './PlayStoreButton';
 import { getSectionIdFromHref, scrollToSection } from '../lib/scrollToSection';
 import PartnerAuthModal from './PartnerAuthModal';
+import { LoaderGlitchText } from './ui/loader-glitch-text';
 
 export default function Navigation() {
   const { scrollYProgress } = useScroll();
@@ -116,25 +117,18 @@ export default function Navigation() {
                 router.push('/');
                 window.scrollTo(0, 0);
               }}
-              style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', flexShrink: 0 }}
+              style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0 }}
             >
-              <div
+              <LoaderGlitchText
+                text="Ziggers"
+                intensity="subtle"
                 style={{
-                  width: '28px',
-                  height: '28px',
-                  backgroundColor: 'var(--color-espresso)',
-                  borderRadius: '6px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#fff',
-                  fontWeight: 700,
-                  fontSize: '13px',
+                  fontWeight: 900,
+                  fontSize: '20px',
+                  letterSpacing: '-0.02em',
+                  color: 'var(--color-espresso)',
                 }}
-              >
-                Z
-              </div>
-              <span style={{ fontWeight: 800, fontSize: '15px', color: 'var(--color-espresso)' }}>Ziggers</span>
+              />
             </Link>
 
             <nav className="hidden md-flex site-header-nav" aria-label="Main navigation">
