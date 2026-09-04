@@ -23,13 +23,13 @@ export function LoaderGlitchText({
     subtle: {
       translateScale: 1,
       duration: "4s",
-      interval: 400,
+      interval: 300,
       scrambleChars: 1,
     },
     medium: {
       translateScale: 1,
       duration: "2s",
-      interval: 180,
+      interval: 150,
       scrambleChars: 2,
     },
     heavy: {
@@ -41,7 +41,7 @@ export function LoaderGlitchText({
   }[intensity] || {
     translateScale: 1,
     duration: "2s",
-    interval: 180,
+    interval: 150,
     scrambleChars: 2,
   };
 
