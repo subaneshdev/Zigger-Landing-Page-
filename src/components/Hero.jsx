@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, MapPin, ArrowRight } from 'lucide-react';
+import { PointerHighlight } from './ui/pointer-highlight';
 
 export default function Hero() {
   const router = useRouter();
@@ -63,7 +64,7 @@ export default function Hero() {
           style={{
             fontSize: 'clamp(32px, 5vw, 48px)',
             fontWeight: 900,
-            lineHeight: 1.15,
+            lineHeight: 1.25,
             marginBottom: '20px',
             color: 'var(--color-espresso)',
             letterSpacing: '-0.03em',
@@ -72,9 +73,15 @@ export default function Hero() {
           }}
         >
           Find gig jobs &amp; verified staff. Discover local shifts.{' '}
-          <span style={{ color: 'var(--color-gold)', display: 'inline-block' }}>
-            Zigger it!
-          </span>
+          <PointerHighlight
+            rectangleClassName="border-2 rounded-xl border-[var(--color-gold)] shadow-sm"
+            pointerClassName="text-[var(--color-gold)]"
+            delay={0.4}
+          >
+            <span style={{ color: 'var(--color-gold)', display: 'inline-block', padding: '0 8px' }}>
+              Zigger it!
+            </span>
+          </PointerHighlight>
         </h1>
 
         <p style={{ fontSize: '16px', color: 'var(--color-muted)', marginBottom: '36px', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto 36px' }}>
