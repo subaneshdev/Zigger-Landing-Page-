@@ -24,7 +24,7 @@ export function LoaderGlitchText({
   const textRef = useRef(text);
   const rafRef = useRef<number>(0);
   const lastScrambleRef = useRef<number>(0);
-  const scrambleTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const scrambleTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   textRef.current = text;
 
@@ -32,13 +32,13 @@ export function LoaderGlitchText({
     subtle: {
       translateScale: 1,
       duration: "4s",
-      interval: 300,
+      interval: 400,
       scrambleChars: 1,
     },
     medium: {
       translateScale: 1,
       duration: "2s",
-      interval: 150,
+      interval: 180,
       scrambleChars: 2,
     },
     heavy: {
@@ -50,7 +50,7 @@ export function LoaderGlitchText({
   }[intensity] || {
     translateScale: 1,
     duration: "2s",
-    interval: 150,
+    interval: 180,
     scrambleChars: 2,
   };
 
@@ -67,17 +67,14 @@ export function LoaderGlitchText({
     const scrambled = chars.map((char, i) =>
       indices.has(i) && char !== " "
         ? GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]
-        : char,
+        : char
     );
 
     setDisplayText(scrambled.join(""));
 
-    scrambleTimeoutRef.current = setTimeout(
-      () => {
-        setDisplayText(textRef.current);
-      },
-      50 + Math.random() * 50,
-    );
+    scrambleTimeoutRef.current = setTimeout(() => {
+      setDisplayText(textRef.current);
+    }, 50 + Math.random() * 50);
   }, [intensityConfig.scrambleChars]);
 
   useEffect(() => {

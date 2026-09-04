@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, MapPin, ArrowRight } from 'lucide-react';
-import { LoaderGlitchText } from './ui/loader-glitch-text';
+import { StaggeredText } from './ui/StaggeredText';
 
 export default function Hero() {
   const router = useRouter();
@@ -60,7 +60,16 @@ export default function Hero() {
 
       <div className="container" style={{ position: 'relative', zIndex: 10, maxWidth: '820px', margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
         
-        <h1
+        <StaggeredText
+          as="h1"
+          text="Find gig jobs & verified staff. Discover local shifts. Zigger it!"
+          highlightWords={["Zigger", "it!"]}
+          segmentBy="words"
+          staggerDirection="forward"
+          direction="bottom"
+          duration={0.55}
+          staggerDelay={0.04}
+          triggerOnScroll={true}
           style={{
             fontSize: 'clamp(32px, 5vw, 48px)',
             fontWeight: 900,
@@ -69,19 +78,10 @@ export default function Hero() {
             color: 'var(--color-espresso)',
             letterSpacing: '-0.03em',
             fontFamily: 'var(--font-heading)',
+            justifyContent: 'center',
             textAlign: 'center'
           }}
-        >
-          Find gig jobs &amp; verified staff. Discover local shifts.{' '}
-          <span style={{ color: 'var(--color-gold)', display: 'inline-block' }}>
-            <LoaderGlitchText 
-              text="Zigger it!" 
-              intensity="medium" 
-              className="font-inherit font-bold"
-              style={{ color: 'var(--color-gold)' }}
-            />
-          </span>
-        </h1>
+        />
 
         <p style={{ fontSize: '16px', color: 'var(--color-muted)', marginBottom: '36px', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto 36px' }}>
           Connect instantly with verified on-demand catering staff, drivers, and delivery partners near you. Paid same-day via secure UPI.
