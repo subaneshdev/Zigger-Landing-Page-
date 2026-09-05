@@ -342,6 +342,411 @@ export const BLOG_POSTS = [
     color: '#FFFBEB'
   },
   {
+    id: '10th-12th-pass-part-time-jobs-chennai',
+    title: '10th and 12th Pass Part-Time Jobs in Chennai for Freshers',
+    seoTitle: '10th & 12th Pass Jobs in Chennai: Part-Time & Fresher Work | Ziggers',
+    excerpt: 'Find part-time, daily-wage and entry-level jobs in Chennai for 10th and 12th pass candidates. Explore delivery, catering, event, warehouse and helper work.',
+    seoDescription: 'Find part-time, daily-wage and entry-level jobs in Chennai for 10th and 12th pass candidates. Explore delivery, catering, event, warehouse and helper work.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Looking for **10th pass jobs in Chennai** or **12th pass part-time jobs in Chennai**? Ziggers helps freshers and workers with limited experience discover flexible opportunities across catering, delivery, event work, warehouse operations, helping roles, promotions and other local gigs.'
+      },
+      {
+        type: 'paragraph',
+        text: 'The right opportunity depends on your location, age eligibility, availability, skills, travel options and the employer’s requirements. Before applying, always check the role, reporting location, shift timing, duties, payment terms and application instructions shown in the current listing.'
+      },
+      {
+        type: 'callout',
+        badge: 'LIVE WORK OPPORTUNITIES',
+        title: 'Looking for a Current Opportunity in Chennai?',
+        text: 'Browse the latest Ziggers work listings and filter for roles, locations and shifts that match your availability. Job availability changes by date and area.\n\n👉 [**Find current Ziggers opportunities →**](/work)'
+      },
+      {
+        type: 'heading',
+        text: 'What jobs can 10th and 12th pass candidates find in Chennai?'
+      },
+      {
+        type: 'paragraph',
+        text: 'A 10th or 12th pass qualification can be relevant to several entry-level and flexible roles. The exact requirements vary by employer and job type, so read each listing carefully.'
+      },
+      {
+        type: 'subheading',
+        text: 'Catering helper and banquet work'
+      },
+      {
+        type: 'paragraph',
+        text: 'Catering companies, wedding venues and event organizers may need kitchen helpers, serving assistants, banquet helpers, food-packing workers and setup helpers. Some shifts are one-day or weekend assignments, while others may be recurring. Check whether food, transport, uniform or experience is included in the listing. Explore verified [catering jobs in Chennai](/catering-jobs-chennai).'
+      },
+      {
+        type: 'subheading',
+        text: 'Delivery and logistics work'
+      },
+      {
+        type: 'paragraph',
+        text: 'Delivery opportunities may involve food, groceries, parcels or local business orders. Requirements can include a smartphone, two-wheeler, driving licence, vehicle documents and knowledge of the local area. Confirm the payment calculation, fuel costs, incentives, waiting time and settlement process before accepting a shift. Explore [delivery jobs in Chennai](/delivery-jobs-chennai).'
+      },
+      {
+        type: 'subheading',
+        text: 'Event and exhibition work'
+      },
+      {
+        type: 'paragraph',
+        text: 'Event work can include registration support, guest assistance, pamphlet distribution, stall support, crowd guidance, setup and cleanup. Event timings may be early morning, late evening or weekend-based. Confirm the venue, dress code, reporting point, supervisor and shift duration before travelling. Explore [event staff jobs in Chennai](/event-staff-chennai).'
+      },
+      {
+        type: 'subheading',
+        text: 'Warehouse, packing and picker-packer work'
+      },
+      {
+        type: 'paragraph',
+        text: 'Warehouse roles may include picking, packing, loading, unloading, stock support and order preparation. Some jobs are fixed-shift roles and others may be temporary or daily-wage assignments. Ask about lifting requirements, break times, safety equipment, shift timing and payment terms. Explore [warehouse workers in Chennai](/warehouse-workers-chennai).'
+      },
+      {
+        type: 'subheading',
+        text: 'Promoter and brand-activation work'
+      },
+      {
+        type: 'paragraph',
+        text: 'Promoter roles can involve product demonstrations, customer interaction, leaflet distribution, mall activations or event support. These roles may require communication skills, punctuality and a specific dress code. Confirm whether the payment is hourly, daily or assignment-based. Explore [promoter jobs in Chennai](/retail-promoters-chennai).'
+      },
+      {
+        type: 'subheading',
+        text: 'Helper and hospitality work'
+      },
+      {
+        type: 'paragraph',
+        text: 'Entry-level helper jobs may be available in kitchens, restaurants, hotels, stores, events and local operations. Duties, working hours and physical requirements can vary widely. Do not accept a vague listing without knowing the exact work and reporting location. Explore [waiter jobs](/waiter-jobs).'
+      },
+      {
+        type: 'heading',
+        text: 'Part-time jobs for freshers with no experience'
+      },
+      {
+        type: 'paragraph',
+        text: 'Some employers accept freshers or provide basic instructions, but **no experience is not the same as no requirements**. A job may still require punctuality, identity verification, physical fitness for certain duties, a smartphone, a vehicle or a specific shift schedule.'
+      },
+      {
+        type: 'paragraph',
+        text: 'When searching for **no experience jobs in Chennai**, look for listings that clearly state one of the following:'
+      },
+      {
+        type: 'table',
+        headers: ['Listing language', 'What it usually means'],
+        rows: [
+          ['No prior experience required', 'Beginners may apply, subject to the employer’s other conditions'],
+          ['Freshers welcome', 'The employer is open to applicants starting their first role'],
+          ['Training provided', 'Instructions may be available, but confirm duration and terms'],
+          ['Experience preferred', 'Beginners may still apply, but experienced candidates may be prioritised'],
+          ['Immediate joining', 'The employer needs availability soon; confirm the exact start date']
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: 'Do not pay a registration, interview, uniform, security or placement fee unless the fee is clearly explained, officially verified and appropriate for the specific service. Be cautious of any person who asks for money before explaining the employer, job, venue, duties and payment terms.'
+      },
+      {
+        type: 'heading',
+        text: 'Daily-wage and shift-based jobs in Chennai'
+      },
+      {
+        type: 'paragraph',
+        text: '**Daily wage jobs in Chennai** can include one-day event work, catering shifts, warehouse support, loading and unloading, promotions, delivery assignments and other temporary roles. Payment may be daily, weekly, hourly, per assignment or subject to approval after attendance is verified.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Before accepting a daily or part-time shift, confirm:\n• the exact amount or payment calculation;\n• when payment is expected;\n• whether attendance or supervisor approval is required;\n• whether transport, meals, fuel or other costs are included;\n• what happens if the shift is cancelled;\n• the exact reporting location and contact person; and\n• whether any deductions apply.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Never assume that a “daily payment” label means payment will arrive immediately. The listing or employer should explain the actual payment process.'
+      },
+      {
+        type: 'heading',
+        text: 'Chennai locations and job availability'
+      },
+      {
+        type: 'paragraph',
+        text: 'Ziggers may have opportunities in different parts of Chennai, but availability changes continuously. Search by the location that is practical for you and confirm the reporting point before accepting work.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Possible areas may include **Velachery, Anna Nagar, Taramani, OMR, Guindy, Tambaram, Chromepet, Porur, Ambattur, ECR and nearby Chennai suburbs**, subject to current listings.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Do not travel based only on a forwarded message or an old social-media post. Confirm the current job, venue, timing and contact details through the official application route.'
+      },
+      {
+        type: 'heading',
+        text: 'How to apply for 10th and 12th pass jobs through Ziggers'
+      },
+      {
+        type: 'paragraph',
+        text: 'The application process depends on the current Ziggers workflow and individual listing. In general:'
+      },
+      {
+        type: 'ordered_list',
+        items: [
+          'Open the [Ziggers work page](/work) or the official app.',
+          'Complete the required profile or verification steps.',
+          'Select Chennai and review available roles.',
+          'Read the duties, eligibility, location, shift timing and payment terms.',
+          'Apply only for work that matches your availability and travel capacity.',
+          'Follow the attendance, completion and payment process shown for that listing.'
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: 'Ziggers’ current job pages include categories such as catering, delivery, event work, warehouse roles, waiter work and other flexible opportunities. Use the relevant category page when it provides more specific information.'
+      },
+      {
+        type: 'heading',
+        text: 'Documents and eligibility'
+      },
+      {
+        type: 'paragraph',
+        text: 'Requirements depend on the employer and role. A listing may ask for identity details, bank or UPI information, age eligibility, address information, a driving licence for [driver roles and licence requirements](/driver-jobs), or other role-specific documents.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Share documents only through the official Ziggers process or a verified employer channel. Do not post Aadhaar, bank details, passwords or personal documents publicly in WhatsApp groups, Facebook comments or social-media replies.'
+      },
+      {
+        type: 'heading',
+        text: 'Part-time jobs for 10th pass candidates: what to check'
+      },
+      {
+        type: 'paragraph',
+        text: 'If you have completed 10th standard, focus on listings that clearly explain beginner eligibility and duties. Catering helpers, event support, packing, loading, warehouse assistance, delivery and promoter roles may have different requirements.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Ask these questions before applying:'
+      },
+      {
+        type: 'ordered_list',
+        items: [
+          'Is the role genuinely part-time or is it a full-time shift?',
+          'What is the exact start and finish time?',
+          'What is the reporting address?',
+          'Is previous experience required?',
+          'What documents are needed?',
+          'How is payment calculated and when is it released?',
+          'Who is the supervisor or employer contact?',
+          'Are travel, meals, uniform or equipment provided?'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Part-time jobs for 12th pass candidates: how to choose a suitable role'
+      },
+      {
+        type: 'paragraph',
+        text: 'If you have completed 12th standard, you may find a wider range of entry-level work, depending on your communication skills, availability and local demand. In addition to event, catering, delivery and warehouse roles, some listings may include customer support, retail assistance, data-entry support or office assistance.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Do not apply based on salary alone. Compare the total time, travel cost, physical effort, payment schedule and reliability of the opportunity. A role with a lower advertised amount may be more suitable if it is closer, clearer and better matched to your schedule.'
+      },
+      {
+        type: 'heading',
+        text: 'Safety checklist before accepting a job'
+      },
+      {
+        type: 'paragraph',
+        text: 'Use this quick checklist before accepting any shift:'
+      },
+      {
+        type: 'table',
+        headers: ['Check', 'What to confirm'],
+        rows: [
+          ['Employer', 'Name or verified contact'],
+          ['Role', 'Exact duties and work environment'],
+          ['Location', 'Venue, reporting point and travel route'],
+          ['Timing', 'Start, finish and break times'],
+          ['Payment', 'Amount, calculation and expected settlement'],
+          ['Documents', 'What is required and how it is submitted'],
+          ['Fees', 'Whether any charge is requested and why'],
+          ['Support', 'Who to contact if the shift changes'],
+          ['Cancellation', 'What happens if the employer or worker cancels']
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: 'A genuine opportunity should not depend on pressure, secrecy or unexplained advance payment.'
+      },
+      {
+        type: 'heading',
+        text: 'Frequently asked questions'
+      },
+      {
+        type: 'faq',
+        items: [
+          {
+            q: 'Are there 10th pass jobs in Chennai?',
+            a: 'Yes, job platforms and local employers may list entry-level roles for 10th-pass candidates, including helper, packing, warehouse, catering, delivery, event and promoter work. Requirements and availability change by location and date, so review the current listing before applying.'
+          },
+          {
+            q: 'Can 12th pass candidates find part-time jobs in Chennai?',
+            a: '12th-pass candidates may find part-time and temporary roles in catering, events, delivery, warehouse, retail, hospitality and promotions. Check the age, timing, location, experience and payment requirements for each opportunity.'
+          },
+          {
+            q: 'Can freshers apply for Ziggers jobs?',
+            a: 'Some listings may accept freshers, while others may require experience, a licence, a vehicle or specific skills. Read the individual listing and apply only when you meet its requirements.'
+          },
+          {
+            q: 'Are daily-wage jobs paid on the same day?',
+            a: 'Not always. Payment timing depends on the employer, attendance verification, approval and the terms shown for the role. Confirm the payment process before accepting the shift.'
+          },
+          {
+            q: 'Are 10th and 12th pass jobs available near me?',
+            a: 'Availability depends on your location and current demand. Set or select your Chennai area and check the current Ziggers listings rather than relying on an old forwarded message.'
+          },
+          {
+            q: 'Do I need to pay money to get a part-time job?',
+            a: 'Be cautious of any request for an unexplained registration, interview, security or placement payment. Verify the opportunity and use official application channels before sharing money or documents.'
+          }
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Find your next flexible opportunity'
+      },
+      {
+        type: 'paragraph',
+        text: 'If you are searching for **10th pass jobs in Chennai**, **12th pass part-time jobs**, **fresher jobs**, **helper jobs**, **daily wage jobs** or **no experience work**, start by checking the current Ziggers opportunities.'
+      },
+      {
+        type: 'paragraph',
+        text: 'Use the official listing to confirm the role, location, shift timing, eligibility, payment terms and application process. Your first job should be understandable before you accept it.'
+      },
+      {
+        type: 'paragraph',
+        text: '👉 [**Browse current Ziggers jobs →**](/work)'
+      }
+    ],
+    schema: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Article',
+          headline: '10th and 12th Pass Part-Time Jobs in Chennai for Freshers',
+          description: 'Find part-time, daily-wage and entry-level jobs in Chennai for 10th and 12th pass candidates. Explore delivery, catering, event, warehouse and helper work.',
+          image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
+          author: {
+            '@type': 'Person',
+            name: 'Vijayrajkumar',
+            jobTitle: 'Operations Lead',
+            image: 'https://www.ziggers.in/assets/team/vijayrajkumar.png',
+            url: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/'
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Ziggers',
+            url: 'https://www.ziggers.in',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://www.ziggers.in/icon.png'
+            }
+          },
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': 'https://www.ziggers.in/blog/10th-12th-pass-part-time-jobs-chennai'
+          },
+          datePublished: '2026-09-05T10:00:00+05:30',
+          dateModified: '2026-09-05T14:30:00+05:30'
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.ziggers.in'
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Blog',
+              item: 'https://www.ziggers.in/blog'
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: '10th and 12th Pass Part-Time Jobs in Chennai for Freshers',
+              item: 'https://www.ziggers.in/blog/10th-12th-pass-part-time-jobs-chennai'
+            }
+          ]
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'Are there 10th pass jobs in Chennai?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Yes, job platforms and local employers may list entry-level roles for 10th-pass candidates, including helper, packing, warehouse, catering, delivery, event and promoter work. Requirements and availability change by location and date, so review the current listing before applying.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Can 12th pass candidates find part-time jobs in Chennai?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: '12th-pass candidates may find part-time and temporary roles in catering, events, delivery, warehouse, retail, hospitality and promotions. Check the age, timing, location, experience and payment requirements for each opportunity.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Can freshers apply for Ziggers jobs?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Some listings may accept freshers, while others may require experience, a licence, a vehicle or specific skills. Read the individual listing and apply only when you meet its requirements.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Are daily-wage jobs paid on the same day?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Not always. Payment timing depends on the employer, attendance verification, approval and the terms shown for the role. Confirm the payment process before accepting the shift.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Are 10th and 12th pass jobs available near me?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Availability depends on your location and current demand. Set or select your Chennai area and check the current Ziggers listings rather than relying on an old forwarded message.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Do I need to pay money to get a part-time job?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Be cautious of any request for an unexplained registration, interview, security or placement payment. Verify the opportunity and use official application channels before sharing money or documents.'
+              }
+            }
+          ]
+        }
+      ]
+    },
+    date: 'September 5, 2026',
+    readTime: '7 min read',
+    author: 'Vijayrajkumar',
+    authorRole: 'Operations Lead',
+    authorImage: '/assets/team/vijayrajkumar.png',
+    authorUrl: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
+    category: 'Fresher Jobs',
+    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: '10th and 12th pass freshers working in catering, event, warehouse and delivery roles in Chennai',
+    color: '#EFF6FF'
+  },
+  {
     id: 'daily-wage-jobs-near-me-chennai-ziggers',
     title: 'Catering Jobs in Tambaram: Verified Shifts, Paid the Same Day',
     seoTitle: 'Catering Jobs in Tambaram: Verified Shifts, Paid the Same Day | Ziggers',
@@ -491,7 +896,7 @@ export const BLOG_POSTS = [
       },
       { 
         type: 'paragraph', 
-        text: '[Download the Ziggers app](#app-download) or [browse open jobs](/work) to find verified catering work near you today.' 
+        text: '[Download the Ziggers app](#app-download) or [browse open jobs](/work) to find verified catering work near you today. Looking for broader entry-level shifts? Explore our verified guide to [daily-wage jobs for freshers in Chennai](/blog/10th-12th-pass-part-time-jobs-chennai).' 
       },
       { 
         type: 'paragraph', 

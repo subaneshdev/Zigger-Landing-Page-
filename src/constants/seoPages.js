@@ -235,10 +235,24 @@ export function buildCategoryPage(category, city = null) {
   let workerBody = `Search ${category.workerTerms.join(', ').toLowerCase()}${locationIn}. Apply for flexible shifts, weekend work, and daily salary jobs with transparent pay and instant UPI transfers after each completed gig.`;
 
   if (city?.slug === 'chennai') {
-    if (category.slug === 'catering-jobs' || category.slug === 'catering-workers' || category.slug === 'catering-boys' || category.slug === 'waiter-jobs') {
+    if (category.slug === 'catering-jobs' || category.slug === 'catering-workers' || category.slug === 'catering-boys') {
       workerBody += ` Learn how to get started with banquet shifts in our verified guide to [catering jobs in Tambaram and Chennai](/blog/daily-wage-jobs-near-me-chennai-ziggers).`;
-    } else if (category.slug === 'delivery-jobs' || category.slug === 'warehouse-jobs' || category.slug === 'event-staff' || category.slug === 'promoter-jobs' || category.slug === 'student-part-time-jobs') {
+    } else if (category.slug === 'waiter-jobs') {
+      workerBody += ` Discover entry-level banquet roles in our guide on [beginner-friendly waiter and catering jobs](/blog/10th-12th-pass-part-time-jobs-chennai).`;
+    } else if (category.slug === 'warehouse-workers' || category.slug === 'warehouse-jobs') {
+      workerBody += ` Check shift requirements and entry criteria in our guide to [picker and packer jobs for freshers](/blog/10th-12th-pass-part-time-jobs-chennai).`;
+    } else if (category.slug === 'driver-jobs') {
+      workerBody += ` Explore vehicle onboarding steps in our guide on [driver roles and licence requirements](/blog/10th-12th-pass-part-time-jobs-chennai).`;
+    } else if (category.slug === 'delivery-jobs' || category.slug === 'event-staff' || category.slug === 'retail-promoters' || category.slug === 'promoter-jobs' || category.slug === 'student-part-time-jobs') {
       workerBody += ` Explore active openings in our guide on [catering, delivery and event jobs in Chennai](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar) across Velachery and Anna Nagar.`;
+    }
+  } else if (!city) {
+    if (category.slug === 'waiter-jobs') {
+      workerBody += ` Starting out? Explore our guide to [beginner-friendly waiter and catering jobs](/blog/10th-12th-pass-part-time-jobs-chennai).`;
+    } else if (category.slug === 'driver-jobs') {
+      workerBody += ` Check vehicle requirements and shift expectations in our guide to [driver roles and licence requirements](/blog/10th-12th-pass-part-time-jobs-chennai).`;
+    } else if (category.slug === 'warehouse-workers') {
+      workerBody += ` Learn about entry-level warehouse operations in our guide to [picker and packer jobs for freshers](/blog/10th-12th-pass-part-time-jobs-chennai).`;
     }
   } else if (city?.slug === 'mumbai' || city?.slug === 'pune') {
     if (category.slug === 'event-staff' || category.slug === 'catering-jobs' || category.slug === 'promoter-jobs' || category.slug === 'delivery-jobs' || category.slug === 'warehouse-jobs' || category.slug === 'catering-workers' || category.slug === 'catering-boys' || category.slug === 'waiter-jobs') {
@@ -334,7 +348,7 @@ export function buildCityHubPage(city) {
 
   let workerBody = intro;
   if (city.slug === 'chennai') {
-    workerBody += ` Looking for flexible local shifts? Explore our verified guides on [catering jobs in Tambaram](/blog/daily-wage-jobs-near-me-chennai-ziggers) and [event and festival shifts in Velachery and Anna Nagar](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar).`;
+    workerBody += ` Looking for flexible local shifts? Explore our verified guides on [10th and 12th pass jobs in Chennai](/blog/10th-12th-pass-part-time-jobs-chennai), [catering jobs in Tambaram](/blog/daily-wage-jobs-near-me-chennai-ziggers), and [event and festival shifts in Velachery and Anna Nagar](/blog/catering-delivery-jobs-chennai-festive-season-velachery-anna-nagar).`;
   } else if (city.slug === 'pune') {
     workerBody += ` Planning your shift schedule? Read our comprehensive [Mumbai and Pune part-time work guide](/blog/part-time-jobs-mumbai-pune-event-catering-gig-work) to understand local hubs, pay rates, and verified shift matching.`;
   } else if (city.slug === 'mumbai') {

@@ -394,7 +394,7 @@ export default function Work() {
               First time working on-demand gigs?
             </h3>
             <p style={{ fontSize: '14px', color: 'var(--color-muted)', margin: 0 }}>
-              Learn <a href="/blog/part-time-jobs-mumbai-pune-event-catering-gig-work" style={{ color: 'var(--color-gold)', fontWeight: '600', textDecoration: 'underline' }}>how event and catering gig work operates</a> across shifts, attendance verification, and instant UPI payouts.
+              Learn <a href="/blog/part-time-jobs-mumbai-pune-event-catering-gig-work" style={{ color: 'var(--color-gold)', fontWeight: '600', textDecoration: 'underline' }}>how event and catering gig work operates</a> across shifts, or explore <a href="/blog/10th-12th-pass-part-time-jobs-chennai" style={{ color: 'var(--color-gold)', fontWeight: '600', textDecoration: 'underline' }}>current fresher and part-time jobs</a> with same-day UPI pay.
             </p>
           </div>
           <a href="/blog" style={{ fontSize: '14px', fontWeight: '700', color: 'var(--color-espresso)', textDecoration: 'none' }}>
