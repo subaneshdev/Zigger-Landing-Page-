@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { BLOG_POSTS } from '../../../data/blogPosts';
 import BlogPostClient from './BlogPostClient';
 
@@ -14,6 +15,10 @@ export async function generateMetadata({ params }) {
   if (!post) {
     return {
       title: 'Blog Post Not Found | Ziggers',
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
@@ -45,6 +50,11 @@ export default async function BlogPostRoute({ params }) {
   // Resolve the id promise
   const { id } = await params;
   const post = BLOG_POSTS.find((entry) => entry.id === id);
+
+  if (!post) {
+    notFound();
+  }
+
   const idPromise = Promise.resolve(id);
 
   return (
