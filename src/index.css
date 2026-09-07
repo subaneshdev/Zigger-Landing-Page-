@@ -104,10 +104,11 @@ button {
 
 .site-header-nav {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   align-items: center;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-right: 12px;
 }
 
 .site-header-actions {

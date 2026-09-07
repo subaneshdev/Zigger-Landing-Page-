@@ -146,15 +146,18 @@ export default function Navigation() {
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   style={{
-                    display: 'flex',
+                    display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
                     fontSize: '14px',
                     fontWeight: 600,
                     color: pathname === item.href ? 'var(--color-espresso)' : 'var(--color-muted)',
+                    textDecoration: 'none',
+                    whiteSpace: 'nowrap',
+                    transition: 'color 0.2s ease',
                   }}
                 >
-                  {item.icon}
+                  <span style={{ display: 'flex', alignItems: 'center' }}>{item.icon}</span>
                   <span>{item.name}</span>
                 </a>
               ))}
