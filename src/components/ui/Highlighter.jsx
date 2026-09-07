@@ -16,13 +16,17 @@ export function Highlighter({
   padding = 2,
   multiline = true,
   isView = false,
+  repeat = true,
+  repeatDelay = 2500,
+  pauseDuration = 500,
+  delay = 0,
   style = {},
   className = "",
 }) {
   const elementRef = useRef(null);
 
   const isInView = useInView(elementRef, {
-    once: true,
+    once: false,
     margin: "-10%",
   });
 
@@ -31,40 +35,72 @@ export function Highlighter({
 
   useIsomorphicLayoutEffect(() => {
     const element = elementRef.current;
+    if (!shouldShow || !element) return;
+
     let annotation = null;
     let resizeObserver = null;
+    let isDestroyed = false;
+    let timer1 = null;
+    let timer2 = null;
 
-    if (shouldShow && element) {
-      const annotationConfig = {
-        type: action,
-        color,
-        strokeWidth,
-        animationDuration,
-        iterations,
-        padding,
-        multiline,
-      };
+    const annotationConfig = {
+      type: action,
+      color,
+      strokeWidth,
+      animationDuration,
+      iterations,
+      padding,
+      multiline,
+    };
 
-      const currentAnnotation = annotate(element, annotationConfig);
-      annotation = currentAnnotation;
-      currentAnnotation.show();
+    const currentAnnotation = annotate(element, annotationConfig);
+    annotation = currentAnnotation;
 
-      resizeObserver = new ResizeObserver(() => {
-        try {
-          currentAnnotation.hide();
-          currentAnnotation.show();
-        } catch (e) {
-          // ignore resize errors
-        }
-      });
+    function playCycle() {
+      if (isDestroyed) return;
+      try {
+        currentAnnotation.show();
+      } catch (e) {}
 
-      resizeObserver.observe(element);
-      if (document.body) {
-        resizeObserver.observe(document.body);
+      if (repeat) {
+        timer1 = setTimeout(() => {
+          if (isDestroyed) return;
+          try {
+            currentAnnotation.hide();
+          } catch (e) {}
+
+          timer2 = setTimeout(() => {
+            if (isDestroyed) return;
+            playCycle();
+          }, pauseDuration);
+        }, animationDuration + repeatDelay);
       }
     }
 
+    if (delay > 0) {
+      timer1 = setTimeout(() => {
+        playCycle();
+      }, delay);
+    } else {
+      playCycle();
+    }
+
+    resizeObserver = new ResizeObserver(() => {
+      try {
+        currentAnnotation.hide();
+        currentAnnotation.show();
+      } catch (e) {}
+    });
+
+    resizeObserver.observe(element);
+    if (document.body) {
+      resizeObserver.observe(document.body);
+    }
+
     return () => {
+      isDestroyed = true;
+      if (timer1) clearTimeout(timer1);
+      if (timer2) clearTimeout(timer2);
       try {
         annotation?.remove();
       } catch (e) {}
@@ -81,6 +117,10 @@ export function Highlighter({
     iterations,
     padding,
     multiline,
+    repeat,
+    repeatDelay,
+    pauseDuration,
+    delay,
   ]);
 
   return (

@@ -80,6 +80,10 @@ export default function Hero() {
             strokeWidth={3}
             padding={2}
             animationDuration={800}
+            repeat={true}
+            repeatDelay={2400}
+            pauseDuration={500}
+            delay={0}
           >
             gig jobs &amp; verified staff
           </Highlighter>
@@ -89,6 +93,10 @@ export default function Hero() {
             color="rgba(140, 95, 60, 0.18)"
             padding={6}
             animationDuration={800}
+            repeat={true}
+            repeatDelay={2400}
+            pauseDuration={500}
+            delay={400}
           >
             <span style={{ color: 'var(--color-espresso)', display: 'inline-block' }}>
               Zigger it!
