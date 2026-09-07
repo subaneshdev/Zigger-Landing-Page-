@@ -487,13 +487,14 @@ export default function PrivacyPolicy() {
             <h2>12. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h2>
           </div>
           <p data-custom-class="body_text">
-            If you have questions or comments about this notice, you may email us at <a href="mailto:hello@unfounded.in" data-custom-class="link">hello@unfounded.in</a> or contact us by post at:
+            If you have questions or comments about this notice, you may email us at <a href="mailto:hello@unfounded.in" data-custom-class="link">hello@unfounded.in</a>, call us at <a href="tel:+919499008993" data-custom-class="link">94990 08993</a>, or contact us by post at:
           </p>
           <p data-custom-class="body_text">
             <strong>Ziggers / Unfounded.in</strong><br/>
             No. 1 Shanthinikenthan Colony Extension, Madambakkam<br/>
             Chennai, Tamil Nadu 600126<br/>
-            India
+            India<br/>
+            Mobile: <a href="tel:+919499008993" data-custom-class="link">94990 08993</a>
           </p>
 
           {/* SECTION 13 */}

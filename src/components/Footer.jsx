@@ -122,16 +122,45 @@ export default function Footer() {
 
           {/* Contact us */}
           <div>
-            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginBottom: '20px' }}>Contact us</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px' }}>
-              <a href="mailto:hello@unfounded.in" style={{ color: '#686b78', textDecoration: 'none' }}>Help & Support</a>
+            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginBottom: '16px' }}>Contact us</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
+              <div style={{
+                backgroundColor: 'rgba(61, 43, 31, 0.03)',
+                border: '1px solid rgba(61, 43, 31, 0.08)',
+                borderRadius: '10px',
+                padding: '10px 12px',
+              }}>
+                <div style={{ fontWeight: 700, color: 'var(--color-espresso)', fontSize: '13px', marginBottom: '4px' }}>
+                  Help &amp; Support
+                </div>
+                <div style={{ fontSize: '12px', color: '#686b78', lineHeight: 1.5 }}>
+                  Email:{' '}
+                  <a href="mailto:hello@unfounded.in" style={{ color: 'var(--color-espresso)', fontWeight: 600, textDecoration: 'underline' }}>
+                    hello@unfounded.in
+                  </a>
+                </div>
+                <div style={{ fontSize: '12px', color: '#686b78', lineHeight: 1.5, marginTop: '2px' }}>
+                  Mobile:{' '}
+                  <a href="tel:+919499008993" style={{ color: 'var(--color-espresso)', fontWeight: 600, textDecoration: 'underline' }}>
+                    94990 08993
+                  </a>
+                </div>
+                <div style={{ fontSize: '11px', color: '#888896', lineHeight: 1.4, marginTop: '6px', borderTop: '1px dashed rgba(61, 43, 31, 0.1)', paddingTop: '5px' }}>
+                  <span style={{ fontWeight: 600, color: '#686b78' }}>By Post:</span><br />
+                  Ziggers / Unfounded.in<br />
+                  No. 1 Shanthinikenthan Colony Extension, Madambakkam<br />
+                  Chennai, Tamil Nadu 600126<br />
+                  India
+                </div>
+              </div>
+
               <Link href="/partner" style={{ color: '#686b78', textDecoration: 'none' }}>Become a Community Partner</Link>
               <Link href="/influencer" style={{ color: '#686b78', textDecoration: 'none' }}>Become an Influencer Partner</Link>
               <Link href="/hire" style={{ color: '#686b78', textDecoration: 'none' }}>Ride With Us</Link>
             </div>
 
-            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginTop: '36px', marginBottom: '20px' }}>Legal</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '15px' }}>
+            <h4 style={{ fontSize: '16px', fontWeight: 800, color: '#02060c', marginTop: '28px', marginBottom: '16px' }}>Legal</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '14px' }}>
               <Link href="/terms" style={{ color: '#686b78', textDecoration: 'none' }}>Terms & Conditions</Link>
               <Link href="/privacy" style={{ color: '#686b78', textDecoration: 'none' }}>Cookie Policy</Link>
               <Link href="/privacy" style={{ color: '#686b78', textDecoration: 'none' }}>Privacy Policy</Link>

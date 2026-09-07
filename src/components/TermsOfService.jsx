@@ -524,6 +524,9 @@ export default function TermsOfService() {
             <p data-custom-class="body_text" style={{ margin: '8px 0 0', color: 'var(--color-text-muted) !important' }}>
               Email: <a href="mailto:hello@unfounded.in" data-custom-class="link">hello@unfounded.in</a>
             </p>
+            <p data-custom-class="body_text" style={{ margin: '4px 0 0', color: 'var(--color-text-muted) !important' }}>
+              Mobile: <a href="tel:+919499008993" data-custom-class="link">94990 08993</a>
+            </p>
           </div>
 
           <div style={{ marginTop: '40px', borderTop: '1px solid rgba(41,33,27,0.1)', paddingTop: '20px', textAlign: 'center' }}>
