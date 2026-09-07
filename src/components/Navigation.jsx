@@ -114,27 +114,29 @@ export default function Navigation() {
               onClick={(e) => {
                 e.preventDefault();
                 router.push('/');
-                window.scrollTo(0, 0);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', flexShrink: 0 }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                textDecoration: 'none',
+                flexShrink: 0,
+                transition: 'opacity 0.2s ease, transform 0.2s ease',
+              }}
+              aria-label="Ziggers - Return to homepage"
+              className="site-logo-link"
             >
-              <div
+              <img
+                src="/assets/ziggers-hero-logo.png"
+                alt="Ziggers"
+                className="site-logo-img"
                 style={{
-                  width: '28px',
-                  height: '28px',
-                  backgroundColor: 'var(--color-espresso)',
-                  borderRadius: '6px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#fff',
-                  fontWeight: 700,
-                  fontSize: '13px',
+                  height: '46px',
+                  width: 'auto',
+                  display: 'block',
+                  objectFit: 'contain',
                 }}
-              >
-                Z
-              </div>
-              <span style={{ fontWeight: 800, fontSize: '15px', color: 'var(--color-espresso)' }}>Ziggers</span>
+              />
             </Link>
 
             <nav className="hidden md-flex site-header-nav" aria-label="Main navigation">
@@ -276,7 +278,14 @@ export default function Navigation() {
       <PartnerAuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
 
       <style>{`
+        .site-logo-link:hover {
+          opacity: 0.92;
+          transform: translateY(-1px);
+        }
         @media (max-width: 768px) {
+          .site-logo-img {
+            height: 38px !important;
+          }
           .hidden.md-flex { display: none !important; }
         }
         @media (min-width: 769px) {
