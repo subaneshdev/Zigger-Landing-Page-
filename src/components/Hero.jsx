@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Search, MapPin, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { Search, MapPin } from 'lucide-react';
 
 export default function Hero() {
   const router = useRouter();
@@ -198,119 +199,112 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* 3 Premium Service Cards (Centered) */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '20px',
-        }} className="cards-grid">
-          
-          <div 
-            onClick={() => router.push('/work')}
-            style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '16px',
-              padding: '20px',
-              textAlign: 'left',
-              color: 'var(--color-espresso)',
-              cursor: 'pointer',
-              boxShadow: 'var(--shadow-soft)',
-              transition: 'transform 0.2s',
-              border: '1px solid rgba(61, 43, 31, 0.04)'
-            }}
-            className="hover-card"
-          >
-            <h3 style={{ fontSize: '15px', fontWeight: 800, marginBottom: '6px', color: 'var(--color-espresso)', letterSpacing: '0.5px' }}>FIND GIG JOBS</h3>
-            <p style={{ fontSize: '12px', color: 'var(--color-muted)', marginBottom: '14px', lineHeight: 1.4 }}>
-              Flexible shifts, catering gigs, driver jobs & same-day UPI
-            </p>
-            <div style={{
-              width: '28px',
-              height: '28px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--color-gold)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#ffffff'
-            }}>
-              <ArrowRight size={14} />
-            </div>
-          </div>
+        {/* Dual Choice Template: Worker vs Hire Cards with OR Divider */}
+        <div className="dual-choice-section">
+          <div className="dual-choice-grid">
+            {/* Left Card: 3rd Image (Looking for gig work?) */}
+            <Link
+              href="/work"
+              className="dual-card"
+              aria-label="Looking for gig work? Find flexible shifts near you and get paid same-day."
+            >
+              <img
+                src="/assets/card-gig-work.jpg"
+                alt="Looking for gig work? Find flexible shifts near you and get paid same-day."
+                className="dual-card-img"
+                loading="eager"
+              />
+            </Link>
 
-          <div 
-            onClick={() => router.push('/hire')}
-            style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '16px',
-              padding: '20px',
-              textAlign: 'left',
-              color: 'var(--color-espresso)',
-              cursor: 'pointer',
-              boxShadow: 'var(--shadow-soft)',
-              transition: 'transform 0.2s',
-              border: '1px solid rgba(61, 43, 31, 0.04)'
-            }}
-            className="hover-card"
-          >
-            <h3 style={{ fontSize: '15px', fontWeight: 800, marginBottom: '6px', color: 'var(--color-espresso)', letterSpacing: '0.5px' }}>HIRE GIG STAFF</h3>
-            <p style={{ fontSize: '12px', color: 'var(--color-muted)', marginBottom: '14px', lineHeight: 1.4 }}>
-              Post requirements & match verified workers in 15 mins
-            </p>
-            <div style={{
-              width: '28px',
-              height: '28px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--color-gold)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#ffffff'
-            }}>
-              <ArrowRight size={14} />
+            {/* Central "OR" Divider Badge */}
+            <div className="dual-or-badge" aria-hidden="true">
+              <span>OR</span>
             </div>
-          </div>
 
-          <div 
-            onClick={() => router.push('/work')}
-            style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '16px',
-              padding: '20px',
-              textAlign: 'left',
-              color: 'var(--color-espresso)',
-              cursor: 'pointer',
-              boxShadow: 'var(--shadow-soft)',
-              transition: 'transform 0.2s',
-              border: '1px solid rgba(61, 43, 31, 0.04)'
-            }}
-            className="hover-card"
-          >
-            <h3 style={{ fontSize: '15px', fontWeight: 800, marginBottom: '6px', color: 'var(--color-espresso)', letterSpacing: '0.5px' }}>DAILY WAGES</h3>
-            <p style={{ fontSize: '12px', color: 'var(--color-muted)', marginBottom: '14px', lineHeight: 1.4 }}>
-              Escrow secure deposits, instant withdrawals & ratings
-            </p>
-            <div style={{
-              width: '28px',
-              height: '28px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--color-gold)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#ffffff'
-            }}>
-              <ArrowRight size={14} />
-            </div>
+            {/* Right Card: 4th Image (Need temporary staff?) */}
+            <Link
+              href="/hire"
+              className="dual-card"
+              aria-label="Need temporary staff? Hire verified workers in 15 mins for your business needs."
+            >
+              <img
+                src="/assets/card-hire-staff.jpg"
+                alt="Need temporary staff? Hire verified workers in 15 mins for your business needs."
+                className="dual-card-img"
+                loading="eager"
+              />
+            </Link>
           </div>
-
         </div>
 
       </div>
 
       <style>{`
-        .hover-card:hover {
-          transform: translateY(-4px);
+        .dual-choice-section {
+          width: 100%;
+          max-width: 860px;
+          margin: 0 auto;
+          position: relative;
+        }
+        .dual-choice-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 36px;
+          position: relative;
+          align-items: stretch;
+        }
+        .dual-card {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #ffffff;
+          border: 2px dashed #DFC8A5;
+          border-radius: 24px;
+          padding: 16px;
+          text-decoration: none;
+          box-shadow: 0 4px 20px rgba(61, 43, 31, 0.05);
+          transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+        }
+        .dual-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 16px 36px rgba(61, 43, 31, 0.12);
+          border-color: var(--color-gold);
+        }
+        .dual-card:active {
+          transform: scale(0.98);
+        }
+        .dual-card-img {
+          width: 100%;
+          max-width: 360px;
+          height: auto;
+          display: block;
+          border-radius: 14px;
+          object-fit: contain;
+        }
+        .dual-or-badge {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 10;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background-color: #ffffff;
+          border: 2px dashed #DFC8A5;
+          box-shadow: 0 4px 14px rgba(61, 43, 31, 0.12);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 13px;
+          font-weight: 800;
+          letter-spacing: 0.5px;
+          color: var(--color-espresso);
+          pointer-events: none;
+          user-select: none;
         }
         @media (max-width: 768px) {
           .search-bar-form-premium {
@@ -345,9 +339,30 @@ export default function Hero() {
             font-size: 15px !important;
             justify-content: center;
           }
-          .cards-grid {
-            grid-template-columns: 1fr !important;
+          .dual-choice-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 16px;
+            max-width: 380px;
+            margin: 0 auto;
+          }
+          .dual-card {
+            width: 100%;
+            padding: 12px;
+            border-radius: 20px;
+          }
+          .dual-card-img {
+            max-width: 100%;
+          }
+          .dual-or-badge {
+            position: static;
+            transform: none;
+            margin: 0;
+            width: 40px;
+            height: 40px;
+            font-size: 12px;
+            box-shadow: 0 2px 10px rgba(61, 43, 31, 0.10);
           }
         }
       `}</style>
