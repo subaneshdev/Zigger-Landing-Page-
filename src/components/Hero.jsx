@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Search, MapPin } from 'lucide-react';
+import { Highlighter } from './ui/Highlighter';
 
 export default function Hero() {
   const router = useRouter();
@@ -64,7 +65,7 @@ export default function Hero() {
           style={{
             fontSize: 'clamp(32px, 5vw, 48px)',
             fontWeight: 900,
-            lineHeight: 1.15,
+            lineHeight: 1.25,
             marginBottom: '20px',
             color: 'var(--color-espresso)',
             letterSpacing: '-0.03em',
@@ -72,10 +73,27 @@ export default function Hero() {
             textAlign: 'center'
           }}
         >
-          Find gig jobs &amp; verified staff. Discover local shifts.{' '}
-          <span style={{ color: 'var(--color-gold)', display: 'inline-block' }}>
-            Zigger it!
-          </span>
+          Find{' '}
+          <Highlighter
+            action="underline"
+            color="#3D2B1F"
+            strokeWidth={3}
+            padding={2}
+            animationDuration={800}
+          >
+            gig jobs &amp; verified staff
+          </Highlighter>
+          . Discover local shifts.{' '}
+          <Highlighter
+            action="highlight"
+            color="rgba(140, 95, 60, 0.18)"
+            padding={6}
+            animationDuration={800}
+          >
+            <span style={{ color: 'var(--color-espresso)', display: 'inline-block' }}>
+              Zigger it!
+            </span>
+          </Highlighter>
         </h1>
 
         <p style={{ fontSize: '16px', color: 'var(--color-muted)', marginBottom: '36px', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto 36px' }}>
