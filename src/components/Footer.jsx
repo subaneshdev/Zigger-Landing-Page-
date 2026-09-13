@@ -58,6 +58,8 @@ export default function Footer() {
   ];
 
   const popularCategories = [
+    { name: 'Gig Jobs', href: '/gig-jobs' },
+    { name: 'Gig Jobs App', href: '/gig-jobs-app' },
     { name: 'Catering Jobs', href: '/catering-jobs' },
     { name: 'Waiter Jobs', href: '/waiter-jobs' },
     { name: 'Driver Jobs', href: '/driver-jobs' },
@@ -65,6 +67,7 @@ export default function Footer() {
     { name: 'Delivery Jobs', href: '/delivery-jobs' },
     { name: 'Warehouse Jobs', href: '/warehouse-workers' },
   ];
+
 
   return (
     <footer style={{ backgroundColor: '#f0f0f5', color: '#02060c', paddingTop: '64px', paddingBottom: '48px', fontFamily: 'var(--font-body)' }}>

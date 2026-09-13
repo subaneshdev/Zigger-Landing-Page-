@@ -10,12 +10,23 @@ export const SITE_URL = 'https://www.ziggers.in';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export const SITE_DESCRIPTION =
-  "Ziggers is India's on-demand gig marketplace for hiring catering staff, event workers, delivery partners, warehouse workers, hospitality staff, and finding part-time, temporary, flexible, and daily wage jobs across India.";
+  "Ziggers is India's #1 gig jobs app — find gig jobs near you or hire verified gig workers instantly. Browse catering jobs, delivery jobs, event staff, warehouse workers, and daily wage shifts across India with same-day UPI payouts.";
 
 export const SITE_TITLE =
-  'Ziggers | Hire Temporary Staff & Find Part-time Jobs in India';
+  'Ziggers | Gig Jobs App — Find Gig Jobs & Hire Temporary Staff in India';
 
 export const META_KEYWORDS = [
+  // Head terms — primary ranking targets
+  'Gig Jobs',
+  'Gig Jobs App',
+  'Gig Jobs Near Me',
+  'Gig Jobs India',
+  'Gig Worker App India',
+  'Gig Economy Jobs',
+  'Find Gig Jobs',
+  'Gig Jobs Platform',
+  'Gig Work India',
+  // Hiring intent
   'Hire Catering Staff',
   'Catering Workers',
   'Catering Helpers',
@@ -34,6 +45,7 @@ export const META_KEYWORDS = [
   'Brand Promoters',
   'Hospitality Staff',
   'Temporary Workers',
+  // Job-seeker intent
   'Part-time Jobs',
   'Daily Wage Jobs',
   'Weekend Jobs',
@@ -54,6 +66,7 @@ export const META_KEYWORDS = [
   'Security Jobs',
   'Promoter Jobs',
   'Helper Jobs',
+  // City combos
   'Catering Jobs in Chennai',
   'Part-time Jobs in Bangalore',
   'Event Staff in Hyderabad',
@@ -61,6 +74,7 @@ export const META_KEYWORDS = [
   'Temporary Workers in Coimbatore',
   'Delivery Jobs in Mumbai',
   'Student Jobs in Tamil Nadu',
+  // Brand + competitor
   'Hire Catering Staff Near Me',
   'Need Waiters for Wedding',
   'Last-minute Event Staff',
@@ -86,19 +100,29 @@ export const PAGE_SEO = {
     description: SITE_DESCRIPTION,
   },
   work: {
-    title: 'Part-time Jobs Near Me | Daily Wage, Weekend & Student Jobs | Ziggers',
+    title: 'Gig Jobs Near Me | Part-time, Daily Wage & Weekend Jobs | Ziggers',
     description:
-      'Find part-time jobs, student jobs, weekend jobs, daily wage jobs, shift jobs, and temporary jobs near you. Catering jobs, waiter jobs, delivery jobs, warehouse work, and more with same-day pay.',
+      'Find gig jobs, part-time jobs, student jobs, weekend jobs, daily wage jobs, and temporary jobs near you. Catering jobs, waiter jobs, delivery jobs, warehouse work — apply and get paid same-day via UPI.',
   },
   hire: {
-    title: 'Hire Temporary Workers & Staff On Demand | Catering, Events, Delivery | Ziggers',
+    title: 'Hire Gig Workers & Temporary Staff On Demand | Catering, Events, Delivery | Ziggers',
     description:
-      'Need catering staff, waiters, delivery boys, warehouse helpers, or event volunteers? Hire verified temporary workers in minutes — last-minute staffing with secure payments.',
+      'Need to hire gig workers fast? Find catering staff, waiters, delivery boys, warehouse helpers, or event volunteers. Hire verified gig workers in minutes — last-minute staffing with secure payments.',
+  },
+  gigJobs: {
+    title: 'Gig Jobs in India | Find Gig Jobs Near Me | Ziggers',
+    description:
+      'Find gig jobs near you in India. Browse catering gig jobs, delivery gig jobs, event gig jobs, warehouse gig jobs, and daily wage shifts. Apply instantly, get paid same-day via UPI on Ziggers — India’s #1 gig jobs platform.',
+  },
+  gigJobsApp: {
+    title: 'Gig Jobs App India | Download Ziggers — Find Gig Work & Hire Gig Staff',
+    description:
+      'Download Ziggers — India’s #1 gig jobs app. Find gig jobs near you or hire verified gig workers instantly. KYC-verified staff, 15-min matching, same-day UPI payouts. Available on Android & iOS.',
   },
   blog: {
-    title: 'Gig Jobs & Staffing Insights | Ziggers Blog',
+    title: 'Gig Jobs Guide & Staffing Insights | Ziggers Blog',
     description:
-      'Guides on event staffing, temporary staffing, blue collar hiring, and flexible jobs in Chennai and across India — from the workforce marketplace built for on-demand staffing.',
+      'Guides on gig jobs, event staffing, temporary staffing, blue collar hiring, and flexible jobs in Chennai and across India — from India’s #1 gig jobs marketplace.',
   },
   actingDrivers: {
     title: 'Driver Jobs in Chennai | Hire Gig Workers | Ziggers',
@@ -116,14 +140,14 @@ export const PAGE_SEO = {
       'Hire promotional staff for mall activations and event hiring in Chennai. Find verified gig workers for brand activations with live workforce management on Ziggers.',
   },
   privacy: {
-    title: 'Privacy Policy | Ziggers Gig Marketplace',
+    title: 'Privacy Policy | Ziggers Gig Jobs App',
     description:
-      'How Ziggers protects gig workers and employers on our temporary staffing platform and workforce marketplace in India.',
+      'How Ziggers protects gig workers and employers on our gig jobs platform and workforce marketplace in India.',
   },
   terms: {
-    title: 'Terms of Service | Ziggers Staffing App',
+    title: 'Terms of Service | Ziggers Gig Jobs App',
     description:
-      'Legal terms for booking temporary staff, gig jobs, and on-demand staffing through the Ziggers hiring marketplace.',
+      'Legal terms for booking temporary staff, gig jobs, and on-demand staffing through the Ziggers gig jobs app.',
   },
   partner: {
     title: 'Official Manpower Partner for Sports Events, Brands, & Governments | Ziggers',
@@ -140,6 +164,8 @@ export const PAGE_SEO = {
 /** Static routes included in sitemap.xml (blog posts added separately at build time) */
 export const SITEMAP_ROUTES = [
   { path: '/', pageKey: 'home', changefreq: 'daily', priority: '1.0' },
+  { path: '/gig-jobs', pageKey: 'gigJobs', changefreq: 'weekly', priority: '0.95' },
+  { path: '/gig-jobs-app', pageKey: 'gigJobsApp', changefreq: 'weekly', priority: '0.95' },
   { path: '/work', pageKey: 'work', changefreq: 'daily', priority: '0.9' },
   { path: '/hire', pageKey: 'hire', changefreq: 'daily', priority: '0.9' },
   { path: '/partner', pageKey: 'partner', changefreq: 'weekly', priority: '0.8' },

@@ -1,5 +1,330 @@
 export const BLOG_POSTS = [
   {
+    id: 'what-are-gig-jobs-complete-guide-india-2026',
+    title: 'What Are Gig Jobs? A Complete Guide for Workers in India (2026)',
+    seoTitle: 'What Are Gig Jobs? Complete Guide for Workers in India 2026 | Ziggers',
+    excerpt: 'Learn what gig jobs are, how they work in India, how much they pay, and how to find gig jobs near you using the Ziggers gig jobs app.',
+    seoDescription: 'A complete guide to gig jobs in India 2026: what are gig jobs, types of gig jobs, gig job pay rates, how to find gig jobs near me, and the best gig jobs app in India.',
+    category: 'Gig Jobs Guide',
+    date: 'September 12, 2026',
+    readTime: '8 min read',
+    author: 'Vijayrajkumar',
+    authorRole: 'Content Lead, Ziggers',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'If you have searched for **"what are gig jobs"**, **"gig jobs near me"**, or **"how to find gig jobs in India"**, this guide is for you. Gig jobs are one of the fastest-growing work categories in India in 2026 — with millions of workers relying on gig work for flexible income, same-day pay, and full control over their schedules.',
+      },
+      {
+        type: 'callout',
+        badge: 'FIND GIG JOBS NOW',
+        title: 'Looking for Gig Jobs Near You?',
+        text: 'Browse verified gig jobs in your city on Ziggers. Catering gig jobs, delivery gig jobs, event gig jobs, driver gig jobs, and more — with same-day UPI payouts.\n\n👉 [**Browse Gig Jobs on Ziggers →**](/gig-jobs)',
+      },
+      {
+        type: 'heading',
+        text: 'What Are Gig Jobs?',
+      },
+      {
+        type: 'paragraph',
+        text: '**Gig jobs** are short-term, flexible work assignments where a worker is paid per task, per shift, or per project — rather than receiving a fixed monthly salary. In a gig job, you work when you want, accept the shifts you choose, and get paid directly after completing the work.',
+      },
+      {
+        type: 'paragraph',
+        text: 'The word "gig" comes from the music industry, where musicians played one-off "gigs" (performances) and got paid per show. Today, gig jobs in India cover everything from a catering shift at a wedding to a one-day delivery run for an e-commerce company to an event volunteer role at a brand activation.',
+      },
+      {
+        type: 'subheading',
+        text: 'Gig Jobs vs Regular Jobs: Key Differences',
+      },
+      {
+        type: 'list',
+        items: [
+          '**Payment:** Gig jobs pay per shift or task (daily, weekly). Regular jobs pay monthly salary.',
+          '**Flexibility:** Gig jobs let you choose your own schedule. Regular jobs have fixed hours.',
+          '**Contract:** Gig jobs are short-term or one-off. Regular jobs involve long-term employment contracts.',
+          '**Benefits:** Gig jobs typically have no PF, ESI, or fixed benefits. Regular jobs include these.',
+          '**Entry barrier:** Most gig jobs require no experience or degree — just a smartphone and valid ID.',
+        ],
+      },
+      {
+        type: 'heading',
+        text: 'Types of Gig Jobs in India',
+      },
+      {
+        type: 'paragraph',
+        text: 'India has one of the world\'s largest and fastest-growing gig economies. Here are the most popular types of gig jobs available in 2026:',
+      },
+      {
+        type: 'list',
+        items: [
+          '**Catering Gig Jobs:** Banquet helpers, kitchen assistants, waiters, and servers at weddings, corporate events, and hotels. Pay: ₹600–₹1,200 per shift. [Find catering gig jobs →](/catering-jobs)',
+          '**Delivery Gig Jobs:** Local delivery, last-mile e-commerce delivery, and food delivery runs. Pay: ₹700–₹1,500 per day. [Find delivery gig jobs →](/delivery-jobs)',
+          '**Event Gig Jobs:** Event volunteers, ushers, exhibition staff, and setup/teardown crew for conferences, expos, and brand activations. Pay: ₹800–₹2,500 per shift. [Find event gig jobs →](/event-staff)',
+          '**Driver Gig Jobs (Acting Drivers):** One-day or half-day driving assignments for households, corporate offices, and logistics. Pay: ₹500–₹1,500 per shift. [Find driver gig jobs →](/driver-jobs)',
+          '**Warehouse Gig Jobs:** Picking, packing, loading, and inventory counting shifts at warehouses and logistics hubs. Pay: ₹600–₹1,200 per shift. [Find warehouse gig jobs →](/warehouse-workers)',
+          '**Promoter Gig Jobs:** Brand promoter, leaflet distributor, and retail sales promoter roles at malls, exhibitions, and roadshows. Pay: ₹700–₹1,200 per shift. [Find promoter gig jobs →](/retail-promoters)',
+          '**Security Gig Jobs:** Event security guards, night-shift watchmen, and temporary security staff. Pay: ₹600–₹1,000 per shift. [Find security gig jobs →](/security-guards)',
+          '**Hotel & Hospitality Gig Jobs:** Banquet staff, housekeeping helpers, and front-desk support at hotels and restaurants. Pay: ₹600–₹1,500 per shift. [Find hotel gig jobs →](/hotel-jobs)',
+        ],
+      },
+      {
+        type: 'heading',
+        text: 'How Much Do Gig Jobs Pay in India?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Gig job pay in India varies by role, city, and shift duration. Here is a summary of typical gig job pay rates in 2026:',
+      },
+      {
+        type: 'list',
+        items: [
+          '**Catering gig jobs:** ₹600–₹1,200 per 6–8 hour shift',
+          '**Delivery gig jobs:** ₹700–₹1,500 per day (with own vehicle)',
+          '**Event staff gig jobs:** ₹800–₹2,500 per shift',
+          '**Driver gig jobs:** ₹500–₹1,500 per half/full day',
+          '**Warehouse gig jobs:** ₹600–₹1,200 per 8-hour shift',
+          '**Promoter gig jobs:** ₹700–₹1,200 per 6–8 hour shift',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'On **Ziggers**, all gig workers receive their payment via UPI on the same day after completing a shift. No waiting for weekly or monthly payrolls.',
+      },
+      {
+        type: 'heading',
+        text: 'How to Find Gig Jobs Near Me in India',
+      },
+      {
+        type: 'paragraph',
+        text: 'Finding gig jobs in India is now easier than ever with dedicated [gig jobs apps](/gig-jobs-app). Here is how to find your first gig job on Ziggers:',
+      },
+      {
+        type: 'list',
+        items: [
+          '**Step 1:** Download the [Ziggers gig jobs app](/gig-jobs-app) on Android (free)',
+          '**Step 2:** Register with your mobile number and complete KYC in 5 minutes',
+          '**Step 3:** Browse open [gig jobs near you](/gig-jobs) filtered by city, role, and date',
+          '**Step 4:** Apply to a gig job with one tap — no resume or cover letter needed',
+          '**Step 5:** Attend the shift, complete the work, get paid same-day via UPI',
+        ],
+      },
+      {
+        type: 'heading',
+        text: 'Best Gig Jobs App in India 2026',
+      },
+      {
+        type: 'paragraph',
+        text: '**Ziggers** is India\'s leading gig jobs app with thousands of verified gig job listings across catering, delivery, events, driving, and warehouse categories. Key features of the Ziggers gig jobs app:',
+      },
+      {
+        type: 'list',
+        items: [
+          '**Instant gig job discovery:** Browse hundreds of gig jobs near you in real time',
+          '**KYC-verified gig workers:** Every worker on the platform completes identity verification',
+          '**15-minute matching:** Get matched with a gig job within 15 minutes of applying',
+          '**Same-day UPI payouts:** Get paid the same day after completing a gig shift',
+          '**Live GPS tracking:** Employers track worker check-ins and check-outs via the app',
+          '**Free to use for workers:** Zero registration or subscription fees',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Download the [Ziggers gig jobs app](/gig-jobs-app) and find your first gig job today. Available on Android. iOS coming soon.',
+      },
+      {
+        type: 'heading',
+        text: 'Who Can Do Gig Jobs in India?',
+      },
+      {
+        type: 'paragraph',
+        text: 'Gig jobs in India are open to a wide range of workers with no specific educational qualification required for most roles:',
+      },
+      {
+        type: 'list',
+        items: [
+          '**Students:** College and school students (10th/12th pass) looking for weekend and evening gig jobs',
+          '**Homemakers:** Women and men seeking flexible gig work during free hours',
+          '**Freshers:** Jobseekers with no prior experience looking to earn while job hunting',
+          '**Experienced workers:** Blue-collar workers wanting to supplement their income with extra gig shifts',
+          '**Retirees:** People over 45 wanting flexible part-time income through gig jobs',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Browse [gig jobs by city](/gig-jobs): [Chennai](/jobs-in-chennai) · [Bangalore](/jobs-in-bangalore) · [Mumbai](/jobs-in-mumbai) · [Hyderabad](/jobs-in-hyderabad) · [Delhi](/jobs-in-delhi) · [Pune](/jobs-in-pune)',
+      },
+    ],
+    schema: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Article',
+          headline: 'What Are Gig Jobs? A Complete Guide for Workers in India (2026)',
+          description: 'A complete guide to gig jobs in India 2026: what are gig jobs, types of gig jobs, gig job pay rates, how to find gig jobs near me, and the best gig jobs app in India.',
+          author: { '@type': 'Person', name: 'Vijayrajkumar' },
+          datePublished: '2026-09-12',
+          dateModified: '2026-09-12',
+          publisher: { '@type': 'Organization', name: 'Ziggers', url: 'https://www.ziggers.in' },
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'What are gig jobs?', acceptedAnswer: { '@type': 'Answer', text: 'Gig jobs are short-term, flexible work assignments where workers are paid per task or per shift, rather than a fixed monthly salary. They include catering shifts, delivery runs, event staffing, driving gigs, and warehouse packing jobs.' } },
+            { '@type': 'Question', name: 'How much do gig jobs pay in India?', acceptedAnswer: { '@type': 'Answer', text: 'Gig job pay in India ranges from ₹500 to ₹2,500 per shift depending on the role. Catering gig jobs pay ₹600–₹1,200 per shift, delivery gig jobs pay ₹700–₹1,500 per day, and event gig jobs pay ₹800–₹2,500 per shift.' } },
+            { '@type': 'Question', name: 'How do I find gig jobs near me in India?', acceptedAnswer: { '@type': 'Answer', text: 'Download the Ziggers gig jobs app on Android, complete KYC verification, browse open gig jobs in your city, and apply with one tap. Most workers get matched within 15 minutes.' } },
+            { '@type': 'Question', name: 'What is the best gig jobs app in India?', acceptedAnswer: { '@type': 'Answer', text: 'Ziggers is India\'s #1 gig jobs app with thousands of verified gig job listings, instant matching, KYC-verified workers, and same-day UPI payouts.' } },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: 'best-gig-jobs-app-india-2026-ziggers',
+    title: 'Best Gig Jobs App in India 2026: Why Ziggers Leads the Gig Economy',
+    seoTitle: 'Best Gig Jobs App India 2026: Ziggers vs Others | Gig Worker App Review',
+    excerpt: 'Looking for the best gig jobs app in India? Here is why Ziggers is the #1 gig jobs app for workers and employers — features, pay, cities, and what makes it different.',
+    seoDescription: 'Review of the best gig jobs apps in India for 2026. Find out why Ziggers is the top gig jobs app with instant matching, KYC verification, and same-day UPI payouts for gig workers.',
+    category: 'Gig Jobs App',
+    date: 'September 10, 2026',
+    readTime: '6 min read',
+    author: 'Vijayrajkumar',
+    authorRole: 'Content Lead, Ziggers',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The rise of India\'s gig economy has created a demand for reliable **gig jobs apps** that connect workers with short-term shifts and help employers fill positions fast. But not all gig jobs apps are equal. In this review, we break down what to look for in a gig jobs app and why **Ziggers** is the best gig jobs app in India for 2026.',
+      },
+      {
+        type: 'callout',
+        badge: 'DOWNLOAD FREE',
+        title: 'Try India\'s #1 Gig Jobs App — Ziggers',
+        text: 'Free to download. Free to register. Browse verified gig jobs near you in catering, delivery, events, and more. Get paid same-day via UPI.\n\n👉 [**Download Ziggers Gig Jobs App →**](/gig-jobs-app)',
+      },
+      {
+        type: 'heading',
+        text: 'What to Look for in a Gig Jobs App',
+      },
+      {
+        type: 'list',
+        items: [
+          '**Gig job variety:** Does the app offer multiple gig job categories or just one type of work?',
+          '**Worker verification:** Are workers KYC-verified before being allowed to take gig shifts?',
+          '**Payment speed:** How fast does the gig jobs app pay workers — same-day, weekly, or monthly?',
+          '**Matching speed:** How quickly does the app match workers to open gig jobs?',
+          '**City coverage:** Which Indian cities does the gig jobs app cover?',
+          '**Employer tools:** Can employers post gig jobs, track workers, and manage payments in the app?',
+        ],
+      },
+      {
+        type: 'heading',
+        text: 'Why Ziggers is India\'s Best Gig Jobs App in 2026',
+      },
+      {
+        type: 'paragraph',
+        text: 'Ziggers was built specifically for the Indian gig economy — designed to solve the real problems gig workers and employers face: slow payments, unverified workers, last-minute no-shows, and opaque pay rates. Here is what makes Ziggers the best gig jobs app in India:',
+      },
+      {
+        type: 'subheading',
+        text: '1. Widest Range of Gig Job Categories',
+      },
+      {
+        type: 'paragraph',
+        text: 'Ziggers offers gig jobs in 8+ categories: [catering gig jobs](/catering-jobs), [delivery gig jobs](/delivery-jobs), [event gig jobs](/event-staff), [driver gig jobs](/driver-jobs), [warehouse gig jobs](/warehouse-workers), [hotel gig jobs](/hotel-jobs), [security gig jobs](/security-guards), and [promoter gig jobs](/retail-promoters). All on one app.',
+      },
+      {
+        type: 'subheading',
+        text: '2. KYC-Verified Gig Workers',
+      },
+      {
+        type: 'paragraph',
+        text: 'Every gig worker on Ziggers completes a digital identity verification (KYC) before they can accept any gig job. Employers know they are hiring verified individuals — reducing no-shows, fraud, and unreliable work.',
+      },
+      {
+        type: 'subheading',
+        text: '3. Same-Day UPI Payouts — Not Weekly or Monthly',
+      },
+      {
+        type: 'paragraph',
+        text: 'Most gig jobs apps in India pay workers weekly or bi-weekly. Ziggers pays gig workers the **same day** after a completed shift via UPI — directly to their bank account. This is the single most important feature for daily-wage gig workers in India.',
+      },
+      {
+        type: 'subheading',
+        text: '4. 15-Minute Matching',
+      },
+      {
+        type: 'paragraph',
+        text: 'Employers who post a gig job on Ziggers get matched with nearby KYC-verified workers within an average of 15 minutes. Workers who apply to gig jobs get confirmation within minutes — not hours.',
+      },
+      {
+        type: 'subheading',
+        text: '5. Escrow Payment Protection',
+      },
+      {
+        type: 'paragraph',
+        text: 'Payments on Ziggers are held in escrow until the gig shift is completed and confirmed. Workers are guaranteed payment for completed work. Employers are protected from paying for no-shows.',
+      },
+      {
+        type: 'subheading',
+        text: '6. Multi-City Coverage',
+      },
+      {
+        type: 'paragraph',
+        text: 'Ziggers has active gig jobs across 8+ Indian cities: [Chennai](/jobs-in-chennai), [Bangalore](/jobs-in-bangalore), [Mumbai](/jobs-in-mumbai), [Hyderabad](/jobs-in-hyderabad), [Delhi](/jobs-in-delhi), [Coimbatore](/jobs-in-coimbatore), [Pune](/jobs-in-pune), and [Madurai](/jobs-in-madurai).',
+      },
+      {
+        type: 'heading',
+        text: 'How to Download the Ziggers Gig Jobs App',
+      },
+      {
+        type: 'list',
+        items: [
+          '**Android:** Download on Google Play — search "Ziggers" or visit ziggers.in',
+          '**iOS:** Web version available at ziggers.in (iOS app coming soon)',
+          '**Web:** Access gig jobs directly at [ziggers.in/gig-jobs](/gig-jobs)',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Download the [Ziggers gig jobs app](/gig-jobs-app) today. Free registration, instant KYC, and same-day pay on your first gig shift.',
+      },
+      {
+        type: 'heading',
+        text: 'Gig Jobs App for Employers',
+      },
+      {
+        type: 'paragraph',
+        text: 'Businesses looking to [hire gig workers](/hire) can use the Ziggers gig jobs app to post requirements, set headcount, specify shift timings and pay rates, and get matched with verified workers in under 15 minutes. The employer dashboard includes live GPS tracking, worker ratings, and secure escrow payments.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Whether you need [catering staff for a wedding](/hire-catering-staff-chennai), [brand promoters for an exhibition](/hire-brand-promoters-chennai), or [acting drivers for corporate duty](/hire-acting-drivers-chennai) — Ziggers is the most reliable gig jobs app for employers in India.',
+      },
+    ],
+    schema: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Article',
+          headline: 'Best Gig Jobs App in India 2026: Why Ziggers Leads the Gig Economy',
+          description: 'Review of the best gig jobs apps in India for 2026. Find out why Ziggers is the top gig jobs app with instant matching, KYC verification, and same-day UPI payouts.',
+          author: { '@type': 'Person', name: 'Vijayrajkumar' },
+          datePublished: '2026-09-10',
+          dateModified: '2026-09-10',
+          publisher: { '@type': 'Organization', name: 'Ziggers', url: 'https://www.ziggers.in' },
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'What is the best gig jobs app in India?', acceptedAnswer: { '@type': 'Answer', text: 'Ziggers is the best gig jobs app in India for 2026, with same-day UPI payouts, KYC-verified workers, 15-minute matching, and gig jobs across 8 cities in categories including catering, delivery, events, and driving.' } },
+            { '@type': 'Question', name: 'Is the gig jobs app free to download?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, the Ziggers gig jobs app is completely free to download and register. Workers can browse gig jobs, apply, and get paid without any fees.' } },
+            { '@type': 'Question', name: 'How fast does the gig jobs app pay workers?', acceptedAnswer: { '@type': 'Answer', text: 'Ziggers pays gig workers on the same day via UPI after a completed shift — the fastest payment timeline among gig jobs apps in India.' } },
+          ],
+        },
+      ],
+    },
+  },
+  {
     id: 'part-time-jobs-mumbai-pune-event-catering-gig-work',
     title: 'Part-Time Jobs in Mumbai and Pune: Event, Catering, Promoter and Flexible Gig Work',
     seoTitle: 'Part-Time Jobs in Mumbai & Pune: Event, Catering and Gig Work | Ziggers',

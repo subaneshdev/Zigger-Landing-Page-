@@ -68,10 +68,12 @@ export default function Home() {
     'Hire Waiters', 'Need Delivery Boys', 'Temporary Workers', 'Warehouse Labour',
     'Construction Helpers', 'Restaurant Staff', 'Housekeeping Services', 'Cleaning Workers',
     'Promoters for Exhibition', 'Security Guards Near Me', 'Event Volunteers',
-    'Giggers Alternative', 'Hire staff like Giggers', 'Sites like Giggers'
+    'Giggers Alternative', 'Hire staff like Giggers', 'Sites like Giggers',
+    'Hire Gig Workers', 'Gig Jobs App'
   ];
 
   const jobIntentKeywords = [
+    'Gig Jobs', 'Gig Jobs App', 'Gig Jobs Near Me', 'Gig Jobs India',
     'Catering Jobs', 'Waiter Jobs', 'Event Jobs', 'Weekend Jobs', 'Student Jobs', 
     'Part-time Jobs', 'Hotel Jobs', 'Restaurant Jobs', 'Kitchen Helper Jobs', 
     'Warehouse Jobs', 'Delivery Jobs', 'Packing Jobs', 'Construction Jobs', 
@@ -468,11 +470,20 @@ export default function Home() {
               {openSection === 1 && (
                 <div style={{ padding: '0 24px 24px', color: '#686b78', fontSize: '14px', lineHeight: 1.8 }}>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 12px' }}>
-                    {jobIntentKeywords.map((keyword, i) => (
-                      <Link key={i} href="/work" style={{ color: '#686b78', textDecoration: 'none' }} className="seo-tag">
-                        {keyword} <span style={{ color: '#d3d3d3', marginLeft: '4px' }}>•</span>
-                      </Link>
-                    ))}
+                    {jobIntentKeywords.map((keyword, i) => {
+                      const isGigJobs = keyword === 'Gig Jobs';
+                      const isGigJobsApp = keyword === 'Gig Jobs App';
+                      const isGigJobsNearMe = keyword === 'Gig Jobs Near Me';
+                      const isGigJobsIndia = keyword === 'Gig Jobs India';
+                      const href = isGigJobs || isGigJobsNearMe || isGigJobsIndia ? '/gig-jobs'
+                        : isGigJobsApp ? '/gig-jobs-app'
+                        : '/work';
+                      return (
+                        <Link key={i} href={href} style={{ color: '#686b78', textDecoration: 'none' }} className="seo-tag">
+                          {keyword} <span style={{ color: '#d3d3d3', marginLeft: '4px' }}>•</span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               )}

@@ -15,9 +15,9 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'Ziggers | Hire Temporary Staff & Find Part-time Jobs in India',
-  description: "Ziggers is India's on-demand gig marketplace for hiring catering staff, event workers, delivery partners, warehouse workers, hospitality staff, and finding part-time, temporary, flexible, and daily wage jobs across India.",
-  keywords: "Zigger, Zigger App, Zigger Jobs, Zigger Chennai, Giggers, Giggers App, Giggers Jobs, Giggers Chennai, Giggers alternative, Ziggers vs Giggers, Hire Catering Staff, Catering Jobs, Waiter Jobs, Part-time Jobs, Daily Wage Jobs, Temporary Workers, Event Staff, Delivery Jobs, Warehouse Jobs, Driver Jobs, Student Jobs, Weekend Jobs, Near Me Jobs, Chennai Jobs, Bangalore Jobs",
+  title: 'Ziggers | Gig Jobs App — Find Gig Jobs & Hire Temporary Staff in India',
+  description: "Ziggers is India's #1 gig jobs app — find gig jobs near you or hire verified gig workers instantly. Browse catering jobs, delivery jobs, event staff, warehouse workers, and daily wage shifts across India with same-day UPI payouts.",
+  keywords: "gig jobs, gig jobs app, gig jobs India, gig jobs near me, gig worker app India, gig economy jobs, find gig jobs, Zigger, Zigger App, Giggers, Giggers App, Giggers Jobs, Giggers alternative, Ziggers vs Giggers, Hire Catering Staff, Catering Jobs, Waiter Jobs, Part-time Jobs, Daily Wage Jobs, Temporary Workers, Event Staff, Delivery Jobs, Warehouse Jobs, Driver Jobs, Student Jobs, Weekend Jobs, Near Me Jobs, Chennai Jobs, Bangalore Jobs",
   metadataBase: new URL('https://www.ziggers.in'),
   alternates: {
     canonical: '/',
@@ -30,21 +30,21 @@ export const metadata = {
   openGraph: {
     type: 'website',
     url: 'https://www.ziggers.in/',
-    title: 'Ziggers | Hire Temporary Staff & Find Part-time Jobs in India',
-    description: "Ziggers is India's on-demand gig marketplace for hiring catering staff, event workers, delivery partners, warehouse workers, hospitality staff, and finding part-time, temporary, flexible, and daily wage jobs across India.",
+    title: 'Ziggers | Gig Jobs App — Find Gig Jobs & Hire Temporary Staff in India',
+    description: "Ziggers is India's #1 gig jobs app — find gig jobs near you or hire verified gig workers instantly. Browse catering jobs, delivery jobs, event staff, warehouse workers, and daily wage shifts across India.",
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Ziggers Gig Staffing Platform',
+        alt: 'Ziggers Gig Jobs App — Find Gig Jobs & Hire Staff in India',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ziggers | Hire Temporary Staff & Find Part-time Jobs in India',
-    description: "Ziggers is India's on-demand gig marketplace for hiring catering staff, event workers, delivery partners, warehouse workers, hospitality staff, and finding part-time, temporary, flexible, and daily wage jobs across India.",
+    title: 'Ziggers | Gig Jobs App — Find Gig Jobs & Hire Temporary Staff in India',
+    description: "Ziggers is India's #1 gig jobs app — find gig jobs near you or hire verified gig workers instantly. Daily wage jobs, catering, delivery, event staff across India.",
     images: ['/twitter-image.jpg'],
   },
   other: {
@@ -58,10 +58,12 @@ export default function RootLayout({ children }) {
       '@context': 'https://schema.org',
       '@type': ['SoftwareApplication', 'MobileApplication'],
       name: 'Ziggers',
-      alternateName: ["Zigger", "Zigger App", "Gigger", "Giggers", "Giggers App", "Gigger App"],
+      alternateName: ["Zigger", "Zigger App", "Gigger", "Giggers", "Giggers App", "Gigger App", "Gig Jobs App"],
       applicationCategory: 'BusinessApplication',
+      applicationSubCategory: 'Gig Jobs',
       operatingSystem: 'Android, iOS, Web',
-      description: "Ziggers is an on-demand gig marketplace that connects businesses with verified temporary staff and empowers workers to find flexible part-time and daily gig shifts across India.",
+      description: "Ziggers is India's #1 gig jobs app — find gig jobs near you or hire verified gig workers instantly. Browse catering jobs, delivery jobs, event staff, and daily wage shifts across India with same-day UPI payouts.",
+      keywords: 'gig jobs, gig jobs app, gig jobs India, gig jobs near me, gig worker app, find gig jobs, daily wage jobs, part-time jobs, temporary jobs, hire gig workers',
       url: 'https://www.ziggers.in/',
       downloadUrl: 'https://play.google.com/store/apps/details?id=com.ziggers.ziggers',
       installUrl: 'https://play.google.com/store/apps/details?id=com.ziggers.ziggers',
@@ -88,7 +90,7 @@ export default function RootLayout({ children }) {
             name: 'Subanesh C',
           },
           datePublished: '2026-08-15',
-          reviewBody: 'Ziggers provides verified gig matching, same-day UPI payouts, and reliable on-demand workforce for businesses in India.',
+          reviewBody: 'Ziggers is the best gig jobs app in India — verified gig matching, same-day UPI payouts, and a reliable on-demand workforce for businesses across India.',
           reviewRating: {
             '@type': 'Rating',
             ratingValue: '5',
