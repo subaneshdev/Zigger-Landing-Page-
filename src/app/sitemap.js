@@ -1,5 +1,6 @@
 import { SITEMAP_ROUTES, SITE_URL } from '../constants/seo';
 import { BLOG_POSTS } from '../data/blogPosts';
+import { SEO_CITIES } from '../constants/seoPages';
 import { supabase } from '../lib/supabase';
 
 const OPEN_TASK_STATUSES = [
@@ -14,6 +15,7 @@ const OPEN_TASK_STATUSES = [
 ];
 
 export default async function sitemap() {
+  // ─── Static core routes ──────────────────────────────────────────────────
   const routes = SITEMAP_ROUTES.map((route) => ({
     url: `${SITE_URL}${route.path === '/' ? '' : route.path}`,
     lastModified: new Date(),
@@ -21,6 +23,7 @@ export default async function sitemap() {
     priority: parseFloat(route.priority) || 0.5,
   }));
 
+  // ─── Blog post routes ─────────────────────────────────────────────────────
   const blogRoutes = BLOG_POSTS.map((post) => {
     const dateModified = post.schema?.['@graph']?.[0]?.dateModified;
     return {
@@ -31,6 +34,16 @@ export default async function sitemap() {
     };
   });
 
+  // ─── City hub pages: /jobs-in-{city} ─────────────────────────────────────
+  // These are separate from intent category pages and need explicit entries
+  const cityHubRoutes = SEO_CITIES.map((city) => ({
+    url: `${SITE_URL}/jobs-in-${city.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }));
+
+  // ─── Dynamic live job listing routes ─────────────────────────────────────
   let taskRoutes = [];
   try {
     const { data: tasks } = await supabase
@@ -50,5 +63,6 @@ export default async function sitemap() {
     console.error('Error generating dynamic job sitemap:', error);
   }
 
-  return [...routes, ...blogRoutes, ...taskRoutes];
+  return [...routes, ...blogRoutes, ...cityHubRoutes, ...taskRoutes];
 }
+
