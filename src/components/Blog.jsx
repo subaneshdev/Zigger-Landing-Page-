@@ -819,7 +819,7 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                               <thead>
                                 <tr style={{ backgroundColor: 'var(--color-surface)', borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
                                   {block.headers.map((h, hIdx) => (
-                                    <th key={hIdx} style={{ padding: '16px 20px', fontWeight: '700', color: 'var(--color-primary)' }}>{h}</th>
+                                    <th key={hIdx} style={{ padding: '16px 20px', fontWeight: '700', color: 'var(--color-primary)' }}>{parseMarkdownLinks(h)}</th>
                                   ))}
                                 </tr>
                               </thead>
@@ -827,7 +827,7 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                                 {block.rows.map((row, rIdx) => (
                                   <tr key={rIdx} style={{ borderBottom: rIdx === block.rows.length - 1 ? 'none' : '1px solid rgba(0,0,0,0.05)', backgroundColor: rIdx % 2 === 0 ? 'white' : 'rgba(0,0,0,0.01)' }}>
                                     {row.map((cell, cIdx) => (
-                                      <td key={cIdx} style={{ padding: '16px 20px', color: cIdx === 0 ? 'var(--color-primary)' : 'var(--color-text-muted)', fontWeight: cIdx === 0 ? '600' : 'normal' }}>{cell}</td>
+                                      <td key={cIdx} style={{ padding: '16px 20px', color: cIdx === 0 ? 'var(--color-primary)' : 'var(--color-text-muted)', fontWeight: cIdx === 0 ? '600' : 'normal' }}>{parseMarkdownLinks(cell)}</td>
                                     ))}
                                   </tr>
                                 ))}
