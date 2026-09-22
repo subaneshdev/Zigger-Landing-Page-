@@ -11,6 +11,7 @@ export const BLOG_POSTS = [
     author: 'Vijayrajkumar',
     authorRole: 'Head of Operations',
     authorImage: '/assets/team/vijayrajkumar.png',
+    authorWebsite: 'https://www.vijayrajkumar.in/',
     authorUrl: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
     color: '#EFF6FF',
     image: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80',
@@ -369,7 +370,11 @@ export const BLOG_POSTS = [
             name: 'Vijayrajkumar',
             jobTitle: 'Head of Operations',
             image: 'https://www.ziggers.in/assets/team/vijayrajkumar.png',
-            url: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
+            url: 'https://www.vijayrajkumar.in/',
+            sameAs: [
+              'https://www.vijayrajkumar.in/',
+              'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/'
+            ],
           },
           publisher: {
             '@type': 'Organization',
@@ -469,6 +474,9 @@ export const BLOG_POSTS = [
     readTime: '8 min read',
     author: 'Vijayrajkumar',
     authorRole: 'Content Lead, Ziggers',
+    authorImage: '/assets/team/vijayrajkumar.png',
+    authorWebsite: 'https://www.vijayrajkumar.in/',
+    authorUrl: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
     content: [
       {
         type: 'paragraph',
@@ -621,7 +629,17 @@ export const BLOG_POSTS = [
           '@type': 'Article',
           headline: 'What Are Gig Jobs? A Complete Guide for Workers in India (2026)',
           description: 'A complete guide to gig jobs in India 2026: what are gig jobs, types of gig jobs, gig job pay rates, how to find gig jobs near me, and the best gig jobs app in India.',
-          author: { '@type': 'Person', name: 'Vijayrajkumar' },
+          author: {
+            '@type': 'Person',
+            name: 'Vijayrajkumar',
+            jobTitle: 'Content Lead',
+            image: 'https://www.ziggers.in/assets/team/vijayrajkumar.png',
+            url: 'https://www.vijayrajkumar.in/',
+            sameAs: [
+              'https://www.vijayrajkumar.in/',
+              'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/'
+            ],
+          },
           datePublished: '2026-09-12',
           dateModified: '2026-09-12',
           publisher: { '@type': 'Organization', name: 'Ziggers', url: 'https://www.ziggers.in' },
@@ -649,6 +667,9 @@ export const BLOG_POSTS = [
     readTime: '6 min read',
     author: 'Vijayrajkumar',
     authorRole: 'Content Lead, Ziggers',
+    authorImage: '/assets/team/vijayrajkumar.png',
+    authorWebsite: 'https://www.vijayrajkumar.in/',
+    authorUrl: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
     content: [
       {
         type: 'paragraph',
@@ -767,7 +788,17 @@ export const BLOG_POSTS = [
           '@type': 'Article',
           headline: 'Best Gig Jobs App in India 2026: Why Ziggers Leads the Gig Economy',
           description: 'Review of the best gig jobs apps in India for 2026. Find out why Ziggers is the top gig jobs app with instant matching, KYC verification, and same-day UPI payouts.',
-          author: { '@type': 'Person', name: 'Vijayrajkumar' },
+          author: {
+            '@type': 'Person',
+            name: 'Vijayrajkumar',
+            jobTitle: 'Content Lead',
+            image: 'https://www.ziggers.in/assets/team/vijayrajkumar.png',
+            url: 'https://www.vijayrajkumar.in/',
+            sameAs: [
+              'https://www.vijayrajkumar.in/',
+              'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/'
+            ],
+          },
           datePublished: '2026-09-10',
           dateModified: '2026-09-10',
           publisher: { '@type': 'Organization', name: 'Ziggers', url: 'https://www.ziggers.in' },
@@ -1026,7 +1057,11 @@ export const BLOG_POSTS = [
             "name": "Vijayrajkumar",
             "jobTitle": "Head of Operations",
             "image": "https://www.ziggers.in/assets/team/vijayrajkumar.png",
-            "url": "https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/"
+            "url": "https://www.vijayrajkumar.in/",
+            "sameAs": [
+              "https://www.vijayrajkumar.in/",
+              "https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/"
+            ]
           },
           "publisher": {
             "@type": "Organization",
@@ -1119,6 +1154,7 @@ export const BLOG_POSTS = [
     author: 'Vijayrajkumar',
     authorRole: 'Head of Operations',
     authorImage: '/assets/team/vijayrajkumar.png',
+    authorWebsite: 'https://www.vijayrajkumar.in/',
     authorUrl: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
     category: 'Gig Economy',
     image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80',
@@ -1423,7 +1459,11 @@ export const BLOG_POSTS = [
             name: 'Vijayrajkumar',
             jobTitle: 'Operations Lead',
             image: 'https://www.ziggers.in/assets/team/vijayrajkumar.png',
-            url: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/'
+            url: 'https://www.vijayrajkumar.in/',
+            sameAs: [
+              'https://www.vijayrajkumar.in/',
+              'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/'
+            ],
           },
           publisher: {
             '@type': 'Organization',
@@ -1524,6 +1564,7 @@ export const BLOG_POSTS = [
     author: 'Vijayrajkumar',
     authorRole: 'Operations Lead',
     authorImage: '/assets/team/vijayrajkumar.png',
+    authorWebsite: 'https://www.vijayrajkumar.in/',
     authorUrl: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
     category: 'Fresher Jobs',
     image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
@@ -1975,7 +2016,11 @@ export const BLOG_POSTS = [
             "name": "Vijayrajkumar",
             "jobTitle": "Operations Lead",
             "image": "https://www.ziggers.in/assets/team/vijayrajkumar.png",
-            "url": "https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/"
+            "url": "https://www.vijayrajkumar.in/",
+            "sameAs": [
+              "https://www.vijayrajkumar.in/",
+              "https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/"
+            ]
           },
           "publisher": {
             "@type": "Organization",
@@ -2045,6 +2090,7 @@ export const BLOG_POSTS = [
     author: 'Vijayrajkumar',
     authorRole: 'Operations Lead',
     authorImage: '/assets/team/vijayrajkumar.png',
+    authorWebsite: 'https://www.vijayrajkumar.in/',
     authorUrl: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
     category: 'Jobs',
     image: 'https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=1200&q=80',

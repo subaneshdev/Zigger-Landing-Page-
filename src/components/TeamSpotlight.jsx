@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Mail, Linkedin } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Mail, Linkedin, Globe } from 'lucide-react';
 
 export const TEAM_MEMBERS = [
   {
@@ -21,6 +21,7 @@ export const TEAM_MEMBERS = [
     shortRole: 'COO',
     image: '/assets/team/vijayrajkumar.png',
     email: 'vijaykumarunfounded@gmail.com',
+    website: 'https://www.vijayrajkumar.in/',
     linkedin: 'https://www.linkedin.com/in/vijayraj-kumar-3042b43a3/',
     bio: 'Spearheading ground operations, partner network growth, and hyper-local workforce fulfillment across metropolitan hubs.'
   },
@@ -288,6 +289,30 @@ export default function TeamSpotlight({ members = TEAM_MEMBERS }) {
                   }}
                 >
                   <Linkedin size={14} color="#fff" /> LinkedIn
+                </a>
+              )}
+              {currentMember.website && (
+                <a
+                  href={currentMember.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`${currentMember.name} Personal Website`}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '7px 15px',
+                    borderRadius: '100px',
+                    fontSize: '12px',
+                    fontWeight: 700,
+                    backgroundColor: 'var(--color-gold)',
+                    color: '#fff',
+                    textDecoration: 'none',
+                    boxShadow: 'var(--shadow-soft)',
+                    transition: 'all 0.2s'
+                  }}
+                >
+                  <Globe size={14} color="#fff" /> Website
                 </a>
               )}
             </div>

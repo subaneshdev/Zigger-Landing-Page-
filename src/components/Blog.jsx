@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Search, Calendar, Clock, User, Share2, Twitter, Linkedin, Link2, Check, ArrowRight, Table } from 'lucide-react';
+import { ArrowLeft, Search, Calendar, Clock, User, Share2, Twitter, Linkedin, Link2, Check, ArrowRight, Table, Globe } from 'lucide-react';
 import { BLOG_POSTS } from '../data/blogPosts';
 
 function FAQItem({ question, answer }) {
@@ -595,10 +595,10 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         <a 
-                          href={currentPost.authorUrl || 'https://www.linkedin.com/in/subanesh/'}
+                          href={currentPost.authorWebsite || currentPost.authorUrl || 'https://www.linkedin.com/in/subanesh/'}
                           target="_blank"
                           rel="noopener noreferrer"
-                          title={`View ${currentPost.author}'s LinkedIn Profile`}
+                          title={`View ${currentPost.author}'s Profile`}
                           style={{ 
                             width: '44px', 
                             height: '44px', 
@@ -628,23 +628,56 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                           )}
                         </a>
                         <div>
-                          <a 
-                            href={currentPost.authorUrl || 'https://www.linkedin.com/in/subanesh/'}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{ 
-                              fontSize: '15px', 
-                              fontWeight: '700', 
-                              color: 'var(--color-primary)',
-                              textDecoration: 'none',
-                              display: 'inline-flex',
-                              alignItems: 'center',
-                              gap: '6px'
-                            }}
-                          >
-                            <span>{currentPost.author}</span>
-                            <Linkedin size={14} style={{ color: '#0A66C2' }} />
-                          </a>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <a 
+                              href={currentPost.authorWebsite || currentPost.authorUrl || 'https://www.linkedin.com/in/subanesh/'}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{ 
+                                fontSize: '15px', 
+                                fontWeight: '700', 
+                                color: 'var(--color-primary)',
+                                textDecoration: 'none',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '6px'
+                              }}
+                            >
+                              <span>{currentPost.author}</span>
+                            </a>
+                            {currentPost.authorWebsite && (
+                              <a
+                                href={currentPost.authorWebsite}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title={`Visit ${currentPost.author}'s Official Website`}
+                                style={{
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  color: 'var(--color-gold)',
+                                  textDecoration: 'none'
+                                }}
+                              >
+                                <Globe size={14} />
+                              </a>
+                            )}
+                            {currentPost.authorUrl && (
+                              <a
+                                href={currentPost.authorUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title={`View ${currentPost.author}'s LinkedIn Profile`}
+                                style={{
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  color: '#0A66C2',
+                                  textDecoration: 'none'
+                                }}
+                              >
+                                <Linkedin size={14} />
+                              </a>
+                            )}
+                          </div>
                           <div>
                             <span style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>{currentPost.authorRole}</span>
                           </div>
@@ -965,9 +998,18 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                           justifyContent: 'center',
                           fontSize: '18px',
                           fontWeight: '800',
-                          flexShrink: 0
+                          flexShrink: 0,
+                          overflow: 'hidden'
                         }}>
-                          {currentPost.author.split(' ').map(n => n[0]).join('')}
+                          {currentPost.authorImage ? (
+                            <img 
+                              src={currentPost.authorImage} 
+                              alt={currentPost.author} 
+                              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} 
+                            />
+                          ) : (
+                            currentPost.author.split(' ').map(n => n[0]).join('')
+                          )}
                         </div>
                         <div>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -980,28 +1022,54 @@ export default function Blog({ activePostId, setActivePostId, onBackToHome }) {
                           </p>
                         </div>
                       </div>
-                      <a
-                        href={currentPost.authorUrl || 'https://www.linkedin.com/in/subanesh/'}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '8px',
-                          backgroundColor: '#0A66C2',
-                          color: 'white',
-                          padding: '10px 18px',
-                          borderRadius: '100px',
-                          fontSize: '13px',
-                          fontWeight: '700',
-                          textDecoration: 'none',
-                          boxShadow: '0 4px 12px rgba(10, 102, 194, 0.25)',
-                          transition: 'all 0.2s ease'
-                        }}
-                      >
-                        <Linkedin size={16} />
-                        Connect on LinkedIn
-                      </a>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                        {currentPost.authorWebsite && (
+                          <a
+                            href={currentPost.authorWebsite}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '8px',
+                              backgroundColor: 'var(--color-primary)',
+                              color: 'white',
+                              padding: '10px 18px',
+                              borderRadius: '100px',
+                              fontSize: '13px',
+                              fontWeight: '700',
+                              textDecoration: 'none',
+                              boxShadow: '0 4px 12px rgba(61, 43, 31, 0.2)',
+                              transition: 'all 0.2s ease'
+                            }}
+                          >
+                            <Globe size={16} />
+                            Visit Website
+                          </a>
+                        )}
+                        <a
+                          href={currentPost.authorUrl || 'https://www.linkedin.com/in/subanesh/'}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            backgroundColor: '#0A66C2',
+                            color: 'white',
+                            padding: '10px 18px',
+                            borderRadius: '100px',
+                            fontSize: '13px',
+                            fontWeight: '700',
+                            textDecoration: 'none',
+                            boxShadow: '0 4px 12px rgba(10, 102, 194, 0.25)',
+                            transition: 'all 0.2s ease'
+                          }}
+                        >
+                          <Linkedin size={16} />
+                          Connect on LinkedIn
+                        </a>
+                      </div>
                     </div>
                   </div>
 
