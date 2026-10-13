@@ -289,11 +289,11 @@ export default function Footer() {
                 style={{ height: '42px', width: 'auto' }} 
               />
             </a>
-            {/* PeerPush badge */}
+            {/* PeerPush review & rating badge */}
             <a href="https://peerpush.com/p/ziggers" target="_blank" rel="nofollow noopener noreferrer" style={{ display: 'inline-block' }}>
               <img 
-                src="https://peerpush.com/p/ziggers/badge.png" 
-                alt="Ziggers on PeerPush" 
+                src="https://peerpush.com/p/ziggers/rating-badge.png" 
+                alt="Ziggers reviews and rating on PeerPush" 
                 style={{ height: '42px', width: 'auto' }} 
               />
             </a>
