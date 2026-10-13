@@ -230,13 +230,14 @@ function generateCoverageMatrix() {
       const existingRelated = EXISTING_URL_MAP[pairKey] || null;
 
       // Status determination:
-      // Chennai is fully active for core services (catering, events, promoters).
+      // Chennai is fully active for core services (catering, events, promoters, pamphlets, delivery, surveys).
       // Coimbatore & Madurai are active for catering, events, and promoters.
-      // Other 13 cities or unconfirmed services (pamphlets, delivery, surveys) are kept as draft_unconfirmed.
+      // Other 13 cities or unconfirmed services are kept as draft_unconfirmed.
       const isCoreActiveCity = ['chennai', 'coimbatore', 'madurai'].includes(location.slug);
       const isCoreActiveService = ['catering', 'events', 'promoters'].includes(service.id);
+      const isChennaiConfirmedExpansion = location.slug === 'chennai' && ['pamphlets', 'delivery', 'surveys'].includes(service.id);
 
-      const isActive = isCoreActiveCity && isCoreActiveService;
+      const isActive = (isCoreActiveCity && isCoreActiveService) || isChennaiConfirmedExpansion;
       const operationalStatus = isActive ? 'published_active' : 'draft_unconfirmed';
       const isIndexable = isActive;
 

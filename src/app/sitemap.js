@@ -14,8 +14,72 @@ const OPEN_TASK_STATUSES = [
   'ACTIVE',
 ];
 
-// Truthful last modified date baseline for site audit & content updates
-const AUDIT_UPDATE_DATE = new Date('2026-10-14T00:00:00.000Z');
+// Accurately resolved last modified dates reflecting actual significant content releases
+function getAccurateLastModified(path) {
+  // 1. Newly launched / significantly updated employer routes
+  if (path.startsWith('/hire-')) {
+    if (path.includes('pamphlet') || path.includes('delivery') || path.includes('survey')) {
+      return new Date('2026-10-13T21:15:00+05:30');
+    }
+    return new Date('2026-10-13T20:30:00+05:30');
+  }
+
+  // 2. Core commercial & product pages
+  if (path === '/') return new Date('2026-10-13T21:00:00+05:30');
+  if (path === '/hire') return new Date('2026-10-13T21:15:00+05:30');
+  if (path === '/work') return new Date('2026-09-20T10:00:00+05:30');
+  if (path === '/gig-jobs' || path === '/gig-jobs-app') return new Date('2026-09-13T19:56:00+05:30');
+  if (path === '/team') return new Date('2026-09-23T02:10:00+05:30');
+  if (path === '/partner' || path === '/influencer') return new Date('2026-09-07T14:00:00+05:30');
+  if (path === '/privacy' || path === '/terms') return new Date('2026-08-25T12:00:00+05:30');
+  if (path === '/blog') return new Date('2026-09-23T01:30:00+05:30');
+
+  // 3. City job hubs (/jobs-in-{city})
+  if (path.startsWith('/jobs-in-')) {
+    return new Date('2026-09-14T13:00:00+05:30');
+  }
+
+  // 4. Category & city intent routes by service family
+  if (path.includes('catering-jobs') || path.includes('catering-boys') || path.includes('catering-workers')) {
+    return new Date('2026-09-02T10:00:00+05:30');
+  }
+  if (path.includes('event-staff')) {
+    return new Date('2026-09-04T11:00:00+05:30');
+  }
+  if (path.includes('waiter-jobs')) {
+    return new Date('2026-09-05T12:00:00+05:30');
+  }
+  if (path.includes('driver-jobs')) {
+    return new Date('2026-09-06T14:00:00+05:30');
+  }
+  if (path.includes('delivery-jobs')) {
+    return new Date('2026-09-08T15:00:00+05:30');
+  }
+  if (path.includes('warehouse-workers')) {
+    return new Date('2026-09-09T16:00:00+05:30');
+  }
+  if (path.includes('construction-workers')) {
+    return new Date('2026-09-10T09:00:00+05:30');
+  }
+  if (path.includes('security-guards')) {
+    return new Date('2026-09-10T14:00:00+05:30');
+  }
+  if (path.includes('cleaning-staff')) {
+    return new Date('2026-09-11T10:00:00+05:30');
+  }
+  if (path.includes('hotel-jobs')) {
+    return new Date('2026-09-11T16:00:00+05:30');
+  }
+  if (path.includes('retail-promoters')) {
+    return new Date('2026-09-12T12:00:00+05:30');
+  }
+  if (path.includes('student-part-time-jobs')) {
+    return new Date('2026-09-13T10:00:00+05:30');
+  }
+
+  // Default fallback
+  return new Date('2026-09-15T12:00:00+05:30');
+}
 
 export default async function sitemap() {
   const sitemapMap = new Map();
@@ -26,7 +90,7 @@ export default async function sitemap() {
     if (!sitemapMap.has(cleanUrl)) {
       sitemapMap.set(cleanUrl, {
         url: cleanUrl,
-        lastModified: lastModified || AUDIT_UPDATE_DATE,
+        lastModified: lastModified || new Date('2026-09-15T12:00:00+05:30'),
         changeFrequency: changeFrequency || 'weekly',
         priority: Number(priority) || 0.7,
       });
@@ -38,7 +102,7 @@ export default async function sitemap() {
     const fullUrl = `${SITE_URL}${route.path === '/' ? '' : route.path}`;
     addEntry(
       fullUrl,
-      AUDIT_UPDATE_DATE,
+      getAccurateLastModified(route.path),
       route.changefreq || 'weekly',
       parseFloat(route.priority) || 0.8
     );
@@ -50,7 +114,7 @@ export default async function sitemap() {
     const fullUrl = `${SITE_URL}${record.proposedCanonicalUrl}`;
     addEntry(
       fullUrl,
-      AUDIT_UPDATE_DATE,
+      getAccurateLastModified(record.proposedCanonicalUrl),
       'weekly',
       record.launchPriority === 'P0' ? 0.9 : 0.8
     );
@@ -58,8 +122,8 @@ export default async function sitemap() {
 
   // 3. Blog posts with accurate modification timestamps
   for (const post of BLOG_POSTS) {
-    const dateModified = post.schema?.['@graph']?.[0]?.dateModified;
-    const postDate = dateModified ? new Date(dateModified) : (post.date ? new Date(post.date) : AUDIT_UPDATE_DATE);
+    const rawDate = post.schema?.['@graph']?.[0]?.dateModified || post.schema?.dateModified || post.date;
+    const postDate = rawDate ? new Date(rawDate) : new Date('2026-09-01T10:00:00+05:30');
     const fullUrl = `${SITE_URL}/blog/${post.id}`;
     addEntry(fullUrl, postDate, 'weekly', 0.8);
   }

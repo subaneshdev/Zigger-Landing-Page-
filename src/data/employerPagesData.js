@@ -539,6 +539,207 @@ export const EMPLOYER_PAGES_DATA = {
       { q: 'Can promoters engage shoppers in native Madurai Tamil?', a: 'Yes. Our local Madurai ambassadors communicate naturally with local shoppers for maximum trust and engagement.' },
     ],
   },
+
+  // Chennai Commercial Gaps Expansion
+  'hire-pamphlet-distributors-chennai': {
+    slug: 'hire-pamphlet-distributors-chennai',
+    serviceName: 'Pamphlet Distributors',
+    locationName: 'Chennai',
+    eyebrow: 'Chennai Leaflet & Flyer Distribution Crew',
+    h1: 'Hire Pamphlet Distributors in Chennai',
+    h1Accent: 'Chennai',
+    title: 'Hire Pamphlet Distributors in Chennai | Flyer & Leaflet Crew | Ziggers',
+    description: 'Hire reliable pamphlet distributors and flyer insertion teams in Chennai. GPS-checked field crews for newspaper inserts, door-to-door, and high-footfall junctions.',
+    heroDescription: 'Distribute marketing brochures, newspaper inserts, and flyers across high-density residential and commercial corridors in Chennai. Verified field personnel with supervisor spot-checks and GPS proof.',
+    workerLink: '/work',
+    workerLinkLabel: 'Apply for Field Distribution Jobs in Chennai',
+    targetAudience: [
+      { title: 'Retail Showrooms & Supermarkets', desc: 'Promote festive sales, grand openings, and discount catalogues in catchment neighborhoods.' },
+      { title: 'Coaching & Educational Institutes', desc: 'Distribute admission flyers at school gates, exam centers, and transit stations.' },
+      { title: 'Clinics & Diagnostic Labs', desc: 'Promote health check packages and neighborhood medical services door-to-door.' },
+      { title: 'Real Estate Developers', desc: 'Distribute project launch brochures at targeted highway junctions and tech park exits.' },
+    ],
+    roles: [
+      {
+        name: 'Newspaper Insertion Runner',
+        badge: 'Early Morning',
+        duties: 'Inserts promotional pamphlets into morning newspapers at regional delivery depots before 6:30 AM.',
+        dressCode: 'Comfortable casual field wear with reflective vest for pre-dawn shifts.',
+      },
+      {
+        name: 'High-Footfall Junction Distributor',
+        badge: 'High Visibility',
+        duties: 'Politely hands out brochures to pedestrians and commuters at busy bus terminals, metro stations, and market corners.',
+        dressCode: 'Branded T-shirt or neat smart-casual attire.',
+      },
+      {
+        name: 'Door-to-Door Residential Crew',
+        badge: 'Neighborhood Focus',
+        duties: 'Delivers leaflets directly to residential gates and apartment postboxes with area map navigation.',
+        dressCode: 'Clean utility casuals and comfortable walking shoes.',
+      },
+    ],
+    leadTime: '24 to 48 hours for route mapping, material collection, and distributor squad allocation.',
+    coverageZones: [
+      'T. Nagar & Panagal Park',
+      'Anna Nagar Roundtana & 2nd Avenue',
+      'Velachery Junction & Railway Station',
+      'Tambaram West & Sanatorium',
+      'Porur Junction & Iyyappanthangal',
+      'OMR Sholinganallur & Navalur',
+      'Chromepet & Pallavaram',
+      'Adyar & Thiruvanmiyur',
+    ],
+    tamilNotes: 'துண்டுப் பிரசுரம் விநியோகம் சென்னை: உங்கள் வணிக துண்டுப் பிரசுரங்கள், செய்தித்தாள் செருகல்கள் மற்றும் மக்கள் கூடும் சந்திப்புகளில் வீடு வீடாக விநியோகிக்க நம்பகமான களப் பணியாளர்கள். நேரடி மேற்பார்வை மற்றும் ஜிபிஎஸ் இருப்பிட சரிபார்ப்பு.',
+    faqs: [
+      {
+        q: 'How do you verify that pamphlets are genuinely distributed and not dumped?',
+        a: 'We implement three layers of accountability: (1) Pre-shift and post-shift bundle counts, (2) Field supervisor spot inspections, and (3) Mandatory timestamped photo and GPS check-ins at assigned street corners.',
+      },
+      {
+        q: 'Can staff distribute pamphlets inside gated residential apartment complexes?',
+        a: 'Yes, where community permissions are obtained, or via coordinated morning door-to-door newspaper delivery insertions across targeted apartment pin codes.',
+      },
+      {
+        q: 'What are typical distribution shift timings?',
+        a: 'Morning shifts run 6:00 AM to 9:00 AM for newspaper inserts and transit commuters. Evening shifts run 4:30 PM to 8:30 PM for shopping streets and tech park exits.',
+      },
+      {
+        q: 'What is the minimum quantity of pamphlets required to book?',
+        a: 'Standard field campaigns start from 1,000 leaflets per zone with 1 to 5+ distributors. Larger campaigns of 10,000 to 50,000+ pieces include an assigned field captain.',
+      },
+    ],
+  },
+
+  'hire-delivery-staff-chennai': {
+    slug: 'hire-delivery-staff-chennai',
+    serviceName: 'Delivery Staff',
+    locationName: 'Chennai',
+    eyebrow: 'On-Demand Delivery Partners & Fleet Backfill',
+    h1: 'Hire Temporary Delivery Staff in Chennai',
+    h1Accent: 'Chennai',
+    title: 'Hire Delivery Staff in Chennai | Temporary Courier & Fleet Riders | Ziggers',
+    description: 'Hire verified temporary delivery staff and two-wheeler dispatch riders in Chennai. Immediate shift backfill for cloud kitchens, retail stores, and e-commerce hubs.',
+    heroDescription: 'Manage peak order spikes, weekend rushes, and rider absenteeism with verified delivery personnel across Chennai. Flexible daily wage and shift-based two-wheeler riders with valid licences.',
+    workerLink: '/delivery-jobs-chennai',
+    workerLinkLabel: 'Apply for Delivery Jobs in Chennai',
+    targetAudience: [
+      { title: 'Cloud Kitchens & Bakeries', desc: 'Fill weekend lunch and dinner rush shortages with reliable local food delivery riders.' },
+      { title: 'Local E-Commerce & Dark Stores', desc: 'Scale delivery fleets during festive sales and seasonal promotions.' },
+      { title: 'Pharmacies & Grocery Chains', desc: 'Ensure quick home deliveries with polite, verified delivery couriers.' },
+      { title: 'B2B Wholesale & Document Dispatch', desc: 'Secure intra-city transit for corporate documents, samples, and trade orders.' },
+    ],
+    roles: [
+      {
+        name: 'Cloud Kitchen Food Runner',
+        badge: 'Food Delivery',
+        duties: 'Picks up packed meals promptly from commercial kitchens and delivers securely to local customer doorsteps.',
+        dressCode: 'Clean casuals, thermal delivery bag, and BIS-standard helmet.',
+      },
+      {
+        name: 'Dark Store & E-Commerce Courier',
+        badge: 'Parcel Specialist',
+        duties: 'Dispatches grouped parcels along optimized delivery routes with OTP customer handover.',
+        dressCode: 'Dark trousers, polo shirt, delivery backpack, and helmet.',
+      },
+      {
+        name: 'B2B Document & Sample Dispatcher',
+        badge: 'Express Transit',
+        duties: 'Transfers signed documents, fabric swatches, or urgent parts between corporate offices and industrial hubs.',
+        dressCode: 'Smart casual driving attire with waterproof document folder.',
+      },
+    ],
+    leadTime: '24 hours notice for scheduled fleet shifts; emergency 2–4 hour top-up for active restaurant hubs.',
+    coverageZones: [
+      'Nungambakkam & Central Chennai',
+      'Anna Nagar & Mogappair',
+      'Velachery & Perungudi',
+      'Guindy & Alandur',
+      'Vadapalani & Ashok Nagar',
+      'Porur & Ramapuram',
+      'OMR IT Corridor & Sholinganallur',
+      'Tambaram & Chromepet',
+    ],
+    tamilNotes: 'டெலிவரி பணியாளர்கள் சென்னை: உணவகங்கள், கிளவுட் கிச்சன்கள், மருந்தகங்கள் மற்றும் உள்ளூர் பார்சல் விநியோகத்திற்கு உரிமம் பெற்ற இருசக்கர வாகன டெலிவரி உதவியாளர்கள்.',
+    faqs: [
+      {
+        q: 'Do delivery riders possess their own two-wheelers and valid licences?',
+        a: 'Yes. Every delivery partner undergoes verification of their Indian Driving Licence (DL), vehicle RC, and active insurance before taking assignments.',
+      },
+      {
+        q: 'How are fuel and travel allowances calculated?',
+        a: 'Bookings can be structured either on an all-inclusive daily shift wage (e.g. ₹700–₹1,000 for 8 hours) or a fixed base rate plus transparent per-km fuel reimbursement.',
+      },
+      {
+        q: 'What happens if a scheduled rider fails to report for their shift?',
+        a: 'Our dispatch desk activates a standby rider from our nearby neighborhood pool to minimize disruption to your customer deliveries.',
+      },
+    ],
+  },
+
+  'hire-survey-staff-chennai': {
+    slug: 'hire-survey-staff-chennai',
+    serviceName: 'Survey Staff',
+    locationName: 'Chennai',
+    eyebrow: 'Field Market Research & Data Enumerators',
+    h1: 'Hire Field Survey Staff in Chennai',
+    h1Accent: 'Chennai',
+    title: 'Hire Survey Staff in Chennai | Market Research & Field Enumerators | Ziggers',
+    description: 'Hire articulate field survey staff and data enumerators in Chennai. Digital tablet data collection, consumer feedback surveys, and B2B market research with GPS verification.',
+    heroDescription: 'Deploy trained, bilingual survey agents across Chennai neighborhoods, colleges, transit hubs, and retail strips. Accurate questionnaire administration with digital form submission.',
+    workerLink: '/work',
+    workerLinkLabel: 'Apply for Field Research Jobs in Chennai',
+    targetAudience: [
+      { title: 'Market Research Agencies', desc: 'Collect structured consumer opinions, brand sentiment, and purchasing habit data.' },
+      { title: 'Urban & Infrastructure Planners', desc: 'Conduct commuter traffic counts, public transport surveys, and neighborhood censuses.' },
+      { title: 'Healthcare & Social Studies', desc: 'Administer health awareness questionnaires and demographic audits.' },
+      { title: 'B2B Merchant Mapping', desc: 'Survey retail shopkeepers, collect trade contacts, and record storefront geolocations.' },
+    ],
+    roles: [
+      {
+        name: 'Digital Tablet Survey Enumerator',
+        badge: 'Data Collection',
+        duties: 'Approaches respondents, reads survey questions neutrally, and enters responses on mobile or tablet forms with OTP verification.',
+        dressCode: 'Smart-casual corporate presentation with ID lanyard and tablet.',
+      },
+      {
+        name: 'Transit & Footfall Intercept Interviewer',
+        badge: 'High Engagement',
+        duties: 'Engages commuters at metro exits, bus stands, and railway junctions for quick 3-minute pulse surveys.',
+        dressCode: 'Professional neat attire with visible surveyor badge.',
+      },
+      {
+        name: 'B2B Retail & Merchant Surveyor',
+        badge: 'Commercial',
+        duties: 'Visits kirana stores, pharmacies, and commercial establishments to collect retailer feedback and inventory observations.',
+        dressCode: 'Formal or smart-casual with notebook and digital device.',
+      },
+    ],
+    leadTime: '48 to 72 hours for survey questionnaire briefing, mock interview drills, and route planning.',
+    coverageZones: [
+      'T. Nagar & Commercial Strips',
+      'Marina & Besant Nagar Beach Corridors',
+      'OMR Tech Parks & Sholinganallur',
+      'Central & Egmore Transit Hubs',
+      'Anna Nagar & Kilpauk',
+      'Tambaram & Chromepet Suburbs',
+    ],
+    tamilNotes: 'கள கணக்கெடுப்பு பணியாளர்கள் சென்னை: சந்தை ஆராய்ச்சி, வாடிக்கையாளர் கருத்துக்கணிப்பு மற்றும் டிஜிட்டல் டேப்லெட் தகவல்களை சேகரிக்க தமிழ் மற்றும் ஆங்கிலம் பேசும் திறமையான பணியாளர்கள்.',
+    faqs: [
+      {
+        q: 'Are survey staff bilingual in English and Tamil?',
+        a: 'Yes. All survey personnel speak fluent Tamil to build trust and comfort with local respondents, and can record answers in English on digital survey forms.',
+      },
+      {
+        q: 'How do you prevent falsified or fabricated survey responses?',
+        a: 'We employ digital quality controls: mandatory GPS timestamps at the time of each response, respondent contact verification via OTP/phone call audits, and daily supervisor inspection.',
+      },
+      {
+        q: 'Can staff use our custom survey software or Google Forms?',
+        a: 'Yes. We train selected survey staff on your proprietary survey app (e.g. KoboToolbox, SurveyCTO, ODK) during a mandatory pre-deployment briefing session.',
+      },
+    ],
+  },
 };
 
 export function getEmployerPageData(slug) {

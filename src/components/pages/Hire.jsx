@@ -1,7 +1,8 @@
 "use client";
 import React, { useCallback, useEffect, useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Loader2, Search } from 'lucide-react';
+import { Loader2, Search, ShieldCheck, Clock, MapPin, ArrowRight, Phone, MessageSquare, Sparkles, CheckCircle2, ChevronRight } from 'lucide-react';
 import { DISTANCE_FILTER_OPTIONS, JOB_CATEGORIES } from '../../constants/brand';
 import { fetchNearbyWorkers } from '../../lib/ziggersData';
 import AppDownloadModal from '../AppDownloadModal';
@@ -228,6 +229,277 @@ export default function Hire() {
             </p>
           )}
         </motion.div>
+
+        {/* Visible Service and City Staffing Directory */}
+        <section style={{ marginTop: '64px', maxWidth: '1100px', margin: '64px auto 0' }}>
+          
+          {/* Section Header */}
+          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+            <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '2px', color: 'var(--color-gold)', textTransform: 'uppercase' }}>
+              Verified Staffing Directory
+            </span>
+            <h2 style={{ fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 800, color: 'var(--color-espresso)', marginTop: '6px', marginBottom: '10px' }}>
+              Browse On-Demand Staffing by Service &amp; City
+            </h2>
+            <p style={{ color: 'var(--color-muted)', fontSize: '15px', maxWidth: '640px', margin: '0 auto', lineHeight: 1.6 }}>
+              Direct access to our dedicated regional hiring hubs with transparent shift pricing, Aadhaar KYC verification, and on-site supervisor coordination.
+            </p>
+          </div>
+
+          {/* Service Directory Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px', marginBottom: '40px' }}>
+            
+            {/* Catering Staff */}
+            <div style={{ background: '#ffffff', borderRadius: '20px', padding: '24px', border: '1px solid rgba(61,43,31,0.08)', boxShadow: 'var(--shadow-soft)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <span style={{ fontSize: '24px' }}>🍲</span>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--color-espresso)', margin: 0 }}>Catering &amp; Banquet Staff</h3>
+                  <span style={{ fontSize: '12px', color: 'var(--color-gold)', fontWeight: 700 }}>Weddings, Receptions &amp; Banquets</span>
+                </div>
+              </div>
+              <p style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.5, marginBottom: '16px' }}>
+                Banquet captains, buffet food runners, table stewards, and kitchen helpers with clean hygiene presentation.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <Link href="/hire-catering-staff-chennai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Catering Staff in Chennai</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+                <Link href="/hire-odc-staff-chennai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire ODC Banquet Staff in Chennai</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+                <Link href="/hire-catering-staff-coimbatore" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Catering Staff in Coimbatore</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+                <Link href="/hire-catering-staff-madurai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Catering Staff in Madurai</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Event Staff */}
+            <div style={{ background: '#ffffff', borderRadius: '20px', padding: '24px', border: '1px solid rgba(61,43,31,0.08)', boxShadow: 'var(--shadow-soft)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <span style={{ fontSize: '24px' }}>🎪</span>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--color-espresso)', margin: 0 }}>Event Staff &amp; Crew</h3>
+                  <span style={{ fontSize: '12px', color: 'var(--color-gold)', fontWeight: 700 }}>Expos, Trade Fairs &amp; Galas</span>
+                </div>
+              </div>
+              <p style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.5, marginBottom: '16px' }}>
+                Bilingual registration ushers, crowd marshals, exhibition booth runners, and stage support crew.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <Link href="/hire-event-staff-chennai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Event Staff in Chennai (CTC / ECR)</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+                <Link href="/hire-event-staff-coimbatore" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Event Staff in Coimbatore (CODISSIA)</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+                <Link href="/hire-event-staff-madurai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Event Staff in Madurai</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Brand Promoters */}
+            <div style={{ background: '#ffffff', borderRadius: '20px', padding: '24px', border: '1px solid rgba(61,43,31,0.08)', boxShadow: 'var(--shadow-soft)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <span style={{ fontSize: '24px' }}>📢</span>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--color-espresso)', margin: 0 }}>Brand Promoters &amp; Retail Crew</h3>
+                  <span style={{ fontSize: '12px', color: 'var(--color-gold)', fontWeight: 700 }}>Mall Activations &amp; Sampling</span>
+                </div>
+              </div>
+              <p style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.5, marginBottom: '16px' }}>
+                Articulate product pitch ambassadors, taste sampling assistants, and in-store sales converters.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <Link href="/hire-brand-promoters-chennai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Brand Promoters in Chennai</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+                <Link href="/hire-brand-promoters-coimbatore" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Brand Promoters in Coimbatore</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+                <Link href="/hire-brand-promoters-madurai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Brand Promoters in Madurai</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Acting Drivers */}
+            <div style={{ background: '#ffffff', borderRadius: '20px', padding: '24px', border: '1px solid rgba(61,43,31,0.08)', boxShadow: 'var(--shadow-soft)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <span style={{ fontSize: '24px' }}>🚗</span>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--color-espresso)', margin: 0 }}>Acting Drivers &amp; Valet</h3>
+                  <span style={{ fontSize: '12px', color: 'var(--color-gold)', fontWeight: 700 }}>Personal &amp; Commercial Chauffeurs</span>
+                </div>
+              </div>
+              <p style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.5, marginBottom: '16px' }}>
+                Licence-verified acting drivers for city errands, late-night transit, outstation highway trips, and wedding valet parking.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <Link href="/hire-acting-drivers-chennai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Acting Drivers in Chennai</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Pamphlet Distributors */}
+            <div style={{ background: '#ffffff', borderRadius: '20px', padding: '24px', border: '1px solid rgba(61,43,31,0.08)', boxShadow: 'var(--shadow-soft)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <span style={{ fontSize: '24px' }}>📄</span>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--color-espresso)', margin: 0 }}>Pamphlet Distribution</h3>
+                  <span style={{ fontSize: '12px', color: 'var(--color-gold)', fontWeight: 700 }}>Flyer Inserts &amp; Field Leaflet Teams</span>
+                </div>
+              </div>
+              <p style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.5, marginBottom: '16px' }}>
+                Newspaper insertion runners, high-footfall junction teams, and residential delivery squads with GPS accountability.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <Link href="/hire-pamphlet-distributors-chennai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Pamphlet Distributors in Chennai</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Delivery Staff */}
+            <div style={{ background: '#ffffff', borderRadius: '20px', padding: '24px', border: '1px solid rgba(61,43,31,0.08)', boxShadow: 'var(--shadow-soft)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <span style={{ fontSize: '24px' }}>🛵</span>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--color-espresso)', margin: 0 }}>Temporary Delivery Staff</h3>
+                  <span style={{ fontSize: '12px', color: 'var(--color-gold)', fontWeight: 700 }}>Cloud Kitchens &amp; Courier Fleet</span>
+                </div>
+              </div>
+              <p style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.5, marginBottom: '16px' }}>
+                Two-wheeler dispatch partners for peak meal rushes, dark store parcel dispatches, and retail backfill.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <Link href="/hire-delivery-staff-chennai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Delivery Staff in Chennai</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Survey Staff */}
+            <div style={{ background: '#ffffff', borderRadius: '20px', padding: '24px', border: '1px solid rgba(61,43,31,0.08)', boxShadow: 'var(--shadow-soft)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <span style={{ fontSize: '24px' }}>📊</span>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--color-espresso)', margin: 0 }}>Field Survey Staff</h3>
+                  <span style={{ fontSize: '12px', color: 'var(--color-gold)', fontWeight: 700 }}>Market Research &amp; Data Collection</span>
+                </div>
+              </div>
+              <p style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.5, marginBottom: '16px' }}>
+                Trained bilingual survey enumerators for digital tablet questionnaires, merchant mapping, and intercept interviews.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <Link href="/hire-survey-staff-chennai" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', background: 'var(--color-linen)', borderRadius: '10px', textDecoration: 'none', color: 'var(--color-espresso)', fontSize: '13px', fontWeight: 700 }}>
+                  <span>Hire Survey Staff in Chennai</span>
+                  <ChevronRight size={14} color="var(--color-gold)" />
+                </Link>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Regional Hubs & National Cities */}
+          <div style={{ backgroundColor: '#ffffff', borderRadius: '24px', padding: '32px', border: '1px solid rgba(61,43,31,0.08)', boxShadow: 'var(--shadow-soft)' }}>
+            <h3 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--color-espresso)', marginBottom: '16px' }}>
+              Staffing Coverage by Regional Hub
+            </h3>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
+              <div>
+                <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--color-gold)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>
+                  Chennai State Operations HQ
+                </h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '13px' }}>
+                  <li><Link href="/hire-catering-staff-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Catering Staff in Chennai</Link></li>
+                  <li><Link href="/hire-event-staff-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Event Staff in Chennai</Link></li>
+                  <li><Link href="/hire-brand-promoters-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Brand Promoters in Chennai</Link></li>
+                  <li><Link href="/hire-acting-drivers-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Acting Drivers in Chennai</Link></li>
+                  <li><Link href="/hire-odc-staff-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• ODC Banquet Crew in Chennai</Link></li>
+                  <li><Link href="/hire-pamphlet-distributors-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Pamphlet Distribution in Chennai</Link></li>
+                  <li><Link href="/hire-delivery-staff-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Temporary Delivery Staff in Chennai</Link></li>
+                  <li><Link href="/hire-survey-staff-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Field Survey Staff in Chennai</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--color-gold)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>
+                  Coimbatore Western Hub
+                </h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '13px' }}>
+                  <li><Link href="/hire-catering-staff-coimbatore" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Catering Staff in Coimbatore</Link></li>
+                  <li><Link href="/hire-event-staff-coimbatore" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Event Ushers at CODISSIA</Link></li>
+                  <li><Link href="/hire-brand-promoters-coimbatore" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Mall &amp; Retail Promoters</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--color-gold)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>
+                  Madurai Southern Hub
+                </h4>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '13px' }}>
+                  <li><Link href="/hire-catering-staff-madurai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Traditional Mandapam Servers</Link></li>
+                  <li><Link href="/hire-event-staff-madurai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Convention &amp; Festival Crew</Link></li>
+                  <li><Link href="/hire-brand-promoters-madurai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Showroom &amp; Retail Promoters</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--color-gold)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>
+                  National Gigs Hubs
+                </h4>
+                <p style={{ fontSize: '12px', color: 'var(--color-muted)', marginBottom: '8px' }}>
+                  Looking for gig shifts or on-demand staffing across India?
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                  {['Bangalore', 'Hyderabad', 'Mumbai', 'Delhi', 'Pune'].map((c) => (
+                    <Link key={c} href={`/jobs-in-${c.toLowerCase()}`} style={{ fontSize: '12px', padding: '4px 10px', background: 'var(--color-linen)', borderRadius: '6px', color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>
+                      {c} Hub
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Helpline Bar */}
+            <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid rgba(61,43,31,0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+              <div>
+                <strong style={{ fontSize: '15px', color: 'var(--color-espresso)', display: 'block' }}>Need Custom Staffing for 5 to 50+ Personnel?</strong>
+                <span style={{ fontSize: '13px', color: 'var(--color-muted)' }}>Speak directly with our operations desk for instant roster coordination and GST invoicing.</span>
+              </div>
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <a href="tel:+919499008993" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '10px 18px', background: 'var(--color-espresso)', color: '#ffffff', borderRadius: '100px', textDecoration: 'none', fontSize: '13px', fontWeight: 700 }}>
+                  <Phone size={14} color="var(--color-gold)" /> Call 94990 08993
+                </a>
+                <a href="https://wa.me/919499008993?text=Hi%20Ziggers%20team%2C%20I%20need%20temporary%20staffing%20support" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '10px 18px', background: '#25D366', color: '#ffffff', borderRadius: '100px', textDecoration: 'none', fontSize: '13px', fontWeight: 700 }}>
+                  <MessageSquare size={14} /> WhatsApp
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
       </div>
 
       <AppDownloadModal

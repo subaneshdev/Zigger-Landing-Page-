@@ -80,10 +80,11 @@ export default async function JobDetailPage({ params }) {
 
   const active = isJobActive(task);
 
-  // Format Helper
+  // Format Helper with explicit Indian Standard Time (IST / Asia/Kolkata)
   const formatDate = (dateStr) => {
     if (!dateStr) return 'Flexible';
     return new Date(dateStr).toLocaleDateString('en-IN', {
+      timeZone: 'Asia/Kolkata',
       day: 'numeric',
       month: 'long',
       year: 'numeric',
@@ -93,17 +94,28 @@ export default async function JobDetailPage({ params }) {
   const formatTime = (dateStr) => {
     if (!dateStr) return '';
     return new Date(dateStr).toLocaleTimeString('en-IN', {
+      timeZone: 'Asia/Kolkata',
       hour: 'numeric',
       minute: '2-digit',
     });
   };
+
+  // Requirements sanitizer (filters out '{}', '[]', and empty objects)
+  const hasValidRequirements = Boolean(
+    task.requirements &&
+    typeof task.requirements === 'string' &&
+    task.requirements.trim() !== '' &&
+    task.requirements.trim() !== '{}' &&
+    task.requirements.trim() !== '[]' &&
+    task.requirements.trim() !== 'null'
+  );
 
   // Structured Data Schema for Google Jobs (Only for active postings!)
   const jobSchema = active ? {
     '@context': 'https://schema.org/',
     '@type': 'JobPosting',
     title: task.title,
-    description: `<p>${task.description || ''}</p>${task.requirements ? `<p><strong>Requirements:</strong> ${task.requirements}</p>` : ''}`,
+    description: `<p>${task.description || ''}</p>${hasValidRequirements ? `<p><strong>Requirements:</strong> ${task.requirements}</p>` : ''}`,
     identifier: {
       '@type': 'PropertyValue',
       name: 'Ziggers',
@@ -228,10 +240,14 @@ export default async function JobDetailPage({ params }) {
                   <div>
                     <div style={{ fontSize: '12px', color: 'var(--color-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Schedule</div>
                     <div style={{ fontSize: '15px', color: 'var(--color-espresso)', fontWeight: 500, marginTop: '2px' }}>
-                      {formatDate(task.start_time)}
+                      {task.start_time && task.end_time && formatDate(task.start_time) !== formatDate(task.end_time) ? (
+                        <span>{formatDate(task.start_time)} – {formatDate(task.end_time)}</span>
+                      ) : (
+                        <span>{formatDate(task.start_time)}</span>
+                      )}
                       {task.start_time ? (
                         <div style={{ fontSize: '13px', color: 'var(--color-muted)', marginTop: '2px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                          <Clock size={12} /> {formatTime(task.start_time)}{task.end_time ? ` – ${formatTime(task.end_time)}` : ''}
+                          <Clock size={12} /> {formatTime(task.start_time)}{task.end_time ? ` – ${formatTime(task.end_time)} (IST)` : ''}
                         </div>
                       ) : ''}
                     </div>
@@ -260,7 +276,7 @@ export default async function JobDetailPage({ params }) {
               )}
 
               {/* Requirements */}
-              {task.requirements && (
+              {hasValidRequirements && (
                 <div>
                   <h2 style={{ fontSize: '20px', color: 'var(--color-espresso)', marginBottom: '12px', fontWeight: 700 }}>Requirements</h2>
                   <p style={{ fontSize: '15px', lineHeight: 1.7, color: 'var(--color-muted)', margin: 0, whiteSpace: 'pre-wrap' }}>

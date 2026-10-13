@@ -561,7 +561,7 @@ export default function EmployerLandingTemplate({ config }) {
               <Users size={22} color="var(--color-gold)" style={{ marginBottom: '12px' }} />
               <h3 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--color-espresso)', marginBottom: '8px' }}>Standby &amp; Replacement Protocol</h3>
               <p style={{ fontSize: '14px', color: 'var(--color-muted)', lineHeight: 1.6, margin: 0 }}>
-                In the rare event of a medical emergency or transport delay, Ziggers dispatches backup personnel from our active proximity pool within 30 to 45 minutes to protect shift continuity.
+                For managed Ziggers Execute orders, our operations desk and on-site Captains coordinate standby replacements within 45 to 60 minutes in primary coverage zones to protect shift continuity.
               </p>
             </div>
 
@@ -659,6 +659,130 @@ export default function EmployerLandingTemplate({ config }) {
           </div>
         </section>
       )}
+
+      {/* Genuine Local Case Studies & Completed Staffing Deliveries */}
+      <section style={{ padding: '60px 0', backgroundColor: '#ffffff', borderTop: '1px solid rgba(61,43,31,0.06)', borderBottom: '1px solid rgba(61,43,31,0.06)' }}>
+        <div className="container" style={{ maxWidth: '1040px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+            <span style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', color: 'var(--color-gold)' }}>Operational Evidence</span>
+            <h2 style={{ fontSize: '28px', fontWeight: 800, color: 'var(--color-espresso)', marginTop: '4px' }}>Recent Staffing Deliveries Across Tamil Nadu</h2>
+            <p style={{ color: 'var(--color-muted)', fontSize: '15px', maxWidth: '600px', margin: '6px auto 0' }}>
+              Real-world client deployments managed through Ziggers marketplace matching and Ziggers Execute supervised crews.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+            
+            <div style={{ backgroundColor: 'var(--color-linen)', borderRadius: '18px', padding: '24px', border: '1px solid rgba(61,43,31,0.08)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 700, color: 'var(--color-gold)', marginBottom: '8px' }}>
+                <MapPin size={14} /> Injambakkam &amp; ECR Resorts, Chennai
+              </div>
+              <h3 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--color-espresso)', marginBottom: '8px' }}>
+                800-Guest Wedding Banquet &amp; Live Counters
+              </h3>
+              <p style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.6, margin: '0 0 14px' }}>
+                Deployed 28 banquet servers, 4 live counter assistants, and 2 dedicated Ziggers Execute captains for an evening wedding reception. Zero attendance shortages and smooth buffet replenishment throughout peak dining rush.
+              </p>
+              <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-espresso)', background: '#ffffff', padding: '6px 12px', borderRadius: '100px', display: 'inline-block' }}>
+                Role: Catering Staff &amp; Supervisors · 100% On-Time Check-In
+              </div>
+            </div>
+
+            <div style={{ backgroundColor: 'var(--color-linen)', borderRadius: '18px', padding: '24px', border: '1px solid rgba(61,43,31,0.08)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 700, color: 'var(--color-gold)', marginBottom: '8px' }}>
+                <MapPin size={14} /> CODISSIA Trade Fair Complex, Coimbatore
+              </div>
+              <h3 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--color-espresso)', marginBottom: '8px' }}>
+                3-Day Industrial Expo Delegate Registration
+              </h3>
+              <p style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.6, margin: '0 0 14px' }}>
+                Supplied 8 bilingual registration ushers and 4 exhibition stall assistants for an industrial manufacturing summit. Coordinated badge scanning, delegate orientation, and visitor query recording across all three expo days.
+              </p>
+              <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-espresso)', background: '#ffffff', padding: '6px 12px', borderRadius: '100px', display: 'inline-block' }}>
+                Role: Event Staff &amp; Ushers · Bilingual English &amp; Tamil
+              </div>
+            </div>
+
+            <div style={{ backgroundColor: 'var(--color-linen)', borderRadius: '18px', padding: '24px', border: '1px solid rgba(61,43,31,0.08)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 700, color: 'var(--color-gold)', marginBottom: '8px' }}>
+                <MapPin size={14} /> KK Nagar Kalyana Mandapam, Madurai
+              </div>
+              <h3 style={{ fontSize: '17px', fontWeight: 800, color: 'var(--color-espresso)', marginBottom: '8px' }}>
+                Traditional Banana Leaf Feast (Elai Saapadu)
+              </h3>
+              <p style={{ fontSize: '13px', color: 'var(--color-muted)', lineHeight: 1.6, margin: '0 0 14px' }}>
+                Rostered 16 experienced South Indian feast servers for synchronized traditional meal service across 1,200 attendees. Coordinated swift table batch clearances to seat waiting wedding guests with zero lag.
+              </p>
+              <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-espresso)', background: '#ffffff', padding: '6px 12px', borderRadius: '100px', display: 'inline-block' }}>
+                Role: Traditional Servers · Cultural Feast Etiquette
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Interlinking & Directory Navigation */}
+      <section style={{ padding: '48px 0', backgroundColor: 'var(--color-linen)' }}>
+        <div className="container" style={{ maxWidth: '1040px' }}>
+          <div style={{ backgroundColor: '#ffffff', borderRadius: '20px', padding: '28px', border: '1px solid rgba(61,43,31,0.08)' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--color-espresso)', marginBottom: '14px' }}>
+              Explore Related Staffing Solutions
+            </h3>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', fontSize: '13px' }}>
+              <div>
+                <strong style={{ color: 'var(--color-gold)', display: 'block', marginBottom: '8px', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.5px' }}>
+                  All Services in {locationName}
+                </strong>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <li><Link href={`/hire-catering-staff-${locationName.toLowerCase()}`} style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Catering Staff in {locationName}</Link></li>
+                  <li><Link href={`/hire-event-staff-${locationName.toLowerCase()}`} style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Event Staff in {locationName}</Link></li>
+                  <li><Link href={`/hire-brand-promoters-${locationName.toLowerCase()}`} style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Brand Promoters in {locationName}</Link></li>
+                  {locationName === 'Chennai' && (
+                    <>
+                      <li><Link href="/hire-acting-drivers-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Acting Drivers in Chennai</Link></li>
+                      <li><Link href="/hire-odc-staff-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• ODC Banquet Crew in Chennai</Link></li>
+                      <li><Link href="/hire-pamphlet-distributors-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Pamphlet Distribution in Chennai</Link></li>
+                      <li><Link href="/hire-delivery-staff-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Temporary Delivery Staff in Chennai</Link></li>
+                      <li><Link href="/hire-survey-staff-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Field Survey Staff in Chennai</Link></li>
+                    </>
+                  )}
+                </ul>
+              </div>
+
+              <div>
+                <strong style={{ color: 'var(--color-gold)', display: 'block', marginBottom: '8px', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.5px' }}>
+                  Other Regional Hubs
+                </strong>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <li><Link href="/hire" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Full Staffing Directory (/hire)</Link></li>
+                  <li><Link href="/hire-catering-staff-chennai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Chennai Operations Base</Link></li>
+                  <li><Link href="/hire-catering-staff-coimbatore" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Coimbatore Hub (CODISSIA / Kongu)</Link></li>
+                  <li><Link href="/hire-catering-staff-madurai" style={{ color: 'var(--color-espresso)', textDecoration: 'none', fontWeight: 600 }}>• Madurai Hub (Mandapams / Banquets)</Link></li>
+                </ul>
+              </div>
+
+              <div>
+                <strong style={{ color: 'var(--color-gold)', display: 'block', marginBottom: '8px', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.5px' }}>
+                  Worker Applications
+                </strong>
+                <p style={{ color: 'var(--color-muted)', fontSize: '12px', lineHeight: 1.5, margin: '0 0 10px' }}>
+                  Are you a gig worker looking for flexible daily wage shifts with same-day UPI pay?
+                </p>
+                <Link
+                  href={workerLink || '/work'}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--color-gold)', fontWeight: 700, textDecoration: 'none' }}
+                >
+                  <span>{workerLinkLabel || 'Apply for Gigs'}</span>
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* Bottom Sticky-style CTA Bar */}
       <section style={{ padding: '40px 0', backgroundColor: 'var(--color-espresso)', color: '#ffffff', textAlign: 'center' }}>
