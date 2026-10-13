@@ -1,10 +1,33 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Calendar, Clock, IndianRupee, MapPin, Users, ArrowLeft, ShieldCheck } from 'lucide-react';
+import { Calendar, Clock, IndianRupee, MapPin, Users, ArrowLeft, ShieldCheck, AlertCircle } from 'lucide-react';
 import { fetchTaskById } from '../../../lib/ziggersData';
 import { getAppOpenHref } from '../../../lib/appLink';
 import { SITE_URL } from '../../../constants/seo';
+
+const OPEN_STATUSES = [
+  'open',
+  'OPEN',
+  'posted',
+  'POSTED',
+  'published',
+  'PUBLISHED',
+  'active',
+  'ACTIVE',
+];
+
+function isJobActive(task) {
+  if (!task) return false;
+  if (task.status && !OPEN_STATUSES.includes(task.status)) return false;
+  if (task.end_time) {
+    const end = new Date(task.end_time);
+    if (!isNaN(end.getTime()) && end.getTime() < Date.now()) {
+      return false;
+    }
+  }
+  return true;
+}
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -16,12 +39,22 @@ export async function generateMetadata({ params }) {
         description: 'The requested job posting could not be found or has already been filled.',
       };
     }
+
+    const active = isJobActive(task);
+    const titlePrefix = active ? '' : '[Filled/Expired] ';
+
     return {
-      title: `${task.title} | ${task.location_name?.split(',')[0] || 'Chennai'} | Ziggers`,
-      description: task.description ? task.description.slice(0, 160) : `Apply for ${task.title} job on Ziggers. verified temporary gigs with same-day UPI payouts.`,
+      title: `${titlePrefix}${task.title} | ${task.location_name?.split(',')[0] || 'Chennai'} | Ziggers`,
+      description: task.description ? task.description.slice(0, 160) : `Apply for ${task.title} job on Ziggers. Verified temporary gigs with same-day UPI payouts.`,
       alternates: {
         canonical: `${SITE_URL}/jobs/${id}`,
       },
+      ...(!active && {
+        robots: {
+          index: false,
+          follow: true,
+        },
+      }),
     };
   } catch (error) {
     console.error('Error generating metadata:', error);
@@ -45,6 +78,8 @@ export default async function JobDetailPage({ params }) {
     notFound();
   }
 
+  const active = isJobActive(task);
+
   // Format Helper
   const formatDate = (dateStr) => {
     if (!dateStr) return 'Flexible';
@@ -63,8 +98,8 @@ export default async function JobDetailPage({ params }) {
     });
   };
 
-  // Structured Data Schema for Google Jobs
-  const jobSchema = {
+  // Structured Data Schema for Google Jobs (Only for active postings!)
+  const jobSchema = active ? {
     '@context': 'https://schema.org/',
     '@type': 'JobPosting',
     title: task.title,
@@ -75,6 +110,7 @@ export default async function JobDetailPage({ params }) {
       value: `ZIG-${task.id.slice(0, 8)}`,
     },
     datePosted: task.created_at ? new Date(task.created_at).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+    validThrough: task.end_time ? new Date(task.end_time).toISOString() : new Date(Date.now() + 14 * 86400000).toISOString(),
     employmentType: 'TEMPORARY',
     hiringOrganization: {
       '@type': 'Organization',
@@ -100,14 +136,16 @@ export default async function JobDetailPage({ params }) {
         unitText: 'DAY',
       },
     },
-  };
+  } : null;
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobSchema) }}
-      />
+      {jobSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jobSchema) }}
+        />
+      )}
 
       <div style={{ backgroundColor: 'var(--color-linen)', minHeight: '100vh', paddingTop: '120px', paddingBottom: '80px' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
@@ -117,8 +155,6 @@ export default async function JobDetailPage({ params }) {
             <Link 
               href="/work" 
               style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--color-muted)', textDecoration: 'none', fontSize: '15px', fontWeight: 600, transition: 'color 0.2s' }}
-              onMouseEnter={(e) => e.target.style.color = 'var(--color-espresso)'}
-              onMouseLeave={(e) => e.target.style.color = 'var(--color-muted)'}
             >
               <ArrowLeft size={16} /> Back to all jobs
             </Link>
@@ -127,6 +163,19 @@ export default async function JobDetailPage({ params }) {
           {/* Job Card */}
           <article style={{ background: '#fff', borderRadius: '32px', border: '1px solid rgba(61,43,31,0.06)', boxShadow: 'var(--shadow-soft)', overflow: 'hidden' }}>
             
+            {/* Expiry Banner if Job is closed */}
+            {!active && (
+              <div style={{ backgroundColor: '#FEF2F2', borderBottom: '1px solid #FEE2E2', padding: '16px 24px', display: 'flex', alignItems: 'center', gap: '12px', color: '#991B1B' }}>
+                <AlertCircle size={20} color="#DC2626" />
+                <div>
+                  <strong style={{ fontSize: '14px', display: 'block' }}>This shift has been filled or has ended.</strong>
+                  <span style={{ fontSize: '13px', color: '#7F1D1D' }}>
+                    Applications for this specific opening are currently closed. Explore active gigs available in your city.
+                  </span>
+                </div>
+              </div>
+            )}
+
             {/* Header Area */}
             <div style={{ padding: '40px', background: 'linear-gradient(to bottom, var(--color-linen), #ffffff)', borderBottom: '1px solid rgba(61,43,31,0.06)' }}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
@@ -134,7 +183,7 @@ export default async function JobDetailPage({ params }) {
                   {task.category || task.zig_type || 'Gig Job'}
                 </span>
                 <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--color-espresso)', background: 'rgba(61,43,31,0.06)', padding: '6px 12px', borderRadius: '100px', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                  <ShieldCheck size={12} /> Verified Gig
+                  <ShieldCheck size={12} /> {active ? 'Verified Active Gig' : 'Completed Shift'}
                 </span>
               </div>
 
@@ -224,16 +273,33 @@ export default async function JobDetailPage({ params }) {
 
               {/* Action Area */}
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', textAlign: 'center' }}>
-                <a 
-                  href={getAppOpenHref()}
-                  className="btn-primary" 
-                  style={{ display: 'inline-flex', padding: '16px 40px', fontSize: '16px', borderRadius: '100px', textDecoration: 'none', background: 'var(--color-gold)', color: 'var(--color-espresso)', fontWeight: 700, width: '100%', maxWidth: '360px', justifyContent: 'center' }}
-                >
-                  Apply & Work on Ziggers App
-                </a>
-                <p style={{ fontSize: '13px', color: 'var(--color-muted)', margin: 0 }}>
-                  Apply to this gig, complete your shift, and get paid instantly via UPI.
-                </p>
+                {active ? (
+                  <>
+                    <a 
+                      href={getAppOpenHref()}
+                      className="btn-primary" 
+                      style={{ display: 'inline-flex', padding: '16px 40px', fontSize: '16px', borderRadius: '100px', textDecoration: 'none', background: 'var(--color-gold)', color: 'var(--color-espresso)', fontWeight: 700, width: '100%', maxWidth: '360px', justifyContent: 'center' }}
+                    >
+                      Apply &amp; Work on Ziggers App
+                    </a>
+                    <p style={{ fontSize: '13px', color: 'var(--color-muted)', margin: 0 }}>
+                      Apply to this gig, complete your shift, and get paid instantly via UPI.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      href="/work"
+                      className="btn-primary"
+                      style={{ display: 'inline-flex', padding: '16px 40px', fontSize: '16px', borderRadius: '100px', textDecoration: 'none', background: 'var(--color-espresso)', color: '#ffffff', fontWeight: 700, width: '100%', maxWidth: '360px', justifyContent: 'center' }}
+                    >
+                      Browse Other Active Shifts
+                    </Link>
+                    <p style={{ fontSize: '13px', color: 'var(--color-muted)', margin: 0 }}>
+                      New daily wage and part-time shifts are added regularly across India.
+                    </p>
+                  </>
+                )}
               </div>
 
             </div>

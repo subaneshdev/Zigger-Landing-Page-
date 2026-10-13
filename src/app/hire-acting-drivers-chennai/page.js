@@ -1,13 +1,22 @@
-import ActingDrivers from '../../components/pages/ActingDrivers';
+import React from 'react';
+import EmployerLandingTemplate from '../../components/pages/EmployerLandingTemplate';
+import { getEmployerPageData } from '../../data/employerPagesData';
+import { generateEmployerMetadata, generateEmployerJsonLd } from '../../lib/employerSeo';
 
-export const metadata = {
-  title: 'Driver Jobs in Chennai | Hire Gig Workers | Ziggers',
-  description: 'Hire verified driver jobs and acting drivers in Chennai instantly. AI-powered gig marketplace with live tracking, verified workers, and secure payments for temporary staffing.',
-  alternates: {
-    canonical: '/hire-acting-drivers-chennai',
-  },
-};
+const config = getEmployerPageData('hire-acting-drivers-chennai');
 
-export default function ActingDriversPage() {
-  return <ActingDrivers />;
+export const metadata = generateEmployerMetadata(config);
+
+export default function HireActingDriversChennaiPage() {
+  const jsonLd = generateEmployerJsonLd(config);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <EmployerLandingTemplate config={config} />
+    </>
+  );
 }

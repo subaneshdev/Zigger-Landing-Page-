@@ -17,7 +17,7 @@ const poppins = Poppins({
 export const metadata = {
   title: 'Ziggers | Gig Jobs App — Find Gig Jobs & Hire Temporary Staff in India',
   description: "Ziggers is India's #1 gig jobs app — find gig jobs near you or hire verified gig workers instantly. Browse catering jobs, delivery jobs, event staff, warehouse workers, and daily wage shifts across India with same-day UPI payouts.",
-  keywords: "gig jobs, gig jobs app, gig jobs India, gig jobs near me, gig worker app India, gig economy jobs, find gig jobs, Zigger, Zigger App, Giggers, Giggers App, Giggers Jobs, Giggers alternative, Ziggers vs Giggers, Hire Catering Staff, Catering Jobs, Waiter Jobs, Part-time Jobs, Daily Wage Jobs, Temporary Workers, Event Staff, Delivery Jobs, Warehouse Jobs, Driver Jobs, Student Jobs, Weekend Jobs, Near Me Jobs, Chennai Jobs, Bangalore Jobs",
+  keywords: "gig jobs, gig jobs app, gig jobs India, gig jobs near me, gig worker app India, gig economy jobs, find gig jobs, Zigger, Zigger App, on-demand staffing, temporary staff hire, Hire Catering Staff, Catering Jobs, Waiter Jobs, Part-time Jobs, Daily Wage Jobs, Temporary Workers, Event Staff, Delivery Jobs, Warehouse Jobs, Driver Jobs, Student Jobs, Weekend Jobs, Near Me Jobs, Chennai Jobs, Bangalore Jobs, Coimbatore Jobs",
   metadataBase: new URL('https://www.ziggers.in'),
   alternates: {
     canonical: '/',
@@ -58,11 +58,11 @@ export default function RootLayout({ children }) {
       '@context': 'https://schema.org',
       '@type': ['SoftwareApplication', 'MobileApplication'],
       name: 'Ziggers',
-      alternateName: ["Zigger", "Zigger App", "Gigger", "Giggers", "Giggers App", "Gigger App", "Gig Jobs App"],
+      alternateName: ["Zigger", "Zigger App"],
       applicationCategory: 'BusinessApplication',
       applicationSubCategory: 'Gig Jobs',
       operatingSystem: 'Android, iOS, Web',
-      description: "Ziggers is India's #1 gig jobs app — find gig jobs near you or hire verified gig workers instantly. Browse catering jobs, delivery jobs, event staff, and daily wage shifts across India with same-day UPI payouts.",
+      description: "Ziggers is India's on-demand gig jobs and staffing platform — find gig jobs near you or hire verified temporary staff across India.",
       keywords: 'gig jobs, gig jobs app, gig jobs India, gig jobs near me, gig worker app, find gig jobs, daily wage jobs, part-time jobs, temporary jobs, hire gig workers',
       url: 'https://www.ziggers.in/',
       downloadUrl: 'https://play.google.com/store/apps/details?id=com.ziggers.ziggers',
@@ -74,31 +74,6 @@ export default function RootLayout({ children }) {
         price: '0',
         priceCurrency: 'INR',
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.8',
-        reviewCount: '1250',
-        ratingCount: '1250',
-        bestRating: '5',
-        worstRating: '1',
-      },
-      review: [
-        {
-          '@type': 'Review',
-          author: {
-            '@type': 'Person',
-            name: 'Subanesh C',
-          },
-          datePublished: '2026-08-15',
-          reviewBody: 'Ziggers is the best gig jobs app in India — verified gig matching, same-day UPI payouts, and a reliable on-demand workforce for businesses across India.',
-          reviewRating: {
-            '@type': 'Rating',
-            ratingValue: '5',
-            bestRating: '5',
-            worstRating: '1',
-          },
-        },
-      ],
     },
     {
       '@context': 'https://schema.org',
@@ -109,10 +84,10 @@ export default function RootLayout({ children }) {
       image: 'https://www.ziggers.in/icon.png',
       sameAs: [
         'https://play.google.com/store/apps/details?id=com.ziggers.ziggers',
-        'https://www.crunchbase.com/organization/ziggers',
-        'https://www.producthunt.com/products/ziggers',
-        'https://postyourstartup.co/startup/ziggers-1',
-        'https://www.linkedin.com/in/subanesh/'
+        'https://www.linkedin.com/company/ziggers',
+        'https://www.instagram.com/ziggers.in?igsh=MXIwcXdqcWs0Z3gx',
+        'https://www.facebook.com/share/1MVoXCTfP7/',
+        'https://www.crunchbase.com/organization/ziggers'
       ]
     },
     {

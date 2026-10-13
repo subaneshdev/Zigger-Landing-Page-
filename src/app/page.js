@@ -41,23 +41,23 @@ export default function Home() {
   ];
 
   const cities = [
-    { name: 'Chennai', count: 1200, href: '/jobs-in-chennai' },
-    { name: 'Bangalore', count: 850, href: '/jobs-in-bangalore' },
-    { name: 'Hyderabad', count: 910, href: '/jobs-in-hyderabad' },
-    { name: 'Mumbai', count: 740, href: '/jobs-in-mumbai' },
-    { name: 'Delhi', count: 630, href: '/jobs-in-delhi' },
-    { name: 'Coimbatore', count: 480, href: '/jobs-in-coimbatore' },
-    { name: 'Pune', count: 520, href: '/jobs-in-pune' },
-    { name: 'Madurai', count: 310, href: '/jobs-in-madurai' },
+    { name: 'Chennai', tag: 'State HQ & Operations', href: '/jobs-in-chennai' },
+    { name: 'Bangalore', tag: 'Active Regional Hub', href: '/jobs-in-bangalore' },
+    { name: 'Hyderabad', tag: 'Active Regional Hub', href: '/jobs-in-hyderabad' },
+    { name: 'Mumbai', tag: 'Active Regional Hub', href: '/jobs-in-mumbai' },
+    { name: 'Delhi', tag: 'Active Regional Hub', href: '/jobs-in-delhi' },
+    { name: 'Coimbatore', tag: 'Western Tamil Nadu Hub', href: '/jobs-in-coimbatore' },
+    { name: 'Pune', tag: 'Active Regional Hub', href: '/jobs-in-pune' },
+    { name: 'Madurai', tag: 'Southern Tamil Nadu Hub', href: '/jobs-in-madurai' },
   ];
 
-  const marqueeWorkers = [
-    { name: 'Manoj K.', role: 'Catering Captain', rating: '4.9', payout: '₹1,800', time: 'Matched in 8 mins' },
-    { name: 'Priya R.', role: 'Exhibition Promoter', rating: '5.0', payout: '₹2,200', time: 'Matched in 12 mins' },
-    { name: 'Satish Kumar', role: 'Acting Driver', rating: '4.8', payout: '₹1,500', time: 'Matched in 5 mins' },
-    { name: 'Arun M.', role: 'Warehouse Loader', rating: '4.9', payout: '₹1,400', time: 'Matched in 15 mins' },
-    { name: 'Deepika S.', role: 'Office Assistant', rating: '5.0', payout: '₹2,000', time: 'Matched in 10 mins' },
-    { name: 'Ranjith V.', role: 'Event Volunteer', rating: '4.7', payout: '₹1,200', time: 'Matched in 9 mins' }
+  const sampleDemonstrations = [
+    { role: 'Banquet Captain / Supervisor', category: 'Hospitality', payoutRange: '₹1,500 – ₹2,000 / shift', note: 'Aadhaar Verified' },
+    { role: 'Buffet Runner & Steward', category: 'Catering', payoutRange: '₹800 – ₹1,200 / shift', note: 'Same-day UPI' },
+    { role: 'Mall Brand Ambassador', category: 'Marketing', payoutRange: '₹1,000 – ₹1,500 / shift', note: 'Product Demo' },
+    { role: 'Acting Driver (City & Outstation)', category: 'Transport', payoutRange: '₹900 – ₹1,400 / shift', note: 'Licence Checked' },
+    { role: 'Event Registration Usher', category: 'Events', payoutRange: '₹1,000 – ₹1,400 / shift', note: 'Bilingual Staff' },
+    { role: 'Plate Clearance Crew', category: 'Banquets', payoutRange: '₹700 – ₹1,000 / shift', note: 'Live Counter Support' }
   ];
 
   const hiringIntentKeywords = [
@@ -68,7 +68,7 @@ export default function Home() {
     'Hire Waiters', 'Need Delivery Boys', 'Temporary Workers', 'Warehouse Labour',
     'Construction Helpers', 'Restaurant Staff', 'Housekeeping Services', 'Cleaning Workers',
     'Promoters for Exhibition', 'Security Guards Near Me', 'Event Volunteers',
-    'Giggers Alternative', 'Hire staff like Giggers', 'Sites like Giggers',
+    'On-Demand Staffing', 'Banquet Helpers', 'Flexible Manpower',
     'Hire Gig Workers', 'Gig Jobs App'
   ];
 
@@ -83,7 +83,7 @@ export default function Home() {
     'Weekend Job', 'Daily Salary Job', 'Catering Job Today', 'Waiter Job',
     'Delivery Job', 'Kitchen Helper Job', 'Student Job', 'Night Shift Job',
     'Flexible Work', 'One-day Job', 'Temporary Job', 'Daily Wage Job',
-    'Giggers Jobs', 'Giggers App Download', 'Jobs in Giggers'
+    'Daily Wage Shifts', 'Flexible Part-Time', 'One-Day Gigs'
   ];
 
   const cityCombos = [
@@ -96,20 +96,23 @@ export default function Home() {
     <main style={{ backgroundColor: '#ffffff', color: '#1c1c1c', fontFamily: 'var(--font-body)' }}>
       <Hero />
 
-      {/* Magic UI-style Infinite Testimony/Workers Marquee */}
+      {/* Magic UI-style Shift Roles & Demonstration Marquee */}
       <section style={{ padding: '40px 0', backgroundColor: '#ffffff', overflow: 'hidden', borderBottom: '1px solid rgba(61,43,31,0.06)' }}>
         <div className="container" style={{ maxWidth: '960px', margin: '0 auto', padding: '0 20px', textAlign: 'center', marginBottom: '24px' }}>
           <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', color: 'var(--color-gold)', letterSpacing: '1.5px' }}>
-            Live Gig Transactions
+            Representative Shift Profiles (Sample Demonstration)
           </span>
           <h2 style={{ fontSize: '24px', fontWeight: 800, color: 'var(--color-espresso)', marginTop: '4px' }}>
-            Verified matches & instant payouts near you
+            Transparent shift roles &amp; daily compensation models
           </h2>
+          <p style={{ fontSize: '13px', color: 'var(--color-muted)', margin: '4px auto 0', maxWidth: '580px' }}>
+            Supporting a growing network of 8,000+ users across India as of October 2026.
+          </p>
         </div>
 
         <div style={{ display: 'flex', position: 'relative', width: '100%', overflow: 'hidden' }}>
           <div className="marquee-content" style={{ display: 'flex', gap: '20px', animation: 'scrollMarquee 25s linear infinite' }}>
-            {[...marqueeWorkers, ...marqueeWorkers].map((worker, index) => (
+            {[...sampleDemonstrations, ...sampleDemonstrations].map((sample, index) => (
               <div
                 key={index}
                 style={{
@@ -125,16 +128,16 @@ export default function Home() {
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontWeight: 800, color: 'var(--color-espresso)', fontSize: '15px' }}>{worker.name}</span>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '3px', fontSize: '12px', color: 'var(--color-gold)', fontWeight: 700 }}>
-                    <Star size={12} fill="var(--color-gold)" /> {worker.rating}
+                  <span style={{ fontWeight: 800, color: 'var(--color-espresso)', fontSize: '14px' }}>{sample.role}</span>
+                  <span style={{ fontSize: '11px', color: 'var(--color-gold)', fontWeight: 700, backgroundColor: 'rgba(196,160,82,0.1)', padding: '2px 6px', borderRadius: '4px' }}>
+                    {sample.category}
                   </span>
                 </div>
-                <div style={{ fontSize: '13px', color: 'var(--color-muted)', fontWeight: 600 }}>{worker.role}</div>
+                <div style={{ fontSize: '13px', color: 'var(--color-muted)', fontWeight: 600 }}>{sample.note}</div>
                 <hr style={{ border: 'none', borderTop: '1px dashed rgba(61, 43, 31, 0.1)', margin: '4px 0' }} />
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px' }}>
-                  <span style={{ color: 'var(--color-gold)', fontWeight: 800 }}>Paid {worker.payout} via UPI</span>
-                  <span style={{ color: 'var(--color-muted)' }}>{worker.time}</span>
+                  <span style={{ color: 'var(--color-gold)', fontWeight: 800 }}>{sample.payoutRange}</span>
+                  <span style={{ color: 'var(--color-muted)' }}>UPI Payout</span>
                 </div>
               </div>
             ))}

@@ -1,0 +1,546 @@
+/**
+ * Ziggers Dedicated Employer Landing Page Configurations
+ * Tailored operational facts, roles, coverage zones, pricing factors, and FAQs
+ */
+
+export const EMPLOYER_PAGES_DATA = {
+  'hire-catering-staff-chennai': {
+    slug: 'hire-catering-staff-chennai',
+    serviceName: 'Catering Staff',
+    locationName: 'Chennai',
+    eyebrow: 'Chennai Catering & Hospitality Staffing',
+    h1: 'Hire Catering Staff in Chennai',
+    h1Accent: 'Chennai',
+    title: 'Hire Catering Staff in Chennai | Wedding & Banquet Servers | Ziggers',
+    description: 'Hire verified catering staff, banquet captains, and buffet servers in Chennai. Transparent shift pricing, on-site supervision, and emergency replacement rosters.',
+    heroDescription: 'From intimate private celebrations to 2,000-guest wedding banquets, Ziggers provides trained, Aadhaar KYC-verified catering personnel across Chennai. Book directly or request a managed Ziggers Execute team.',
+    workerLink: '/catering-jobs-chennai',
+    workerLinkLabel: 'Apply for Catering Jobs in Chennai',
+    targetAudience: [
+      { title: 'Wedding & Reception Caterers', desc: 'Ensure smooth buffet replenishment, VIP table service, and rapid plate clearance for large gatherings.' },
+      { title: 'Star Hotels & Banquet Venues', desc: 'Fill weekend banquet shortages with groom-checked hospitality staff on short notice.' },
+      { title: 'Corporate Event Organizers', desc: 'Professional servers for conferences, luncheons, and executive dinners across Chennai business hubs.' },
+      { title: 'Private Party & House Hosts', desc: 'Polite, reliable helpers for birthdays, housewarmings, and festive family dinners.' },
+    ],
+    roles: [
+      {
+        name: 'Banquet Captain / Supervisor',
+        badge: 'Lead Specialist',
+        duties: 'Manages buffet lines, briefs serving staff, coordinates with head chef on dish timing, and ensures guest satisfaction.',
+        dressCode: 'Formal dark blazer, crisp white shirt, formal trousers and dress shoes.',
+      },
+      {
+        name: 'Buffet Runner & Counter Staff',
+        badge: 'High Demand',
+        duties: 'Transfers hot food trays from kitchen to live counters, maintains chafing dishes, and keeps buffet counters clean.',
+        dressCode: 'White collared shirt, black trousers, clean catering apron, and head cap.',
+      },
+      {
+        name: 'Table & VIP Steward',
+        badge: 'Service Specialist',
+        duties: 'Serves seated guests, provides water and beverage refills, and attends to elders and VIP table requests with courtesy.',
+        dressCode: 'All-black or black-and-white formal server attire with bowtie/tie as requested.',
+      },
+      {
+        name: 'Plate Clearance & Dishwashing Crew',
+        badge: 'Essential Ops',
+        duties: 'Clears used plates from dining tables promptly, sorts cutlery, operates dishwashing stations, and tidies dining halls.',
+        dressCode: 'Dark utility shirts, heavy-duty aprons, and non-slip footwear.',
+      },
+    ],
+    leadTime: 'Standard rosters confirmed within 24 to 48 hours. Emergency morning cover available for muhurtham dates subject to proximity roster availability.',
+    coverageZones: [
+      'ECR & Injambakkam Resorts',
+      'OMR IT Corridor & Sholinganallur',
+      'T. Nagar Kalyana Mandapams',
+      'Anna Nagar & Kilpauk Halls',
+      'Tambaram & Chromepet Convention Centers',
+      'Guindy & Nungambakkam Hotels',
+      'Porur & Maduravoyal Corridors',
+      'Velachery & Adyar Venues',
+    ],
+    tamilNotes: 'கேட்டரிங் சர்வீஸ் ஆட்கள்: சென்னை மற்றும் புறநகர் திருமண மண்டபங்கள், ஈசிஆர் ரிசார்ட்டுகள் மற்றும் கார்ப்பரேட் நிகழ்வுகளுக்கு தகுதியான கேட்டரிங் உதவியாளர்கள், சர்வர்கள் மற்றும் சூப்பர்வைசர்கள் கிடைக்கும். உடனடி முன்பதிவுக்கு எங்கள் ஒருங்கிணைப்பாளரை தொடர்பு கொள்ளவும்.',
+    faqs: [
+      {
+        q: 'How does Ziggers ensure catering staff show up on time?',
+        a: 'All workers are required to complete digital check-in 30 minutes before the banquet begins. For managed Ziggers Execute orders, an on-site Captain verifies attendance and maintains standby replacements.',
+      },
+      {
+        q: 'Do staff wear proper uniforms and follow hygiene standards?',
+        a: 'Yes. Standard catering staff wear black trousers, clean white or black shirts, black shoes, and disposable aprons/caps. Custom uniform requirements can be specified during booking.',
+      },
+      {
+        q: 'What are the shift timings and minimum booking hours?',
+        a: 'Standard shifts are 4 to 5 hours (Half Day) or 8 hours (Full Day). Evening wedding receptions typically run 5:00 PM to 11:00 PM. Extended night shifts include a standard late-night travel allowance.',
+      },
+      {
+        q: 'Can we hire staff for wedding halls located outside city limits on ECR or GST Road?',
+        a: 'Yes. We frequently staff beach resorts on ECR, Mahabalipuram, and large convention halls along GST Road and Sriperumbudur. Transport arrangements or standard out-of-pocket travel allowances are clarified in the quote.',
+      },
+      {
+        q: 'What is the payment procedure for catering staff hiring?',
+        a: 'Enquiries and quotes require zero advance fee. Once you confirm your roster, payment is processed securely with clear invoicing. No hidden charges or last-minute fee negotiations.',
+      },
+    ],
+  },
+
+  'hire-event-staff-chennai': {
+    slug: 'hire-event-staff-chennai',
+    serviceName: 'Event Staff',
+    locationName: 'Chennai',
+    eyebrow: 'Event Crew & Manpower Solutions',
+    h1: 'Hire Event Staff in Chennai',
+    h1Accent: 'Chennai',
+    title: 'Hire Event Staff in Chennai | Ushers, Crew & Volunteers | Ziggers',
+    description: 'On-demand event staff, corporate ushers, and exhibition manpower in Chennai. KYC-verified crew, fast dispatch, and supervisor coordination across Trade Centre and ECR.',
+    heroDescription: 'From Chennai Trade Centre trade expos and concerts to college symposiums and corporate galas, Ziggers supplies energetic, articulate event personnel. Managed crew coordination with real-time briefing.',
+    workerLink: '/event-staff-chennai',
+    workerLinkLabel: 'Apply for Event Staff Jobs in Chennai',
+    targetAudience: [
+      { title: 'Exhibition & Trade Show Organizers', desc: 'Booth hosts, registration desk coordinators, and badge scanners for Nandambakkam expos.' },
+      { title: 'Concert & Festival Producers', desc: 'Crowd management runners, ticket validation crew, and backstage support assistants.' },
+      { title: 'Corporate Event Planners', desc: 'Professional ushers, microphone runners, and conference kit distributors.' },
+      { title: 'Sports & Marathon Managers', desc: 'Route marshals, hydration station helpers, and medal distribution volunteers.' },
+    ],
+    roles: [
+      {
+        name: 'Registration & Welcome Usher',
+        badge: 'Customer Facing',
+        duties: 'Manages registration desks, validates QR passes, issues attendee badges, and guides VIP delegates.',
+        dressCode: 'Smart formal corporate attire or client-provided branded event T-shirts.',
+      },
+      {
+        name: 'Crowd & Queue Marshall',
+        badge: 'Operations',
+        duties: 'Guides attendee entry lines, monitors entry gates, directs flow to seating bays, and assists emergency exits.',
+        dressCode: 'High-visibility event vest or uniform dark attire with comfortable sneakers.',
+      },
+      {
+        name: 'Stall & Exhibition Assistant',
+        badge: 'Engagement',
+        duties: 'Engages visitors at exhibition stalls, distributes brochures, collects visiting cards, and handles product demos.',
+        dressCode: 'Neat smart-casual or brand promotional dress code.',
+      },
+      {
+        name: 'Stage, Mic & Greenroom Runner',
+        badge: 'Backstage Crew',
+        duties: 'Assists emcees, passes roving microphones to audience members, and coordinates speaker timing backstage.',
+        dressCode: 'All-black backstage crew attire.',
+      },
+    ],
+    leadTime: '48 hours advance notice recommended for multi-crew events; 24-hour fast-track for small corporate rosters (2–6 staff).',
+    coverageZones: [
+      'Chennai Trade Centre (Nandambakkam)',
+      'Jawaharlal Nehru Indoor Stadium',
+      'Mayor Radhakrishnan Hockey Stadium',
+      'ECR Beach Resorts & Convention Grounds',
+      'OMR Tech Parks & Corporate Auditoriums',
+      'University Auditoriums & College Grounds',
+    ],
+    tamilNotes: 'நிகழ்வு பணியாளர்கள்: எக்ஸ்போ ஸ்டால்கள், இசை நிகழ்ச்சிகள், திருமண வரவேற்புகள் மற்றும் விளையாட்டு போட்டிகளுக்கு திறன் வாய்ந்த உதவியாளர்கள் மற்றும் மேடை ஒருங்கிணைப்பாளர்கள் கிடைக்கும்.',
+    faqs: [
+      {
+        q: 'Do event staff speak English and Tamil?',
+        a: 'Yes. Our registration desk ushers and stall assistants are fluent in English and Tamil, ensuring smooth communication with local and outstation delegates.',
+      },
+      {
+        q: 'Can staff wear our client-provided branded T-shirts or badges?',
+        a: 'Yes. Client uniforms, caps, or ID badges can be distributed to staff during their 30-minute pre-event reporting session.',
+      },
+      {
+        q: 'How are multi-day exhibition events staffed?',
+        a: 'For multi-day expos (e.g. 3-day expos at Chennai Trade Centre), we assign consistent team members across all days so you do not have to re-train new staff daily.',
+      },
+      {
+        q: 'What happens if an event runs overtime past the scheduled hours?',
+        a: 'Overtime hours are calculated transparently on a pre-agreed hourly basis, verified by the on-site Captain without unexpected surcharges.',
+      },
+    ],
+  },
+
+  'hire-brand-promoters-chennai': {
+    slug: 'hire-brand-promoters-chennai',
+    serviceName: 'Brand Promoters',
+    locationName: 'Chennai',
+    eyebrow: 'BTL Marketing & Retail Activations',
+    h1: 'Hire Brand Promoters in Chennai',
+    h1Accent: 'Chennai',
+    title: 'Hire Brand Promoters in Chennai | Mall Activations & Retail Crew | Ziggers',
+    description: 'Hire professional brand promoters and product demonstrators in Chennai for mall activations, retail launches, and BTL roadshows. Live check-ins and performance reporting.',
+    heroDescription: 'Deploy articulate, persuasive brand ambassadors across Chennai malls, supermarkets, tech parks, and high-street locations. Verified personnel with product pitch training and lead capture experience.',
+    workerLink: '/retail-promoters-chennai',
+    workerLinkLabel: 'Apply for Promoter Jobs in Chennai',
+    targetAudience: [
+      { title: 'FMCG & Consumer Brands', desc: 'Execute live taste-tests, product sampling, and supermarket shelf activations.' },
+      { title: 'Consumer Tech & Electronics', desc: 'Demonstrate new smartphone features, wearables, or home appliances inside electronics retail stores.' },
+      { title: 'App & Fintech Startups', desc: 'Promote app downloads, user signups, and credit card / UPI onboarding in high-footfall corridors.' },
+      { title: 'Automobile Dealerships', desc: 'Host mall display booths, distribute test-drive brochures, and collect qualified customer contact leads.' },
+    ],
+    roles: [
+      {
+        name: 'In-Store Sales Promoter',
+        badge: 'Retail Specialist',
+        duties: 'Stands at designated modern retail aisles, pitches product benefits to shoppers, and assists store conversions.',
+        dressCode: 'Formal promotional attire or brand polo tee with neat trousers.',
+      },
+      {
+        name: 'Mall Activation Brand Ambassador',
+        badge: 'High Footfall',
+        duties: 'Engages shoppers at atrium kiosks, conducts quick interactive games, and collects digital feedback.',
+        dressCode: 'Brand-themed promotional attire, polished presentation.',
+      },
+      {
+        name: 'Product Sampling & Demo Assistant',
+        badge: 'Sampling',
+        duties: 'Prepares hygienic food or cosmetic samples, explains usage, and tracks daily sampling tally counts.',
+        dressCode: 'Hygienic gloves, brand apron, clean appearance.',
+      },
+      {
+        name: 'Lead Capture & Survey Specialist',
+        badge: 'Data Collection',
+        duties: 'Approaches targeted demographics, inputs survey answers on tablets, and verifies contact mobile numbers with OTP.',
+        dressCode: 'Smart casual, tech-equipped with digital tablet.',
+      },
+    ],
+    leadTime: '48 to 72 hours recommended for product pitch briefing and collaterals distribution.',
+    coverageZones: [
+      'Phoenix Marketcity & Palladium (Velachery)',
+      'Express Avenue (Royapettah)',
+      'VR Chennai (Anna Nagar)',
+      'Nexus Vijaya Mall (Vadapalani)',
+      'T. Nagar Ranganathan St Retail Strip',
+      'OMR Tech Park Food Courts',
+    ],
+    tamilNotes: 'பிராண்ட் விளம்பர பணியாளர்கள்: வணிக வளாகங்கள், பல்பொருள் அங்காடிகள் மற்றும் மக்கள் அதிகம் கூடும் இடங்களில் உங்கள் தயாரிப்புகளை விளம்பரப்படுத்த பயிற்சி பெற்ற விளம்பர பணியாளர்கள்.',
+    faqs: [
+      {
+        q: 'How do you monitor attendance and lead generation during retail activations?',
+        a: 'Promoters complete GPS check-ins at store opening and closing. For managed campaigns, daily activity summaries and lead tallies are logged and reported.',
+      },
+      {
+        q: 'Can promoters be trained on our specific product features before launch?',
+        a: 'Yes. We share client training briefs, pitch scripts, and FAQs with selected promoters 24 hours prior to deployment, followed by an on-site briefing.',
+      },
+      {
+        q: 'Are promoters available for weekend-only campaigns?',
+        a: 'Yes. Weekend-only (Friday to Sunday) mall activation shifts are our most popular service for consumer brands in Chennai.',
+      },
+    ],
+  },
+
+  'hire-acting-drivers-chennai': {
+    slug: 'hire-acting-drivers-chennai',
+    serviceName: 'Acting Drivers',
+    locationName: 'Chennai',
+    eyebrow: 'Licensed Personal & Commercial Chauffeurs',
+    h1: 'Hire Acting Drivers in Chennai',
+    h1Accent: 'Chennai',
+    title: 'Hire Acting Drivers in Chennai | Verified Temporary Drivers | Ziggers',
+    description: 'Hire verified acting drivers and temporary chauffeurs in Chennai. City runs, late-night transit, outstation highway trips, and event valet services with secure settlements.',
+    heroDescription: 'Need a licensed, experienced driver for your personal car, outstation road trip, or family event? Ziggers connects you with verified drivers across Chennai with upfront rates and transparent terms.',
+    workerLink: '/driver-jobs-chennai',
+    workerLinkLabel: 'Apply for Driver Jobs in Chennai',
+    targetAudience: [
+      { title: 'Personal Vehicle Owners', desc: 'Hire an acting driver for stress-free shopping, medical appointments, or late-night family outings.' },
+      { title: 'Outstation Road Travelers', desc: 'Experienced highway drivers for trips to Bangalore, Tirupati, Pondicherry, or Madurai.' },
+      { title: 'Wedding & Event Valet Hosts', desc: 'Roster of verified drivers to manage guest vehicle parking at wedding halls and private venues.' },
+      { title: 'Corporate Executives', desc: 'Dedicated temporary chauffeur for visiting VIP clients and day-long corporate transit.' },
+    ],
+    roles: [
+      {
+        name: 'City Acting Driver (Manual & Automatic)',
+        badge: 'City Specialist',
+        duties: 'Drives personal cars safely through heavy Chennai traffic, assists with parking, and runs designated family errands.',
+        dressCode: 'Clean white/blue formal shirt, dark trousers, and neat personal grooming.',
+      },
+      {
+        name: 'Outstation Highway Driver',
+        badge: 'Highway Certified',
+        duties: 'Experienced in daytime and nighttime national highway driving across South India with safe cruising speeds.',
+        dressCode: 'Comfortable, neat driving attire with driving shoes.',
+      },
+      {
+        name: 'Event Valet Parking Driver',
+        badge: 'Event Crew',
+        duties: 'Safely parks and retrieves guest vehicles at kalyana mandapams, star hotels, and private villa events.',
+        dressCode: 'Coordinated valet uniform (black trousers, white shirt, gloves/badges optional).',
+      },
+    ],
+    leadTime: 'City bookings: 1 to 2 hours notice; Outstation & multi-day journeys: 6 to 12 hours advance booking recommended.',
+    coverageZones: [
+      'Adyar, Besant Nagar & Thiruvanmiyur',
+      'Anna Nagar, Kilpauk & Shenoy Nagar',
+      'T. Nagar, Alwarpet & Nungambakkam',
+      'Velachery & Madipakkam',
+      'Tambaram, Chromepet & Selaiyur',
+      'Porur, Iyyappanthangal & Kattupakkam',
+      'ECR Neelankarai & Akkarai',
+    ],
+    tamilNotes: 'ஆக்டிங் டிரைவர்கள் சென்னை: உங்கள் சொந்த காருக்கு அனுபவம் வாய்ந்த ஆக்டிங் டிரைவர்கள். உள்ளூர் பயணம், வெளியூர் பயணம் மற்றும் திருமண நிகழ்வுகளுக்கு நம்பகமான டிரைவர்களை உடனடியாக புக் செய்யவும்.',
+    faqs: [
+      {
+        q: 'Are your drivers licensed and background verified?',
+        a: 'Yes. Every driver undergoes Aadhaar KYC verification and valid Indian commercial/personal Driving Licence verification before taking assignments.',
+      },
+      {
+        q: 'Can drivers handle luxury cars, automatic transmissions, and electric vehicles (EVs)?',
+        a: 'Yes. When booking, select Automatic (AT), Manual (MT), or Luxury EV to ensure we match a driver with verified experience on your vehicle type.',
+      },
+      {
+        q: 'How are outstation driver allowances calculated?',
+        a: 'Outstation bookings include a transparent daily duty charge plus standard food allowance (₹300/day) and overnight stay allowance (₹400/night if accommodation is not provided).',
+      },
+      {
+        q: 'What happens if a driver cancels last minute?',
+        a: 'Our dispatch desk immediately assigns a nearby standby replacement driver so your travel schedule is never delayed.',
+      },
+    ],
+  },
+
+  'hire-odc-staff-chennai': {
+    slug: 'hire-odc-staff-chennai',
+    serviceName: 'ODC & Banquet Staff',
+    locationName: 'Chennai',
+    eyebrow: 'Outdoor Catering & Banquet Operations',
+    h1: 'Hire ODC Staff in Chennai',
+    h1Accent: 'Chennai',
+    title: 'Hire ODC Staff in Chennai | Outdoor Catering & Banquet Teams | Ziggers',
+    description: 'Specialized ODC (Outdoor Catering) manpower and banquet servers in Chennai. Live counter helpers, plate clearance crews, and experienced captains for 100 to 2,000+ guest events.',
+    heroDescription: 'Outdoor catering (ODC) requires stamina, precise dish replenishment, and spotless presentation under dynamic conditions. Ziggers supplies dedicated ODC squads trained specifically for large-scale outdoor banquets.',
+    workerLink: '/catering-workers-chennai',
+    workerLinkLabel: 'Apply for ODC & Catering Jobs in Chennai',
+    targetAudience: [
+      { title: 'Premium Wedding Caterers', desc: 'Scale up staffing instantly for massive 500–2,500 plate wedding dinners with full kitchen & service coordination.' },
+      { title: 'Convention & Exhibition Banquet Teams', desc: 'Deploy disciplined buffet lines and live counters for corporate galas and symposiums.' },
+      { title: 'Beachside & Lawn Event Hosts', desc: 'Manage open-air dining across ECR and Mahabalipuram resorts with organized clearance squads.' },
+      { title: 'Institutional Event Managers', desc: 'Annual day celebrations, festival feasts, and sports banquets needing disciplined food distribution.' },
+    ],
+    roles: [
+      {
+        name: 'ODC Captain & Field Supervisor',
+        badge: 'Operations Lead',
+        duties: 'Oversees entire dining hall, coordinates kitchen dispatch to live counters, manages staff rotation, and liaises directly with catering manager.',
+        dressCode: 'Formal supervisor uniform or crisp dark suit.',
+      },
+      {
+        name: 'Live Cooking Counter Helper',
+        badge: 'Culinary Support',
+        duties: 'Assists master chefs at Dosa, Tandoor, Chaat, and Chinese live counters with fast ingredient prep and prompt guest serving.',
+        dressCode: 'Clean chef apron, chef cap, disposable food handling gloves.',
+      },
+      {
+        name: 'Buffet Replenishment Runner',
+        badge: 'High Endurance',
+        duties: 'Monitors food levels in chafing dishes, carries warmers from base kitchen, and ensures counters never run dry during peak rush.',
+        dressCode: 'Black trousers, white collared shirt, and clean utility apron.',
+      },
+      {
+        name: 'VIP Dining Hall Stewards',
+        badge: 'Hospitality',
+        duties: 'Dedicated service for bridal party, family elders, and high-profile guests seated at dedicated dining enclaves.',
+        dressCode: 'Full black formal steward uniform with bow tie.',
+      },
+    ],
+    leadTime: '24 to 48 hours for standard ODC rosters; for multi-meal wedding contracts (breakfast + lunch + dinner), 3 to 7 days advance confirmation recommended.',
+    coverageZones: [
+      'ECR Beachfront Resorts & Villas (Neelankarai to Mahabalipuram)',
+      'OMR Banquet Halls (Perungudi, Thoraipakkam, Navalur)',
+      'Tambaram, Vandalur & GST Road Kalyana Mandapams',
+      'Poonamallee & Maduravoyal Convention Centers',
+      'Kotturpuram, Alwarpet & Central Luxury Venues',
+    ],
+    tamilNotes: 'ஓடிசி கேட்டரிங் பணியாளர்கள்: வெளிப்புற மற்றும் மண்டப கேட்டரிங் பணிகளுக்கு அனுபவம் வாய்ந்த சூப்பர்வைசர்கள், சர்வர்கள், மற்றும் உணவு கவுண்டர் உதவியாளர்கள். திருமணங்கள் மற்றும் பெரிய விழாக்கள்.',
+    faqs: [
+      {
+        q: 'What is the difference between standard catering staff and ODC staff?',
+        a: 'ODC (Outdoor Catering) staff are specifically trained for rapid food transport between separate production kitchens and dining lawns, handling live culinary counters, and managing heavy plate clearance in high-capacity venues.',
+      },
+      {
+        q: 'Can Ziggers handle full-day multi-shift catering requirements?',
+        a: 'Yes. For traditional South Indian weddings requiring Morning Muhurtham Breakfast, Afternoon Feast (Elai Saapadu), and Evening Reception Dinner, we deploy structured shift rotations to prevent staff fatigue.',
+      },
+      {
+        q: 'How does food hygiene and waste clearance work?',
+        a: 'All ODC staff follow strict food safety hygiene protocols (hairnets, hand sanitization, clean aprons). Dedicated clearance crews ensure used banana leaves, plates, and glasses are cleared immediately from dining tables.',
+      },
+    ],
+  },
+
+  // Coimbatore Confirmed Hubs
+  'hire-catering-staff-coimbatore': {
+    slug: 'hire-catering-staff-coimbatore',
+    serviceName: 'Catering Staff',
+    locationName: 'Coimbatore',
+    eyebrow: 'Coimbatore Catering & Hospitality Manpower',
+    h1: 'Hire Catering Staff in Coimbatore',
+    h1Accent: 'Coimbatore',
+    title: 'Hire Catering Staff in Coimbatore | Wedding & Banquet Servers | Ziggers',
+    description: 'Hire verified catering staff, buffet runners, and banquet servers in Coimbatore. Reliable temporary workforce for weddings, industrial banquets, and hall events.',
+    heroDescription: 'From traditional Kongu wedding feasts to corporate conventions at CODISSIA, Ziggers provides verified catering staff across Coimbatore with transparent daily wage rates.',
+    workerLink: '/catering-workers-coimbatore',
+    workerLinkLabel: 'Apply for Catering Jobs in Coimbatore',
+    targetAudience: [
+      { title: 'Kongu Wedding Caterers', desc: 'Reliable servers and helpers for traditional sit-down banana leaf feasts and grand evening buffets.' },
+      { title: 'CODISSIA Trade Fair Exhibitors', desc: 'Food service and pantry assistants for corporate stalls and industrial dinners.' },
+      { title: 'Hotel Banquet Venues', desc: 'Weekend staff backfill for luxury hotels along Avinashi Road and Race Course.' },
+    ],
+    roles: [
+      { name: 'Traditional Elai Saapadu Server', badge: 'Kongu Specialist', duties: 'Expertise in serving multi-course traditional banana leaf meals with speed and cultural etiquette.', dressCode: 'Traditional white dhoti/shirt or dark formal trousers with white shirt.' },
+      { name: 'Buffet Counter Assistant', badge: 'High Demand', duties: 'Maintains hot chafing dishes, refills food, and ensures clean dining tables.', dressCode: 'Black trousers, white shirt, clean apron.' },
+      { name: 'Kitchen & Clearance Crew', badge: 'Essential Ops', duties: 'Clears dining tables quickly and manages utensil washing stations.', dressCode: 'Utility aprons and dark shirts.' },
+    ],
+    leadTime: '24–48 hours advance notice; emergency morning cover available during major wedding seasons.',
+    coverageZones: ['RS Puram', 'Gandhipuram', 'Peelamedu & CODISSIA', 'Avinashi Road', 'Saravanampatti', 'Singanallur', 'Thudiyalur'],
+    tamilNotes: 'கோயம்புத்தூர் கேட்டரிங் பணியாளர்கள்: திருமணங்கள், பாரம்பரிய பந்தி பரிமாறுதல் மற்றும் கார்ப்பரேட் நிகழ்வுகளுக்கு சிறந்த கேட்டரிங் பணியாளர்கள்.',
+    faqs: [
+      { q: 'Can you provide servers experienced in traditional South Indian banana leaf service?', a: 'Yes. Our Coimbatore roster includes staff skilled in multi-dish banana leaf serving etiquette.' },
+      { q: 'How do bookings work for events at CODISSIA Trade Fair Complex?', a: 'We regularly staff industrial banquets and exhibitions at CODISSIA with verified, uniformed crew.' },
+    ],
+  },
+
+  'hire-event-staff-coimbatore': {
+    slug: 'hire-event-staff-coimbatore',
+    serviceName: 'Event Staff',
+    locationName: 'Coimbatore',
+    eyebrow: 'Coimbatore Event Crew & Expo Manpower',
+    h1: 'Hire Event Staff in Coimbatore',
+    h1Accent: 'Coimbatore',
+    title: 'Hire Event Staff in Coimbatore | Ushers & Exhibition Crew | Ziggers',
+    description: 'Hire verified event staff, ushers, and registration hosts in Coimbatore for trade exhibitions, college fests, and corporate summits. Fast local matching.',
+    heroDescription: 'Deploy professional ushers, registration coordinators, and crowd marshals for events across Coimbatore. Reliable crew coordination with verified attendance.',
+    workerLink: '/event-staff-coimbatore',
+    workerLinkLabel: 'Apply for Event Jobs in Coimbatore',
+    targetAudience: [
+      { title: 'CODISSIA Exhibition Organizers', desc: 'Staff registration booths, scan visitor passes, and assist exhibitor stalls.' },
+      { title: 'College & University Fests', desc: 'Coordination helpers and crowd runners for campus symposiums and cultural fests.' },
+    ],
+    roles: [
+      { name: 'Registration & Welcome Usher', badge: 'Delegate Facing', duties: 'Registers delegates, issues badges, and provides venue directions.', dressCode: 'Smart formal corporate attire.' },
+      { name: 'Exhibition Stall Runner', badge: 'Operations', duties: 'Assists booth organizers with visitor inquiries and brochure hand-outs.', dressCode: 'Brand T-shirt or smart casuals.' },
+    ],
+    leadTime: '48 hours advance booking recommended.',
+    coverageZones: ['Peelamedu CODISSIA', 'Avinashi Road', 'Gandhipuram', 'Race Course', 'Saravanampatti'],
+    tamilNotes: 'கோயம்புத்தூர் நிகழ்வு பணியாளர்கள்: எக்ஸ்போ ஸ்டால்கள், தொழில்முறை கண்காட்சிகள் மற்றும் மாநாடுகளுக்கு திறமையான உதவியாளர்கள்.',
+    faqs: [
+      { q: 'Do staff in Coimbatore speak English, Tamil, and Hindi?', a: 'Yes. We can match multilingual ushers for national trade expos at CODISSIA.' },
+    ],
+  },
+
+  'hire-brand-promoters-coimbatore': {
+    slug: 'hire-brand-promoters-coimbatore',
+    serviceName: 'Brand Promoters',
+    locationName: 'Coimbatore',
+    eyebrow: 'Retail Activations & Promoters',
+    h1: 'Hire Brand Promoters in Coimbatore',
+    h1Accent: 'Coimbatore',
+    title: 'Hire Brand Promoters in Coimbatore | Retail & Mall Crew | Ziggers',
+    description: 'Hire brand promoters, product demonstrators, and sampling staff in Coimbatore for Brookefields, Prozone Mall, and retail activations.',
+    heroDescription: 'Drive customer awareness and sales conversions in Coimbatore with articulate, energetic promotional personnel. Verified check-ins and performance tracking.',
+    workerLink: '/retail-promoters-coimbatore',
+    workerLinkLabel: 'Apply for Promoter Jobs in Coimbatore',
+    targetAudience: [
+      { title: 'Mall Activation Managers', desc: 'Staff atrium kiosks inside Brookefields and Prozone Malls.' },
+      { title: 'FMCG & Consumer Tech Brands', desc: 'In-store demonstrations and supermarket sampling campaigns across Coimbatore retail strips.' },
+    ],
+    roles: [
+      { name: 'Mall Brand Ambassador', badge: 'High Engagement', duties: 'Interacts with shoppers, introduces new products, and conducts sampling.', dressCode: 'Brand promotional uniform.' },
+      { name: 'In-Store Retail Promoter', badge: 'Sales', duties: 'Assists product sales and demonstrations inside electronics and modern retail outlets.', dressCode: 'Neat formal attire.' },
+    ],
+    leadTime: '48 hours advance notice.',
+    coverageZones: ['Brookefields Mall (Brookebond Rd)', 'Prozone Mall (Saravanampatti)', 'RS Puram Retail Hub', 'Cross Cut Road'],
+    tamilNotes: 'கோயம்புத்தூர் பிராண்ட் விளம்பர பணியாளர்கள்: வணிக வளாகங்கள் மற்றும் விற்பனை அங்காடிகளில் உங்கள் தயாரிப்புகளை விளம்பரப்படுத்த.',
+    faqs: [
+      { q: 'Are promoters available for weekend mall activations in Coimbatore?', a: 'Yes. Friday to Sunday mall campaigns are fully supported.' },
+    ],
+  },
+
+  // Madurai Confirmed Hubs
+  'hire-catering-staff-madurai': {
+    slug: 'hire-catering-staff-madurai',
+    serviceName: 'Catering Staff',
+    locationName: 'Madurai',
+    eyebrow: 'Madurai Traditional Catering & Banquet Crew',
+    h1: 'Hire Catering Staff in Madurai',
+    h1Accent: 'Madurai',
+    title: 'Hire Catering Staff in Madurai | Wedding & Kalyana Mandapam Servers | Ziggers',
+    description: 'Hire verified catering staff, banquet helpers, and traditional banana leaf servers in Madurai. Trusted workforce for weddings, temple feasts, and celebrations.',
+    heroDescription: 'Madurai celebrations are renowned for generous hospitality and traditional feasts. Ziggers supplies verified, polite catering personnel across Madurai kalyana mandapams and private venues.',
+    workerLink: '/catering-workers-madurai',
+    workerLinkLabel: 'Apply for Catering Jobs in Madurai',
+    targetAudience: [
+      { title: 'Traditional Madurai Caterers', desc: 'Fast, synchronized servers for traditional multi-course wedding feasts and ear-piercing ceremonies.' },
+      { title: 'Kalyana Mandapam Managers', desc: 'Reliable on-call teams for dining hall setup, water serving, and rapid clearance.' },
+    ],
+    roles: [
+      { name: 'Traditional Feast Server (Elai Saapadu)', badge: 'Cultural Specialist', duties: 'Synchronized banana leaf food service for large wedding batches.', dressCode: 'Neat traditional or dark trousers with white shirt.' },
+      { name: 'Buffet & Tea Stall Assistant', badge: 'Service', duties: 'Serves welcome drinks, coffee/tea counters, and breakfast buffets.', dressCode: 'Clean white shirt and apron.' },
+      { name: 'Dining Hall Clearance Helper', badge: 'Essential Ops', duties: 'Promptly clears tables between meal batches to seat waiting guests quickly.', dressCode: 'Utility dark shirt and apron.' },
+    ],
+    leadTime: '24 to 48 hours notice; peak muhurtham dates require 3 days advance booking.',
+    coverageZones: ['KK Nagar', 'Anna Nagar', 'Tallakulam & Alagarkoil Rd', 'Simmakkal & Town', 'Mattuthavani', 'Thiruparankundram Rd'],
+    tamilNotes: 'மதுரை கேட்டரிங் பணியாளர்கள்: திருமண மண்டபங்கள், கோவில் விழாக்கள் மற்றும் குடும்ப விசேஷங்களுக்கு பாரம்பரிய பந்தி பரிமாறுதல் மற்றும் கேட்டரிங் உதவியாளர்கள்.',
+    faqs: [
+      { q: 'Can you provide large server batches for 1,000+ guest wedding feasts in Madurai?', a: 'Yes. We organize squads of 10 to 40+ trained servers with an assigned supervisor.' },
+    ],
+  },
+
+  'hire-event-staff-madurai': {
+    slug: 'hire-event-staff-madurai',
+    serviceName: 'Event Staff',
+    locationName: 'Madurai',
+    eyebrow: 'Madurai Event & Festival Crew',
+    h1: 'Hire Event Staff in Madurai',
+    h1Accent: 'Madurai',
+    title: 'Hire Event Staff in Madurai | Ushers & Event Helpers | Ziggers',
+    description: 'Hire verified event staff, ushers, and coordination volunteers in Madurai for exhibitions, temple festivals, cultural shows, and corporate conferences.',
+    heroDescription: 'Ensure seamless event execution across Madurai with disciplined local personnel. Verified attendance, clear briefing, and prompt support.',
+    workerLink: '/event-staff-madurai',
+    workerLinkLabel: 'Apply for Event Jobs in Madurai',
+    targetAudience: [
+      { title: 'Exhibition & Trade Fair Organizers', desc: 'Support entry gates, token distribution, and exhibition stalls.' },
+      { title: 'Corporate Meeting Planners', desc: 'Assist conference registration, audio mic runners, and VIP guest hospitality.' },
+    ],
+    roles: [
+      { name: 'Guest Reception & Registration Usher', badge: 'Welcoming Crew', duties: 'Welcomes attendees, distributes badges, and guides seating.', dressCode: 'Smart formal attire.' },
+      { name: 'Venue Flow & Crowd Runner', badge: 'Operations', duties: 'Directs attendee movement and assists organizers with on-the-spot needs.', dressCode: 'Event uniform / dark casuals.' },
+    ],
+    leadTime: '48 hours advance notice.',
+    coverageZones: ['Mattuthavani Convention Grounds', 'KK Nagar', 'Tallakulam', 'Bypass Road Hotels'],
+    tamilNotes: 'மதுரை நிகழ்வு பணியாளர்கள்: கண்காட்சிகள், விழாக்கள் மற்றும் மாநாடுகளுக்கு வரவேற்பு மற்றும் மேடை உதவியாளர்கள்.',
+    faqs: [
+      { q: 'How do you coordinate event staff arrival in Madurai?', a: 'Staff arrive 30 minutes ahead of the schedule for attendance check and uniform inspection.' },
+    ],
+  },
+
+  'hire-brand-promoters-madurai': {
+    slug: 'hire-brand-promoters-madurai',
+    serviceName: 'Brand Promoters',
+    locationName: 'Madurai',
+    eyebrow: 'Madurai Retail Promoters & BTL Staff',
+    h1: 'Hire Brand Promoters in Madurai',
+    h1Accent: 'Madurai',
+    title: 'Hire Brand Promoters in Madurai | Retail & Demonstration Crew | Ziggers',
+    description: 'Hire verified brand promoters, retail demonstrators, and sampling crew in Madurai for mall activations, textile showroom launches, and supermarket roadshows.',
+    heroDescription: 'Expand your brand presence in Southern Tamil Nadu with articulate, locally resonant promotional ambassadors across Madurai commercial centers.',
+    workerLink: '/retail-promoters-madurai',
+    workerLinkLabel: 'Apply for Promoter Jobs in Madurai',
+    targetAudience: [
+      { title: 'Retail & Textile Brands', desc: 'Host showroom anniversary promotions, flyer distribution, and customer onboarding.' },
+      { title: 'Consumer Electronics & FMCG', desc: 'Run live product demonstrations and consumer sampling inside supermarkets.' },
+    ],
+    roles: [
+      { name: 'Retail Brand Ambassador', badge: 'Customer Engagement', duties: 'Introduces brand products, answers buyer queries, and assists sales staff.', dressCode: 'Brand uniform or smart formal attire.' },
+      { name: 'Flyer & Sampling Coordinator', badge: 'Promotions', duties: 'Hands out product samples and flyers in high-density shopping streets.', dressCode: 'Promotional polo tee.' },
+    ],
+    leadTime: '48 hours advance notice.',
+    coverageZones: ['South Masi St / Town Shopping', "Milan'em Mall (KK Nagar)", 'Bypass Road Retail Hub', 'Vishaal de Mal (Gokhale Rd)'],
+    tamilNotes: 'மதுரை பிராண்ட் விளம்பர பணியாளர்கள்: கடைகள், ஷோரூம்கள் மற்றும் வணிக வளாகங்களில் உங்கள் தயாரிப்புகளை மக்களிடம் கொண்டு சேர்க்க.',
+    faqs: [
+      { q: 'Can promoters engage shoppers in native Madurai Tamil?', a: 'Yes. Our local Madurai ambassadors communicate naturally with local shoppers for maximum trust and engagement.' },
+    ],
+  },
+};
+
+export function getEmployerPageData(slug) {
+  return EMPLOYER_PAGES_DATA[slug] || null;
+}

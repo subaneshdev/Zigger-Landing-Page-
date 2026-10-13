@@ -1,13 +1,22 @@
-import BrandPromoters from '../../components/pages/BrandPromoters';
+import React from 'react';
+import EmployerLandingTemplate from '../../components/pages/EmployerLandingTemplate';
+import { getEmployerPageData } from '../../data/employerPagesData';
+import { generateEmployerMetadata, generateEmployerJsonLd } from '../../lib/employerSeo';
 
-export const metadata = {
-  title: 'Hire Promotional Staff & Event Staffing in Chennai | Ziggers',
-  description: 'Hire promotional staff for mall activations and event hiring in Chennai. Find verified gig workers for brand activations with live workforce management on Ziggers.',
-  alternates: {
-    canonical: '/hire-brand-promoters-chennai',
-  },
-};
+const config = getEmployerPageData('hire-brand-promoters-chennai');
 
-export default function BrandPromotersPage() {
-  return <BrandPromoters />;
+export const metadata = generateEmployerMetadata(config);
+
+export default function HireBrandPromotersChennaiPage() {
+  const jsonLd = generateEmployerJsonLd(config);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <EmployerLandingTemplate config={config} />
+    </>
+  );
 }

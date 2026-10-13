@@ -1,13 +1,22 @@
-import CateringStaff from '../../components/pages/CateringStaff';
+import React from 'react';
+import EmployerLandingTemplate from '../../components/pages/EmployerLandingTemplate';
+import { getEmployerPageData } from '../../data/employerPagesData';
+import { generateEmployerMetadata, generateEmployerJsonLd } from '../../lib/employerSeo';
 
-export const metadata = {
-  title: 'Hire Catering Staff & Event Staffing in Chennai | Ziggers',
-  description: 'Hire catering staff and hospitality staffing for weddings and events in Chennai. Last-minute hiring of verified temporary staff through India\'s on-demand workforce marketplace.',
-  alternates: {
-    canonical: '/hire-catering-staff-chennai',
-  },
-};
+const config = getEmployerPageData('hire-catering-staff-chennai');
 
-export default function CateringStaffPage() {
-  return <CateringStaff />;
+export const metadata = generateEmployerMetadata(config);
+
+export default function HireCateringStaffChennaiPage() {
+  const jsonLd = generateEmployerJsonLd(config);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <EmployerLandingTemplate config={config} />
+    </>
+  );
 }

@@ -96,13 +96,6 @@ const jsonLd = [
     image: 'https://www.ziggers.in/icon.png',
     keywords: 'gig jobs app, gig jobs app India, gig worker app, find gig jobs',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '1250',
-      bestRating: '5',
-      worstRating: '1',
-    },
   },
   {
     '@context': 'https://schema.org',

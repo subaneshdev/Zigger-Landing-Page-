@@ -307,7 +307,23 @@ export function buildCategoryPage(category, city = null) {
     workerTerms: category.workerTerms,
     employerTerms: category.employerTerms,
     workLink: category.workLink,
-    hireLink: category.hireLink,
+    hireLink: (() => {
+      if (city?.slug === 'chennai') {
+        if (['catering-jobs', 'catering-workers', 'catering-boys', 'waiter-jobs'].includes(category.slug)) return '/hire-catering-staff-chennai';
+        if (category.slug === 'event-staff') return '/hire-event-staff-chennai';
+        if (category.slug === 'retail-promoters') return '/hire-brand-promoters-chennai';
+        if (category.slug === 'driver-jobs') return '/hire-acting-drivers-chennai';
+      } else if (city?.slug === 'coimbatore') {
+        if (['catering-jobs', 'catering-workers', 'catering-boys', 'waiter-jobs'].includes(category.slug)) return '/hire-catering-staff-coimbatore';
+        if (category.slug === 'event-staff') return '/hire-event-staff-coimbatore';
+        if (category.slug === 'retail-promoters') return '/hire-brand-promoters-coimbatore';
+      } else if (city?.slug === 'madurai') {
+        if (['catering-jobs', 'catering-workers', 'catering-boys', 'waiter-jobs'].includes(category.slug)) return '/hire-catering-staff-madurai';
+        if (category.slug === 'event-staff') return '/hire-event-staff-madurai';
+        if (category.slug === 'retail-promoters') return '/hire-brand-promoters-madurai';
+      }
+      return category.hireLink || '/hire';
+    })(),
     faqs,
     features,
     jsonLd,

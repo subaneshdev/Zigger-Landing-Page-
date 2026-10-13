@@ -943,7 +943,7 @@ export const BLOG_POSTS = [
       {
         type: 'list',
         items: [
-          '**100% Aadhaar KYC Verification:** Every worker and business is identity-verified, protecting both giggers and hiring managers.',
+          '**100% Aadhaar KYC Verification:** Every worker and business is identity-verified, protecting both gig workers and hiring managers.',
           '**15-Minute Hyperlocal Matching:** Businesses looking to [hire temporary gig workers](/hire) post staffing requirements and match with nearby verified talent in minutes.',
           '**Real-Time Geofenced GPS Check-In:** Live location tracking ensures accurate check-ins, eliminates attendance disputes, and confirms hours worked.',
           '**Escrow-Protected UPI Payouts:** Funds are locked in escrow prior to the shift, guaranteeing worker earnings upon verified task completion.',
@@ -2396,7 +2396,7 @@ export const BLOG_POSTS = [
       { type: 'paragraph', text: '1. Acting Driver Gigs: Instead of using your personal two-wheeler to ferry passengers, Ziggers connects you with private car owners and businesses who need professional acting drivers to drive their own vehicles. This is 100% compliant under the Motor Vehicles Act, involves zero vehicle seizure risk, and pays substantially more (often ₹1,000 to ₹1,800 per shift).' },
       { type: 'paragraph', text: '2. Multi-Category Gig Roles: Ziggers is not just a delivery or driving app. Workers can instantly switch between driving, catering, event hosting, warehouse loading, and retail promoter jobs depending on availability and preference. If one sector faces regulatory hurdles, workers can immediately pivot to another gig on the same platform.' },
       { type: 'heading', text: 'Guaranteed Same-Day UPI Payouts' },
-      { type: 'paragraph', text: 'Ziggers protects the financial safety of its giggers. By utilizing a secure escrow deposit system, wages for every completed shift are locked in advance. The moment a client approves your work, you can withdraw your earnings instantly via UPI — providing the same daily liquidity that drivers loved about ride-hailing apps, but with absolute legal security.' },
+      { type: 'paragraph', text: 'Ziggers protects the financial safety of its gig workers. By utilizing a secure escrow deposit system, wages for every completed shift are locked in advance. The moment a client approves your work, you can withdraw your earnings instantly via UPI — providing the same daily liquidity that drivers loved about ride-hailing apps, but with absolute legal security.' },
       { 
         type: 'faq', 
         items: [
